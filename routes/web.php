@@ -48,3 +48,7 @@ Route::get("/profil", function() {
 });
 
 
+Route::get("/navbar", function() {
+    return view("layouts.navbar");
+});
+
