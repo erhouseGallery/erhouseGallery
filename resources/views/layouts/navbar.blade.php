@@ -92,44 +92,43 @@
                       </div>
                     </li>
                   </ul>
-
               </div>
 
               <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
               <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
-
-
-
-
-
-
             </div>
           </header>
 
-
-
-
-
-
-      {{-- <div class="main-sidebar sidebar-style-2">
-        <aside id="sidebar-wrapper">
-          <div class="sidebar-brand">
-            <a href="index.html">Erhouse Gallery</a>
+          {{-- <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+              <h5 class="text-white h4">Collapsed content</h5>
+              <span class="text-body-secondary">Toggleable via the navbar brand.</span>
+            </div>
           </div>
-          <ul class="sidebar-menu">
-               <li class="d-flex justify-content-center"> <img alt="image" style="width: 30%" src="../assets/img/avatar/avatar-1.png" class="rounded-circle "></li>
+          <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+          </nav>
+ --}}
+ 
+      <div class="sidebar d-none d-md-inline-block" >
+        <aside id="sidebar-wrapper">
+          <ul class="sidebar-menu container">
+               <li class="d-flex justify-content-center "> <img alt="image" style="width: 30%" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mt-3 "></li>
                <br>
-              <li class="active"><a class="nav-link" href="blank.html"><i class="fas fa-th"></i>
+              <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                 <span>Dashboard</span></a></li>
-              <li class="active"><a class="nav-link" href="blank.html"><i class="fas fa-shopping-cart"></i>
+              <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                 <span>Pemesanan</span></a></li>
-              <li class="active"><a class="nav-link" href="blank.html"><i class="fas fa-user"></i>
+              <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                 <span>Profile</span></a></li>
             </ul>
         </aside>
       </div>
- --}}
+
 
       <!-- Main Content -->
      {{--  <div class="main-content">
