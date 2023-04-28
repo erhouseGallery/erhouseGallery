@@ -70,7 +70,7 @@
 
       <!-- Main Content -->
       <div class="main-content">
-        <div class="row mt-5">
+        <div class="row mt-5">%
           <div class="col"> <h1>Hi, Irfannudin Ihsan</h1></div>
         </div>
         <div class="row mt-3">

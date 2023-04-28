@@ -66,17 +66,48 @@
                 </ul>
               </nav>
 
-              <div class="header-social-links">
-                <a href="">Masuk</a>
-                <a href="">Daftar</a>
+
+
+
+
+              <div class="account">
+                <ul class="navbar-nav navbar-right">
+                    <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle  nav-link-user">
+                      <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1" style="width: 30%">
+                      <div class=" d-none d-lg-inline-block">Hi, Irfannudin Ihsan</div></a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                       <a href="/dashboard" class="dropdown-item has-icon">
+                          Dashboard
+                        </a>
+                        <a href="/dashboard/pemesanan" class="dropdown-item has-icon">
+                           Pemesanan
+                        </a>
+                        <a href="features-settings.html" class="dropdown-item has-icon">
+                         Profile
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item has-icon text-danger">
+                           Logout
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+
               </div>
+
               <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
               <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+
+
+
+
+
 
             </div>
           </header>
 
-         <a href="">ahai</a>
+
 
 
 

@@ -332,15 +332,15 @@
     font-size: 16px;
   }
 
-  .header .header-social-links a:hover {
+  /* .header .header-social-links a:hover {
     color: #e55f5ff1;
-  }
+  } */
 
-  @media (max-width: 575px) {
+  /* @media (max-width: 575px) {
     .header .header-social-links a {
       padding-left: 5px;
     }
-  }
+  } */
 
   /*--------------------------------------------------------------
   # Desktop Navigation
@@ -360,6 +360,11 @@
 
     .navbar li {
       position: relative;
+    }
+
+    .account {
+        width:min-content;
+        margin-right: 100px;
     }
 
     .navbar a,
@@ -452,6 +457,8 @@
     .navbar .dropdown .dropdown ul {
       left: -90%;
     }
+
+
 
     .navbar .dropdown .dropdown:hover>ul {
       left: -100%;
