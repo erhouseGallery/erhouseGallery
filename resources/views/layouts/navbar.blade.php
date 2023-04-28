@@ -3,31 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
   <title>Dashboard User</title>
+
+<style>
+
+
+
+</style>
+
+
+  {{-- css --}}
+  <link rel="stylesheet" href="../assets/css/main.css">
+
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <!-- CSS Libraries -->
 
-  <!-- Template CSS -->
+
+    <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+ <!-- CSS Libraries -->
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheAet">
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+
+
+
+
   {{-- <link rel="stylesheet" href="../assets/css/style.css"> --}}
-  <link rel="stylesheet" href="../assets/css/dashboard.css">
-  <link rel="stylesheet" href="../assets/css/components.css">
+  {{-- <link rel="stylesheet" href="../assets/css/components.css"> --}}
 
-
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 </head>
 
 <body>
         <header id="header" class="header d-flex align-items-center fixed-top">
             <div class="container-fluid d-flex align-items-center justify-content-between">
               <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
-                <i class="bi bi-camera"></i>
-                <h1>PhotoFolio</h1>
+                <h1>Erhouse Gallery</h1>
               </a>
 
               <nav id="navbar" class="navbar">
@@ -54,6 +75,8 @@
 
             </div>
           </header>
+
+         <a href="">ahai</a>
 
 
 
@@ -106,6 +129,9 @@
       </div> --}}
 
 
+{{-- javascript connect --}}
+<script src="assets/js/main.js"></script>
+
   <!-- General JS Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -114,12 +140,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="../assets/js/stisla.js"></script>
 
-  <!-- JS Libraies -->
+   <!-- Vendor JS Files -->
+   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+   <script src="assets/vendor/aos/aos.js"></script>
+   <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <!-- Template JS File -->
-  <script src="../assets/js/scripts.js"></script>
-  <script src="../assets/js/custom.js"></script>
 
-  <!-- Page Specific JS File -->
+
+  {{-- <script src="../assets/js/scripts.js"></script>
+  <script src="../assets/js/custom.js"></script> --}}
+
+
 </body>
 </html>

@@ -5,6 +5,7 @@
     --font-secondary: "Cardo", sans-serif;
   }
 
+
   /* Colors */
   :root {
     --color-default: #fafafa;
@@ -26,14 +27,16 @@
     background-color: #ffffff;
   }
 
-  a {
-    color: var(--color-primary);
-    text-decoration: none;
-  }
 
+  a {
+    text-decoration: none !important;
+  }
   a:hover {
     color: #32cf93;
-    text-decoration: none;
+  }
+
+  ul, ol {
+    list-style-type: none;
   }
 
   h1,
@@ -48,6 +51,9 @@
   /*--------------------------------------------------------------
   # Sections & Section Header
   --------------------------------------------------------------*/
+
+
+
   .section-header {
     padding-bottom: 40px;
   }
@@ -481,7 +487,7 @@
       padding: 50px 0 10px 0;
       margin: 0;
       background: #D9D9D9;
-      overflow-y: auto;
+      /* overflow-y: auto; */
       transition: 0.3s;
       z-index: 9998;
     }
@@ -1242,3 +1248,7 @@
     text-align: center;
     color: rgb(255, 255, 255);
   }
+
+
+
+  /*  */
