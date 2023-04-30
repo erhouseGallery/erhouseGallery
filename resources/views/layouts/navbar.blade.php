@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <title>Pemesanan</title>
+  <title>Dashboard User</title>
 
   {{-- css --}}
   <link rel="stylesheet" href="../assets/css/main.css">
@@ -129,23 +129,32 @@
 
 
       <!-- Main Content -->
-      <div class="main-content mt-5">
-        <div class="row mt-5 mx-5">
-            <div class="col-5">
-                <h1>Buat Pesanan</h1>
-                <form action="" class="mt-3">
-                    <input type="text" placeholder="Nama" class="form-control input-pesanan mt-3">
-                    <input  type="text" placeholder="Nomor" class="form-control input-pesanan mt-3">
-                    <input type="text" placeholder="Alamat" class="form-control input-pesanan mt-3" >
-                    <input type="file" placeholder="Gambar" class="form-control input-pesanan mt-3">
-                    <textarea style="height: 100px" placeholder="Nama" class="form-control input-pesanan mt-3"> </textarea>
-                    <button type="submit btn-lg" class="btn text-light mt-2" style="background-color: #AF1616"> Buat Pesanan</button>
-                </form>
+       <div class="main-content p-5">
+        <div class="row mt-5">
+          <div class="col"> <h1>Hi, Irfannudin Ihsan</h1></div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-xl-3 col-md-4">
+            <div class="card-data-dashboard text-center w-75 p-4">
+              <h1  class="text-data-dashboard">1</h1>
+              <p  class="text-data-dashboard">Total Pesanan</p>
+            </div>
+
+          </div>
+          <div class="col-xl-3 col-md-4">
+            <div class="card-data-dashboard text-center w-75 p-4">
+              <h1 class="text-data-dashboard">6</h1>
+              <p  class="text-data-dashboard">Pesanan Diterima</p>
             </div>
           </div>
-
-
-       </div>
+          <div class="col-xl-3 col-md-4">
+            <div class="card-data-dashboard  text-center w-75 p-4">
+              <h1  class="text-data-dashboard">4</h1>
+              <p class="text-data-dashboard">Pesanan Ditolak</p>
+            </div>
+          </div>
+        </div>
+      </div>
         <!-- End Main Content -->
 
 
