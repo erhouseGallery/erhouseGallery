@@ -7,13 +7,6 @@
   <meta content="" name="keywords">
   <title>Dashboard User</title>
 
-<style>
-
-
-
-</style>
-
-
   {{-- css --}}
   <link rel="stylesheet" href="../assets/css/main.css">
 
@@ -21,11 +14,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-
-    <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <!-- Vendor CSS Files -->
  <!-- CSS Libraries -->
@@ -35,40 +27,32 @@
 <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheAet">
 <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
-
-
-
-
   {{-- <link rel="stylesheet" href="../assets/css/style.css"> --}}
   {{-- <link rel="stylesheet" href="../assets/css/components.css"> --}}
 
 </head>
 
 <body>
+    {{-- Navbar Header --}}
         <header id="header" class="header d-flex align-items-center fixed-top">
             <div class="container-fluid d-flex align-items-center justify-content-between">
               <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
                 <h1>Erhouse Gallery</h1>
               </a>
-
               <nav id="navbar" class="navbar">
                 <ul>
-                  <li><a href="index.html" class="active">Home</a></li>
-                  <li class="dropdown"><a href="#"><span>Karya</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                  <li><a class="fitur-nav" href="index.html" > Home</a></li>
+                  <li class="dropdown"><a class="fitur-nav" href="#"><span>Karya</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                      <li><a href="gallery.html">Lukisan</a></li>
-                      <li><a href="gallery.html">Patung</a></li>
+                      <li><a  class="fitur-nav" class="" href="gallery.html">Lukisan</a></li>
+                      <li><a class="fitur-nav" href="gallery.html">Patung</a></li>
                     </ul>
                   </li>
-                  <li><a href="services.html">Artikel</a></li>
-                  <li><a href="contact.html">Event</a></li>
-                  <li><a href="about.html">Tentang Kami</a></li>
+                  <li><a a class="fitur-nav" href="services.html">Artikel</a></li>
+                  <li><a a class="fitur-nav" href="contact.html">Event</a></li>
+                  <li><a a class="fitur-nav" href="about.html">Tentang Kami</a></li>
                 </ul>
               </nav>
-
-
-
-
 
               <div class="account">
                 <ul class="navbar-nav navbar-right">
@@ -97,12 +81,14 @@
               <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
               <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
             </div>
-          </header>
+        </header>
+
+        {{-- end Header Navbar --}}
 
 
-
+{{-- Navbar Collapse For Sidebar --}}
           <nav class="navbar-collapse navbar-dark bg-dark d-md-none d-lg-none d-xl-none d-xxl-none ">
-            <div class="container-fluid d-flex justify-content-end">
+            <div class="container-fluid d-flex justify-content-end py-3">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi bi-chevron-down dropdown-indicator"></i>
               </button>
@@ -111,7 +97,7 @@
 
           <div class="collapse d-md-none d-lg-none d-xl-none d-xxl-none" id="navbarToggleExternalContent">
             <div class="bg-dark p-4">
-                <ul>
+                <ul class="text-white">
                     <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                         <span>Dashboard</span></a></li>
                       <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
@@ -121,9 +107,10 @@
                 </ul>
             </div>
           </div>
+        {{-- End Navbar Collapse For Sidebar --}}
 
-        {{--   d-lg-none d-xl-none d-xxl-none --}}
 
+{{-- Sidebar --}}
       <div class="sidebar d-none d-md-inline-block" >
         <aside id="sidebar-wrapper">
           <ul class="sidebar-menu container">
@@ -138,16 +125,17 @@
             </ul>
         </aside>
       </div>
+      {{-- End Sidebar --}}
 
 
       <!-- Main Content -->
-     {{--  <div class="main-content">
+       <div class="main-content p-5">
         <div class="row mt-5">
           <div class="col"> <h1>Hi, Irfannudin Ihsan</h1></div>
         </div>
         <div class="row mt-3">
           <div class="col-xl-3 col-md-4">
-            <div class="card-data-dashboard text-center w-75 p-4" style="background-color :#F0EEED">
+            <div class="card-data-dashboard text-center w-75 p-4">
               <h1  class="text-data-dashboard">1</h1>
               <p  class="text-data-dashboard">Total Pesanan</p>
             </div>
@@ -166,7 +154,9 @@
             </div>
           </div>
         </div>
-      </div> --}}
+      </div>
+        <!-- End Main Content -->
+
 
 
 {{-- javascript connect --}}

@@ -1,18 +1,6 @@
-/* Fonts */
 :root {
-    --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
-    --font-primary: "Inter", sans-serif;
-    --font-secondary: "Cardo", sans-serif;
-}
-
-/* Colors */
-:root {
-    --color-default: #fafafa;
-    --color-primary: #27a776;
-    --color-secondary: #161718;
+    --color-primary: #F0EEED;
+    --color-secondary: #AF1616;
 }
 
 /* Smooth scroll behavior */
@@ -20,13 +8,10 @@
     scroll-behavior: smooth;
 }
 
-/*--------------------------------------------------------------
-  # General
-  --------------------------------------------------------------*/
+
 body {
-    font-family: var(--font-default);
-    color: var(--color-default);
-    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif !important;
+
 }
 
 a {
@@ -41,18 +26,11 @@ ol {
     list-style-type: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-primary);
-}
 
-/*--------------------------------------------------------------
-  # Sections & Section Header
-  --------------------------------------------------------------*/
+
+.header {
+    color: var(--color-secondary);
+}
 
 .section-header {
     padding-bottom: 40px;
@@ -65,9 +43,8 @@ h6 {
     line-height: 1px;
     margin: 0 0 5px 0;
     letter-spacing: 2px;
-    text-transform: uppercase;
+
     color: rgba(255, 255, 255, 0.6);
-    font-family: var(--font-primary);
 }
 
 .section-header h2::after {
@@ -84,7 +61,7 @@ h6 {
     margin: 0;
     font-size: 36px;
     font-weight: 700;
-    font-family: var(--font-secondary);
+
     color: #fff;
 }
 
@@ -101,7 +78,7 @@ h6 {
     font-size: 56px;
     font-weight: 500;
     color: #fff;
-    font-family: var(--font-secondary);
+
 }
 
 @media (max-width: 768px) {
@@ -115,14 +92,14 @@ h6 {
 }
 
 .page-header .cta-btn {
-    font-family: var(--font-primary);
+    /* font-family: var(--font-primary); */
     font-weight: 400;
     font-size: 14px;
     display: inline-block;
     padding: 12px 40px;
     border-radius: 4px;
     letter-spacing: 1px;
-    text-transform: uppercase;
+
     transition: 0.3s;
     color: #fff;
     background: var(--color-primary);
@@ -276,24 +253,32 @@ h6 {
     }
 }
 
-/*--------------------------------------------------------------
-  # Header
-  --------------------------------------------------------------*/
+/* header navbar */
+
 .header {
     transition: all 0.5s;
     padding: 30px 0;
-    background-color: #d9d9d9;
+    background-color: var(--color-primary);
     position: relative !important;
     z-index: 9999;
 }
 
+
+ .fitur-nav {
+    font-size: 18px !important ;
+
+}
+
+/* sidebar */
 .sidebar {
     z-index: 9998;
-    background-color: #d9d9d9;
+    background-color: var(--color-primary);
     width: 256px;
     height: 100vh;
     color: white;
+    float: left;
 }
+
 
 .sidebar-fiture {
 padding: 8px 20px;
@@ -303,6 +288,20 @@ padding: 8px 20px;
 }
 .sidebar-menu {
     width: 100%;
+}
+
+
+
+/* Main Content */
+
+.main-content {
+    margin-left: 320px;
+}
+
+.card-data-dashboard {
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    color: var(--color-secondary);
 }
 
 .header .logo {
@@ -319,7 +318,7 @@ padding: 8px 20px;
     margin: 0;
     font-weight: 400;
     color: #000000;
-    font-family: var(--font-secondary);
+
 }
 
 .header .logo i {
@@ -328,15 +327,7 @@ padding: 8px 20px;
     line-height: 0;
 }
 
-@media (max-width: 575px) {
-    .header .logo h1 {
-        font-size: 26px;
-    }
 
-    .header .logo i {
-        font-size: 24px;
-    }
-}
 
 .header .header-social-links {
     padding-right: 15px;
@@ -350,16 +341,6 @@ padding: 8px 20px;
     transition: 0.3s;
     font-size: 16px;
 }
-
-/* .header .header-social-links a:hover {
-    color: #e55f5ff1;
-  } */
-
-/* @media (max-width: 575px) {
-    .header .header-social-links a {
-      padding-left: 5px;
-    }
-  } */
 
 /*--------------------------------------------------------------
   # Desktop Navigation
@@ -392,8 +373,7 @@ padding: 8px 20px;
         align-items: center;
         justify-content: space-between;
         padding: 10px 0 10px 30px;
-        font-family: var(--font-primary);
-        text-transform: uppercase;
+
         letter-spacing: 1px;
         font-size: 13px;
         font-weight: 500;
@@ -521,9 +501,9 @@ padding: 8px 20px;
         align-items: center;
         justify-content: space-between;
         padding: 10px 20px;
-        font-family: var(--font-primary);
+
         font-size: 13px;
-        text-transform: uppercase;
+
         font-weight: 400;
         color: rgba(0, 0, 0, 0.5);
         letter-spacing: 1px;
@@ -844,6 +824,8 @@ padding: 8px 20px;
     .gallery-single .swiper-button-next {
         display: none;
     }
+
+
 }
 
 .gallery-single .portfolio-info h3 {
@@ -852,7 +834,7 @@ padding: 8px 20px;
     margin-bottom: 20px;
     padding-bottom: 20px;
     position: relative;
-    font-family: var(--font-secondary);
+
 }
 
 .gallery-single .portfolio-info h3:after {
@@ -879,7 +861,7 @@ padding: 8px 20px;
 }
 
 .gallery-single .portfolio-info ul strong {
-    text-transform: uppercase;
+
     font-weight: 400;
     color: #6b7075;
     font-size: 14px;
@@ -902,7 +884,7 @@ padding: 8px 20px;
     font-weight: 700;
     margin-bottom: 20px;
     color: #fff;
-    font-family: var(--font-secondary);
+
 }
 
 .gallery-single .portfolio-description p {
@@ -1211,7 +1193,7 @@ padding: 8px 20px;
     font-size: 38px;
     font-weight: 700;
     color: #000000;
-    font-family: var(--font-secondary);
+
 }
 
 .hero h2 span {
@@ -1239,14 +1221,13 @@ padding: 8px 20px;
 }
 
 .hero .btn-get-started {
-    font-family: var(--font-primary);
     font-weight: 400;
     font-size: 14px;
     display: inline-block;
     padding: 12px 40px;
     border-radius: 4px;
     letter-spacing: 1px;
-    text-transform: uppercase;
+
     transition: 0.3s;
     color: #fff;
     background: #ea3b3b;
@@ -1256,9 +1237,24 @@ padding: 8px 20px;
     background: #de5d5d;
 }
 
+
+@media (max-width: 575px) {
+    .header .logo h1 {
+        font-size: 26px;
+    }
+
+    .header .logo i {
+        font-size: 24px;
+    }
+}
+
 @media (max-width: 768px) {
     .hero h2 {
         font-size: 32px;
+    }
+
+    .main-content {
+        margin-left: 80px;
     }
 }
 
