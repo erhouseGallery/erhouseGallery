@@ -11,7 +11,6 @@
 
 body {
     font-family: 'Poppins', sans-serif !important;
-
 }
 
 a {
@@ -261,6 +260,7 @@ ol {
     background-color: var(--color-primary);
     position: relative !important;
     z-index: 9999;
+    width: 100%;
 }
 
 
@@ -295,8 +295,36 @@ padding: 8px 20px;
 /* Main Content */
 
 .main-content {
-    margin-left: 320px;
+    margin-left: 300px;
 }
+
+
+.table {
+    width: 100%;
+}
+.table-responsive {
+    background-color: var(--color-primary);
+    border-radius: 4px;
+}
+thead {
+    background-color: var(--color-secondary);
+
+}
+
+th,td {
+    padding: 12px 12px;
+}
+
+
+
+/* profil */
+.card-profil {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 12px;
+
+}
+
 
 .card-data-dashboard {
     background-color: var(--color-primary);
@@ -476,7 +504,8 @@ padding: 8px 20px;
     .navbar {
         position: fixed;
         top: 0;
-        right: -100%;
+        /* right: -100%; */
+        right: 100%;
         width: 100%;
         max-width: 400px;
         bottom: 0;
@@ -1245,6 +1274,10 @@ padding: 8px 20px;
 
     .header .logo i {
         font-size: 24px;
+    }
+
+    .main-content {
+        margin-left: 0px;
     }
 }
 

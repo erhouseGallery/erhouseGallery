@@ -35,7 +35,7 @@ Route::get("/pemesanan", function() {
     return view("layouts.pemesanan");
 });
 
-Route::get("/pemesanan/buatpesanan", function() {
+Route::get("/buatpesanan", function() {
     return view("layouts.buatpesanan");
 });
 
