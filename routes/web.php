@@ -23,32 +23,107 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-// Route::get('/', [coba::class, 'index']);
 
 
-Route::get('/dashboard', function() {
-    return view('layouts.dashboard');
+Route::get('/', function () {
+    return view('index', [
+        "title" => "Home"
+    ]);
+});
+
+Route::get('/login', function () {
+    return view('auth/login', [
+        "title" => "Login"
+    ]);
+});
+
+Route::get('/register', function () {
+    return view('auth/register', [
+        "title" => "Register"
+    ]);
+});
+
+Route::get('/forgot-password', function () {
+    return view('auth/forgot-password', [
+        "title" => "Lupa Password"
+    ]);
+});
+
+Route::get('/post', function () {
+    return view('post', [
+        "title" => "Artikel"
+    ]);
+});
+
+Route::get('/post-single', function () {
+    return view('post-single', [
+        "title" => "Detail Artikel"
+    ]);
+});
+
+Route::get('/event', function () {
+    return view('event', [
+        "title" => "Event"
+    ]);
+});
+
+Route::get('/event-single', function () {
+    return view('event-single', [
+        "title" => "Detail Event"
+    ]);
+});
+
+Route::get('/lukisan', function () {
+    return view('lukisan', [
+        "title" => "Karya Lukisan"
+    ]);
+});
+
+Route::get('/patung', function () {
+    return view('patung', [
+        "title" => "Karya Patung"
+    ]);
+});
+
+Route::get('/karya-single', function () {
+    return view('karya-single', [
+        "title" => "Detail Karya"
+    ]);
+});
+
+Route::get('/about', function () {
+    return view('about', [
+        "title" => "About"
+    ]);
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard', [
+        "title" => "Dashboard"
+    ]);
 });
 
 
-Route::get("/pemesanan", function() {
-    return view("layouts.pemesanan");
+Route::get("/pemesanan", function () {
+    return view("pemesanan", [
+        "title" => "Pemesanan"
+    ]);
 });
 
-Route::get("/buatpesanan", function() {
-    return view("layouts.buatpesanan");
+Route::get("/buatpesanan", function () {
+    return view("buatpesanan", [
+        "title" => "Buat Pesanan"
+    ]);
 });
 
-Route::get("/profil/edit", function() {
-    return view("layouts.editprofil");
+Route::get("/profil/edit", function () {
+    return view("editprofil", [
+        "title" => "Edit Profil"
+    ]);
 });
 
-Route::get("/profil", function() {
-    return view("layouts.profil");
+Route::get("/profil", function () {
+    return view("profil", [
+        "title" => "Profil"
+    ]);
 });
-
-
-Route::get("/navbar", function() {
-    return view("layouts.navbar");
-});
-
