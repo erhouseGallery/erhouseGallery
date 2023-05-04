@@ -127,3 +127,75 @@ Route::get("/profil", function () {
         "title" => "Profil"
     ]);
 });
+
+Route::get("/admin/buat-artikel", function () {
+    return view("admin.buat_artikel", [
+        "title" => "Buat Artikel"
+    ]);
+});
+
+Route::get("/admin/buat-event", function () {
+    return view("admin.buat_event", [
+        "title" => "Buat Event"
+    ]);
+});
+
+Route::get("/admin/buat-karya", function () {
+    return view("admin.buat_karya", [
+        "title" => "Buat Karya"
+    ]);
+});
+
+Route::get("/admin/dashboard-admin", function () {
+    return view("admin.dashboard_admin", [
+        "title" => "Dashboard Admin"
+    ]);
+});
+
+Route::get("/admin/edit-artikel", function () {
+    return view("admin.edit_artikel", [
+        "title" => "Edit Artikel"
+    ]);
+});
+
+Route::get("/admin/edit-event", function () {
+    return view("admin.edit_event", [
+        "title" => "Edit Event"
+    ]);
+});
+
+Route::get("/admin/edit-karya", function () {
+    return view("admin.edit_karya", [
+        "title" => "Edit Karya"
+    ]);
+});
+
+Route::get("/admin/edit-pesanan", function () {
+    return view("admin.edit_pesanan", [
+        "title" => "Edit Pesanan"
+    ]);
+});
+
+Route::get("/admin/table-artikel", function () {
+    return view("admin.table_artikel", [
+        "title" => "Table Artikel"
+    ]);
+});
+
+Route::get("/admin/table-event", function () {
+    return view("admin.table_event", [
+        "title" => "Table Event"
+    ]);
+});
+
+Route::get("/admin/table-karya", function () {
+    return view("admin.table_karya", [
+        "title" => "Table Karya"
+    ]);
+});
+
+Route::get("/admin/table-pesanan", function () {
+    return view("admin.table_pesanan", [
+        "title" => "Table Pesanan"
+    ]);
+});
