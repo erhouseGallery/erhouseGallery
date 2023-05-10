@@ -24,6 +24,10 @@ use Illuminate\Support\Facades\Route;
 
 
 
+/// coba
+
+
+
 
 Route::get('/', function () {
     return view('index', [
@@ -80,8 +84,21 @@ Route::get('/lukisan', function () {
 });
 
 Route::get('/patung', function () {
+    $karyas = [
+        [
+            "judul" => "selacar dilaaut",
+            "gambar" => "selancar",
+            "bahan" => "kanvas",
+            "ukuran" => "100",
+            "ukuran" => "100",
+            "tahun" => "2012",
+            "deskripsi" => "lukisan selancar",
+        ]
+        ];
+
     return view('patung', [
-        "title" => "Karya Patung"
+        "title" => "Karya Patung",
+        "karyas" => $karyas
     ]);
 });
 
@@ -127,3 +144,7 @@ Route::get("/profil", function () {
         "title" => "Profil"
     ]);
 });
+
+
+
+
