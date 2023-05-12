@@ -1,6 +1,6 @@
 :root {
-    --color-primary: #F0EEED;
-    --color-secondary: #AF1616;
+    --color-primary: #f0eeed;
+    --color-secondary: #af1616;
 }
 
 /* Smooth scroll behavior */
@@ -8,9 +8,8 @@
     scroll-behavior: smooth;
 }
 
-
 body {
-    font-family: 'Poppins', sans-serif !important;
+    font-family: "Poppins", sans-serif !important;
 }
 
 a {
@@ -25,8 +24,6 @@ ul,
 ol {
     list-style-type: none;
 }
-
-
 
 .header {
     color: var(--color-secondary);
@@ -77,7 +74,6 @@ ol {
 .page-header h2 {
     font-size: 56px;
     font-weight: 500;
-
 }
 
 @media (max-width: 768px) {
@@ -258,10 +254,12 @@ ol {
     width: 100%;
 }
 
+.nav-link:hover {
+    color: #af1616 !important; 
+}
 
 .fitur-nav {
     font-size: 18px !important;
-
 }
 
 /* sidebar */
@@ -269,16 +267,14 @@ ol {
     z-index: 9998;
     background-color: var(--color-primary);
     width: 256px;
-    height: 100vh;
     color: white;
     float: left;
 }
 
-
 .sidebar-fiture {
     padding: 8px 20px;
     margin-top: 24px;
-    background-color: #AF1616;
+    background-color: #af1616;
     border-radius: 8px;
 }
 
@@ -286,17 +282,15 @@ ol {
     width: 100%;
 }
 
-
+.sidebar-collapse-menu {
+    position: absolute;
+    left: 40px;
+}
 
 /* Main Content */
 
 .main-content {
     margin-left: 300px;
-}
-
-
-.table {
-    width: 100%;
 }
 
 .table-responsive {
@@ -305,8 +299,8 @@ ol {
 }
 
 thead {
+    width: 100%;
     background-color: var(--color-secondary);
-
 }
 
 th,
@@ -314,16 +308,12 @@ td {
     padding: 12px 12px;
 }
 
-
-
 /* profil */
 .card-profil {
     border: 1px solid black;
     padding: 20px;
     border-radius: 12px;
-
 }
-
 
 .card-data-dashboard {
     background-color: var(--color-primary);
@@ -345,7 +335,6 @@ td {
     margin: 0;
     font-weight: 400;
     color: #000000;
-
 }
 
 .header .logo i {
@@ -353,8 +342,6 @@ td {
     margin-right: 8px;
     line-height: 0;
 }
-
-
 
 .header .header-social-links {
     padding-right: 15px;
@@ -373,7 +360,7 @@ td {
   # Desktop Navigation
   --------------------------------------------------------------*/
 @media (min-width: 1280px) {
-    .navbar {
+    /* .navbar {
         padding: 0;
     }
 
@@ -387,13 +374,13 @@ td {
 
     .navbar li {
         position: relative;
-    }
+    } */
 
     .account {
         width: min-content;
         margin-right: 100px;
     }
-
+    /* 
     .navbar a,
     .navbar a:focus {
         display: flex;
@@ -419,7 +406,7 @@ td {
     .navbar a:hover,
     .navbar .active,
     .navbar .active:focus,
-    .navbar li:hover>a {
+    .navbar li:hover > a {
         color: #000000;
     }
 
@@ -455,11 +442,11 @@ td {
 
     .navbar .dropdown ul a:hover,
     .navbar .dropdown ul .active:hover,
-    .navbar .dropdown ul li:hover>a {
+    .navbar .dropdown ul li:hover > a {
         color: #000000;
     }
 
-    .navbar .dropdown:hover>ul {
+    .navbar .dropdown:hover > ul {
         opacity: 1;
         top: 100%;
         visibility: visible;
@@ -471,26 +458,25 @@ td {
         visibility: hidden;
     }
 
-    .navbar .dropdown .dropdown:hover>ul {
+    .navbar .dropdown .dropdown:hover > ul {
         opacity: 1;
         top: 0;
         left: 100%;
         visibility: visible;
-    }
+    } */
 }
 
 @media (min-width: 1280px) and (max-width: 1366px) {
-    .navbar .dropdown .dropdown ul {
+    /* .navbar .dropdown .dropdown ul {
         left: -90%;
     }
 
-    .navbar .dropdown .dropdown:hover>ul {
+    .navbar .dropdown .dropdown:hover > ul {
         left: -100%;
-    }
+    } */
 }
 
 @media (min-width: 1280px) {
-
     .mobile-nav-show,
     .mobile-nav-hide {
         display: none;
@@ -501,10 +487,9 @@ td {
   # Mobile Navigation
   --------------------------------------------------------------*/
 @media (max-width: 1279px) {
-    .navbar {
+    /* .navbar {
         position: fixed;
         top: 0;
-        /* right: -100%; */
         right: 100%;
         width: 100%;
         max-width: 400px;
@@ -519,7 +504,6 @@ td {
         padding: 50px 0 10px 0;
         margin: 0;
         background: #d9d9d9;
-        /* overflow-y: auto; */
         transition: 0.3s;
         z-index: 9998;
     }
@@ -550,7 +534,7 @@ td {
     .navbar a:hover,
     .navbar .active,
     .navbar .active:focus,
-    .navbar li:hover>a {
+    .navbar li:hover > a {
         color: #000000;
     }
 
@@ -563,10 +547,10 @@ td {
         transition: all 0.5s ease-in-out;
     }
 
-    .navbar .dropdown>.dropdown-active,
-    .navbar .dropdown .dropdown>.dropdown-active {
+    .navbar .dropdown > .dropdown-active,
+    .navbar .dropdown .dropdown > .dropdown-active {
         display: block;
-    }
+    } */
 
     .mobile-nav-show {
         color: #000000;
@@ -593,7 +577,7 @@ td {
     .mobile-nav-active {
         overflow: hidden;
     }
-
+    /* 
     .mobile-nav-active .navbar {
         right: 0;
     }
@@ -604,7 +588,7 @@ td {
         inset: 0;
         background: #d9d9d9;
         z-index: 9996;
-    }
+    } */
 }
 
 /*--------------------------------------------------------------
@@ -613,7 +597,7 @@ td {
 .about .content h2 {
     font-weight: 700;
     font-size: 24px;
-    color: #EA3B3B;
+    color: #ea3b3b;
 }
 
 .about .content p {
@@ -639,7 +623,7 @@ td {
 .about .content ul i {
     font-size: 16px;
     margin-right: 5px;
-    color: #EA3B3B;
+    color: #ea3b3b;
     line-height: 0;
 }
 
@@ -768,14 +752,13 @@ td {
     }
 }
 
-
 /* Login-Register */
 .login-register .card-title {
     color: #262626;
 }
 
 .login-register .card form .btn {
-    background-color: #EA3B3B;
+    background-color: #ea3b3b;
     color: #ffffff;
 }
 
@@ -862,14 +845,20 @@ td {
     width: 100%;
 }
 
-.gallery-single .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+.gallery-single
+    .portfolio-details-slider
+    .swiper-pagination
+    .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
     background-color: rgba(255, 255, 255, 0.7);
     opacity: 1;
 }
 
-.gallery-single .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+.gallery-single
+    .portfolio-details-slider
+    .swiper-pagination
+    .swiper-pagination-bullet-active {
     background-color: var(--color-secondary);
 }
 
@@ -899,13 +888,10 @@ td {
 }
 
 @media (max-width: 575px) {
-
     .gallery-single .swiper-button-prev,
     .gallery-single .swiper-button-next {
         display: none;
     }
-
-
 }
 
 .gallery-single .portfolio-info h3 {
@@ -914,7 +900,6 @@ td {
     margin-bottom: 20px;
     padding-bottom: 20px;
     position: relative;
-
 }
 
 .gallery-single .portfolio-info h3:after {
@@ -941,7 +926,6 @@ td {
 }
 
 .gallery-single .portfolio-info ul strong {
-
     font-weight: 400;
     color: #6b7075;
     font-size: 14px;
@@ -963,7 +947,6 @@ td {
     font-size: 26px;
     font-weight: 700;
     margin-bottom: 20px;
-
 }
 
 .gallery-single .portfolio-description p {
@@ -1125,17 +1108,17 @@ td {
 /*--------------------------------------------------------------
   # Contact Section
   --------------------------------------------------------------*/
-.contact .info-item+.info-item {
+.contact .info-item + .info-item {
     margin-top: 40px;
 }
 
 .contact .info-item i {
     font-size: 20px;
-    color: #EA3B3B;
+    color: #ea3b3b;
     float: left;
     width: 44px;
     height: 44px;
-    background: #D9D9D9;
+    background: #d9d9d9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1160,7 +1143,7 @@ td {
 }
 
 .contact .info-item:hover i {
-    background: #EA3B3B;
+    background: #ea3b3b;
     color: #fff;
 }
 
@@ -1181,7 +1164,7 @@ td {
     font-weight: 600;
 }
 
-.contact .php-email-form .error-message br+br {
+.contact .php-email-form .error-message br + br {
     margin-top: 25px;
 }
 
@@ -1219,7 +1202,7 @@ td {
     border-radius: 4px;
     box-shadow: none;
     font-size: 14px;
-    background-color: #D9D9D9;
+    background-color: #d9d9d9;
     border: 1px solid rgb(152, 152, 152);
     color: #2a2a2a;
 }
@@ -1232,8 +1215,8 @@ td {
     padding: 10px 12px;
 }
 
-.contact .php-email-form button[type=submit] {
-    background: #EA3B3B;
+.contact .php-email-form button[type="submit"] {
+    background: #ea3b3b;
     border: 0;
     padding: 10px 35px;
     color: #fff;
@@ -1241,7 +1224,7 @@ td {
     border-radius: 4px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type="submit"]:hover {
     background: #ea2525;
 }
 
@@ -1272,7 +1255,6 @@ td {
     font-size: 38px;
     font-weight: 700;
     color: #000000;
-
 }
 
 .hero h2 span {
@@ -1316,7 +1298,6 @@ td {
     background: #de5d5d;
 }
 
-
 @media (max-width: 575px) {
     .header .logo h1 {
         font-size: 26px;
@@ -1345,7 +1326,6 @@ td {
   # Footer
   --------------------------------------------------------------*/
 .footer {
-    margin-top: 30px;
     padding: 30px 0;
     font-size: 14px;
     background-color: #808080;
@@ -1363,7 +1343,7 @@ td {
 .red-button {
     padding: 8px 12px;
     border-radius: 8px;
-    background-color: #AF1616;
+    background-color: #af1616;
     color: white;
     border: none;
     font-size: 20px;
@@ -1389,16 +1369,24 @@ h3 {
     font-weight: 500;
 }
 
+.admin-form {
+    width: 100%;
+    padding: 0 50px;
+    margin-top: 65px;
+    margin-bottom: 65px;
+}
+
 .table {
     border-radius: 4px !important;
     border-collapse: collapse;
-    overflow: hidden; 
+    overflow: hidden;
+    width: 100%;
 }
 
 .box {
     padding: 33px 38px;
-    color: #AF1616;
-    background-color: #F0EEED;
+    color: #af1616;
+    background-color: #f0eeed;
     border-radius: 25px;
     text-align: center;
 }
@@ -1409,7 +1397,7 @@ h3 {
 }
 
 .red {
-    background-color: #AF1616;  
+    background-color: #af1616;
 }
 
 .black {
@@ -1424,10 +1412,11 @@ h3 {
     line-clamp: 3;
     -webkit-box-orient: vertical;
     height: 100px;
+    margin-bottom: 15px;
 }
 
 .bg-based {
-    background-color: #F0EEED;
+    background-color: #f0eeed;
 }
 
 .mt-65 {
@@ -1437,8 +1426,8 @@ h3 {
 .ml-30 {
     margin-left: 30px;
 }
-.ml-143 {
-    margin-left: 143px;
+.ml-80 {
+    margin-left: 80px;
 }
 
 .mr-30 {
@@ -1469,7 +1458,11 @@ h3 {
     width: 120px;
 }
 
+.w-65 {
+    width: 65%;
+}
+
 .row {
-    --bs-gutter-x: unset !important; 
+    --bs-gutter-x: unset !important;
 }
 /* End Admin Section */

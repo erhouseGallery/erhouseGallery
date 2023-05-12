@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CobaController as coba;
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,17 +51,9 @@ Route::get('/forgot-password', function () {
     ]);
 });
 
-Route::get('/post', function () {
-    return view('post', [
-        "title" => "Artikel"
-    ]);
-});
+Route::get('/articles', [ArticleController::class, 'index']);
 
-Route::get('/post-single', function () {
-    return view('post-single', [
-        "title" => "Detail Artikel"
-    ]);
-});
+Route::get('/articles/show/{article:id}', [ArticleController::class, 'show']);
 
 Route::get('/event', function () {
     return view('event', [
@@ -128,11 +122,6 @@ Route::get("/profil", function () {
     ]);
 });
 
-Route::get("/admin/buat-artikel", function () {
-    return view("admin.buat_artikel", [
-        "title" => "Buat Artikel"
-    ]);
-});
 
 Route::get("/admin/buat-event", function () {
     return view("admin.buat_event", [
@@ -152,11 +141,6 @@ Route::get("/admin/dashboard-admin", function () {
     ]);
 });
 
-Route::get("/admin/edit-artikel", function () {
-    return view("admin.edit_artikel", [
-        "title" => "Edit Artikel"
-    ]);
-});
 
 Route::get("/admin/edit-event", function () {
     return view("admin.edit_event", [
@@ -176,11 +160,12 @@ Route::get("/admin/edit-pesanan", function () {
     ]);
 });
 
-Route::get("/admin/table-artikel", function () {
-    return view("admin.table_artikel", [
-        "title" => "Table Artikel"
-    ]);
-});
+Route::get("/admin/articles", [ArticleController::class, "indexAdmin"]);
+Route::get("/admin/articles/edit/{article:id}", [ArticleController::class, 'editAdmin']);
+Route::put("/admin/articles/update/{article:id}", [ArticleController::class, 'updateAdmin']);
+Route::get("/admin/articles/create", [ArticleController::class, "createAdmin" ] );
+Route::post("/admin/articles/store", [ArticleController::class, "storeAdmin" ] );
+Route::delete("/admin/articles/delete/{article:id}", [ArticleController::class, "destroyAdmin" ] );
 
 Route::get("/admin/table-event", function () {
     return view("admin.table_event", [
