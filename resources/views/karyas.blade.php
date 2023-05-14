@@ -39,7 +39,7 @@
                                 <a href="gallery-single.html" class="details-link">{{ $item["judul"] }}</a>
                             </div>
                         </div>
-                        <a href="" class="text-center"><h1>selancar</h1></a>
+                        <a href="/karyas/{{ $item->id }}" class="text-center"><h1>{{ $item["judul"] }}</h1></a>
                     </div><!-- End Gallery Item -->
                     @endforeach
 

@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta content="" name="description">
     <meta content="" name="keywords">
-    <title>{{ $title }}</title>
+    <title>Erhouse Gallery</title>
 
 
     <!-- General CSS Files -->

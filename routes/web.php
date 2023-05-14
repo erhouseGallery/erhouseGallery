@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\CobaController as coba;
 use Illuminate\Support\Facades\Route;
 use App\Models\Karya;
+
+use App\Http\Controllers\KaryaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,30 +85,39 @@ Route::get('/lukisan', function () {
     ]);
 });
 
-Route::get('/patung', function () {
-    $karyas = [
-        [
-            "judul" => "selacar dilaaut",
-            "gambar" => "selancar",
-            "bahan" => "kanvas",
-            "ukuran" => "100",
-            "ukuran" => "100",
-            "tahun" => "2012",
-            "deskripsi" => "lukisan selancar",
-        ]
-        ];
+// Route::get('/karya', function () {
+//     $karyas = [
+//         [
+//             "judul" => "selacar dilaaut",
+//             "gambar" => "selancar",
+//             "bahan" => "kanvas",
+//             "ukuran" => "100",
+//             "ukuran" => "100",
+//             "tahun" => "2012",
+//             "deskripsi" => "lukisan selancar",
+//         ]
+//         ];
 
-    return view('patung', [
-        "title" => "Karya Patung",
-        "karyas" => $karyas
-    ]);
-});
+//     return view('karya', [
+//         "title" => "Karya Patung",
+//         "karyas" => $karyas
+//     ]);
+// });
 
-Route::get('/karya-single', function () {
-    return view('karya-single', [
-        "title" => "Detail Karya"
-    ]);
-});
+
+//semua karya
+Route::get('/karyas', [KaryaController::class, 'index']);
+
+// karya berdasarkan id
+Route::get('/karyas/{id}', [KaryaController::class, 'show']);
+
+
+
+// Route::get('/karya', function () {
+//     return view('karya-single', [
+//         "title" => "Detail Karya"
+//     ]);
+// });
 
 Route::get('/about', function () {
     return view('about', [

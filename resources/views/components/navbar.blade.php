@@ -5,7 +5,7 @@
         </a>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="fitur-nav {{ $title === 'Home' ? 'active' : '' }}" href="/"> Home</a></li>
+                <li><a class="fitur-nav {{-- {{ $title === 'Home' ? 'active' : '' }} --}}" href="/"> Home</a></li>
                 <li class="dropdown"><a class="fitur-nav" href="#"><span>Karya</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
@@ -13,10 +13,10 @@
                         <li><a class="fitur-nav" href="/patung">Patung</a></li>
                     </ul>
                 </li>
-                <li><a a class="fitur-nav {{ $title === 'Artikel' ? 'active' : '' }}" href="/post">Artikel</a>
+                <li><a a class="fitur-nav {{-- {{ $title === 'Artikel' ? 'active' : '' }} --}}" href="/post">Artikel</a>
                 </li>
-                <li><a a class="fitur-nav {{ $title === 'Event' ? 'active' : '' }}" href="/event">Event</a></li>
-                <li><a a class="fitur-nav {{ $title === 'Tentang Kami' ? 'active' : '' }}" href="/about">Tentang
+                <li><a a class="fitur-nav {{-- {{ $title === 'Event' ? 'active' : '' }} --}}" href="/event">Event</a></li>
+                <li><a a class="fitur-nav {{-- {{ $title === 'Tentang Kami' ? 'active' : '' }} --}}" href="/about">Tentang
                         Kami</a></li>
             </ul>
         </nav>
