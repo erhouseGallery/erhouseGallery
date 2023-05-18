@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('karyas', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
+            $table->foreignId('user_id');
             $table->foreignId('kategori_id');
             $table->string('gambar');
             $table->string('bahan');
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->foreignId('status_id');
             $table->timestamp('publishes_at')->nullable(); //tipe data timpstamp
+            $table->timestamps();
         });
     }
 

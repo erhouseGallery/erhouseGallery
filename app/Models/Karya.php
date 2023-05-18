@@ -18,4 +18,7 @@ class Karya extends Model
     public function Status() {
         return $this->belongsTo(Status::class);
     }
+    public function User() {
+        return $this->belongsTo(User::class);
+    }
 }
