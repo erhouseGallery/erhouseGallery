@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('karyas', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
+            $table->foreignId('kategori_id');
             $table->string('gambar');
             $table->string('bahan');
             $table->string('ukuran');
             $table->string('tahun');
             $table->text('deskripsi');
+            $table->foreignId('status_id');
             $table->timestamp('publishes_at')->nullable(); //tipe data timpstamp
         });
     }

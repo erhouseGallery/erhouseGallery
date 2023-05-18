@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Karya extends Model
 {
     use HasFactory;
+
+
+    public function Kategori()
+    {
+        return $this->belongsTo(Kategori::class);
+    }
+
+    public function Status() {
+        return $this->belongsTo(Status::class);
+    }
 }
