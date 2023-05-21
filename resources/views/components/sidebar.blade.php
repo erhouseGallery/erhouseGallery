@@ -34,6 +34,12 @@
                     <span>Dashboard</span></a></li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                     <span>Pemesanan</span></a></li>
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/table-karya">
+                    <span>Karya</span></a></li>
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
+                    <span>Artikel</span></a></li>
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
+                    <span>Event</span></a></li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                     <span>Profile</span></a></li>
         </ul>

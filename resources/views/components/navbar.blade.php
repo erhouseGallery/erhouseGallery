@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid px-5">
-        <a class="navbar-brand" href="#">Erhouse Gallery</a>
+        <a class="navbar-brand" href="/">Erhouse Gallery</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -48,14 +48,21 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1" style="width: 50px">
-                            Fandi P.
+
                             {{auth()->user()->name}}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Dashboard</a>
+                            <a class="dropdown-item" href="/admin/dashboard-admin">Dashboard</a>
                             <a class="dropdown-item" href="#">Pemesanan</a>
-                            <a class="dropdown-item" href="#">Profil</a>
-                            <a class="dropdown-item" href="#">Logout</a>
+                            <a class="dropdown-item" href="#">Karya</a>
+                            <a class="dropdown-item" href="#">Artikel</a>
+                            <a class="dropdown-item" href="#">Event</a>
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit">Logout</button>
+                            </form>
+
                         </div>
                     </li>
                     @endauth

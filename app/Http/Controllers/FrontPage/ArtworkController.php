@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\FrontPage;
 
 use App\Models\Article;
 use App\Models\Artwork;
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
 
 class ArtworkController extends Controller
 {

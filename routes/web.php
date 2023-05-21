@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\ArtworkController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CobaController as coba;
+use App\Http\Controllers\FrontPage\ArtworkController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Models\Article;
+
+use App\Http\Controllers\Dashboard\DashboardArtworkController;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,11 +39,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/login', function () {
-    return view('auth/login', [
-        "title" => "Login"
-    ]);
-});
+
 
 
 // Register
@@ -49,7 +49,17 @@ Route::get('/register', function () {
     ]);
 });
 
-Route::post('/register', [AuthController::class, 'store']);
+Route::post('/register', [AuthController::class, 'store'])->middleware('guest');
+
+
+//login
+Route::get('/login', [AuthController::class,'indexLogin'])->name('login')->middleware('guest');
+
+Route::post('/login', [AuthController::class, 'authenticate']);
+
+//logout
+Route::post('/logout', [AuthController::class, 'logout']);
+
 
 
 Route::get('/forgot-password', function () {
@@ -63,24 +73,6 @@ Route::get('/forgot-password', function () {
 // semua artwork (karya)
 Route::get('/artworks', [ArtworkController::class, 'index']);
 Route::get('/artworks/{id}', [ArtworkController::class, 'show']);
-
-// Route::get('/artworks', function () {
-//     return view('artworks', [
-//         "title" => "Karya"
-//     ]);
-// });
-
-// Route::get('/patung', function () {
-//     return view('patung', [
-//         "title" => "Karya Patung"
-//     ]);
-// });
-
-// Route::get('/karya-single', function () {
-//     return view('karya-single', [
-//         "title" => "Detail Karya"
-//     ]);
-// });
 
 
 
@@ -152,11 +144,27 @@ Route::get("/admin/buat-karya", function () {
     ]);
 });
 
-Route::get("/admin/dashboard-admin", function () {
-    return view("admin.dashboard_admin", [
-        "title" => "Dashboard Admin"
+
+// dashboard admin
+Route::get('/admin/dashboard-admin',[AdminController::class, 'index'])->middleware('auth');
+
+
+// dashboard karya admin
+Route::resource('/admin/table-karya', DashboardArtworkController::class)->middleware('auth');
+
+
+/* Route::get("/admin/table-karya", function () {
+    return view("admin.table_karya", [
+        "title" => "Table Karya"
     ]);
 });
+ */
+
+// Route::get("/admin/dashboard-admin", function () {
+//     return view("admin.dashboard_admin", [
+//         "title" => "Dashboard Admin"
+//     ]);
+// });
 
 
 Route::get("/admin/edit-event", function () {
@@ -190,11 +198,7 @@ Route::get("/admin/table-event", function () {
     ]);
 });
 
-Route::get("/admin/table-karya", function () {
-    return view("admin.table_karya", [
-        "title" => "Table Karya"
-    ]);
-});
+
 
 Route::get("/admin/table-pesanan", function () {
     return view("admin.table_pesanan", [

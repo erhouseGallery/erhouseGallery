@@ -8,7 +8,7 @@
     <h2 class="mb-35 black">Dashboard Admin</h2>
     <div class="d-flex gap-4">
       <div class="box">
-        <h1>10</h1>
+        <h1>11</h1>
         <h3>Total Karya</h3>
       </div>
       <div class="box">
@@ -18,6 +18,10 @@
       <div class="box">
         <h1>5</h1>
         <h3>Total Event</h3>
+      </div>
+      <div class="box">
+        <h1>2</h1>
+        <h3>Total Pesanan</h3>
       </div>
       <div class="box">
         <h1>2</h1>
