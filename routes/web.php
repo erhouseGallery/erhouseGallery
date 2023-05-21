@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ArtworkController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CobaController as coba;
 use App\Models\Article;
 use Illuminate\Support\Facades\Route;
@@ -39,17 +41,48 @@ Route::get('/login', function () {
     ]);
 });
 
+
+// Register
 Route::get('/register', function () {
     return view('auth/register', [
         "title" => "Register"
     ]);
 });
 
+Route::post('/register', [AuthController::class, 'store']);
+
+
 Route::get('/forgot-password', function () {
     return view('auth/forgot-password', [
         "title" => "Lupa Password"
     ]);
 });
+
+
+
+// semua artwork (karya)
+Route::get('/artworks', [ArtworkController::class, 'index']);
+Route::get('/artworks/{id}', [ArtworkController::class, 'show']);
+
+// Route::get('/artworks', function () {
+//     return view('artworks', [
+//         "title" => "Karya"
+//     ]);
+// });
+
+// Route::get('/patung', function () {
+//     return view('patung', [
+//         "title" => "Karya Patung"
+//     ]);
+// });
+
+// Route::get('/karya-single', function () {
+//     return view('karya-single', [
+//         "title" => "Detail Karya"
+//     ]);
+// });
+
+
 
 Route::get('/articles', [ArticleController::class, 'index']);
 
@@ -67,23 +100,7 @@ Route::get('/event-single', function () {
     ]);
 });
 
-Route::get('/lukisan', function () {
-    return view('lukisan', [
-        "title" => "Karya Lukisan"
-    ]);
-});
 
-Route::get('/patung', function () {
-    return view('patung', [
-        "title" => "Karya Patung"
-    ]);
-});
-
-Route::get('/karya-single', function () {
-    return view('karya-single', [
-        "title" => "Detail Karya"
-    ]);
-});
 
 Route::get('/about', function () {
     return view('about', [

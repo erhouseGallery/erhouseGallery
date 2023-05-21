@@ -6,9 +6,17 @@
             <div class="row justify-content-sm-center">
                 <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
                     <div class="text-center my-5">
-                        <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="logo"
+                        <img src="" alt="logo"
                             width="100">
                     </div>
+
+                    {{-- alert jika berhasil registrasi --}}
+                    @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+
                     <div class="card shadow-lg">
                         <div class="card-body p-5">
                             <h3 class="card-title fw-bold mb-4">Masuk ke akun anda</h3>

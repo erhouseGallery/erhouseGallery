@@ -39,8 +39,8 @@
                 <ul class="navbar-nav">
                     @guest
                     <li class="nav-item d-flex">
-                        <a href="" class="text-white nav-link btn btn-primary mr-2 px-3">Daftar</a>
-                        <a href="" class=" text-danger nav-link btn btn-outline-danger px-3">Login</a>
+                        <a href="/register" class="text-white nav-link btn btn-primary mr-2 px-3">Daftar</a>
+                        <a href="/login" class=" text-danger nav-link btn btn-outline-danger px-3">Login</a>
                     </li>
                     @endguest
 
