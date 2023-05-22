@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid px-5">
         <a class="navbar-brand" href="#">Erhouse Gallery</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -11,7 +12,8 @@
                     <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/"> Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Karya
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -25,7 +27,7 @@
 
                 </li>
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Event' ? 'active' : '' }}" href="/event">Event</a>
+                    <a a class="nav-link {{ $title === 'Event' ? 'active' : '' }}" href="/events">Event</a>
                 </li>
                 <li class="nav-item">
                     <a a class="nav-link {{ $title === 'Tentang Kami' ? 'active' : '' }}" href="/about">Tentang
@@ -38,26 +40,28 @@
             <div>
                 <ul class="navbar-nav">
                     @guest
-                    <li class="nav-item d-flex">
-                        <a href="" class="text-white nav-link btn btn-primary mr-2 px-3">Daftar</a>
-                        <a href="" class=" text-danger nav-link btn btn-outline-danger px-3">Login</a>
-                    </li>
+                        <li class="nav-item d-flex">
+                            <a href="/register" class="text-white nav-link btn btn-primary mr-2 px-3">Daftar</a>
+                            <a href="/login" class=" text-danger nav-link btn btn-outline-danger px-3">Login</a>
+                        </li>
                     @endguest
 
                     @auth
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1" style="width: 50px">
-                            Fandi P.
-                            {{auth()->user()->name}}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Dashboard</a>
-                            <a class="dropdown-item" href="#">Pemesanan</a>
-                            <a class="dropdown-item" href="#">Profil</a>
-                            <a class="dropdown-item" href="#">Logout</a>
-                        </div>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1"
+                                    style="width: 50px">
+                                Fandi P.
+                                {{ auth()->user()->name }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Dashboard</a>
+                                <a class="dropdown-item" href="#">Pemesanan</a>
+                                <a class="dropdown-item" href="#">Profil</a>
+                                <a class="dropdown-item" href="#">Logout</a>
+                            </div>
+                        </li>
                     @endauth
                 </ul>
             </div>

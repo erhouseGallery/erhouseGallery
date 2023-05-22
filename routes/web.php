@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\CobaController as coba;
 use App\Models\Article;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +15,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/coba/{coba}', function($coba) {
-//     return "nama saya : $coba";
-// });
 
 
 
@@ -52,20 +44,11 @@ Route::get('/forgot-password', function () {
 });
 
 Route::get('/articles', [ArticleController::class, 'index']);
-
 Route::get('/articles/show/{article:id}', [ArticleController::class, 'show']);
 
-Route::get('/event', function () {
-    return view('event', [
-        "title" => "Event"
-    ]);
-});
+Route::get('/events', [EventController::class, 'index']);
+Route::get('/events/show/{event:id}', [EventController::class, 'show']);
 
-Route::get('/event-single', function () {
-    return view('event-single', [
-        "title" => "Detail Event"
-    ]);
-});
 
 Route::get('/lukisan', function () {
     return view('lukisan', [
@@ -123,12 +106,6 @@ Route::get("/profil", function () {
 });
 
 
-Route::get("/admin/buat-event", function () {
-    return view("admin.buat_event", [
-        "title" => "Buat Event"
-    ]);
-});
-
 Route::get("/admin/buat-karya", function () {
     return view("admin.buat_karya", [
         "title" => "Buat Karya"
@@ -141,12 +118,6 @@ Route::get("/admin/dashboard-admin", function () {
     ]);
 });
 
-
-Route::get("/admin/edit-event", function () {
-    return view("admin.edit_event", [
-        "title" => "Edit Event"
-    ]);
-});
 
 Route::get("/admin/edit-karya", function () {
     return view("admin.edit_karya", [
@@ -163,9 +134,16 @@ Route::get("/admin/edit-pesanan", function () {
 Route::get("/admin/articles", [ArticleController::class, "indexAdmin"]);
 Route::get("/admin/articles/edit/{article:id}", [ArticleController::class, 'editAdmin']);
 Route::put("/admin/articles/update/{article:id}", [ArticleController::class, 'updateAdmin']);
-Route::get("/admin/articles/create", [ArticleController::class, "createAdmin" ] );
-Route::post("/admin/articles/store", [ArticleController::class, "storeAdmin" ] );
-Route::delete("/admin/articles/delete/{article:id}", [ArticleController::class, "destroyAdmin" ] );
+Route::get("/admin/articles/create", [ArticleController::class, "createAdmin"]);
+Route::post("/admin/articles/store", [ArticleController::class, "storeAdmin"]);
+Route::delete("/admin/articles/delete/{article:id}", [ArticleController::class, "destroyAdmin"]);
+
+Route::get("/admin/events", [EventController::class, "indexAdmin"]);
+Route::get("/admin/events/create", [EventController::class, "createAdmin"]);
+Route::post("/admin/events/store", [EventController::class, "storeAdmin"]);
+Route::get("/admin/events/edit/{event:id}", [EventController::class, 'editAdmin']);
+Route::put("/admin/events/update/{event:id}", [EventController::class, 'updateAdmin']);
+Route::delete("/admin/events/delete/{event:id}", [EventController::class, "destroyAdmin"]);
 
 Route::get("/admin/table-event", function () {
     return view("admin.table_event", [

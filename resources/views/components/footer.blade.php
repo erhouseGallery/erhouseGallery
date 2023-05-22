@@ -1,4 +1,4 @@
-<footer id="footer" class="footer">
+<footer id="footer" class="footer mt-5">
     <h4 class="text-center text-white font-weight-bold">Erhouse Gallery</h4>
     <div class="container d-flex p-2 justify-content-center">
         <!-- Section: Social media -->
