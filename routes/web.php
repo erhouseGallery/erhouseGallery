@@ -138,11 +138,8 @@ Route::get("/admin/buat-event", function () {
     ]);
 });
 
-Route::get("/admin/buat-karya", function () {
-    return view("admin.buat_karya", [
-        "title" => "Buat Karya"
-    ]);
-});
+
+
 
 
 // dashboard admin
@@ -150,8 +147,10 @@ Route::get('/admin/dashboard-admin',[AdminController::class, 'index'])->middlewa
 
 
 // dashboard karya admin
-Route::resource('/admin/table-karya', DashboardArtworkController::class)->middleware('auth');
+Route::resource('/admin/artworks', DashboardArtworkController::class)->middleware('auth');
 
+// create artworks (admin)
+Route::get('/admin/create-artworks', [DashboardArtworkController::class, 'create']);
 
 /* Route::get("/admin/table-karya", function () {
     return view("admin.table_karya", [

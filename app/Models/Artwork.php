@@ -16,4 +16,16 @@ class Artwork extends Model
     public function Status() {
         return $this->belongsTo(Status::class);
     }
+
+    protected $fillable = [
+        'title',
+        'category_id',
+        'image',
+        'material',
+        'size',
+        'year',
+        'description',
+        'status_id',
+        'user_id',
+    ];
 }

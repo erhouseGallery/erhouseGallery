@@ -34,7 +34,7 @@
                     <span>Dashboard</span></a></li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                     <span>Pemesanan</span></a></li>
-            <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/table-karya">
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="artworks">
                     <span>Karya</span></a></li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                     <span>Artikel</span></a></li>

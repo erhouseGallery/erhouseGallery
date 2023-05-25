@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('content')
 <div class="d-flex">
   @include('components.sidebar')

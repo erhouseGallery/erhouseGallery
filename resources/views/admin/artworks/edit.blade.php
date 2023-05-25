@@ -6,13 +6,14 @@
 
   <section id="edit_karya" class="admin-form">
     <h2 class="mb-15">Edit Karya</h2>
-    <form action="">
+    <form action="post" action="/admin/artworks/{{ $arwork->id }}">
+        @method('put')
+        @csrf
       <div class="mb-3">
         <input type="text" class="form-control border-16" id="judul" placeholder="Judul">
       </div>
       <div class="form-group mb-3">
         <textarea name="deskripsi" id="deskripsi" class="form-control border-16 " rows="5" placeholder="Deskripsi"></textarea>
-      </div>
       <div class="input-group mb-3 ">
         <input type="file" class="form-control border-16" id="inputGroupFile02">
       </div>
