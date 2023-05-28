@@ -35,7 +35,7 @@
               <th scope="row">{{ $loop->iteration }}</th>
               <td>{{ $artwork->title }}</td>
               <td>{{ $artwork->category->name }}</td>
-              <td><img class="w-120" src="./assets/img/karya/monalisa.jpg" alt=""></td>
+              <td><img class="w-120" src="{{ asset('storage/' . $artwork->image) }}" alt=""></td>
               <td>{{ $artwork->material }}</td>
               <td>{{ $artwork->size }}</td>
               <td>{{ $artwork->year }}</td>

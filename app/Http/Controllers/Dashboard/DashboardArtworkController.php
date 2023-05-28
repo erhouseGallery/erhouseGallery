@@ -7,7 +7,7 @@ use App\Models\Category;
 use App\Models\Status;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
+// use Illuminate\Support\Facades\Storage;
 
 class DashboardArtworkController extends Controller
 {
@@ -42,18 +42,21 @@ class DashboardArtworkController extends Controller
      */
     public function store(Request $request)
     {
-
         $validateData = $request->validate([
             'title' => 'required|max:255',
             'category_id' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
             'material' => 'required|max:255',
             'size' => 'required|max:255',
             'year' => 'required|max:255',
             'description' => 'required|max:255',
             'status_id' => 'required',
-
         ]);
+
+        if($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('artworks-image');
+        }
+
 
         $validateData['user_id'] = auth()->user()->id;
 

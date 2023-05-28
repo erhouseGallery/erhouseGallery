@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->foreignId('user_id');
             $table->foreignId('category_id');
-            // $table->string('image');
+            $table->string('image')->nullable();
             $table->string('material');
             $table->string('size');
             $table->string('year');

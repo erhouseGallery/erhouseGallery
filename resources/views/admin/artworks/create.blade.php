@@ -5,7 +5,7 @@
 
   <section id="buat_karya" class="admin-form">
     <h2 class="mb-15 black">Buat Karya</h2>
-    <form method="post" action="/admin/artworks">
+    <form method="post" action="/admin/artworks" enctype="multipart/form-data">
         @csrf
       <div class="mb-3">
         <input type="text" class="form-control @error('title') is-invalid @enderror border-16" id="title" name="title" placeholder="Judul" required autofocus>
@@ -34,14 +34,14 @@
         @endforeach
       </select>
 
-      {{-- <div class="input-group mb-3 ">
+      <div class="input-group mb-3 ">
         <input type="file" class="form-control  @error('image') is-invalid @enderror border-16" id="image" name="image">
         @error('image')
         <div class="invalid-feedback">
             {{ $message }}
             </div>
     @enderror
-    </div> --}}
+    </div>
 
       <div class="mb-3">
         <input type="text" class="form-control  @error('material') is-invalid @enderror border-16" id="material" name="material" placeholder="Bahan"  required autofocus >

@@ -13,22 +13,7 @@
                         <div class="swiper-wrapper align-items-center">
 
                             <div class="swiper-slide">
-                                <img src="" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/img/gallery/gallery-13.jpg" alt="">
+                                <img src="{{ asset('storage/' . $artwork->image) }}" alt="">
                             </div>
 
                         </div>

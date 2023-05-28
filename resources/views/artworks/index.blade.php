@@ -33,7 +33,7 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="gallery-item h-100">
-                            <img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/' . $item->image) }}" class="img-fluid" alt="">
                             <div class="gallery-links d-flex align-items-center justify-content-center">
                                 <a href="gallery-single.html" class="details-link">{{ $item["title"] }}</a>
                             </div>

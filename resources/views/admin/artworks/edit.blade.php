@@ -54,6 +54,14 @@
             </div>
         @enderror
     </div>
+      <div class="mb-3">
+        <input type="text" class="form-control @error('material') is-invalid @enderror border-16" id="material" name="material" placeholder="Tahun" required autofocus value="{{ old('year', $artwork->material) }}">
+        @error('material')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
 
       <div class="mb-3">
         <input type="text" class="form-control @error('size') is-invalid @enderror border-16" id="size" name="size" placeholder="Ukuran" required autofocus value="{{ old('size', $artwork->size) }}">
@@ -65,7 +73,7 @@
     </div>
 
 
-    <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="category_id" id="category_id">
+    <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="status_id" id="status_id">
         @foreach($statuses as $status)
         @if(old('status_id', $artwork->status_id === $status->id))
         <option value="{{ $status->id }}" selected>{{ $status->name }}</option>
@@ -74,7 +82,7 @@
          @endforeach
        </select>
 
-      <button type="submit" >Submit</button>
+      <button type="submit" class="red-button">Submit</button>
 
     </form>
   </section>
