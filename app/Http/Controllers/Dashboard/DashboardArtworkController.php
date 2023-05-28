@@ -6,8 +6,8 @@ use App\Models\Artwork;
 use App\Models\Category;
 use App\Models\Status;
 use Illuminate\Http\Request;
-
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardArtworkController extends Controller
 {
@@ -76,7 +76,11 @@ class DashboardArtworkController extends Controller
      */
     public function edit(Artwork $artwork)
     {
-        //
+        // agar tidak bisa melihat yang lain
+        // if ($artwork->user->id !== auth()->user()->id) {
+        //     abort(403);
+        // }
+
         return view('admin.artworks.edit', [
             'title' => 'Edit Karya',
             'artwork' => $artwork,
@@ -89,9 +93,26 @@ class DashboardArtworkController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Artwork $artwork)
     {
         //
+        $validateData = $request->validate([
+            'title' => 'required|max:255',
+            'category_id' => 'required',
+            // 'image' => 'image|file|max:1024',
+            'material' => 'required|max:255',
+            'size' => 'required|max:255',
+            'year' => 'required|max:255',
+            'description' => 'required|max:255',
+            'status_id' => 'required',
+
+        ]);
+
+        $validateData['user_id'] = auth()->user()->id;
+        Artwork::where('id', $artwork->id)
+                ->update($validateData);
+
+        return redirect('/admin/artworks')->with('success', 'data berhasil diupdate');
     }
 
     /**

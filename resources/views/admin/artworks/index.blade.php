@@ -10,7 +10,7 @@
         {{ session('success') }}
     </div>
     @endif
-    <a href="/admin/create-artworks"><button class="red-button mb-35">Buat Karya Baru</button><a>
+    <a href="/admin/artworks/create"><button class="red-button mb-35">Buat Karya Baru</button><a>
         <table class="table-a">
           <thead class="red text-white">
             <tr>
@@ -47,7 +47,6 @@
 
               <td class="d-flex">
                 <button class="red-button mx-2" style="font-size: 10px;"><a href="/admin/artworks/{{ $artwork->id }}/edit">edit</a></button>
-
                 <form action="/admin/artworks/{{ $artwork->id }}" method="post">
                 @method('delete')
                 @csrf

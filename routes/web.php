@@ -150,7 +150,10 @@ Route::get('/admin/dashboard-admin',[AdminController::class, 'index'])->middlewa
 Route::resource('/admin/artworks', DashboardArtworkController::class)->middleware('auth');
 
 // create artworks (admin)
-Route::get('/admin/create-artworks', [DashboardArtworkController::class, 'create']);
+// Route::get('/admin/create-artworks', [DashboardArtworkController::class, 'create']);
+
+
+// Route::get('/admin/create-artworks', [DashboardArtworkController::class, 'create']);
 
 /* Route::get("/admin/table-karya", function () {
     return view("admin.table_karya", [

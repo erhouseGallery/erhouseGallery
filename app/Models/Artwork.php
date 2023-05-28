@@ -20,7 +20,7 @@ class Artwork extends Model
     protected $fillable = [
         'title',
         'category_id',
-        'image',
+        // 'image',
         'material',
         'size',
         'year',
