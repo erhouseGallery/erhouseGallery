@@ -28,14 +28,21 @@
         @enderror
     </div>
 
-        {{-- <div class="input-group mb-3 ">
-        <input type="file" class="form-control border-16" id="inputGroupFile02">
+
+    <div class="input-group mb-3" id="frame" >
+        <input type="hidden" name="oldImage" value="{{ $artwork->image }}">
+        @if ($artwork->image)
+        <img src="{{ asset('storage/' . $artwork->image) }}" alt="" class="img-preview">
+        @else
+        <img  class="img-preview img-fluid" alt="">
+        @endif
+        <input type="file" class="form-control @error('image') is-invalid @enderror border-16" id="image" name="image" onchange="previewImage()" >
         @error('description')
         <div class="invalid-feedback">
             {{ $message }}
         </div>
     @enderror
-    </div> --}}
+    </div>
 
       <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="category_id" id="category_id">
        @foreach($categories as $category)
@@ -81,7 +88,6 @@
         <option value="{{ $status->id }}" selected>{{ $status->name }}</option>
          @endforeach
        </select>
-
       <button type="submit" class="red-button">Submit</button>
 
     </form>
@@ -89,6 +95,27 @@
 
 </div>
 
+
 @include('components.footer')
 
+<script>
+function previewImage() {
+
+const image = document.querySelector('#image');
+const imgPreview = document.querySelector('.img-preview');
+
+imgPreview.style.display = 'block';
+
+const oFReader = new FileReader();
+oFReader.readAsDataURL(image.files[0]);
+
+oFReader.onload = function(oFREvent) {
+    imgPreview.src = oFREvent.target.result;
+}
+
+}
+</script>
+
 @endsection
+
+

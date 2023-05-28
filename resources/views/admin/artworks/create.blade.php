@@ -35,7 +35,8 @@
       </select>
 
       <div class="input-group mb-3 ">
-        <input type="file" class="form-control  @error('image') is-invalid @enderror border-16" id="image" name="image">
+        <img  class="img-preview img-fluid" alt="">
+        <input type="file" class="form-control  @error('image') is-invalid @enderror border-16" id="image" name="image" onchange="previewImage()">
         @error('image')
         <div class="invalid-feedback">
             {{ $message }}
@@ -89,4 +90,22 @@
 </div>
 
 @include('components.footer')
+
+<script>
+    function previewImage() {
+
+    const image = document.querySelector('#image');
+    const imgPreview = document.querySelector('.img-preview');
+
+    imgPreview.style.display = 'block';
+
+    const oFReader = new FileReader();
+    oFReader.readAsDataURL(image.files[0]);
+
+    oFReader.onload = function(oFREvent) {
+        imgPreview.src = oFREvent.target.result;
+    }
+
+    }
+    </script>
 @endsection

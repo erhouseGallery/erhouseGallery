@@ -7,7 +7,7 @@ use App\Models\Category;
 use App\Models\Status;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-// use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardArtworkController extends Controller
 {
@@ -102,7 +102,7 @@ class DashboardArtworkController extends Controller
         $validateData = $request->validate([
             'title' => 'required|max:255',
             'category_id' => 'required',
-            // 'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:1024',
             'material' => 'required|max:255',
             'size' => 'required|max:255',
             'year' => 'required|max:255',
@@ -110,6 +110,13 @@ class DashboardArtworkController extends Controller
             'status_id' => 'required',
 
         ]);
+
+        if($request->file('image')) {
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validateData['image'] = $request->file('image')->store('artworks-image');
+        }
 
         $validateData['user_id'] = auth()->user()->id;
         Artwork::where('id', $artwork->id)
@@ -123,7 +130,9 @@ class DashboardArtworkController extends Controller
      */
     public function destroy(Artwork $artwork)
     {
-        //
+        if($artwork->image) {
+            Storage::delete($artwork->image);
+        }
 
         Artwork::destroy($artwork->id);
         return redirect('/admin/artworks')->with('success', 'data berhasil dihapus');
