@@ -47,7 +47,7 @@ Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/articles/show/{article:id}', [ArticleController::class, 'show']);
 
 Route::get('/events', [EventController::class, 'index']);
-Route::get('/events/show/{event:id}', [EventController::class, 'show']);
+Route::get('/events/show/{event:slug}', [EventController::class, 'show']);
 
 
 Route::get('/lukisan', function () {
@@ -141,9 +141,11 @@ Route::delete("/admin/articles/delete/{article:id}", [ArticleController::class, 
 Route::get("/admin/events", [EventController::class, "indexAdmin"]);
 Route::get("/admin/events/create", [EventController::class, "createAdmin"]);
 Route::post("/admin/events/store", [EventController::class, "storeAdmin"]);
-Route::get("/admin/events/edit/{event:id}", [EventController::class, 'editAdmin']);
-Route::put("/admin/events/update/{event:id}", [EventController::class, 'updateAdmin']);
-Route::delete("/admin/events/delete/{event:id}", [EventController::class, "destroyAdmin"]);
+Route::get("/admin/events/edit/{event:slug}", [EventController::class, 'editAdmin']);
+Route::put("/admin/events/update/{event:slug}", [EventController::class, 'updateAdmin']);
+Route::delete("/admin/events/delete/{event:slug}", [EventController::class, "destroyAdmin"]);
+
+Route::get("/admin/events/checkSlug", [EventController::class, "checkSlug"]);
 
 Route::get("/admin/table-event", function () {
     return view("admin.table_event", [

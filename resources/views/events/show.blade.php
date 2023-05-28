@@ -9,7 +9,7 @@
                     <div class="slides-1 portfolio-details-slider swiper">
                         <div class="swiper-wrapper align-items-center">
                             <div class="swiper-slide" style="max-height: 500px; overflow:hidden">
-                                <img src="{{ asset('storage/' . $event->image) }}" alt="">
+                                <img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="">
                             </div>
                             <div class="swiper-slide">
                                 <img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class EventController extends Controller
 {
@@ -41,22 +42,19 @@ class EventController extends Controller
         ]);
     }
 
-    public function storeAdmin()
+    public function storeAdmin(Request $request)
     {
-        if (request()->file('image')) {
-            $image = request()->file('image')->store('images/events');
-        } else {
-            $image = null;
-        }
-
-        Event::create([
-            "title" => request()->title,
-            "image" => $image,
-            "description" => request()->description,
-            "location" => request()->location,
-            "date" => request()->date,
-            "time" => request()->time,
+        $validatedData = $request->validate([
+            'title' => 'required|unique:events|max:255',
+            'slug' => 'required|unique:events',
+            'image' => 'required',
+            'description' => 'required',
+            'location' => 'required',
+            'date' => 'required',
+            'time' => 'required',
         ]);
+
+        Event::create($validatedData);
         return redirect('/admin/events');
     }
 
@@ -68,22 +66,25 @@ class EventController extends Controller
         ]);
     }
 
-    public function updateAdmin(Event $event)
+    public function updateAdmin(Request $request, Event $event)
     {
-        if (request()->file('image')) {
-            $image = request()->file('image')->store('images/events');
-        } else {
-            $image = null;
+        $rules = [
+            'title' => 'required|max:255',
+            'image' => 'required',
+            'description' => 'required',
+            'location' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+        ];
+
+        if ($request->slug != $event->slug) {
+            $rules['slug'] = 'required|unique:events';
         }
 
-        $event->update([
-            "title" => request()->title,
-            "image" => $image,
-            "description" => request()->description,
-            "location" => request()->location,
-            "date" => request()->date,
-            "time" => request()->time,
-        ]);
+        $validatedData = $request->validate($rules);
+
+        Event::where('id', $event->id)
+            ->update($validatedData);
 
         return redirect('/admin/events');
     }
@@ -92,5 +93,11 @@ class EventController extends Controller
     {
         $event->delete();
         return redirect('/admin/events');
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Event::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

@@ -20,7 +20,7 @@
                             <div class="card-body">
                                 <h5 class="card-title font-weight-bold">{{ $event->title }}</h5>
                                 {{-- <p class="card-text">{{ $event->excerpt }}</p> --}}
-                                <a href="/events/show/{{ $event->id }}" class="btn border-0">Event Detail</a>
+                                <a href="/events/show/{{ $event->slug }}" class="btn border-0">Event Detail</a>
                             </div>
                         </div>
                     </div>

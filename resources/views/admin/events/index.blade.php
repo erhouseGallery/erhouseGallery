@@ -31,16 +31,17 @@
                                     <td>{{ $event->date }}</td>
                                     <td>{{ $event->time }}</td>
                                     <td class="d-flex">
-                                        <a href="/admin/events/edit/{{ $event->id }}" class="red-button"
-                                            style="font-size: 10px;">Edit</a>
-                                        <form action="/admin/events/delete/{{ $event->id }}" method="post">
+                                        <a href="/admin/events/edit/{{ $event->slug }}" class="red-button"
+                                            style="font-size: 10px;"><i class="bi bi-pencil-square"></i></a>
+                                        <form action="/admin/events/delete/{{ $event->slug }}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="red-button mx-2"
-                                                style="font-size: 10px;">Hapus</button>
+                                            <button type="submit" class="red-button mx-2" style="font-size: 10px;"
+                                                onclick="return confirm('Apakah anda yakin?')"><i
+                                                    class="bi bi-trash"></i></button>
                                         </form>
-                                        <a href="/events/show/{{ $event->id }}" class="red-button"
-                                            style="font-size: 10px;">Detail</a>
+                                        <a href="/events/show/{{ $event->slug }}" class="red-button"
+                                            style="font-size: 10px;"><i class="bi bi-eye"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
