@@ -6,6 +6,7 @@ use App\Http\Controllers\FrontPage\ArtworkController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Models\Article;
 
+use App\Http\Controllers\Dashboard\DashboardOrderController;
 use App\Http\Controllers\Dashboard\DashboardArtworkController;
 
 
@@ -149,6 +150,9 @@ Route::get('/admin/dashboard-admin',[AdminController::class, 'index'])->middlewa
 // dashboard karya admin
 Route::resource('/admin/artworks', DashboardArtworkController::class)->middleware('auth');
 
+//dasboard
+Route::resource('/admin/orders',DashboardOrderController::class)->middleware('auth');
+
 // create artworks (admin)
 // Route::get('/admin/create-artworks', [DashboardArtworkController::class, 'create']);
 
@@ -202,8 +206,8 @@ Route::get("/admin/table-event", function () {
 
 
 
-Route::get("/admin/table-pesanan", function () {
-    return view("admin.table_pesanan", [
-        "title" => "Table Pesanan"
-    ]);
-});
+// Route::get("/admin/table-pesanan", function () {
+//     return view("admin.table_pesanan", [
+//         "title" => "Table Pesanan"
+//     ]);
+// });

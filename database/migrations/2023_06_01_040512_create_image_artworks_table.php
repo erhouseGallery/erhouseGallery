@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('image_artworks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('number');
-            $table->string('address');
-            $table->string('password');
-            $table->rememberToken();
+            $table->unsignedBigInteger('artwork_id');
+            $table->string('path');
+            $table->foreign('artwork_id')->references('id')->on('artworks')->onDelete('cascade');
             $table->timestamps();
-            // $table->boolean('is_admin')->default(false);
         });
     }
 
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('image_artworks');
     }
 };

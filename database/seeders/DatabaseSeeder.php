@@ -9,6 +9,8 @@ use App\Models\Article;
 use App\Models\Artwork;
 use App\Models\Category;
 use App\Models\Status;
+use App\Models\Order;
+use App\Models\Information;
 use Illuminate\Database\Seeder;
 
 
@@ -29,8 +31,18 @@ class DatabaseSeeder extends Seeder
         // seeder User
         User::create([
             'name' => 'admin',
-            'email' => 'email@gmail.com',
+            'email' => 'admin@gmail.com',
             'number' => '081234567890',
+            'address' => 'Jalan merdeka No.45 Yogyakarta',
+            'password' => bcrypt('12345'),
+
+        ]);
+
+        User::create([
+            'name' => 'user1',
+            'email' => 'user@gmail.com',
+            'number' => '080987654321',
+            'address' => 'Jalan merdeka No.45 Yogyakarta',
             'password' => bcrypt('12345'),
 
         ]);
@@ -51,6 +63,19 @@ class DatabaseSeeder extends Seeder
 
         Status::create([
             'name' => 'Sold',
+        ]);
+
+
+        // seeder information
+        Information::create([
+            'name' => 'Sedang Pengecekan'
+        ]);
+        Information::create([
+            'name' => 'Ditolak'
+        ]);
+
+        Information::create([
+            'name' => 'Diterima'
         ]);
 
 
@@ -87,6 +112,30 @@ class DatabaseSeeder extends Seeder
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu tincidunt odio. Morbi vel consectetur tellus. Suspendisse aliquet facilisis dolor, at finibus purus condimentum sit amet. Integer dapibus, libero vitae sollicitudin convallis, tortor metus vestibulum ligula, eget condimentum dolor purus in ligula. Cras faucibus magna vel metus tempor, vitae ultricies lectus interdum. Sed pellentesque aliquam ipsum, non tempor lectus interdum vel. Suspendisse ac placerat mauris. Vivamus pulvinar ligula vel magna accumsan lobortis. Morbi eu dolor et est venenatis tempor vitae non est. Nunc lobortis nunc ut sem faucibus aliquet. Curabitur eget nisl et erat interdum vulputate. Ut ut aliquet massa.',
             'image' => 'kanvas.jpg',
             'date' => $currentDate,
+        ]);
+
+        //seeder order
+        $currentDate = date('d-m-y');
+        Order::create([
+            'user_id' => 2,
+            'order_name' => 'pesan patung kuda lari berbahan semen',
+            'category_id' => 2,
+            // 'image' => 'contohpersawahan.jpg',
+            'description' => 'Lorem ipsum dolor sit ',
+            'information_id' => 1,
+            'note' => 'pesanan telah diterima, akan dihubungi melalui wa',
+            // 'date' => $currentDate,
+        ]);
+        $currentDate = date('d-m-y');
+        Order::create([
+            'user_id' => 2,
+            'order_name' => 'pesan lukisan persawahan',
+            'category_id' => 2,
+            // 'image' => 'contohpersawahan.jpg',
+            'description' => 'Lorem ipsum dolor sit ',
+            'information_id' => 2,
+            'note' => 'pesanan ditolak karena gambar kurang jelas',
+            // 'date' => $currentDate,
         ]);
 
     }

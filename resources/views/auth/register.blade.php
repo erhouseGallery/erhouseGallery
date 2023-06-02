@@ -37,10 +37,20 @@
 
                                 </div>
                                 <div class="mb-4">
-                                    <label class="mb-2 text-muted" for="email">Nomor</label>
+                                    <label class="mb-2 text-muted" for="number">Nomor</label>
                                     <input id="number" type="text" class="form-control @error('number') is-invalid @enderror" name="number" value=""
                                         required autofocus>
                                     @error('number')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                                <div class="mb-4">
+                                    <label class="mb-2 text-muted" for="address">Alamat</label>
+                                    <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value=""
+                                        required autofocus>
+                                    @error('address')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

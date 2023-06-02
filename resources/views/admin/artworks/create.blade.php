@@ -36,7 +36,7 @@
 
       <div class="input-group mb-3 ">
         <img  class="img-preview img-fluid" alt="">
-        <input type="file" class="form-control  @error('image') is-invalid @enderror border-16" id="image" name="image" onchange="previewImage()">
+        <input type="file" class="form-control  @error('image') is-invalid @enderror border-16" id="image" name="image" onchange="previewImage()" multiple>
         @error('image')
         <div class="invalid-feedback">
             {{ $message }}
