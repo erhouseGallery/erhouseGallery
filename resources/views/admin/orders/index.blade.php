@@ -29,7 +29,9 @@
                     <th class="text-light text-center">Keterangan</th>
                     <th class="text-light text-center">Catatan</th>
                     <th class="text-light text-center">Tanggal</th>
+                    @can('admin')
                     <th scope="col" class="text-light text-center">Aksi</th>
+                    @endcan
                 </tr>
             </thead>
             <tbody class="">
@@ -43,14 +45,15 @@
                     <td>{{ $order->user->number }}</td>
                     <td>{{ $order->order_name }}</td>
                     <td>{{ $order->category->name }}</td>
-                    <td>{{ $order->image }}</td>
-                    {{-- <td><img src="/sketsa.png" alt="" class="img-fluid" style="width : 80%"></td> --}}
+
+                    <td><img src="{{ asset('storage/'. $order->image) }}" alt="" class="img-fluid" style="width : 80%"></td>
 
                     <td>{{ $order->description }}</td>
                     <td>{{ $order->information->name }}</td>
                     <td>{{ $order->note }}</td>
                     <td>{{ $order->created_at }}</td>
 
+                    @can('admin')
                     <td class="d-flex">
                         <button class="red-button mx-2" style="font-size: 10px;"><a href="/admin/orders/{{ $order->id }}/edit">edit</a></button>
                         <form action="/admin/orders/{{ $order->id }}" method="post">
@@ -60,6 +63,7 @@
                         </form>
                         <button class="red-button mx-2" style="font-size: 10px;">Detail</button>
                       </td>
+                    @endcan
                 </tr>
 
                 @endforeach

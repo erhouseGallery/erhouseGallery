@@ -11,12 +11,10 @@ use Illuminate\Support\Facades\Storage;
 
 class DashboardArtworkController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+
         return view('admin.artworks.index',[
             'title' => 'Table Karya',
             'artworks' =>  Artwork::where('user_id', auth()->user()->id)->get()
@@ -40,7 +38,7 @@ class DashboardArtworkController extends Controller
         $validateData = $request->validate([
             'title' => 'required|max:255',
             'category_id' => 'required',
-            // 'image' => 'image|file|max:3072',
+            'image' => 'image|file|max:3072',
             'material' => 'required|max:255',
             'size' => 'required|max:255',
             'year' => 'required|max:255',

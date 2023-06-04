@@ -15,7 +15,6 @@
           <thead class="red text-white">
             <tr>
               <th scope="col" class="text-center">No</th>
-              <th scope="col" class="text-center">user id</th>
               <th scope="col" class="text-center" style="width: 10%;">Judul</th>
               <th scope="col" class="text-center">Kategori</th>
               <th scope="col" class="text-center" style="width: 10%;">Gambar</th>
@@ -35,7 +34,6 @@
             <tr>
               <th scope="row">{{ $loop->iteration }}</th>
               <td>{{ $artwork->title }}</td>
-              <td>{{ $artwork->user->name }}</td>
               <td>{{ $artwork->category->name }}</td>
               <td><img class="w-120" src="{{ asset('storage/' . $artwork->image) }}" alt=""></td>
               <td>{{ $artwork->material }}</td>

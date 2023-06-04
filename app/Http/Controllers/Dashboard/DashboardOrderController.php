@@ -7,11 +7,19 @@ use App\Models\Order;
 use App\Models\Category;
 use App\Models\Information;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 class DashboardOrderController extends Controller
 {
 
     public function index()
     {
+        if(auth()->user()->is_admin) {
+            return view('admin.orders.index',[
+                'title' => 'pesanan',
+                'orders' => Order::all()
+            ]);
+
+        }
         return view('admin.orders.index',[
             'title' => 'pesanan',
             'orders' => Order::where('user_id', auth()->user()->id)->get()
@@ -38,8 +46,13 @@ class DashboardOrderController extends Controller
         $validateData = $request->validate([
             'order_name' => 'required|max:255',
             'category_id' => 'required',
+            'image' => 'image|file|max:3072',
             'description' => 'required|max:255',
         ]);
+
+        if($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('orders-image');
+        }
 
         $validateData['user_id'] = auth()->user()->id;
         Order::create($validateData);
@@ -48,17 +61,13 @@ class DashboardOrderController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(Order $order)
     {
 
@@ -84,11 +93,13 @@ class DashboardOrderController extends Controller
         return redirect('/admin/orders')->with('success', 'pesanan berhasil diupdate');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Order $order)
     {
+
+        if($order->image) {
+            Storage::delete($order->image);
+        }
         Order::destroy($order->id);
         return redirect('/admin/orders')->with('success', 'data berhasil dihapus');
     }

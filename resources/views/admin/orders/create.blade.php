@@ -24,7 +24,7 @@
       </select>
 
 
-      {{-- <div class="input-group mb-3 ">
+      <div class="input-group mb-3 ">
         <img  class="img-preview img-fluid" alt="">
         <input type="file" class="form-control  @error('image') is-invalid @enderror border-16" id="image" name="image" onchange="previewImage()" multiple>
         @error('image')
@@ -32,7 +32,7 @@
             {{ $message }}
             </div>
     @enderror
-    </div> --}}
+    </div>
 
        <div class="form-group mb-3">
         <textarea name="description" class="form-control @error('description') is-invalid @enderror border-16" id="description" name="description" class="form-control border-16 " rows="5" placeholder="Deskripsi"  required autofocus ></textarea>

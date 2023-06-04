@@ -148,7 +148,8 @@ Route::get('/admin/dashboard-admin',[AdminController::class, 'index'])->middlewa
 
 
 // dashboard karya admin
-Route::resource('/admin/artworks', DashboardArtworkController::class)->middleware('auth');
+// Route::resource('/admin/artworks', DashboardArtworkController::class)->middleware('auth');
+Route::resource('/admin/artworks', DashboardArtworkController::class)->middleware('admin');
 
 //dasboard
 Route::resource('/admin/orders',DashboardOrderController::class)->middleware('auth');

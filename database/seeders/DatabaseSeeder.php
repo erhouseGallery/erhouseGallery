@@ -35,6 +35,8 @@ class DatabaseSeeder extends Seeder
             'number' => '081234567890',
             'address' => 'Jalan merdeka No.45 Yogyakarta',
             'password' => bcrypt('12345'),
+            'is_admin' => true,
+
 
         ]);
 
@@ -44,6 +46,7 @@ class DatabaseSeeder extends Seeder
             'number' => '080987654321',
             'address' => 'Jalan merdeka No.45 Yogyakarta',
             'password' => bcrypt('12345'),
+            'is_admin' => false,
 
         ]);
 
@@ -120,7 +123,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => 2,
             'order_name' => 'pesan patung kuda lari berbahan semen',
             'category_id' => 2,
-            // 'image' => 'contohpersawahan.jpg',
+            'image' => 'contohpersawahan.jpg',
             'description' => 'Lorem ipsum dolor sit ',
             'information_id' => 1,
             'note' => 'pesanan telah diterima, akan dihubungi melalui wa',
@@ -131,7 +134,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => 2,
             'order_name' => 'pesan lukisan persawahan',
             'category_id' => 2,
-            // 'image' => 'contohpersawahan.jpg',
+            'image' => 'contohpersawahan.jpg',
             'description' => 'Lorem ipsum dolor sit ',
             'information_id' => 2,
             'note' => 'pesanan ditolak karena gambar kurang jelas',

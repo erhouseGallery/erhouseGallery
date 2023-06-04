@@ -34,12 +34,15 @@
                     <span>Dashboard</span></a></li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/orders">
                     <span>Pemesanan</span></a></li>
+            {{-- auth --}}
+            @can('admin')
             <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/artworks">
                     <span>Karya</span></a></li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                     <span>Artikel</span></a></li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                     <span>Event</span></a></li>
+            @endcan
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                     <span>Profile</span></a></li>
         </ul>

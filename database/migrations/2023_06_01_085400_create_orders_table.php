@@ -17,12 +17,12 @@ return new class extends Migration
 
             $table->string('order_name');
             $table->string('category_id');
-            // $table->string('image');
+            $table->string('image');
             $table->string('description');
             $table->foreignId('information_id')->default(1);
             $table->string('note')->default('Catatan akan ditambahkan ketika keterangn diterima atau ditolak');
             // $table->date('date');
-           
+
             $table->timestamps();
         });
     }
