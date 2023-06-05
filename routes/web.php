@@ -42,12 +42,28 @@ Route::get('/forgot-password', function () {
         "title" => "Lupa Password"
     ]);
 });
-
+// ARTICLES
 Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/articles/show/{article:id}', [ArticleController::class, 'show']);
+Route::get("/admin/articles", [ArticleController::class, "indexAdmin"]);
+Route::get("/admin/articles/edit/{article:id}", [ArticleController::class, 'editAdmin']);
+Route::put("/admin/articles/update/{article:id}", [ArticleController::class, 'updateAdmin']);
+Route::get("/admin/articles/create", [ArticleController::class, "createAdmin"]);
+Route::post("/admin/articles/store", [ArticleController::class, "storeAdmin"]);
+Route::delete("/admin/articles/delete/{article:id}", [ArticleController::class, "destroyAdmin"]);
 
+// EVENTS
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/show/{event:slug}', [EventController::class, 'show']);
+Route::get("/admin/events", [EventController::class, "indexAdmin"]);
+Route::get("/admin/events/create", [EventController::class, "createAdmin"]);
+Route::post("/admin/events/store", [EventController::class, "storeAdmin"]);
+Route::get("/admin/events/edit/{event:slug}", [EventController::class, 'editAdmin']);
+Route::put("/admin/events/update/{event:slug}", [EventController::class, 'updateAdmin']);
+Route::delete("/admin/events/delete/{event:slug}", [EventController::class, "destroyAdmin"]);
+Route::delete("/admin/events/edit/deleteImage/{image:id}", [EventController::class, "destroyImage"]);
+Route::delete("/admin/events/edit/deleteCover/{event:slug}", [EventController::class, "destroyCover"]);
+Route::get("/admin/events/checkSlug", [EventController::class, "checkSlug"]);
 
 
 Route::get('/lukisan', function () {
@@ -130,22 +146,6 @@ Route::get("/admin/edit-pesanan", function () {
         "title" => "Edit Pesanan"
     ]);
 });
-
-Route::get("/admin/articles", [ArticleController::class, "indexAdmin"]);
-Route::get("/admin/articles/edit/{article:id}", [ArticleController::class, 'editAdmin']);
-Route::put("/admin/articles/update/{article:id}", [ArticleController::class, 'updateAdmin']);
-Route::get("/admin/articles/create", [ArticleController::class, "createAdmin"]);
-Route::post("/admin/articles/store", [ArticleController::class, "storeAdmin"]);
-Route::delete("/admin/articles/delete/{article:id}", [ArticleController::class, "destroyAdmin"]);
-
-Route::get("/admin/events", [EventController::class, "indexAdmin"]);
-Route::get("/admin/events/create", [EventController::class, "createAdmin"]);
-Route::post("/admin/events/store", [EventController::class, "storeAdmin"]);
-Route::get("/admin/events/edit/{event:slug}", [EventController::class, 'editAdmin']);
-Route::put("/admin/events/update/{event:slug}", [EventController::class, 'updateAdmin']);
-Route::delete("/admin/events/delete/{event:slug}", [EventController::class, "destroyAdmin"]);
-
-Route::get("/admin/events/checkSlug", [EventController::class, "checkSlug"]);
 
 Route::get("/admin/table-event", function () {
     return view("admin.table_event", [

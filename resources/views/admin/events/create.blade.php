@@ -12,17 +12,27 @@
                     <input type="text" class="form-control border-16 @error('title') is-invalid @enderror" id="title"
                         placeholder="Judul" name="title" value="{{ old('title') }}" required>
                 </div>
+
                 <div class="mb-3">
                     <input type="text" class="form-control border-16 @error('slug') is-invalid @enderror" id="slug"
                         placeholder="slug" name="slug" value="{{ old('slug') }}" required>
                 </div>
+
                 <div class="form-group mb-3">
                     <textarea name="description" id="description" class="form-control border-16 @error('description') is-invalid @enderror"
                         rows="5" placeholder="Deskripsi" required> {{ old('description') }}</textarea>
                 </div>
+
                 <div class="input-group mb-3 ">
-                    <input type="file" class="form-control border-16" id="image" name="image" multiple>
+                    <label class="input-group-text border-16" for="cover">Cover</label>
+                    <input type="file" class="form-control border-16" id="cover" name="cover">
                 </div>
+
+                <div class="input-group mb-3 ">
+                    <label class="input-group-text border-16" for="images">Gambar</label>
+                    <input type="file" class="form-control border-16" id="images" name="images[]" multiple>
+                </div>
+
                 <div class="mb-3">
                     <input type="text" class="form-control border-16 @error('location') is-invalid @enderror"
                         id="location" placeholder="Lokasi" name="location" value="{{ old('location') }}" required>
@@ -39,7 +49,6 @@
                 </div>
 
                 <button type="submit" class="red-button">Submit</button>
-
             </form>
         </section>
     </div>

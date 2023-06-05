@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Image;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Event extends Model
 {
+    use HasFactory, Sluggable;
+
     protected $fillable = [
         'title',
         'slug',
-        'image',
+        'cover',
         'description',
         'excerpt',
         'date',
@@ -28,5 +31,8 @@ class Event extends Model
         ];
     }
 
-    use HasFactory, Sluggable;
+    public function image()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

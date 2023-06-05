@@ -12,7 +12,7 @@
                                 <th scope="col" class="text-center">No</th>
                                 <th scope="col" class="text-center" style="width: 10%;">Judul</th>
                                 <th scope="col" class="text-center" style="width: 10%;">Deskripsi</th>
-                                <th scope="col" class="text-center" style="width: 10%;">Gambar</th>
+                                <th scope="col" class="text-center" style="width: 10%;">Cover</th>
                                 <th scope="col" class="text-center">Lokasi</th>
                                 <th scope="col" class="text-center">Tahun</th>
                                 <th scope="col" class="text-center">Waktu</th>
@@ -26,7 +26,9 @@
                                     <th scope="row"><?php echo $no++; ?></th>
                                     <td>{{ $event->title }}</td>
                                     <td class="text">{{ $event->description }}</td>
-                                    <td><img style="width: 50px;" src="{{ $event->image }}" alt=""></td>
+                                    <td><img class="img img-thumbnail" src="../cover/{{ $event->cover }}"
+                                            alt="{{ $event->title }}">
+                                    </td>
                                     <td>{{ $event->location }}</td>
                                     <td>{{ $event->date }}</td>
                                     <td>{{ $event->time }}</td>

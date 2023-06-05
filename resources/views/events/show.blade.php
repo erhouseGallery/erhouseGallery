@@ -9,17 +9,13 @@
                     <div class="slides-1 portfolio-details-slider swiper">
                         <div class="swiper-wrapper align-items-center">
                             <div class="swiper-slide" style="max-height: 500px; overflow:hidden">
-                                <img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="">
+                                <img src="../../../cover/{{ $event->cover }}" alt="{{ $event->title }}">
                             </div>
-                            <div class="swiper-slide">
-                                <img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="">
-                            </div>
+                            @foreach ($images as $image)
+                                <div class="swiper-slide" style="max-height: 500px; overflow:hidden">
+                                    <img src="../../../images/{{ $image->image }}" alt="{{ $image->image }}">
+                                </div>
+                            @endforeach
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
