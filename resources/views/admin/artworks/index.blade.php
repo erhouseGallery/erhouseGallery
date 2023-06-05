@@ -39,15 +39,15 @@
               <td>{{ $artwork->material }}</td>
               <td>{{ $artwork->size }}</td>
               <td>{{ $artwork->year }}</td>
-              <td class="text">{{ $artwork->description }}</td>
+              <td class="text">{!! $artwork->description !!}</td>
               <td>{{ $artwork->status->name }}</td>
 
 
 
 
               <td class="d-flex">
-                <button class="red-button mx-2" style="font-size: 10px;"><a href="/admin/artworks/{{ $artwork->id }}/edit">edit</a></button>
-                <form action="/admin/artworks/{{ $artwork->id }}" method="post">
+                <button class="red-button mx-2" style="font-size: 10px;"><a href="/admin/artworks/{{ $artwork->slug }}/edit">edit</a></button>
+                <form action="/admin/artworks/{{ $artwork->slug }}" method="post">
                 @method('delete')
                 @csrf
                 <button class="red-button mx-2" style="font-size: 10px;" onclick="return confirm('anda yakin ingin hapus?')" >Hapus</button>

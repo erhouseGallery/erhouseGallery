@@ -21,12 +21,11 @@
 
     <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="category_id" id="category_id" disabled>
         @foreach($categories as $category)
-        @if(old('category_id', $order->category_id === $category->id))
-        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-        @endif
-        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-         @endforeach
-       </select>
+            <option value="{{ $category->id }}" {{ (old('category_id', $order->category_id) == $category->id) ? 'selected' : '' }}>
+                {{ $category->name }}
+            </option>
+        @endforeach
+    </select>
 
 
       <div class=" mb-3">
@@ -38,14 +37,14 @@
         @enderror
     </div>
 
-    <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="information_id" id="information_id" >
-        @foreach($information as $information)
-        @if(old('information_id', $order->information_id === $information->id))
-        <option value="{{ $information->id }}" selected>{{ $information->name }}</option>
-        @endif
-        <option value="{{ $information->id }}" selected>{{ $information->name }}</option>
-         @endforeach
-       </select>
+    <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="information_id" id="information_id">
+        @foreach($information as $info)
+            <option value="{{ $info->id }}" {{ (old('information_id', $order->information_id) == $info->id) ? 'selected' : '' }}>
+                {{ $info->name }}
+            </option>
+        @endforeach
+    </select>
+
 
        <div class=" mb-3">
         <input type="text" id="note" name="note"  class="form-control @error('note') is-invalid @enderror border-16 " rows="5" placeholder="Catatan" required autofocus value="{{ old('note', $order->note) }}">
@@ -55,23 +54,6 @@
             </div>
         @enderror
     </div>
-
-
-    {{-- <div class="input-group mb-3" id="frame" >
-        <input type="hidden" name="oldImage" value="{{ $artwork->image }}">
-        @if ($artwork->image)
-        <img src="{{ asset('storage/' . $artwork->image) }}" alt="" class="img-preview">
-        @else
-        <img  class="img-preview img-fluid" alt="">
-        @endif
-        <input type="file" class="form-control @error('image') is-invalid @enderror border-16" id="image" name="image" onchange="previewImage()" >
-        @error('description')
-        <div class="invalid-feedback">
-            {{ $message }}
-        </div>
-    @enderror
-    </div> --}}
-
 
       <button type="submit" class="red-button">Submit</button>
 

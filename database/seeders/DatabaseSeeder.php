@@ -85,6 +85,7 @@ class DatabaseSeeder extends Seeder
         // seeder Artwork
         Artwork::create([
             'title' => 'matahari cerah',
+            'slug' => 'matahari-cerah',
             'user_id' => 1,
             'category_id' => 1,
             'image' => 'matahari.jpg',
@@ -97,6 +98,7 @@ class DatabaseSeeder extends Seeder
 
         Artwork::create([
             'title' => 'bocah lucu',
+            'slug' => 'bocah-lucu',
             'user_id' => 1,
             'category_id' => 2,
             'image' => 'bocah.jpg',

@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Str;
+
+
+
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+
 class DashboardArtworkController extends Controller
 {
 
@@ -37,6 +43,7 @@ class DashboardArtworkController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required|max:255',
+            'slug' => 'required|unique:artworks',
             'category_id' => 'required',
             'image' => 'image|file|max:3072',
             'material' => 'required|max:255',
@@ -51,6 +58,7 @@ class DashboardArtworkController extends Controller
         }
 
 
+
         $validateData['user_id'] = auth()->user()->id;
 
         Artwork::create($validateData);
@@ -59,17 +67,12 @@ class DashboardArtworkController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(Artwork $artwork)
     {
         // agar tidak bisa melihat yang lain
@@ -86,13 +89,11 @@ class DashboardArtworkController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, Artwork $artwork)
     {
-        //
-        $validateData = $request->validate([
+
+        $rules = [
             'title' => 'required|max:255',
             'category_id' => 'required',
             'image' => 'image|file|max:1024',
@@ -101,8 +102,13 @@ class DashboardArtworkController extends Controller
             'year' => 'required|max:255',
             'description' => 'required|max:255',
             'status_id' => 'required',
+        ];
 
-        ]);
+        if($request->slug != $artwork->slug) {
+            $rules['slug'] = 'required|unique:artworks';
+        }
+
+            $validateData = $request->validate($rules);
 
         if($request->file('image')) {
             if($request->oldImage) {
@@ -118,9 +124,7 @@ class DashboardArtworkController extends Controller
         return redirect('/admin/artworks')->with('success', 'data berhasil diupdate');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Artwork $artwork)
     {
         if($artwork->image) {
@@ -129,5 +133,12 @@ class DashboardArtworkController extends Controller
 
         Artwork::destroy($artwork->id);
         return redirect('/admin/artworks')->with('success', 'data berhasil dihapus');
+    }
+
+    //cek slug dan buat slug
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Artwork::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

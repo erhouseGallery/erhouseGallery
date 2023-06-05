@@ -34,8 +34,9 @@
     @enderror
     </div>
 
-       <div class="form-group mb-3">
-        <textarea name="description" class="form-control @error('description') is-invalid @enderror border-16" id="description" name="description" class="form-control border-16 " rows="5" placeholder="Deskripsi"  required autofocus ></textarea>
+    <div class="mb-3">
+        <input id="description" type="hidden" name="description" class="form-control @error('description') is-invalid @enderror border-16">
+        <trix-editor input="description"></trix-editor>
         @error('description')
         <div class="invalid-feedback">
             {{ $message }}

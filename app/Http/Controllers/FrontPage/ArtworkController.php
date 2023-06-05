@@ -23,10 +23,10 @@ class ArtworkController extends Controller
     }
 
     // menampilkan artwork (karya) berdasarkan id
-    public function show(Artwork $id) {
+    public function show(Artwork $artwork) {
         return view('artworks.show', [
             'title' => 'Detail Karya',
-            'artwork' => $id,
+            'artwork' => $artwork,
         ]);
     }
 

@@ -48,7 +48,7 @@
 
                     <td><img src="{{ asset('storage/'. $order->image) }}" alt="" class="img-fluid" style="width : 80%"></td>
 
-                    <td>{{ $order->description }}</td>
+                    <td>{!! $order->description !!}</td>
                     <td>{{ $order->information->name }}</td>
                     <td>{{ $order->note }}</td>
                     <td>{{ $order->created_at }}</td>

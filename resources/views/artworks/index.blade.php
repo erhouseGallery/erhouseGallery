@@ -38,7 +38,7 @@
                                 <a href="gallery-single.html" class="details-link">{{ $item["title"] }}</a>
                             </div>
                         </div>
-                        <a href="/artworks/{{ $item->id }}" class="text-center"><h1>{{ $item["title"] }}</h1></a>
+                        <a href="/artworks/{{ $item->slug }}" class="text-center"><h1>{{ $item["title"] }}</h1></a>
                     </div><!-- End Gallery Item -->
                     @endforeach
 

@@ -7,7 +7,7 @@
   <section id="edit_karya" class="admin-form">
     <h2 class="mb-15">Edit Karya</h2>
 
-    <form method="post" action="/admin/artworks/{{ $artwork->id }}" enctype="multipart/form-data">
+    <form method="post" action="/admin/artworks/{{ $artwork->slug }}" enctype="multipart/form-data">
         @method('put')
         @csrf
       <div class="mb-3">
@@ -17,16 +17,47 @@
                 {{ $message }}
             </div>
         @enderror
-
     </div>
-      <div class=" mb-3">
+
+    {{--   <div class="mb-3">
+        <input type="text" class="form-control @error('slug') is-invalid @enderror border-16" id="slug"  name="slug" required autofocus value="{{ old('slug', $artwork->slug) }}" >
+        @error('slug')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
+ --}}
+
+    <div class="mb-3">
+        <input type="text" class="form-control @error('slug') is-invalid @enderror border-16" id="slug" name="slug" placeholder="slug" required autofocus value="{{ old('slug', $artwork->slug) }}">
+        @error('slug')
+            <div class="invalid-feedback">
+                {{ $message }}
+                </div>
+        @enderror
+      </div>
+
+
+    <div class="mb-3">
+        <input id="description" type="hidden" name="description" class="form-control @error('description') is-invalid @enderror border-16" required autofocus value="{{ old('description', $artwork->description) }}">
+        <trix-editor input="description"></trix-editor>
+        @error('description')
+        <div class="invalid-feedback">
+            {{ $message }}
+            </div>
+    @enderror
+    </div>
+
+
+      {{-- <div class=" mb-3">
         <input type="text" id="description" name="description"  class="form-control @error('description') is-invalid @enderror border-16 " rows="5" placeholder="Deskripsi" required autofocus value="{{ old('description', $artwork->description) }}">
         @error('description')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
         @enderror
-    </div>
+    </div> --}}
 
 
     <div class="input-group mb-3" id="frame" >
@@ -44,14 +75,16 @@
     @enderror
     </div>
 
-      <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="category_id" id="category_id">
-       @foreach($categories as $category)
-       @if(old('category_id', $artwork->category_id === $category->id))
-       <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-       @endif
-       <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+
+    <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="category_id" id="category_id">
+        @foreach($categories as $category)
+            <option value="{{ $category->id }}" {{ (old('category_id', $artwork->category_id) == $category->id) ? 'selected' : '' }}>
+                {{ $category->name }}
+            </option>
         @endforeach
-      </select>
+    </select>
+
+
 
       <div class="mb-3">
         <input type="text" class="form-control @error('year') is-invalid @enderror border-16" id="year" name="year" placeholder="Tahun" required autofocus value="{{ old('year', $artwork->year) }}">
@@ -79,15 +112,13 @@
         @enderror
     </div>
 
-
     <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="status_id" id="status_id">
         @foreach($statuses as $status)
-        @if(old('status_id', $artwork->status_id === $status->id))
-        <option value="{{ $status->id }}" selected>{{ $status->name }}</option>
-        @endif
-        <option value="{{ $status->id }}" selected>{{ $status->name }}</option>
-         @endforeach
-       </select>
+            <option value="{{ $status->id }}" {{ (old('status_id', $artwork->status_id) == $status->id) ? 'selected' : '' }}>
+                {{ $status->name }}
+            </option>
+        @endforeach
+    </select>
       <button type="submit" class="red-button">Submit</button>
 
     </form>
@@ -99,6 +130,21 @@
 @include('components.footer')
 
 <script>
+
+const title = document.querySelector('#title');
+const slug = document.querySelector('#slug');
+
+        title.addEventListener('change', function() {
+            fetch('/admin/artworks/checkSlug?title=' + title.value)
+                .then(response => response.json())
+                .then(data => slug.value = data.slug)
+        });
+
+        document.addEventListener('trix-file-accept', function(e) {
+            e.prevenDefault();
+        })
+
+
 function previewImage() {
 
 const image = document.querySelector('#image');

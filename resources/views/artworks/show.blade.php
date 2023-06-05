@@ -30,7 +30,7 @@
                         <div class="portfolio-description">
                             <h1>{{$artwork->title}}</h1>
                             <p>
-                                {{$artwork->description}}
+                                {!! $artwork->description !!}
                             </p>
 
 
