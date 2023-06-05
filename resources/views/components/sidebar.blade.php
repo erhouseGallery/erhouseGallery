@@ -38,7 +38,7 @@
             @can('admin')
             <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/artworks">
                     <span>Karya</span></a></li>
-            <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/articles">
                     <span>Artikel</span></a></li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                     <span>Event</span></a></li>

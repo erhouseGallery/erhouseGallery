@@ -28,17 +28,17 @@
 
                 <div class="row gy-4 justify-content-center">
 
-                    @foreach ($artworks as $item)
+                    @foreach ($artworks as $artwork)
 
 
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="gallery-item h-100">
-                            <img src="{{ asset('storage/' . $item->image) }}" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/' . $artwork->image) }}" class="img-fluid" alt="">
                             <div class="gallery-links d-flex align-items-center justify-content-center">
-                                <a href="gallery-single.html" class="details-link">{{ $item["title"] }}</a>
+                                <a href="gallery-single.html" class="details-link">{{ $artwork["title"] }}</a>
                             </div>
                         </div>
-                        <a href="/artworks/{{ $item->slug }}" class="text-center"><h1>{{ $item["title"] }}</h1></a>
+                        <a href="/artworks/{{ $artwork->slug }}" class="text-center"><h1>{{ $artwork["title"] }}</h1></a>
                     </div><!-- End Gallery Item -->
                     @endforeach
 

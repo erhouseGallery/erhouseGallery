@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('year');
             $table->text('description');
             $table->foreignId('status_id');
-            $table->timestamp('publishes_at')->nullable(); //tipe data timpstamp
             $table->timestamps();
         });
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\FrontPage;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
@@ -13,8 +13,9 @@ class ArticleController extends Controller
         // menampilkan semua articles
         $articles = Article::all();
         // return $articles;
+
         return view('articles.index', [
-            "title" => "Detail Artikel",
+            "title" => "Artikel",
             "articles" => $articles
         ]);
     }

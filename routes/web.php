@@ -1,15 +1,14 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\FrontPage\ArticleController;
 use App\Http\Controllers\FrontPage\ArtworkController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Models\Article;
 
 use App\Http\Controllers\Dashboard\DashboardOrderController;
 use App\Http\Controllers\Dashboard\DashboardArtworkController;
-
-
+use App\Http\Controllers\Dashboard\DashboardArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,23 +62,23 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 
 
-Route::get('/forgot-password', function () {
-    return view('auth/forgot-password', [
-        "title" => "Lupa Password"
-    ]);
-});
+// Route::get('/forgot-password', function () {
+//     return view('auth/forgot-password', [
+//         "title" => "Lupa Password"
+//     ]);
+// });
 
 
 
-// semua artwork (karya)
+// semua artwork (karya) frontPage
 Route::get('/artworks', [ArtworkController::class, 'index']);
 Route::get('/artworks/{artwork:slug}', [ArtworkController::class, 'show']);
 
 
+// semua articles (artikel) frontPage
+Route::get('/articles', [ArticleController::class, 'index']);
 
-// Route::get('/articles', [ArticleController::class, 'index']);
-
-// Route::get('/articles/show/{article:id}', [ArticleController::class, 'show']);
+Route::get('/articles/show/{article:slug}', [ArticleController::class, 'show']);
 
 // Route::get('/event', function () {
 //     return view('event', [
@@ -152,7 +151,10 @@ Route::get('/admin/dashboard-admin',[AdminController::class, 'index'])->middlewa
 Route::get('/admin/artworks/checkSlug', [DashboardArtworkController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/admin/artworks', DashboardArtworkController::class)->middleware('admin');
 
-//dasboard
+//dasboard articles admin
+Route::resource('/admin/articles',DashboardArticleController::class);
+
+//dasboard order admin
 Route::resource('/admin/orders',DashboardOrderController::class)->middleware('auth');
 
 

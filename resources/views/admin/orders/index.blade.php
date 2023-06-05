@@ -51,7 +51,7 @@
                     <td>{!! $order->description !!}</td>
                     <td>{{ $order->information->name }}</td>
                     <td>{{ $order->note }}</td>
-                    <td>{{ $order->created_at }}</td>
+                    <td>{{ $order->created_at->format('d M Y') }}</td>
 
                     @can('admin')
                     <td class="d-flex">

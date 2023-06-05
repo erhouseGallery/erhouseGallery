@@ -12,20 +12,21 @@
             <tr>
               <th scope="col" class="text-center">No</th>
               <th scope="col" class="text-center">Judul</th>
-              <th scope="col" class="text-center">Deskripsi</th>
               <th scope="col" class="text-center">Gambar</th>
-              <th scope="col" class="text-center">Tahun</th>
+              <th scope="col" class="text-center">Konten</th>
+              <th scope="col" class="text-center">Tanggal</th>
               <th scope="col" class="text-center">Aksi</th>
             </tr>
           </thead>
           <tbody class="bg-based">
             @foreach($articles as $article)
             <tr>
-              <th scope="row">1</th>
+              <th scope="row">{{ $loop->iteration }}</th>
               <td>{{$article->title}}</td>
-              <td class="text"> {{$article->description}} </td>
-              <td> <img style="width: 50px;" src="{{$article->image}}" alt=""> </td>
-              <td> {{$article->date}} </td>
+              <td class="text"> {{$article->image}} </td>
+              {{-- <td> <img style="width: 50px;" src="{{$article->image}}" alt=""> </td> --}}
+              <td> {{$article->content}} </td>
+              <td> {{$article->created_at->format('d M Y')}} </td>
               <td class="d-flex">
                 <a href="/admin/articles/edit/{{$article->id}}" class="red-button" style="font-size: 10px;">Edit</a>
 

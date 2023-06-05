@@ -14,15 +14,15 @@
             <div class="col-lg-4 col-md-12 mb-4">
                 <div class="card rounded-2">
                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                        <a href="/articles/show/{{$article->id}}"><img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid rounded-2" /></a>
+                        <a href="/articles/show/{{$article->slug}}"><img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid rounded-2" /></a>
                     </div>
                     <div class="card-body">
-                        <a href="/articles/show/{{$article->id}}">
+                        <a href="/articles/show/{{$article->slug}}">
                             <h5 class="card-title font-weight-bold">{{$article->title}}</h5>
                         </a>
-                        <p class="card-text text-black-50">
+                        {{-- <p class="card-text text-black-50">
                             {{$article->description}}
-                        </p>
+                        </p> --}}
                     </div>
                 </div>
             </div>
