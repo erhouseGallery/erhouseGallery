@@ -44,13 +44,26 @@
 
       <div class="input-group mb-3 ">
         <img  class="img-preview img-fluid" alt="">
-        <input type="file" class="form-control  @error('image') is-invalid @enderror border-16" id="image" name="image" onchange="previewImage()" multiple>
-        @error('image')
+        <label class="input-group-text border-16" for="cover">Cover</label>
+        <input type="file" class="form-control  @error('cover') is-invalid @enderror border-16" id="cover" name="cover" onchange="previewImage()" >
+        @error('cover')
         <div class="invalid-feedback">
             {{ $message }}
             </div>
     @enderror
     </div>
+
+      <div class="input-group mb-3 ">
+        <img  class="img-preview img-fluid" alt="">
+        <label class="input-group-text border-16" for="images">Gambar</label>
+        <input type="file" class="form-control  @error('images') is-invalid @enderror border-16" id="images" name="images[]" multiple>
+        @error('images')
+        <div class="invalid-feedback">
+            {{ $message }}
+            </div>
+    @enderror
+    </div>
+
 
       <div class="mb-3">
         <input type="text" class="form-control  @error('material') is-invalid @enderror border-16" id="material" name="material" placeholder="Bahan"  required autofocus >
@@ -117,7 +130,7 @@ const slug = document.querySelector('#slug');
 
     function previewImage() {
 
-    const image = document.querySelector('#image');
+    const image = document.querySelector('#cover');
     const imgPreview = document.querySelector('.img-preview');
 
     imgPreview.style.display = 'block';

@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Artwork;
 use App\Models\Category;
 use App\Models\Status;
+use App\Models\ImageArtwork;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+
 
 use Illuminate\Support\Str;
 
@@ -41,29 +43,67 @@ class DashboardArtworkController extends Controller
 
     public function store(Request $request)
     {
-        $validateData = $request->validate([
-            'title' => 'required|max:255',
-            'slug' => 'required|unique:artworks',
-            'category_id' => 'required',
-            'image' => 'image|file|max:3072',
-            'material' => 'required|max:255',
-            'size' => 'required|max:255',
-            'year' => 'required|max:255',
-            'description' => 'required|max:255',
-            'status_id' => 'required',
-        ]);
+        // $validateData = $request->validate([
+        //     'title' => 'required|max:255',
+        //     'slug' => 'required|unique:artworks',
+        //     'category_id' => 'required',
+        //     'image1' => 'image|file|max:3072',
+        //     'material' => 'required|max:255',
+        //     'size' => 'required|max:255',
+        //     'year' => 'required|max:255',
+        //     'description' => 'required|max:255',
+        //     'status_id' => 'required',
+        // ]);
 
-        if($request->file('image')) {
-            $validateData['image'] = $request->file('image')->store('artworks-image');
+        // if($request->file('image')) {
+        //     $validateData['image'] = $request->file('image')->store('artworks-image');
+        // }
+
+
+
+        // $validateData['user_id'] = auth()->user()->id;
+
+        // Artwork::create($validateData);
+        // return redirect('/admin/artworks')->with('success', 'data berhasil ditambahkan');
+        if ($request->hasFile('cover')) {
+            $file = $request->file("cover");
+            $imageName = time() . '_' . $file->getClientOriginalName();
+            $file->move(\public_path("cover/"), $imageName);
+
+
+
+            $validationData = $request->validate([
+                'title' => 'required|max:255',
+                'slug' => 'required|unique:artworks',
+                'category_id' => 'required',
+
+                'material' => 'required|max:255',
+                'size' => 'required|max:255',
+                'year' => 'required|max:255',
+                'description' => 'required|max:255',
+                'status_id' => 'required',
+            ]);
+
+            $validateData['user_id'] = auth()->user()->id;
+
+            $validationData['cover'] = $imageName;
+
+            $artwork = Artwork::create($validationData);
+
+            $artwork->save();
         }
 
-
-
-        $validateData['user_id'] = auth()->user()->id;
-
-        Artwork::create($validateData);
-        return redirect('/admin/artworks')->with('success', 'data berhasil ditambahkan');
-
+        if ($request->hasFile("images")) {
+            $files = $request->file("images");
+            foreach ($files as $file) {
+                $imageName = time() . '_' . $file->getClientOriginalName();
+                $request['artwork_id'] = $artwork->id;
+                $request['image'] = $imageName;
+                $file->move(\public_path("/images"), $imageName);
+                ImageArtwork::create($request->all());
+            }
+        }
+        return redirect('/admin/artworks');
 
     }
 

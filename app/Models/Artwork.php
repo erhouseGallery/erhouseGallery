@@ -16,7 +16,7 @@ class Artwork extends Model
         'title',
         'slug',
         'category_id',
-        'image',
+        'cover',
         'material',
         'size',
         'year',

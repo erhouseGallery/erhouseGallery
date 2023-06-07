@@ -17,7 +17,7 @@
               <th scope="col" class="text-center">No</th>
               <th scope="col" class="text-center" style="width: 10%;">Judul</th>
               <th scope="col" class="text-center">Kategori</th>
-              <th scope="col" class="text-center" style="width: 10%;">Gambar</th>
+              <th scope="col" class="text-center" style="width: 10%;">Cover</th>
               <th scope="col" class="text-center">Bahan</th>
               <th scope="col" class="text-center">Ukuran</th>
               <th scope="col" class="text-center">Tahun</th>

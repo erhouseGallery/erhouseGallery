@@ -9,6 +9,8 @@ class ImageArtwork extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['image', 'event_id'];
+    
     public function Artwork() {
         return $this->belongsTo(Artwork::class);
     }
