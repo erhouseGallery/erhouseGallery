@@ -13,10 +13,7 @@
                     <div class="col-lg-5 content">
                         <h2>Erhouse Gallery</h2>
                         <p class="fst-italic py-3">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et
-                            dolore
-                            magna aliqua.
+                            about
                         </p>
                         <div class="row">
                             <div class="col-lg-6">
