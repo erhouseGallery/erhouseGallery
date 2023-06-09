@@ -6,6 +6,8 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Cviebrock\EloquentSluggable\Services\SlugService;
+
 class DashboardArticleController extends Controller
 {
 
@@ -65,5 +67,12 @@ class DashboardArticleController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+
+    //cek slug dan buat slug
+    public function checkSlug(Request $request) {
+        $slug = SlugService::createSlug(Article::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

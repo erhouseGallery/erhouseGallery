@@ -115,6 +115,7 @@ class DatabaseSeeder extends Seeder
         Article::create([
             'title' => 'cara memilih kanvas yang bagus untuk lukisan',
             'slug' => 'cara-memilih-kanvas-yang-bagus-untuk-lukisan',
+            'user_id' => 1,
             'image' => 'kanvas.jpg',
             'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu tincidunt odio. Morbi vel consectetur tellus. Suspendisse aliquet facilisis dolor, at finibus purus condimentum sit amet. Integer dapibus, libero vitae sollicitudin convallis, tortor metus vestibulum ligula, eget condimentum dolor purus in ligula. Cras faucibus magna vel metus tempor, vitae ultricies lectus interdum. Sed pellentesque aliquam ipsum, non tempor lectus interdum vel. Suspendisse ac placerat mauris. Vivamus pulvinar ligula vel magna accumsan lobortis. Morbi eu dolor et est venenatis tempor vitae non est. Nunc lobortis nunc ut sem faucibus aliquet. Curabitur eget nisl et erat interdum vulputate. Ut ut aliquet massa.',
         ]);
