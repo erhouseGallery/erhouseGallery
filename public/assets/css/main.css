@@ -1,6 +1,7 @@
 :root {
-    --color-primary: #f0eeed;
+    --color-primary: #F8F8F8;
     --color-secondary: #af1616;
+
 }
 
 /* Smooth scroll behavior */
@@ -28,6 +29,8 @@ ol {
 .header {
     color: var(--color-secondary);
 }
+
+
 
 .section-header {
     padding-bottom: 40px;
@@ -254,13 +257,60 @@ ol {
     width: 100%;
 }
 
+/* navbar */
+.navbar {
+    background-color: var(--color-primary);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    padding: 20px 0px;
+}
+
+.nav-link {
+    color: black;
+}
+
 .nav-link:hover {
-    color: #af1616 !important; 
+    color: var(--color-secondary) !important;
 }
 
 .fitur-nav {
     font-size: 18px !important;
 }
+
+
+.dropdown-item {
+    color: black;
+}
+.dropdown-item:hover {
+    color: var(--color-secondary) !important;
+}
+
+.logout button {
+    background-color: #af1616;
+    border: none;
+    color: white;
+    width: 100%;
+}
+
+.login {
+color: var(--color-secondary) !important;
+    border: 2px solid var(--color-secondary) !important ;
+}
+.login {
+    border: 2px solid var(--color-secondary) !important ;
+}
+.login:hover {
+    border: 2px solid var(--color-secondary) !important ;
+    background-color:#65071F;
+}
+
+.register {
+    background-color: var(--color-secondary);
+}
+
+.register:hover {
+    background-color:#65071F;
+}
+
 
 /* sidebar */
 .sidebar {
@@ -380,7 +430,7 @@ td {
         width: min-content;
         margin-right: 100px;
     }
-    /* 
+    /*
     .navbar a,
     .navbar a:focus {
         display: flex;
@@ -577,7 +627,7 @@ td {
     .mobile-nav-active {
         overflow: hidden;
     }
-    /* 
+    /*
     .mobile-nav-active .navbar {
         right: 0;
     }

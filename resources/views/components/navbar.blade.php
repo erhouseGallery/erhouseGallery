@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg ">
     <div class="container-fluid px-5">
         <a class="navbar-brand" href="/">Erhouse Gallery</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,14 +21,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Artikel' ? 'active' : '' }}" href="/post">Artikel</a>
+                    <a  class="nav-link {{ $title === 'Artikel' ? 'active' : '' }}" href="/post">Artikel</a>
 
                 </li>
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Event' ? 'active' : '' }}" href="/event">Event</a>
+                    <a  class="nav-link {{ $title === 'Event' ? 'active' : '' }}" href="/event">Event</a>
                 </li>
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Tentang Kami' ? 'active' : '' }}" href="/about">Tentang
+                    <a  class="nav-link {{ $title === 'Tentang Kami' ? 'active' : '' }}" href="/about">Tentang
                         Kami</a>
                 </li>
                 <li>
@@ -39,13 +39,13 @@
                 <ul class="navbar-nav">
                     @guest
                     <li class="nav-item d-flex">
-                        <a href="/register" class="text-white nav-link btn btn-primary mr-2 px-3">Daftar</a>
-                        <a href="/login" class=" text-danger nav-link btn btn-outline-danger px-3">Login</a>
+                        <a href="/register" class="register text-white nav-link btn mr-2 px-3">Daftar</a>
+                        <a href="/login" class="login nav-link btn px-3">Login</a>
                     </li>
                     @endguest
 
                     @auth
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" id="nav-item-dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1" style="width: 50px">
 
@@ -58,11 +58,10 @@
                             <a class="dropdown-item" href="#">Artikel</a>
                             <a class="dropdown-item" href="#">Event</a>
                             <a class="dropdown-item" href="#">Profile</a>
-                            <form action="/logout" method="post">
+                            <form  class="logout" action="/logout" method="post">
                                 @csrf
-                                <button type="submit">Logout</button>
+                                <button  type="submit">Logout</button>
                             </form>
-
                         </div>
                     </li>
                     @endauth
