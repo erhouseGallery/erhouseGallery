@@ -11,6 +11,7 @@
         @method('put')
         @csrf
       <div class="mb-3">
+        <label for="title">Judul</label>
         <input type="text" class="form-control @error('title') is-invalid @enderror border-16" id="title" placeholder="Judul" name="title" required autofocus value="{{ old('title', $artwork->title) }}">
         @error('title')
             <div class="invalid-feedback">
@@ -19,24 +20,86 @@
         @enderror
     </div>
 
-    {{--   <div class="mb-3">
-        <input type="text" class="form-control @error('slug') is-invalid @enderror border-16" id="slug"  name="slug" required autofocus value="{{ old('slug', $artwork->slug) }}" >
-        @error('slug')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-        @enderror
-    </div>
- --}}
-
     <div class="mb-3">
-        <input type="text" class="form-control @error('slug') is-invalid @enderror border-16" id="slug" name="slug" placeholder="slug" required autofocus value="{{ old('slug', $artwork->slug) }}">
+        <input type="text" class="form-control @error('slug') is-invalid @enderror border-16" id="slug" name="slug" placeholder="slug" required autofocus value="{{ old('slug', $artwork->slug) }}" >
         @error('slug')
             <div class="invalid-feedback">
                 {{ $message }}
                 </div>
         @enderror
       </div>
+
+
+      <div class="mb-3">
+        <label for="category">Kategori</label>
+        <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="category_id" id="category_id">
+            @foreach($categories as $category)
+                <option value="{{ $category->id }}" {{ (old('category_id', $artwork->category_id) == $category->id) ? 'selected' : '' }}>
+                    {{ $category->name }}
+                </option>
+            @endforeach
+        </select>
+      </div>
+
+      <div class="mb-3 ">
+        <label for="">Cover</label> <br>
+        <input type="hidden" name="oldCover" value="{{ $artwork->cover }}">
+        @if($artwork->cover)
+        <img src="{{ asset('storage/artworks-image/' . $artwork->cover) }}" alt="" class="cover-preview">
+        @else
+        <img  class="cover-preview img-fluid" alt="">
+        @endif
+        <input type="file" class="form-control  @error('cover') is-invalid @enderror border-16" id="cover" name="cover" onchange="previewCover()" >
+        @error('cover')
+        <div class="invalid-feedback">
+            {{ $message }}
+            </div>
+    @enderror
+    </div>
+
+    <div class="mb-3">
+        <label for="images">Gambar</label>
+        <input type="file" class="form-control  @error('image') is-invalid @enderror border-16"
+            id="images" name="images[]" multiple>
+        @error('images')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
+
+
+    <div class="mb-3">
+        <label for="material">Bahan</label>
+        <input type="text" class="form-control @error('material') is-invalid @enderror border-16" id="material" name="material" placeholder="Tahun" required autofocus value="{{ old('year', $artwork->material) }}">
+        @error('material')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
+
+    <div class="mb-3">
+        <label for="size">Ukuran</label>
+        <input type="text" class="form-control @error('size') is-invalid @enderror border-16" id="size" name="size" placeholder="Ukuran" required autofocus value="{{ old('size', $artwork->size) }}">
+        @error('size')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
+
+      <div class="mb-3">
+        <label for="year">Tahun</label>
+        <input type="text" class="form-control @error('year') is-invalid @enderror border-16" id="year" name="year" placeholder="Tahun" required autofocus value="{{ old('year', $artwork->year) }}">
+        @error('year')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
+
+
 
 
     <div class="mb-3">
@@ -47,69 +110,6 @@
             {{ $message }}
             </div>
     @enderror
-    </div>
-
-
-      {{-- <div class=" mb-3">
-        <input type="text" id="description" name="description"  class="form-control @error('description') is-invalid @enderror border-16 " rows="5" placeholder="Deskripsi" required autofocus value="{{ old('description', $artwork->description) }}">
-        @error('description')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-        @enderror
-    </div> --}}
-
-
-    <div class="input-group mb-3" id="frame" >
-        <input type="hidden" name="oldImage" value="{{ $artwork->image }}">
-        @if ($artwork->image)
-        <img src="{{ asset('storage/' . $artwork->image) }}" alt="" class="img-preview">
-        @else
-        <img  class="img-preview img-fluid" alt="">
-        @endif
-        <input type="file" class="form-control @error('image') is-invalid @enderror border-16" id="image" name="image" onchange="previewImage()" >
-        @error('description')
-        <div class="invalid-feedback">
-            {{ $message }}
-        </div>
-    @enderror
-    </div>
-
-
-    <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="category_id" id="category_id">
-        @foreach($categories as $category)
-            <option value="{{ $category->id }}" {{ (old('category_id', $artwork->category_id) == $category->id) ? 'selected' : '' }}>
-                {{ $category->name }}
-            </option>
-        @endforeach
-    </select>
-
-
-
-      <div class="mb-3">
-        <input type="text" class="form-control @error('year') is-invalid @enderror border-16" id="year" name="year" placeholder="Tahun" required autofocus value="{{ old('year', $artwork->year) }}">
-        @error('year')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-        @enderror
-    </div>
-      <div class="mb-3">
-        <input type="text" class="form-control @error('material') is-invalid @enderror border-16" id="material" name="material" placeholder="Tahun" required autofocus value="{{ old('year', $artwork->material) }}">
-        @error('material')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-        @enderror
-    </div>
-
-      <div class="mb-3">
-        <input type="text" class="form-control @error('size') is-invalid @enderror border-16" id="size" name="size" placeholder="Ukuran" required autofocus value="{{ old('size', $artwork->size) }}">
-        @error('size')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-        @enderror
     </div>
 
     <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="status_id" id="status_id">
@@ -130,37 +130,50 @@
 @include('components.footer')
 
 <script>
+    const title = document.querySelector('#title');
+    const slug = document.querySelector('#slug');
 
-const title = document.querySelector('#title');
-const slug = document.querySelector('#slug');
+            title.addEventListener('change', function() {
+                fetch('/admin/artworks/checkSlug?title=' + title.value)
+                    .then(response => response.json())
+                    .then(data => slug.value = data.slug)
+            });
 
-        title.addEventListener('change', function() {
-            fetch('/admin/artworks/checkSlug?title=' + title.value)
-                .then(response => response.json())
-                .then(data => slug.value = data.slug)
-        });
+            document.addEventListener('trix-file-accept', function(e) {
+                e.prevenDefault();
+            })
 
-        document.addEventListener('trix-file-accept', function(e) {
-            e.prevenDefault();
-        })
+        function previewImage() {
 
+        const image = document.querySelector('#images');
+        const imgPreview = document.querySelector('.img-preview');
 
-function previewImage() {
+        imgPreview.style.display = 'block';
 
-const image = document.querySelector('#image');
-const imgPreview = document.querySelector('.img-preview');
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
 
-imgPreview.style.display = 'block';
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
 
-const oFReader = new FileReader();
-oFReader.readAsDataURL(image.files[0]);
+        }
+        function previewCover() {
 
-oFReader.onload = function(oFREvent) {
-    imgPreview.src = oFREvent.target.result;
-}
+        const image = document.querySelector('#cover');
+        const imgPreview = document.querySelector('.cover-preview');
 
-}
-</script>
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+
+        }
+        </script>
 
 @endsection
 

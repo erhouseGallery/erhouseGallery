@@ -12,9 +12,11 @@
 
                         <div class="swiper-wrapper align-items-center">
 
+                            @foreach ($image_artworks as $image_artwork )
                             <div class="swiper-slide">
-                                <img src="{{ asset('storage/' . $artwork->image) }}" alt="">
+                                <img src="{{ asset('storage/artworks-image/' . $image_artwork->image) }}" alt="">
                             </div>
+                                @endforeach
 
                         </div>
                         <div class="swiper-pagination"></div>

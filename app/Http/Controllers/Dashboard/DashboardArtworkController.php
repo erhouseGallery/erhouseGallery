@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Artwork;
 use App\Models\Category;
 use App\Models\Status;
+use App\Models\ImageArtwork;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -40,32 +41,68 @@ class DashboardArtworkController extends Controller
 
 
     public function store(Request $request)
-    {
-        $validateData = $request->validate([
-            'title' => 'required|max:255',
-            'slug' => 'required|unique:artworks',
-            'category_id' => 'required',
-            'image' => 'image|file|max:3072',
-            'material' => 'required|max:255',
-            'size' => 'required|max:255',
-            'year' => 'required|max:255',
-            'description' => 'required|max:255',
-            'status_id' => 'required',
-        ]);
 
-        if($request->file('image')) {
-            $validateData['image'] = $request->file('image')->store('artworks-image');
+    {
+        if ($request->hasFile('cover')) {
+            $file = $request->file('cover');
+            $imageName = time() . '-' . $file->getClientOriginalName();
+            $file->storeAs('artworks-image', $imageName );
+
+            $validationData = $request->validate([
+                'title' => 'required|max:255',
+                'category_id' => 'required',
+                'material' => 'required|max:255',
+                'size' => 'required|max:255',
+                'year' => 'required|max:255',
+                'description' => 'required|max:255',
+                'status_id' => 'required',
+            ]);
+
+            $validationData['cover'] = $imageName;
+            $validationData['user_id'] = auth()->user()->id;
+
+
+            $artwork = Artwork::create($validationData);
+            $artwork->save();
         }
 
-
-
-        $validateData['user_id'] = auth()->user()->id;
-
-        Artwork::create($validateData);
+        if ($request->hasFile("images")) {
+            $files = $request->file("images");
+            foreach ($files as $file) {
+                $imageName = time() . '-' . $file->getClientOriginalName();
+                $request['artwork_id'] = $artwork->id;
+                $request['image'] = $imageName;
+                $file->storeAs('artworks-image', $imageName );
+                ImageArtwork::create($request->all());
+            }
+        }
         return redirect('/admin/artworks')->with('success', 'data berhasil ditambahkan');
-
-
     }
+
+
+ // $validateData = $request->validate([
+        //     'title' => 'required|max:255',
+        //     'slug' => 'required|unique:artworks',
+        //     'category_id' => 'required',
+        //     'image' => 'image|file|max:3072',
+        //     'material' => 'required|max:255',
+        //     'size' => 'required|max:255',
+        //     'year' => 'required|max:255',
+        //     'description' => 'required|max:255',
+        //     'status_id' => 'required',
+        // ]);
+
+        // if($request->file('image')) {
+        //     $validateData['image'] = $request->file('image')->store('artworks-image');
+        // }
+
+
+
+        // $validateData['user_id'] = auth()->user()->id;
+
+        // Artwork::create($validateData);
+        // return redirect('/admin/artworks')->with('success', 'data berhasil ditambahkan');
+
 
     public function show(string $id)
     {
@@ -89,14 +126,12 @@ class DashboardArtworkController extends Controller
         ]);
     }
 
-
     public function update(Request $request, Artwork $artwork)
     {
 
         $rules = [
             'title' => 'required|max:255',
             'category_id' => 'required',
-            'image' => 'image|file|max:1024',
             'material' => 'required|max:255',
             'size' => 'required|max:255',
             'year' => 'required|max:255',
@@ -107,28 +142,88 @@ class DashboardArtworkController extends Controller
         if($request->slug != $artwork->slug) {
             $rules['slug'] = 'required|unique:artworks';
         }
-
             $validateData = $request->validate($rules);
+        // untuk cover
+        if($request->hasFile('cover')) {
+            $file = $request->file('cover');
+            $imageName = time() . '-' . $file->getClientOriginalName();
+            $file->storeAs('artworks-image', $imageName );
+             $validateData['cover'] = $imageName;
 
-        if($request->file('image')) {
-            if($request->oldImage) {
-                Storage::delete($request->oldImage);
+            if($artwork->cover != null) {
+                Storage::delete('artworks-image/' . $artwork->cover);
             }
-            $validateData['image'] = $request->file('image')->store('artworks-image');
+
+             $validateData['cover'] = $imageName;
         }
 
-        $validateData['user_id'] = auth()->user()->id;
+         $validateData['user_id'] = auth()->user()->id;
         Artwork::where('id', $artwork->id)
-                ->update($validateData);
+        ->update( $validateData);
+
+        // untuk images
+        if ($request->hasFile("images")) {
+            $files = $request->file("images");
+
+            $currentImages = ImageArtwork::where('artwork_id', $artwork->id)->get();
+
+            if($currentImages != null) {
+                foreach ($currentImages as $currentImage) {
+                    Storage::delete('artworks-image/'. $currentImage->image);
+                }
+
+                ImageArtwork::where('artwork_id', $artwork->id)->delete();
+            }
+
+            foreach ($files as $file) {
+                $imageName = time() . '-' . $file->getClientOriginalName();
+                $request['artwork_id'] = $artwork->id;
+                $request['image'] = $imageName;
+                $file->storeAs('artworks-image', $imageName );
+                ImageArtwork::create($request->all());
+            }
+
+        }
 
         return redirect('/admin/artworks')->with('success', 'data berhasil diupdate');
     }
 
+    // ImageArtwork::where('artwork_id', $artwork->id)->delete();
+            // Storage::delete('artworks-image/' . $artwork->image);
+
+ // if($request->hasFile('cover')) {
+        //     if($request->oldImage) {
+        //         Storage::delete($request->oldImage);
+        //     }
+        //     $validateData['image'] = $request->file('image')->store('artworks-image');
+        // }
+
+
+        // Artwork::where('id', $artwork->id)
+        //         ->update($validateData);
+
+
 
     public function destroy(Artwork $artwork)
     {
-        if($artwork->image) {
-            Storage::delete($artwork->image);
+
+        $artwork = Artwork::find($artwork->id);
+
+        if($artwork->cover != null) {
+            Storage::delete('artworks-image/' . $artwork->cover);
+        }
+
+
+        // IMAGES
+
+        $currentImages = ImageArtwork::where('artwork_id', $artwork->id)->get();
+
+        if($currentImages != null) {
+            foreach ($currentImages as $currentImage) {
+                Storage::delete('artworks-image/'. $currentImage->image);
+            }
+
+            ImageArtwork::where('artwork_id', $artwork->id)->delete();
         }
 
         Artwork::destroy($artwork->id);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FrontPage;
 
 use App\Models\Article;
 use App\Models\Artwork;
+use App\Models\ImageArtwork;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -24,9 +25,12 @@ class ArtworkController extends Controller
 
     // menampilkan artwork (karya) berdasarkan id
     public function show(Artwork $artwork) {
+
+        $image_artworks = ImageArtwork::where('artwork_id', $artwork->id)->get();
         return view('artworks.show', [
             'title' => 'Detail Karya',
             'artwork' => $artwork,
+            'image_artworks' => $image_artworks,
         ]);
     }
 

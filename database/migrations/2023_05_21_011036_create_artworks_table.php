@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->foreignId('user_id');
             $table->foreignId('category_id');
-            $table->string('image')->nullable();
+            $table->string('cover');
             $table->string('material');
             $table->string('size');
             $table->string('year');

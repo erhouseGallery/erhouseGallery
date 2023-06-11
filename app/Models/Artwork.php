@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\ImageArtwork;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,7 @@ class Artwork extends Model
         'title',
         'slug',
         'category_id',
-        'image',
+        'cover',
         'material',
         'size',
         'year',
@@ -38,6 +39,12 @@ class Artwork extends Model
         return $this->belongsTo(Status::class);
     }
 
+
+    public function Image() {
+        return $this->hasMany(ImageArtwork::class);
+    }
+
+
     public function getRouteKeyName() {
         return 'slug';
     }
@@ -51,6 +58,8 @@ class Artwork extends Model
             ]
         ];
     }
+
+
 
 
 }
