@@ -1,7 +1,6 @@
 :root {
-    --color-primary: #F8F8F8;
+    --color-primary: #f8f8f8;
     --color-secondary: #af1616;
-
 }
 
 /* Smooth scroll behavior */
@@ -9,8 +8,12 @@
     scroll-behavior: smooth;
 }
 
+html,
 body {
     font-family: "Poppins", sans-serif !important;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 a {
@@ -30,7 +33,9 @@ ol {
     color: var(--color-secondary);
 }
 
-
+.d-flex {
+    min-height: 100%
+}
 
 .section-header {
     padding-bottom: 40px;
@@ -246,6 +251,9 @@ ol {
     }
 }
 
+
+
+
 /* header navbar */
 
 .header {
@@ -276,7 +284,6 @@ ol {
     font-size: 18px !important;
 }
 
-
 .dropdown-item {
     color: black;
 }
@@ -292,7 +299,7 @@ ol {
 }
 
 .login {
-color: var(--color-secondary) !important;
+    color: var(--color-secondary) !important;
     border: 2px solid var(--color-secondary) !important ;
 }
 .login {
@@ -300,7 +307,7 @@ color: var(--color-secondary) !important;
 }
 .login:hover {
     border: 2px solid var(--color-secondary) !important ;
-    background-color:#65071F;
+    background-color: #65071f;
 }
 
 .register {
@@ -308,9 +315,8 @@ color: var(--color-secondary) !important;
 }
 
 .register:hover {
-    background-color:#65071F;
+    background-color: #65071f;
 }
-
 
 /* sidebar */
 .sidebar {
@@ -319,13 +325,22 @@ color: var(--color-secondary) !important;
     width: 256px;
     color: white;
     float: left;
+
 }
 
 .sidebar-fiture {
-    padding: 8px 20px;
+    padding: 8px;
     margin-top: 24px;
-    background-color: #af1616;
-    border-radius: 8px;
+    background-color: var(--color-secondary);
+    border-radius: 20px;
+    color: white !important;
+}
+
+.sidebar-fiture a span {
+    color: white !important;
+}
+.sidebar-fiture a span:hover {
+    color: rgb(0, 0, 0) !important;
 }
 
 .sidebar-menu {
@@ -406,6 +421,32 @@ td {
     font-size: 16px;
 }
 
+/* dashboard */
+
+.line {
+    width: 180px;
+    height: 4px;
+    background: var(--color-secondary);
+    margin-bottom: 36px;
+}
+
+.input-dashboard {
+    margin-bottom: 24px;
+    font-weight: bold;
+
+}
+
+.form-control {
+    width: 80%;
+    padding: 20px 12px;
+    border-color: #00000056;
+    border-radius: 16px;
+}
+.form-select {
+    width: 80%;
+    padding: 8px 12px;
+    border-radius: 16px;
+}
 /*--------------------------------------------------------------
   # Desktop Navigation
   --------------------------------------------------------------*/
@@ -1386,9 +1427,7 @@ td {
     color: rgb(255, 255, 255);
 }
 
-/*  */
-
-/* Admin Section */
+/* Admin Dashboard */
 
 .red-button {
     padding: 8px 12px;
@@ -1399,6 +1438,19 @@ td {
     font-size: 20px;
     font-family: Poppins;
     font-weight: 500;
+}
+.btn-create {
+    padding: 8px 12px;
+    border-radius: 12px;
+    background-color: #af1616;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+}
+.btn-create:hover {
+    background-color: #8d0808;
 }
 
 h1 {

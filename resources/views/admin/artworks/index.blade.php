@@ -10,7 +10,7 @@
         {{ session('success') }}
     </div>
     @endif
-    <a href="/admin/artworks/create"><button class="red-button mb-35">Buat Karya Baru</button><a>
+    <a href="/admin/artworks/create"><button class="btn-create mb-4">Buat Karya Baru</button><a>
         <table class="table-a">
           <thead class="red text-white">
             <tr>
