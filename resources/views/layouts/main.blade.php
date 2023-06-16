@@ -43,9 +43,7 @@
 </head>
 
 <body>
-
     @include('components.navbar')
-
     <!-- Main Content -->
     @yield('content')
     <!-- End Main Content -->
