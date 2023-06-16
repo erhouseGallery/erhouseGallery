@@ -44,8 +44,8 @@
 
 <body>
     @include('components.navbar')
-    <!-- Main Content -->
     @yield('content')
+    <!-- Main Content -->
     <!-- End Main Content -->
 
     <!-- General JS Scripts -->

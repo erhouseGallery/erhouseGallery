@@ -9,10 +9,8 @@
 }
 
 body {
-    /* padding: 0px; */
-    font-family: "Poppins", sans-serif !important;
-
-    padding: 0;
+    /* font-family: "Poppins", sans-serif !important; */
+    /* padding-top: -10px; */
     background-color: #65071f;
 }
 
@@ -34,7 +32,7 @@ ol {
 }
 
 .d-flex {
-    min-height: 100%
+
 }
 
 .section-header {
@@ -251,9 +249,6 @@ ol {
     }
 }
 
-
-
-
 /* header navbar */
 
 .header {
@@ -267,10 +262,10 @@ ol {
 
 /* navbar */
 .navbar {
-    background-color: var(--color-primary);
+    /* background-color: var(--color-primary);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     padding: 20px 0px;
-    top: 0;
+    top: px; */
 }
 
 .nav-link {
@@ -326,7 +321,6 @@ ol {
     width: 256px;
     color: white;
     float: left;
-
 }
 
 .sidebar-fiture {
@@ -434,7 +428,6 @@ td {
 .input-dashboard {
     margin-bottom: 24px;
     font-weight: bold;
-
 }
 
 .form-control {
