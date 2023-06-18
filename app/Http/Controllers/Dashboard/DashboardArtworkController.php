@@ -54,13 +54,13 @@ class DashboardArtworkController extends Controller
                 'material' => 'required|max:255',
                 'size' => 'required|max:255',
                 'year' => 'required|max:255',
-                'description' => 'required|max:255',
+                'description' => 'required|max:1000',
                 'status_id' => 'required',
+                'price' => 'required|max:255',
             ]);
 
             $validationData['cover'] = $imageName;
             $validationData['user_id'] = auth()->user()->id;
-
 
             $artwork = Artwork::create($validationData);
             $artwork->save();
@@ -137,6 +137,7 @@ class DashboardArtworkController extends Controller
             'year' => 'required|max:255',
             'description' => 'required|max:255',
             'status_id' => 'required',
+            'price' => 'required|max:255',
         ];
 
         if($request->slug != $artwork->slug) {

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('year');
             $table->text('description');
             $table->foreignId('status_id');
+            $table->string('price');
             $table->timestamps();
         });
     }

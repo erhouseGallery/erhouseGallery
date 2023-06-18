@@ -12,10 +12,21 @@
 <div class="collapse d-md-none d-lg-none d-xl-none d-xxl-none sidebar-collapse-menu" id="navbarToggleExternalContent">
     <div class="bg-based px-4 py-2">
         <ul class="text-white pl-0">
+            <li class="d-flex justify-content-center "> <img alt="image" style="width: 30%" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mt-3 "></li>
+            <li class="d-flex justify-content-center mt-2 text-dark"> <h4>Admin</h4> </li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                     <span>Dashboard</span></a></li>
-            <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/orders">
                     <span>Pemesanan</span></a></li>
+            {{-- auth --}}
+            @can('admin')
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/artworks">
+                    <span>Karya</span></a></li>
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/articles">
+                    <span>Artikel</span></a></li>
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
+                    <span>Event</span></a></li>
+            @endcan
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                     <span>Profile</span></a></li>
         </ul>
@@ -29,7 +40,7 @@
     <aside id="sidebar-wrapper">
         <ul class="sidebar-menu container">
             <li class="d-flex justify-content-center "> <img alt="image" style="width: 30%" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mt-3 "></li>
-            <br>
+            <li class="d-flex justify-content-center mt-2 text-dark"> <h4>Admin</h4> </li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                     <span>Dashboard</span></a></li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/orders">

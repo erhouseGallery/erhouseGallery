@@ -24,6 +24,7 @@ class Artwork extends Model
         'description',
         'status_id',
         'user_id',
+        'price'
     ];
 
 
