@@ -38,12 +38,14 @@
 
               class="d-flex justify-content-center align-items-center">
                 <button id="btn-action-edit" class="btn-action mx-2"><a href="/admin/artworks/{{ $artwork->slug }}/edit" style="text-decoration: none; color : inherit">edit</a></button>
-                <button id="btn-action-detail" class="btn-action mx-2" >Detail</button>
+                <button  id="btn-action-detail" class="btn-action mx-2" > <a href="/admin/artworks/{{ $artwork->slug }}">Detail</a>  </button>
                 <form action="/admin/artworks/{{ $artwork->slug }}" method="post">
                 @method('delete')
                 @csrf
                 <button id="btn-action-delete" class="btn-action mx-2"  onclick="return confirm('anda yakin ingin hapus?')" >Hapus</button>
                 </form>
+
+
 
               </td>
             </tr>

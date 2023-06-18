@@ -104,9 +104,21 @@ class DashboardArtworkController extends Controller
         // return redirect('/admin/artworks')->with('success', 'data berhasil ditambahkan');
 
 
-    public function show(string $id)
+    public function show(Artwork $artwork)
     {
-        //
+
+         if ($artwork->user->id !== auth()->user()->id) {
+                abort(403);
+             }
+
+             $image_artworks = ImageArtwork::where('artwork_id', $artwork->id)->get();
+        return view('admin.artworks.show', [
+            'artwork' => $artwork,
+            'categories' => Category::all(),
+            'statuses' => Status::all(),
+            'title' => 'Admin Detail Karya',
+            'image_artworks' => $image_artworks,
+        ]);
     }
 
 
