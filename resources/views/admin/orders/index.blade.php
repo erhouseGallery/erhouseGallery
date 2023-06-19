@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
+
+<div class="d-flex">
     @include('components.sidebar')
 
-
-
-    <div class="main-content mt-5">
+<section id="table_pemesanan" class="admin-content">
 
         @if(session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -13,55 +13,48 @@
         </div>
         @endif
 
-        <a href="/admin/orders/create"><button class="red-button mb-35">Buat Pesanan Baru</button><a>
-        <table class="table-responsive mt-3 ">
-            <thead>
-                <tr class="">
-                    <th class="text-light text-center">No</th>
-                    <th class="text-light text-center">Nama Pemesan</th>
-                    <th class="text-light text-center">Alamat</th>
-                    <th class="text-light text-center">Email</th>
-                    <th class="text-light text-center">Nomor</th>
-                    <th class="text-light text-center">Nama Pesanan</th>
-                    <th class="text-light text-center">Kategori</th>
-                    <th class="text-light text-center">gambar</th>
-                    <th class="text-light text-center">Deskripsi</th>
-                    <th class="text-light text-center">Keterangan</th>
-                    <th class="text-light text-center">Catatan</th>
-                    <th class="text-light text-center">Tanggal</th>
+        <a href="/admin/orders/create"><button class="btn-create mb-4">Buat Pesanan Baru</button><a>
+        <table class="table-dashboard table table-striped table-hover ">
+            <thead class="thead-dashboard">
+                <tr >
+                    <th scope="col" class="text-center"><p>No </p></th>
+                    <th scope="col" class="text-center"><p>Nama Pemesan</p> </th>
+                    <th scope="col"  class="text-center"><p> Nama Pesanan</p> </th>
+                    <th scope="col"  class="text-center"> <p>Kategori </p> </th>
+                    <th scope="col"  class="text-center"> <p>Keterangan </p> </th>
+                    <th scope="col"  class="text-center"><p>Catatan </p></th>
+                    <th scope="col"  class="text-center"> <p>Tanggal </p> </th>
                     @can('admin')
-                    <th scope="col" class="text-light text-center">Aksi</th>
+                    <th scope="col" class="text-center"> <p> Aksi</p> </th>
                     @endcan
                 </tr>
             </thead>
-            <tbody class="">
+            <tbody class="tbody-dashboard">
 
                 @foreach ($orders as $order)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $order->user->name }}</td>
-                    <td>{{ $order->user->address }}</td>
-                    <td>{{ $order->user->email }}</td>
-                    <td>{{ $order->user->number }}</td>
                     <td>{{ $order->order_name }}</td>
                     <td>{{ $order->category->name }}</td>
-
-                    <td><img src="{{ asset('storage/'. $order->image) }}" alt="" class="img-fluid" style="width : 80%"></td>
-
-                    <td>{!! $order->description !!}</td>
                     <td>{{ $order->information->name }}</td>
                     <td>{{ $order->note }}</td>
-                    <td>{{ $order->created_at->format('d M Y') }}</td>
+                    <td>{{ $order->date->format('d M Y') }}</td>
 
                     @can('admin')
-                    <td class="d-flex">
-                        <button class="red-button mx-2" style="font-size: 10px;"><a href="/admin/orders/{{ $order->id }}/edit">edit</a></button>
-                        <form action="/admin/orders/{{ $order->id }}" method="post">
-                        @method('delete')
-                        @csrf
-                        <button class="red-button mx-2" style="font-size: 10px;" onclick="return confirm('anda yakin ingin hapus?')" >Hapus</button>
-                        </form>
-                        <button class="red-button mx-2" style="font-size: 10px;">Detail</button>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <button id="btn-action-edit" class="btn-action mx-2" ><a href="/admin/orders/{{ $order->id }}/edit" style="text-decoration: none; color : inherit">edit</a></button>
+                            <button  id="btn-action-detail" class="btn-action mx-2" > <a href="/admin/orders/{{ $order->slug }}" style="text-decoration: none; color : inherit">Detail</a>  </button>
+                            <form action="/admin/orders/{{ $order->id }}" method="post">
+                            @method('delete')
+                            @csrf
+                            <button id="btn-action-delete" class="btn-action mx-2" onclick="return confirm('anda yakin ingin hapus?')" >Hapus</button>
+                            </form>
+
+
+                        </div>
+
                       </td>
                     @endcan
                 </tr>
@@ -72,5 +65,10 @@
         </table>
 
 
-    </div>
+
+
+</section>
+</div>
+
+
 @endsection

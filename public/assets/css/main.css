@@ -487,9 +487,9 @@ trix-editor{
 
 /* Main Content */
 
-.main-content {
+/* .main-content {
     margin-left: 300px;
-}
+} */
 
 .table-responsive {
     background-color: var(--color-primary);
@@ -504,6 +504,7 @@ thead {
 th,
 td {
     padding: 12px 12px;
+ 
 }
 
 /* profil */
@@ -1558,7 +1559,7 @@ h3 {
     font-weight: 500;
 }
 
-.admin-form {
+.admin-content {
     width: 100%;
     padding: 0 50px;
     margin-top: 65px;

@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Category;
 use App\Models\Information;
 use App\Http\Controllers\Controller;
+use App\Models\ImageOrder;
 use Illuminate\Support\Facades\Storage;
 class DashboardOrderController extends Controller
 {
@@ -16,7 +17,7 @@ class DashboardOrderController extends Controller
         if(auth()->user()->is_admin) {
             return view('admin.orders.index',[
                 'title' => 'pesanan',
-                'orders' => Order::all()
+                'orders' => Order::all(),
             ]);
 
         }
@@ -46,18 +47,25 @@ class DashboardOrderController extends Controller
         $validateData = $request->validate([
             'order_name' => 'required|max:255',
             'category_id' => 'required',
-            'image' => 'image|file|max:3072',
             'description' => 'required|max:255',
         ]);
 
-        if($request->file('image')) {
-            $validateData['image'] = $request->file('image')->store('orders-image');
-        }
-
         $validateData['user_id'] = auth()->user()->id;
-        Order::create($validateData);
+        $order = Order::create($validateData);
+        $order->save();
 
-        return redirect('/admin/orders')->with('success','pesanan berhasil dibuat, nohon ditunggu');
+        if($request->hasFile('images')) {
+           $files = $request->file('images');
+           foreach ($files as $file) {
+            $imageName = time() . '-' . $file->getClientOriginalName();
+            $request['order_id'] = $order->id;
+            $request['image'] = $imageName;
+            $file->storeAs('image-orders', $imageName);
+            ImageOrder::create($request->all());
+
+           }
+        }
+        return redirect('/admin/orders')->with('success','pesanan berhasil dibuat, mohon ditunggu');
 
     }
 
@@ -97,8 +105,14 @@ class DashboardOrderController extends Controller
     public function destroy(Order $order)
     {
 
-        if($order->image) {
-            Storage::delete($order->image);
+
+        $currentImages = ImageOrder::where('order_id', $order->id)->get();
+
+        if($currentImages != null) {
+            foreach ($currentImages as $currentImage) {
+                Storage::delete('image-orders/'. $currentImage->image);
+            }
+            ImageOrder::where('order_id', $order->id)->delete();
         }
         Order::destroy($order->id);
         return redirect('/admin/orders')->with('success', 'data berhasil dihapus');

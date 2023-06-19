@@ -3,11 +3,12 @@
 <div class="d-flex">
   @include('components.sidebar')
 
-  <section id="buat_karya" class="admin-form">
-    <h2 class="mb-15 black">Buat Pesanan</h2>
+  <section id="buat_karya" class="admin-content">
+    <h2 class="mb-3 black">Buat Pesanan</h2>
     <form method="post" action="/admin/orders" enctype="multipart/form-data">
         @csrf
-      <div class="mb-3">
+      <div class="input-dashboard">
+        <label for="title">Nama pemesanan</label>
         <input type="text" class="form-control @error('order_name') is-invalid @enderror border-16" id="order_name" name="order_name" placeholder="Nama Pesanan" required autofocus>
         @error('order_name')
             <div class="invalid-feedback">
@@ -16,26 +17,35 @@
         @enderror
       </div>
 
-      <select class="form-select mb-3 border-16" name="category_id" >
-        <option selected>Kategory</option>
-        @foreach ($categories as $category)
-        <option value="{{ $category->id }}"> {{$category->name}}</option>
-        @endforeach
-      </select>
+
+      <div class="input-dashboard">
+        <label for="category">Kategori</label>
+
+        <select class="form-select mb-3 border-16" name="category_id" >
+            <option disabled selected hidden>Kategori</option>
+            @foreach ($categories as $category)
+            <option value="{{ $category->id }}"> {{$category->name}}</option>
+            @endforeach
+          </select>
+      </div>
 
 
-      <div class="input-group mb-3 ">
-        <img  class="img-preview img-fluid" alt="">
-        <input type="file" class="form-control  @error('image') is-invalid @enderror border-16" id="image" name="image" onchange="previewImage()" multiple>
-        @error('image')
+
+      <div class="input-dashboard ">
+        <label for="images">Gambar/sketsa pesanan</label>
+        {{-- <img  class="img-preview img-fluid" alt=""> --}}
+        <input type="file" class="form-control  @error('image') is-invalid @enderror border-16" id="images" name="images[]" onchange="previewImage()" multiple required autofocus>
+        @error('images')
         <div class="invalid-feedback">
             {{ $message }}
             </div>
     @enderror
     </div>
 
-    <div class="mb-3">
-        <input id="description" type="hidden" name="description" class="form-control @error('description') is-invalid @enderror border-16">
+
+    <div class="input-dashboard-trix-editor">
+        <label for="description">Deskripsi Pesananan</label>
+        <input id="description" type="hidden" name="description" class="form-control-trix-editor @error('description') is-invalid @enderror border-16">
         <trix-editor input="description"></trix-editor>
         @error('description')
         <div class="invalid-feedback">
@@ -47,7 +57,8 @@
 
 
 
-      <button type="submit" class="red-button">Submit</button>
+
+      <button type="submit" class="btn-submit">Submit</button>
 
     </form>
   </section>

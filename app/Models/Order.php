@@ -24,8 +24,11 @@ class Order extends Model
         'category_id',
         'description',
         'user_id',
-        'image',
         'information_id',
         'note',
+    ];
+
+    protected $casts = [
+        'date' => 'datetime',
     ];
 }

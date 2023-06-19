@@ -4,7 +4,7 @@
 <div class="d-flex">
   @include('components.sidebar')
 
-  <section id="edit_karya" class="admin-form">
+  <section id="edit_karya" class="admin-content">
     <h2 class="mb-3 black">Edit Karya</h2>
     <div class="line mb-6"></div>
     <form method="post" action="/admin/artworks/{{ $artwork->slug }}" enctype="multipart/form-data">

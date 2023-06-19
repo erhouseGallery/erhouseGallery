@@ -3,7 +3,7 @@
 <div class="d-flex">
   @include('components.sidebar')
 
-  <section id="buat_karya" class="admin-form">
+  <section id="buat_karya" class="admin-content">
     <h2 class="mb-3 black">Buat Karya</h2>
     <div class="line mb-6"></div>
     <form method="post" action="/admin/artworks" enctype="multipart/form-data" class="form-dashboard">

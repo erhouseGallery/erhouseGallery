@@ -4,7 +4,7 @@
 <div class="d-flex">
   @include('components.sidebar')
 
-  <section id="table_karya" class="admin-form">
+  <section id="table_karya" class="admin-content">
     @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('success') }}
@@ -34,18 +34,17 @@
 
 
 
-              <td
-
-              class="d-flex justify-content-center align-items-center">
+              <td class="">
+            <div class="d-flex justify-content-center" >
                 <button id="btn-action-edit" class="btn-action mx-2"><a href="/admin/artworks/{{ $artwork->slug }}/edit" style="text-decoration: none; color : inherit">edit</a></button>
-                <button  id="btn-action-detail" class="btn-action mx-2" > <a href="/admin/artworks/{{ $artwork->slug }}">Detail</a>  </button>
+                <button  id="btn-action-detail" class="btn-action mx-2" > <a href="/admin/artworks/{{ $artwork->slug }}" style="text-decoration: none; color : inherit">Detail</a>  </button>
                 <form action="/admin/artworks/{{ $artwork->slug }}" method="post">
                 @method('delete')
                 @csrf
                 <button id="btn-action-delete" class="btn-action mx-2"  onclick="return confirm('anda yakin ingin hapus?')" >Hapus</button>
                 </form>
 
-
+            </div>
 
               </td>
             </tr>
