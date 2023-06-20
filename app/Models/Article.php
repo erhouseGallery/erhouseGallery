@@ -5,20 +5,49 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Article extends Model
 {
+    use HasFactory, Sluggable;
+
+    public function User() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function Image() {
+        return $this->hashMany(ImageArticle::class);
+    }
+
+
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 
 
 
-    protected $guarded = ['id'];
     protected $fillable = [
+
         'title',
         'slug',
+        'cover',
         'content',
-        'image',
-
+        'user_id',
     ];
 
-    use HasFactory;
+
+    protected $casts = [
+        'date' => 'datetime',
+    ];
+
+
 }

@@ -4,7 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontPage\ArticleController;
 use App\Http\Controllers\FrontPage\ArtworkController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Models\Article;
+// use App\Models\Article;
 
 use App\Http\Controllers\Dashboard\DashboardOrderController;
 use App\Http\Controllers\Dashboard\DashboardArtworkController;
@@ -152,7 +152,8 @@ Route::get('/admin/artworks/checkSlug', [DashboardArtworkController::class, 'che
 Route::resource('/admin/artworks', DashboardArtworkController::class)->middleware('admin');
 
 //dasboard articles admin
-Route::resource('/admin/articles',DashboardArticleController::class);
+Route::get('/admin/articles/checkSlug', [DashboardArticleController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/admin/articles',DashboardArticleController::class)->middleware('admin');
 
 //dasboard order admin
 Route::resource('/admin/orders',DashboardOrderController::class)->middleware('auth');

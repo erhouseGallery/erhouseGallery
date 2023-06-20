@@ -28,6 +28,13 @@ class Artwork extends Model
     ];
 
 
+    public function scopeFilter($query) {
+        if(request('search')) {
+            return $query->where('title', 'like', '%' . request('search') . '%');
+        }
+    }
+
+
     public function User() {
         return $this->belongsTo(User::class);
     }

@@ -79,11 +79,13 @@ class DashboardOrderController extends Controller
     public function edit(Order $order)
     {
 
+        $image_orders = ImageOrder::where('order_id',$order->id)->get();
         return view('admin.orders.edit', [
             'title' => 'Edit Pesanan',
             'order' => $order,
             'categories' => Category::all(),
-            'information' => Information::all()
+            'information' => Information::all(),
+            'image_orders' => $image_orders,
         ]);
     }
 
@@ -104,7 +106,6 @@ class DashboardOrderController extends Controller
 
     public function destroy(Order $order)
     {
-
 
         $currentImages = ImageOrder::where('order_id', $order->id)->get();
 

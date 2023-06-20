@@ -3,7 +3,7 @@
 <div class="d-flex">
   @include('components.sidebar')
 
-  <section id="buat_karya" class="admin-content">
+  <section id="buat_pesanan" class="admin-content">
     <h2 class="mb-3 black">Buat Pesanan</h2>
     <form method="post" action="/admin/orders" enctype="multipart/form-data">
         @csrf

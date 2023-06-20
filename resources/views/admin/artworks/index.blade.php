@@ -53,6 +53,7 @@
 
           </tbody>
         </table>
+        {{ $artworks->links() }}
   </section>
 </div>
 

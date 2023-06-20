@@ -14,7 +14,7 @@
 
                     @foreach ($image_artworks as $image_artwork )
                     <div class="swiper-slide">
-                        <img class="img-fluid w-100" src="{{ asset('storage/artworks-image/' . $image_artwork->image) }}" alt="">
+                        <img class="img-fluid w-100" src="{{ asset('storage/image-artworks/' . $image_artwork->image) }}" alt="">
                     </div>
                         @endforeach
 

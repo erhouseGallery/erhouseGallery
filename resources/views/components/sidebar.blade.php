@@ -51,7 +51,7 @@
                     <span>Karya</span></a></li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/articles">
                     <span>Artikel</span></a></li>
-            <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="/">
                     <span>Event</span></a></li>
             @endcan
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
