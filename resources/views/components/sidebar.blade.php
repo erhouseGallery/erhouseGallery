@@ -39,7 +39,7 @@
 <div class="sidebar d-none d-md-inline-block">
     <aside id="sidebar-wrapper">
         <ul class="sidebar-menu container">
-            <li class="d-flex justify-content-center "> <img alt="image" style="width: 30%" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mt-3 "></li>
+            <li class="d-flex justify-content-center "> <img alt="image" style="width: 30%" src="{{ auth()->user()->avatar }}" class="rounded-circle mt-3 "></li>
             <li class="d-flex justify-content-center mt-2 text-dark"> <h4>Admin</h4> </li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
                     <span>Dashboard</span></a></li>

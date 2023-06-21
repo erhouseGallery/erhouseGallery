@@ -46,11 +46,16 @@
                                 <li><strong>Ukuran</strong> <h5> {{$artwork->size}}</h5></li>
                                 <li><strong>Bahan</strong> <h5> {{$artwork->material}}</h5></li>
                                 <li><strong>Tahun</strong> <h5> {{$artwork->year}}</h5></li>
-                                <li><a href="#" class="btn-visit align-self-start">{{ $artwork->status->name }}</a></li>
-                                <form action="/artworks/{{$artwork->slug}}/buy" method="post">
-                                    @csrf
-                                    <button type="submit">Pesan</button>
-                                </form>
+                                <li>
+                                    @if ($artwork->status->name == 'Available')
+                                    <form action="/artworks/{{$artwork->slug}}/buy" method="post">
+                                        @csrf
+                                        <button class="btn-visit align-self-start" type="submit">{{ $artwork->status->name }}</button>
+                                    </form>
+                                    @else
+                                    <button class="btn-visit bg-danger align-self-start">{{ $artwork->status->name }}</button>
+                                    @endif
+                                </li>
                             </ul>
                         </div>
                     </div>

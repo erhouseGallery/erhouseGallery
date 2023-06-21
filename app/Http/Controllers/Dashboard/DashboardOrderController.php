@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Information;
 use App\Http\Controllers\Controller;
 use App\Models\ImageOrder;
+use App\Mail\OrderMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 class DashboardOrderController extends Controller
 {
@@ -65,6 +67,8 @@ class DashboardOrderController extends Controller
 
            }
         }
+
+        Mail::to('irfannudinihsan@students.amikom.ac.id')->send(new OrderMail($order));
         return redirect('/admin/orders')->with('success','pesanan berhasil dibuat, mohon ditunggu');
 
     }

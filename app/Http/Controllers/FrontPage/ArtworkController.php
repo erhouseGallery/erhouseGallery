@@ -9,7 +9,9 @@ use App\Models\ImageArtwork;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderMail;
 use App\Models\Order;
+use Illuminate\Support\Facades\Mail;
 
 class ArtworkController extends Controller
 {
@@ -58,13 +60,17 @@ class ArtworkController extends Controller
 
     public function buy(Artwork $artwork) {
         // return $artwork;
-
-        Order::create([
+        $artwork->update([
+            'status_id' => 2
+        ]);
+        $orderData = Order::create([
             'user_id' => auth()->user()->id,
             'order_name' => $artwork->title,
             'category_id' => $artwork->category_id,
             'description' => $artwork->description,
         ]);
+
+        Mail::to('irfannudinihsan@students.amikom.ac.id')->send(new OrderMail($orderData));
 
         return redirect('/admin/orders');
     }

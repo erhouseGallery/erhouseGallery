@@ -23,6 +23,12 @@
             <label for="title">Kategori</label>
             <h2>{{ $order->category->name}}</h2>
         </div>
+        <div class="input-dashboard">
+            <label for="title">nomor</label>
+            <h2>
+                <a href='https://wa.me/{{ $order->user->number}}?text=Halo%20kami%20dari%20erhouse%20gallery%20ingin%20mengkonfirmasi%20pesanan%20dengan%20nama%20pesanan%20{{ $order->user->name }}' target="_blank">nomormu</a>
+                </h2>
+        </div>
 
 
 
@@ -34,13 +40,13 @@
 
 
         <label for="title">Gambar/Sketsa</label>
-        <div class="position-relative h-50">
+        <div class="position-relative h-20" style="width: 600px">
             <div class="slides-1 portfolio-details-slider swiper">
                 <div class="swiper-wrapper align-items-center">
 
                     @foreach ($image_orders as $image_order )
                     <div class="swiper-slide">
-                        <img src="{{ asset('storage/image-orders/' . $image_order->image) }}" alt="" >
+                        <img src="{{ asset('storage/image-orders/' . $image_order->image) }}" alt="" style="max-width: 600px;" >
                     </div>
                         @endforeach
 

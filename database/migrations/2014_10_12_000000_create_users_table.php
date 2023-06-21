@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('number');
             $table->string('address');
             $table->string('password');
+            $table->string('avatar');
             $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();

@@ -21,14 +21,21 @@ class AuthController extends Controller
 
     public function store(Request $request) {
 
+
+        $avatars = ['Annie', 'Lily', 'Cali', 'Trouble', 'Mittens', 'Baby', 'Socks', 'Mimi', 'Sam', 'Zoey', 'Jasmine', 'Harley', 'Jack', 'Bear', 'Boots', 'Scooter', 'Patches', 'Bella', 'Sugar', 'Cuddles'];
+
+        $avatar = array_rand($avatars);
+
+        // return $avatars[$avatar];
         $validateData = $request->validate([
             'name' => 'required|min:3|max:255',
             'email' => 'required|email:dns|unique:users',
             'number' => 'required|max:255',
             'address' => 'required|max:255',
-            'password' => 'required|min:5|max:255'
+            'password' => 'required|min:5|max:255',
         ]);
 
+        $validateData['avatar'] = 'https://api.dicebear.com/6.x/avataaars/svg?seed=' . $avatars[$avatar];
         $validateData['password'] = Hash::make($validateData['password']);
 
         User::create($validateData);
