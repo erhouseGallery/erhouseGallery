@@ -59,7 +59,7 @@
 
     <div class="input-dashboard">
         <label for="images">Gambar</label>
-        <input type="file" class="form-control  @error('image') is-invalid @enderror border-16"
+        <input type="file" class="form-control-file  @error('image') is-invalid @enderror border-16"
             id="images" name="images[]" multiple>
         @error('images')
             <div class="invalid-feedback">

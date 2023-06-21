@@ -69,25 +69,89 @@ class DashboardArticleController extends Controller
     }
 
 
-    public function show(string $id)
+    public function show(Article $article)
     {
-        //
+
+        if ($article->user->id !== auth()->user()->id) {
+            abort(403);
+         }
+
+         $image_articles = ImageArticle::where('article_id', $article->id)->get();
+
+         return view('admin.articles.show', [
+            'article' => $article,
+            'title' => 'Admin Detail Artikel',
+            'image_articles' => $image_articles,
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+
+    public function edit(Article $article)
     {
-        //
+        return view('admin.articles.edit',[
+            'title' => 'Edit Artikel',
+            'article' => $article,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+
+    public function update(Request $request, Article $article)
     {
-        //
+
+        $rules = [
+            'title' => 'required|max:255',
+            'content' => 'required|max:255',
+        ];
+
+        if($request->slug != $article->slug) {
+            $rules['slug'] = 'required|unique:artworks';
+        }
+            $validateData = $request->validate($rules);
+
+        // cover
+        if($request->hasFile('cover')) {
+            $file = $request->file('cover');
+            $imageName = time() . '-' . $file->getClientOriginalName();
+            $file->storeAs('image-articles', $imageName );
+             $validateData['cover'] = $imageName;
+
+            if($article->cover != null) {
+                Storage::delete('image-articles/' . $article->cover);
+            }
+
+             $validateData['cover'] = $imageName;
+        }
+
+        $validateData['user_id'] = auth()->user()->id;
+        Article::where('id', $article->id)
+        ->update( $validateData);
+
+         //  images
+         if ($request->hasFile("images")) {
+            $files = $request->file("images");
+
+            $currentImages = ImageArticle::where('article_id', $article->id)->get();
+
+            if($currentImages != null) {
+                foreach ($currentImages as $currentImage) {
+                    Storage::delete('image-articles/'. $currentImage->image);
+                }
+
+                ImageArticle::where('article_id', $article->id)->delete();
+            }
+
+            foreach ($files as $file) {
+                $imageName = time() . '-' . $file->getClientOriginalName();
+                $request['article_id'] = $article->id;
+                $request['image'] = $imageName;
+                $file->storeAs('image-articles', $imageName );
+                ImageArticle::create($request->all());
+            }
+
+        }
+
+        return redirect('/admin/articles')->with('success', 'data berhasil diupdate');
+
     }
 
 
