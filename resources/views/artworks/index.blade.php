@@ -37,8 +37,8 @@
         <div class="col-md-12 mt-4">
             <div class="btn-group">
                 <a href="/artworks" class="btn btn-primary">Semua</a>
-                <a href="/artworks?category=patung" class="btn btn-primary">Patung</a>
-                <a href="/artworks?category=lukisan" class="btn btn-primary">Lukisan</a>
+                <a href="/artworks/categories/Patung" class="btn btn-primary">Patung</a>
+                <a href="/artworks/categories/Lukisan" class="btn btn-primary">Lukisan</a>
             </div>
         </div>
 

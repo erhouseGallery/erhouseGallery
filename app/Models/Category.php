@@ -10,5 +10,7 @@ class Category extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-
+    public function artworks() {
+        return $this->hasMany(Artwork::class);
+    }
 }
