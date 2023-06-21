@@ -14,8 +14,6 @@ use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardArticleController extends Controller
 {
-
-
     public function index()
     {
 

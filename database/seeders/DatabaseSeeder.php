@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
             'number' => '081234567890',
             'address' => 'Jalan merdeka No.45 Yogyakarta',
             'password' => bcrypt('12345'),
+            'avatar' => 'profil.jpg',
             'is_admin' => true,
 
 
@@ -46,6 +47,7 @@ class DatabaseSeeder extends Seeder
             'number' => '080987654321',
             'address' => 'Jalan merdeka No.45 Yogyakarta',
             'password' => bcrypt('12345'),
+            'avatar' => 'profil.jpg',
             'is_admin' => false,
 
         ]);

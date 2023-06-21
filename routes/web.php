@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard\DashboardOrderController;
 use App\Http\Controllers\Dashboard\DashboardArtworkController;
 use App\Http\Controllers\Dashboard\DashboardArticleController;
+use App\Http\Controllers\Dashboard\DashboardEventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,13 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-// Route::get('/coba/{coba}', function($coba) {
-//     return "nama saya : $coba";
-// });
 
 
 
@@ -74,7 +69,6 @@ Route::post('/artworks/{artwork:slug}/buy', [ArtworkController::class, 'buy'])->
 
 // semua articles (artikel) frontPage
 Route::get('/articles', [ArticleController::class, 'index']);
-
 Route::get('/articles/show/{article:slug}', [ArticleController::class, 'show']);
 
 
@@ -95,6 +89,11 @@ Route::resource('/admin/artworks', DashboardArtworkController::class)->middlewar
 //dasboard articles admin
 Route::get('/admin/articles/checkSlug', [DashboardArticleController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/admin/articles',DashboardArticleController::class)->middleware('admin');
+
+
+//dasboard articles admin
+Route::get('/admin/events/checkSlug', [DashboardEventController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/admin/events',DashboardEventController::class)->middleware('admin');
 
 //dasboard order admin
 Route::resource('/admin/orders',DashboardOrderController::class)->middleware('auth');
