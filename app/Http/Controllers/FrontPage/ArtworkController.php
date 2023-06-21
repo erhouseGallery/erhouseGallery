@@ -19,7 +19,7 @@ class ArtworkController extends Controller
     // menampilkan semua artworks (karya)
     public function index(Request $request) {
         // $artworks = Artwork::all();
-        $artworks = Artwork::with(['category','status'])->latest()->filter()->paginate(6);
+        $artworks = Artwork::with(['category','status'])->latest()->filter()->paginate(2);
         return view('artworks.index', [
             'title' => 'karya',
             'artworks' => $artworks,
