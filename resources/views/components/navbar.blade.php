@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid px-5">
         <a class="navbar-brand" href="/">Erhouse Gallery</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -10,22 +11,16 @@
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/"> Home</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Karya
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/lukisan">Lukisan</a>
-                        <a class="dropdown-item" href="/patung">Patung</a>
-                    </div>
+                <li class="nav-item">
+                    <a a class="nav-link {{ $title === 'Artikel' ? 'active' : '' }}" href="/artworks">Karya</a>
                 </li>
 
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Artikel' ? 'active' : '' }}" href="/post">Artikel</a>
+                    <a a class="nav-link {{ $title === 'Artikel' ? 'active' : '' }}" href="/articles">Artikel</a>
 
                 </li>
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Event' ? 'active' : '' }}" href="/event">Event</a>
+                    <a a class="nav-link {{ $title === 'Event' ? 'active' : '' }}" href="/events">Event</a>
                 </li>
                 <li class="nav-item">
                     <a a class="nav-link {{ $title === 'Tentang Kami' ? 'active' : '' }}" href="/about">Tentang
@@ -38,33 +33,35 @@
             <div>
                 <ul class="navbar-nav">
                     @guest
-                    <li class="nav-item d-flex">
-                        <a href="/login" class="login nav-link btn px-3">Login</a>
-                        <a href="/register" class="register nav-link btn ml-2 px-3">Daftar</a>
-                    </li>
+                        <li class="nav-item d-flex">
+                            <a href="/login" class="login nav-link btn px-3">Login</a>
+                            <a href="/register" class="register nav-link btn ml-2 px-3">Daftar</a>
+                        </li>
                     @endguest
 
                     @auth
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img alt="image" src="{{ auth()->user()->avatar }}" class="rounded-circle mr-1" style="width: 50px">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img alt="image" src="{{ auth()->user()->avatar }}" class="rounded-circle mr-1"
+                                    style="width: 50px">
 
-                            {{auth()->user()->name}}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/admin/dashboard-admin">Dashboard</a>
-                            <a class="dropdown-item" href="#">Pemesanan</a>
-                            <a class="dropdown-item" href="#">Karya</a>
-                            <a class="dropdown-item" href="#">Artikel</a>
-                            <a class="dropdown-item" href="#">Event</a>
-                            <a class="dropdown-item" href="#">Profile</a>
-                            <form class="logout" action="/logout" method="post">
-                                @csrf
-                                <button  type="submit">Logout</button>
-                            </form>
+                                {{ auth()->user()->name }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/admin/dashboard-admin">Dashboard</a>
+                                <a class="dropdown-item" href="#">Pemesanan</a>
+                                <a class="dropdown-item" href="#">Karya</a>
+                                <a class="dropdown-item" href="#">Artikel</a>
+                                <a class="dropdown-item" href="#">Event</a>
+                                <a class="dropdown-item" href="#">Profile</a>
+                                <form class="logout" action="/logout" method="post">
+                                    @csrf
+                                    <button type="submit">Logout</button>
+                                </form>
 
-                        </div>
-                    </li>
+                            </div>
+                        </li>
                     @endauth
                 </ul>
             </div>
@@ -73,4 +70,3 @@
 
     </div>
 </nav>
-

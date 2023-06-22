@@ -17,29 +17,29 @@ class ArtworkController extends Controller
 {
 
     // menampilkan semua artworks (karya)
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         // $artworks = Artwork::all();
-        $artworks = Artwork::with(['category','status'])->latest()->filter()->paginate(6);
-        return view('artworks.index', [
-            'title' => 'karya',
+        $artworks = Artwork::latest()->filter()->paginate(8);
+        return view('index', [
+            'title' => 'Home',
             'artworks' => $artworks,
         ]);
+    }
 
-        // $category = $request->query('category');
-
-        // $artworksQuery = Artwork::query();
-
-        // if ($category) {
-        //     $artworksQuery->where('category', $category);
-        // }
-        // $artworks = $artworksQuery->get();
-
-        // return view('artworks.index', compact('artworks'));
-
+    public function indexArtworks(Request $request)
+    {
+        // $artworks = Artwork::all();
+        $artworks = Artwork::with(['category', 'status'])->latest()->filter()->paginate(8);
+        return view('artworks.index', [
+            'title' => 'Karya Seni',
+            'artworks' => $artworks,
+        ]);
     }
 
     // menampilkan artwork (karya) berdasarkan id
-    public function show(Artwork $artwork) {
+    public function show(Artwork $artwork)
+    {
 
         $image_artworks = ImageArtwork::where('artwork_id', $artwork->id)->get();
         return view('artworks.show', [
@@ -49,16 +49,18 @@ class ArtworkController extends Controller
         ]);
     }
 
-    public function getByCategory(Category $category) {
+    public function getByCategory(Category $category)
+    {
         // return $category->artworks()->paginate(6);
 
         return view('artworks.index', [
-            'title' => 'karya',
+            'title' => 'Karya Seni',
             'artworks' => $category->artworks()->paginate(6),
         ]);
     }
 
-    public function buy(Artwork $artwork) {
+    public function buy(Artwork $artwork)
+    {
         // return $artwork;
         $artwork->update([
             'status_id' => 2
