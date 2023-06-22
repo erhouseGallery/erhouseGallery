@@ -102,7 +102,7 @@ class DashboardArticleController extends Controller
         ];
 
         if($request->slug != $article->slug) {
-            $rules['slug'] = 'required|unique:artworks';
+            $rules['slug'] = 'required|unique:articles';
         }
             $validateData = $request->validate($rules);
 

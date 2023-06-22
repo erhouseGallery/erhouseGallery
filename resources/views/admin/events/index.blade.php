@@ -38,8 +38,8 @@
                 @can('admin')
                 <td>
                     <div class="d-flex justify-content-center">
-                        <button id="btn-action-edit" class="btn-action mx-2" ><a href="/admin/events/{{ $event->slug }}/edit" style="text-decoration: none; color : inherit">edit</a></button>
                         <button  id="btn-action-detail" class="btn-action mx-2" > <a href="/admin/events/{{ $event->slug }}" style="text-decoration: none; color : inherit">Detail</a>  </button>
+                        <button id="btn-action-edit" class="btn-action mx-2" ><a href="/admin/events/{{ $event->slug }}/edit" style="text-decoration: none; color : inherit">edit</a></button>
                         <form action="/admin/events/{{ $event->slug }}" method="post">
                         @method('delete')
                         @csrf

@@ -40,6 +40,7 @@ class Event extends Model
         'content',
         'user_id',
         'location',
+        'date_event',
         'time'
     ];
 

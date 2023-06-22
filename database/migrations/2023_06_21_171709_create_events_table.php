@@ -18,9 +18,10 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('cover');
             $table->text('content');
-            $table->timestamp('date')->useCurrent();
             $table->string('location');
+            $table->string('date_event');
             $table->string('time');
+            $table->timestamp('date')->useCurrent();
             $table->timestamps();
         });
     }

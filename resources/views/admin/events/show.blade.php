@@ -12,9 +12,9 @@
             <div class="slides-1 portfolio-details-slider swiper">
                 <div class="swiper-wrapper align-items-center">
 
-                    @foreach ($image_articles as $image_article )
+                    @foreach ($image_events as $image_event )
                     <div class="swiper-slide">
-                        <img class="img-fluid w-100" src="{{ asset('storage/image-articles/' . $image_article->image) }}" alt="">
+                        <img class="img-fluid w-100" src="{{ asset('storage/image-events/' . $image_event->image) }}" alt="">
                     </div>
                         @endforeach
 
@@ -30,13 +30,23 @@
 
             <div class="col-lg-8">
                 <div class="portfolio-description">
-                    <h1>{{$article->title}}</h1>
-                    <h4>{{$article->date}}</h4>
+                    <p>tanggal buat : {{$event->date}}</p>
+                    <h1>{{$event->title}}</h1>
                     <p>
-                        {!! $article->content !!}
+                        {!! $event->content !!}
                     </p>
 
 
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="portfolio-info">
+                    <ul>
+                        <li><strong>tanggal event</strong> <h5> {{$event->date_event}}</h5></li>
+                        <li><strong>Lokasi</strong> <h5> {{$event->location}}</h5></li>
+                        <li><strong>Waktu</strong> <h5> {{$event->time}}</h5></li>
+                    </ul>
                 </div>
             </div>
 

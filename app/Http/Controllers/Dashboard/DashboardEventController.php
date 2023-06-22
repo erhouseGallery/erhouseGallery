@@ -42,6 +42,7 @@ class DashboardEventController extends Controller
                 'title' => 'required|max:255',
                 'content' => 'required|max:1000',
                 'location' => 'required|max:255',
+                'date_event' => 'required|max:255',
                 'time' => 'required|max:255',
             ]);
 
@@ -66,29 +67,97 @@ class DashboardEventController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+
+    public function show(Event $event)
     {
-        //
+
+        if ($event->user->id !== auth()->user()->id) {
+            abort(403);
+         }
+
+         $image_events = ImageEvent::where('event_id', $event->id)->get();
+
+         return view('admin.events.show', [
+            'event' => $event,
+            'title' => 'Admin Detail Event',
+            'image_events' => $image_events,
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+
+
+    public function edit( Event $event)
     {
-        //
+
+        return view('admin.events.edit',[
+            'title' => 'Edit Event',
+            'event' => $event,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+
+    public function update(Request $request, Event $event)
     {
-        //
+
+        $rules = [
+            'title' => 'required|max:255',
+            'content' => 'required|max:255',
+            'location' => 'required|max:255',
+            'date_event' => 'required|max:255',
+            'time' => 'required|max:255',
+        ];
+
+        if($request->slug != $event->slug) {
+            $rules['slug'] = 'required|unique:events';
+        }
+            $validateData = $request->validate($rules);
+
+            // cover
+        if($request->hasFile('cover')) {
+            $file = $request->file('cover');
+            $imageName = time() . '-' . $file->getClientOriginalName();
+            $file->storeAs('image-events', $imageName );
+             $validateData['cover'] = $imageName;
+
+            if($event->cover != null) {
+                Storage::delete('image-events/' . $event->cover);
+            }
+
+             $validateData['cover'] = $imageName;
+        }
+
+        $validateData['user_id'] = auth()->user()->id;
+        Event::where('id', $event->id)
+        ->update( $validateData);
+
+
+          //  images
+          if ($request->hasFile("images")) {
+            $files = $request->file("images");
+
+            $currentImages = ImageEvent::where('event_id', $event->id)->get();
+
+            if($currentImages != null) {
+                foreach ($currentImages as $currentImage) {
+                    Storage::delete('image-events/'. $currentImage->image);
+                }
+
+                ImageEvent::where('event_id', $event->id)->delete();
+            }
+
+            foreach ($files as $file) {
+                $imageName = time() . '-' . $file->getClientOriginalName();
+                $request['event_id'] = $event->id;
+                $request['image'] = $imageName;
+                $file->storeAs('image-events', $imageName );
+                ImageEvent::create($request->all());
+            }
+
+        }
+
+        return redirect('/admin/events')->with('success', 'data berhasil diupdate');
     }
+
 
 
     public function destroy(Event $event)

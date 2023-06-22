@@ -76,6 +76,15 @@
                 </div>
         @enderror
       </div>
+    <div class="input-dashboard">
+        <label for="date_event">Tanggal Event</label>
+        <input type="text" class="form-control @error('date_event') is-invalid @enderror border-16" id="date_event" name="date_event" placeholder="Tanggal Event" required autofocus>
+        @error('date_event')
+            <div class="invalid-feedback">
+                {{ $message }}
+                </div>
+        @enderror
+      </div>
 
     <div class="input-dashboard">
         <label for="time">Waktu</label>
