@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontPage\ArticleController;
 use App\Http\Controllers\FrontPage\ArtworkController;
+use App\Http\Controllers\FrontPage\EventController;
 use App\Http\Controllers\Auth\AuthController;
 // use App\Models\Article;
 
@@ -71,6 +72,9 @@ Route::post('/artworks/{artwork:slug}/buy', [ArtworkController::class, 'buy'])->
 Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/articles/show/{article:slug}', [ArticleController::class, 'show']);
 
+
+Route::get('/events', [EventController::class, 'index']);
+Route::get('/events/show/{event:slug}', [EventController::class, 'show']);
 
 
 

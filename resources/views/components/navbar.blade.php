@@ -10,14 +10,11 @@
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/"> Home</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Karya
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/lukisan">Lukisan</a>
-                        <a class="dropdown-item" href="/patung">Patung</a>
-                    </div>
+
+
+                <li class="nav-item">
+                    <a a class="nav-link {{ $title === 'Artikel' ? 'active' : '' }}" href="/artworks">Karya</a>
+
                 </li>
 
                 <li class="nav-item">

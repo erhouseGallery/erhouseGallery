@@ -25,16 +25,6 @@ class ArtworkController extends Controller
             'artworks' => $artworks,
         ]);
 
-        // $category = $request->query('category');
-
-        // $artworksQuery = Artwork::query();
-
-        // if ($category) {
-        //     $artworksQuery->where('category', $category);
-        // }
-        // $artworks = $artworksQuery->get();
-
-        // return view('artworks.index', compact('artworks'));
 
     }
 

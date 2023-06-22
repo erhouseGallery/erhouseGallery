@@ -6,19 +6,19 @@
     <!-- ======= Artikel ======= -->
     <div class="page-header article">
         <div class="row">
-            <h4>Artikel Terbaru</h4>
+            <h4>Event Terbaru</h4>
         </div>
 
         <div class="row">
-            @foreach($articles as $article)
+            @foreach($events as $event)
             <div class="col-lg-4 col-md-12 mb-4">
                 <div class="card rounded-2">
                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                        <a href="/articles/show/{{$article->slug}}"><img src="{{ asset('storage/image-articles/' . $article->cover) }}" class="img-fluid rounded-2" /></a>
+                        <a href="/events/show/{{$event->slug}}"><img src="{{ asset('storage/image-events/' . $event->cover)  }}" class="img-fluid rounded-2" /></a>
                     </div>
                     <div class="card-body">
-                        <a href="/articles/show/{{$article->slug}}">
-                            <h5 class="card-title font-weight-bold">{{$article->title}}</h5>
+                        <a href="/events/show/{{$event->slug}}">
+                            <h5 class="card-title font-weight-bold">{{$event->title}}</h5>
                         </a>
                         {{-- <p class="card-text text-black-50">
                             {{$article->description}}
@@ -31,7 +31,7 @@
     </div>
     <!-- Artikel -->
 
-    {{ $articles->links() }}
+    {{ $events->links() }}
 </main>
 
 @include('components.footer')
