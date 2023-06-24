@@ -27,6 +27,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ArtworkController::class, 'index']);
 
+Route::get('/about', function () {
+    return view('about', [
+        "title" => "Tentang Kami"
+    ]);
+});
 
 
 

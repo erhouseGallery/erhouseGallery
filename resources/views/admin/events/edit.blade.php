@@ -4,16 +4,16 @@
     <div class="d-flex">
         @include('components.sidebar')
 
-        <section id="edit_karya" class="admin-content">
-            <h2 class="mb-3 black">Edit Karya</h2>
+        <section id="edit_event" class="admin-content">
+            <h2 class="mb-3 black">Edit Event</h2>
             <div class="line mb-6"></div>
-            <form method="post" action="/admin/artworks/{{ $artwork->slug }}" enctype="multipart/form-data">
+            <form method="post" action="/admin/events/{{ $event->slug }}" enctype="multipart/form-data">
                 @method('put')
                 @csrf
                 <div class="input-dashboard">
                     <label for="title">Judul</label>
                     <input type="text" class="form-control @error('title') is-invalid @enderror border-16" id="title"
-                        placeholder="Judul" name="title" required autofocus value="{{ old('title', $artwork->title) }}">
+                        placeholder="Judul" name="title" required autofocus value="{{ old('title', $event->title) }}">
                     @error('title')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -23,7 +23,7 @@
 
                 <div class="input-dashboard">
                     <input type="text" class="form-control @error('slug') is-invalid @enderror border-16" id="slug"
-                        name="slug" placeholder="slug" required autofocus value="{{ old('slug', $artwork->slug) }}">
+                        name="slug" placeholder="slug" required autofocus value="{{ old('slug', $event->slug) }}">
                     @error('slug')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -31,25 +31,11 @@
                     @enderror
                 </div>
 
-
-                <div class="input-dashboard">
-                    <label for="category">Kategori</label>
-                    <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus
-                        name="category_id" id="category_id">
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}"
-                                {{ old('category_id', $artwork->category_id) == $category->id ? 'selected' : '' }}>
-                                {{ $category->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
                 <div class="input-dashboard ">
                     <label for="">Cover</label> <br>
-                    <input type="hidden" name="oldCover" value="{{ $artwork->cover }}">
-                    @if ($artwork->cover)
-                        <img src="{{ asset('storage/artworks-image/' . $artwork->cover) }}" alt=""
+                    <input type="hidden" name="oldCover" value="{{ $event->cover }}">
+                    @if ($event->cover)
+                        <img src="{{ asset('storage/events-image/' . $event->cover) }}" alt=""
                             class="cover-preview w-50">
                     @else
                         <img class="cover-preview img-fluid w-50" alt="">
@@ -74,48 +60,11 @@
                     @enderror
                 </div>
 
-
-                <div class="input-dashboard">
-                    <label for="material">Bahan</label>
-                    <input type="text" class="form-control @error('material') is-invalid @enderror border-16"
-                        id="material" name="material" placeholder="Tahun" required autofocus
-                        value="{{ old('year', $artwork->material) }}">
-                    @error('material')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <div class="input-dashboard">
-                    <label for="size">Ukuran</label>
-                    <input type="text" class="form-control @error('size') is-invalid @enderror border-16" id="size"
-                        name="size" placeholder="Ukuran" required autofocus value="{{ old('size', $artwork->size) }}">
-                    @error('size')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <div class="input-dashboard">
-                    <label for="year">Tahun</label>
-                    <input type="text" class="form-control @error('year') is-invalid @enderror border-16" id="year"
-                        name="year" placeholder="Tahun" required autofocus value="{{ old('year', $artwork->year) }}">
-                    @error('year')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
                 <div class="input-dashboard-trix-editor">
-                    <label for="description">Deskripsi</label>
-                    <input id="description" type="hidden" name="description"
-                        class="form-control-trix-editor @error('description') is-invalid @enderror border-16" required
-                        autofocus value="{{ old('description', $artwork->description) }}">
-                    <trix-editor input="description"></trix-editor>
-                    @error('description')
+                    <label for="content">Deskripsi</label>
+                    <input id="content" type="hidden" name="content" value="{{ old('content', $event->content) }}">
+                    <trix-editor input="content"></trix-editor>
+                    @error('content')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -123,25 +72,34 @@
                 </div>
 
                 <div class="input-dashboard">
-                    <label for="category">Status</label>
-                    <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus
-                        name="status_id" id="status_id">
-                        @foreach ($statuses as $status)
-                            <option value="{{ $status->id }}"
-                                {{ old('status_id', $artwork->status_id) == $status->id ? 'selected' : '' }}>
-                                {{ $status->name }}
-                            </option>
-                        @endforeach
-                    </select>
-
+                    <label for="location">Lokasi</label>
+                    <input type="text" class="form-control @error('location') is-invalid @enderror border-16"
+                        id="location" placeholder="Lokasi" name="location" required autofocus
+                        value="{{ old('location', $event->location) }}">
+                    @error('location')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
 
                 <div class="input-dashboard">
-                    <label for="year">Harga</label>
-                    <input type="text" class="form-control @error('price') is-invalid @enderror border-16"
-                        id="price" name="price" placeholder="price" required autofocus
-                        value="{{ old('price', $artwork->price) }}">
-                    @error('price')
+                    <label for="date_event">Tanggal</label>
+                    <input type="date" class="form-control @error('date_event') is-invalid @enderror border-16"
+                        id="date_event" placeholder="Tanggal" name="date_event" required autofocus
+                        value="{{ old('date_event', $event->date_event) }}">
+                    @error('date_event')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
+                <div class="input-dashboard">
+                    <label for="time">Waktu</label>
+                    <input type="time" class="form-control @error('time') is-invalid @enderror border-16" id="time"
+                        placeholder="Waktu" name="time" required autofocus value="{{ old('time', $event->time) }}">
+                    @error('time')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -164,7 +122,7 @@
         const slug = document.querySelector('#slug');
 
         title.addEventListener('change', function() {
-            fetch('/admin/artworks/checkSlug?title=' + title.value)
+            fetch('/admin/events/checkSlug?title=' + title.value)
                 .then(response => response.json())
                 .then(data => slug.value = data.slug)
         });

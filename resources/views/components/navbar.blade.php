@@ -50,11 +50,11 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="/admin/dashboard-admin">Dashboard</a>
-                                <a class="dropdown-item" href="#">Pemesanan</a>
-                                <a class="dropdown-item" href="#">Karya</a>
-                                <a class="dropdown-item" href="#">Artikel</a>
-                                <a class="dropdown-item" href="#">Event</a>
-                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="/admin/orders">Pemesanan</a>
+                                <a class="dropdown-item" href="/admin/artworks">Karya</a>
+                                <a class="dropdown-item" href="/admin/articles">Artikel</a>
+                                <a class="dropdown-item" href="/admin/events">Event</a>
+                                <a class="dropdown-item" href="/admin/profiles">Profile</a>
                                 <form class="logout" action="/logout" method="post">
                                     @csrf
                                     <button type="submit">Logout</button>

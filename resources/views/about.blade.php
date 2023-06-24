@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <main id="main" data-aos="fade" data-aos-delay="500">
+    <main id="main">
 
         <!-- ======= About Section ======= -->
         <section id="about" class="about page-header">
@@ -12,9 +12,6 @@
                     </div>
                     <div class="col-lg-5 content">
                         <h2>Erhouse Gallery</h2>
-                        <p class="fst-italic py-3">
-                            about
-                        </p>
                         <div class="row">
                             <div class="col-lg-6">
                                 <ul>
@@ -116,13 +113,10 @@
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-8 text-center">
-                            <h1>Contact</h1>
-                            <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas
-                                consequatur ut
-                                a
-                                odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit
-                                quaerat ipsum
-                                dolorem.</p>
+                            <h2>Hubungi Kami</h2>
+                            <p>Sampaikan Pesan Anda. Kami ingin mendengar tanggapan, pertanyaan, atau saran Anda. Isi
+                                formulir di bawah ini dan
+                                tim kami akan merespons secepatnya.</p>
 
                         </div>
                     </div>
@@ -136,42 +130,52 @@
 
                     <div class="row justify-content-center">
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 mb-3">
                             <div class="info-item d-flex">
                                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
-                                    <h4>Location:</h4>
-                                    <p>A108 Adam Street, New York, NY 535022</p>
+                                    <h4>Lokasi :</h4>
+                                    <a href="https://goo.gl/maps/XxyMKNLnvXjugiDk7" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <p>Ngeblak, Wijirejo, Kec. Pandak, Kabupaten Bantul</p>
+                                    </a>
                                 </div>
                             </div>
                         </div><!-- End Info Item -->
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 mb-3">
                             <div class="info-item d-flex">
                                 <i class="bi bi-envelope flex-shrink-0"></i>
                                 <div>
                                     <h4>Email:</h4>
-                                    <p>info@example.com</p>
+                                    <a href="mailto:raartsrus84@gmail.com" target="_blank" rel="noopener noreferrer">
+                                        <p>raartsrus84@gmail.com</p>
+                                    </a>
                                 </div>
                             </div>
                         </div><!-- End Info Item -->
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 mb-3">
                             <div class="info-item d-flex">
                                 <i class="bi bi-phone flex-shrink-0"></i>
                                 <div>
-                                    <h4>Call:</h4>
-                                    <p>+1 5589 55488 55</p>
+                                    <h4>Nomer :</h4>
+                                    <a href="http://wa.me/6285228836199" target="_blank" rel="noopener noreferrer">
+                                        <p>085228836199</p>
+                                    </a>
                                 </div>
                             </div>
                         </div><!-- End Info Item -->
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 mb-3">
                             <div class="info-item d-flex">
                                 <i class="bi bi-instagram flex-shrink-0"></i>
                                 <div>
                                     <h4>Instagram:</h4>
-                                    <p>+1 5589 55488 55</p>
+                                    <a href="https://www.instagram.com/roes_antoe/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <p>roes_antoe</p>
+                                    </a>
                                 </div>
                             </div>
                         </div><!-- End Info Item -->
@@ -180,16 +184,16 @@
 
                     <div class="row justify-content-center mt-4">
 
-                        <div class="col-lg-9">
+                        <div class="col-lg-9 mb-4">
                             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                                 <div class="row">
                                     <div class="col-md-6 form-group">
                                         <input type="text" name="name" class="form-control" id="name"
-                                            placeholder="Your Name" required>
+                                            placeholder="Nama Kamu" required>
                                     </div>
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
                                         <input type="email" class="form-control" name="email" id="email"
-                                            placeholder="Your Email" required>
+                                            placeholder="Email Kamu" required>
                                     </div>
                                 </div>
                                 <div class="form-group mt-3">
@@ -197,7 +201,7 @@
                                         placeholder="Subject" required>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                                    <textarea class="form-control" name="message" rows="5" placeholder="Pesan" required></textarea>
                                 </div>
                                 <div class="my-3">
                                     <div class="loading">Loading</div>

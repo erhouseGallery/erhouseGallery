@@ -45,11 +45,11 @@
                         <h4 class="text-center">data tidak ditemukan, silahkan kembali</h4>
                     @endif
                 </div>
-
+                <div class="mx-auto mt-5">
+                    {{ $artworks->links() }}
+                </div>
             </div>
         </section>
-
-        {{ $artworks->links() }}
     </main>
 
     @include('components.footer')

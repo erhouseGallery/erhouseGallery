@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\ImageArtwork;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -28,32 +29,38 @@ class Artwork extends Model
     ];
 
 
-    public function scopeFilter($query) {
-        if(request('search')) {
+    public function scopeFilter($query)
+    {
+        if (request('search')) {
             return $query->where('title', 'like', '%' . request('search') . '%');
         }
     }
 
 
-    public function User() {
+    public function User()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function Category() {
+    public function Category()
+    {
         return $this->belongsTo(Category::class);
     }
 
-    public function Status() {
+    public function Status()
+    {
         return $this->belongsTo(Status::class);
     }
 
 
-    public function Image() {
+    public function Image()
+    {
         return $this->hasMany(ImageArtwork::class);
     }
 
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName()
+    {
         return 'slug';
     }
 
@@ -66,8 +73,4 @@ class Artwork extends Model
             ]
         ];
     }
-
-
-
-
 }

@@ -37,9 +37,41 @@
                     @endforeach
                 </div>
 
+                <div class="container col-lg-6">
+                    <h2 class="text-center text-bold my-5">Pertanyaan Yang Sering Diajukan</h2>
+                    <div>
+                        <p>
+                            <button class="btn btn-secondary w-100" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#pertanyaan1" aria-expanded="false" aria-controls="pertanyaan1">
+                                1. Apa itu Erhouse Gallery?
+                            </button>
+                        </p>
+                        <div class="collapse" id="pertanyaan1">
+                            <div class="card card-body mb-2">
+                                Some placeholder content for the collapse component. This panel is hidden by default but
+                                revealed
+                                when the user activates the relevant trigger.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>
+                            <button class="btn btn-secondary w-100" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#pertanyaan2" aria-expanded="false" aria-controls="pertanyaan2">
+                                1. Apa itu Erhouse Gallery?
+                            </button>
+                        </p>
+                        <div class="collapse" id="pertanyaan2">
+                            <div class="card card-body mb-2">
+                                Some placeholder content for the collapse component. This panel is hidden by default but
+                                revealed
+                                when the user activates the relevant trigger.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <!-- End Gallery Section -->
 
     </main>
     <!-- End #main -->

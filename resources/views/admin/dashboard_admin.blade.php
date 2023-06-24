@@ -1,35 +1,37 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="d-flex">
-  @include('components.sidebar')
+    <div class="d-flex">
+        @include('components.sidebar')
 
-  <section id="dashboard" class="admin-form">
-    <h2 class="mb-35 black">Dashboard Admin</h2>
-    <div class="d-flex gap-4">
-      <div class="box">
-        <h1>11</h1>
-        <h3>Total Karya</h3>
-      </div>
-      <div class="box">
-        <h1>15</h1>
-        <h3>Total Artikel</h3>
-      </div>
-      <div class="box">
-        <h1>5</h1>
-        <h3>Total Event</h3>
-      </div>
-      <div class="box">
-        <h1>2</h1>
-        <h3>Total Pesanan</h3>
-      </div>
-      <div class="box">
-        <h1>2</h1>
-        <h3>Total Pesanan</h3>
-      </div>
+        <section id="dashboard" class="admin-content">
+            <h2 class="mb-35 black">Selamat Datang {{ auth()->user()->name }} </h2>
+            <div class="d-flex flex-wrap gap-4">
+                <div class="box col-md-4">
+                    @can('admin')
+                        <h1 class="text-center">{{ $artworks->count() }}</h1>
+                        <h3 class="text-center">Total Karya</h3>
+                    </div>
+                    <div class="box col-md-4">
+                        <h1 class="text-center">{{ $articles->count() }}</h1>
+                        <h3 class="text-center">Total Artikel</h3>
+                    </div>
+                    <div class="box col-md-4">
+                        <h1 class="text-center">{{ $events->count() }}</h1>
+                        <h3 class="text-center">Total Event</h3>
+                    </div>
+                    <div class="box col-md-4">
+                        <h1 class="text-center">{{ $users->count() }}</h1>
+                        <h3 class="text-center">Total User</h3>
+                    </div>
+                @endcan
+                <div class="box col-md-4">
+                    <h1 class="text-center">{{ $orders->count() }}</h1>
+                    <h3 class="text-center">Total Pesanan</h3>
+                </div>
+            </div>
+        </section>
     </div>
-  </section>
-</div>
 
-@include('components.footer')
+    {{-- @include('components.footer') --}}
 @endsection
