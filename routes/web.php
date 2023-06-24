@@ -102,4 +102,7 @@ Route::resource('/admin/events',DashboardEventController::class)->middleware('ad
 //dasboard order admin
 Route::resource('/admin/orders',DashboardOrderController::class)->middleware('auth');
 
-
+//profile
+Route::get('/admin/profiles', [AuthController::class, 'indexProfile'])->middleware('auth');
+Route::get('/admin/profiles/edit/{user:id}', [AuthController::class, 'editProfile'])->middleware('auth');
+Route::put('/admin/profiles/update/{user:id}',[AuthController::class, 'updateProfile'])->middleware('auth');

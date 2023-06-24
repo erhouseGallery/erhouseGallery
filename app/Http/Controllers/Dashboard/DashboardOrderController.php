@@ -18,8 +18,8 @@ class DashboardOrderController extends Controller
     {
         if(auth()->user()->is_admin) {
             return view('admin.orders.index',[
-                'title' => 'pesanan',
-                'orders' => Order::all(),
+                'title' => 'Dashboard Pesanan',
+                'orders' => Order::paginate(2),
             ]);
 
         }
@@ -68,7 +68,7 @@ class DashboardOrderController extends Controller
            }
         }
 
-        Mail::to('irfannudinihsan@students.amikom.ac.id')->send(new OrderMail($order));
+        // Mail::to('irfannudinihsan@students.amikom.ac.id')->send(new OrderMail($order));
         return redirect('/admin/orders')->with('success','pesanan berhasil dibuat, mohon ditunggu');
 
     }

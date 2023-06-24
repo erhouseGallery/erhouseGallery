@@ -8,24 +8,24 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item">
-                    <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/"> Home</a>
+                    <a class="nav-link" href="/"> Home</a>
                 </li>
 
 
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Artikel' ? 'active' : '' }}" href="/artworks">Karya</a>
+                    <a a class="nav-link" href="/artworks">Karya</a>
 
                 </li>
 
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Artikel' ? 'active' : '' }}" href="/post">Artikel</a>
+                    <a a class="nav-link" href="/post">Artikel</a>
 
                 </li>
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Event' ? 'active' : '' }}" href="/event">Event</a>
+                    <a a class="nav-link" href="/event">Event</a>
                 </li>
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Tentang Kami' ? 'active' : '' }}" href="/about">Tentang
+                    <a a class="nav-link" href="/about">Tentang
                         Kami</a>
                 </li>
                 <li>
@@ -50,11 +50,11 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/admin/dashboard-admin">Dashboard</a>
-                            <a class="dropdown-item" href="#">Pemesanan</a>
-                            <a class="dropdown-item" href="#">Karya</a>
-                            <a class="dropdown-item" href="#">Artikel</a>
-                            <a class="dropdown-item" href="#">Event</a>
-                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="/admin/orders">Pemesanan</a>
+                            <a class="dropdown-item" href="/admin/artworks">Karya</a>
+                            <a class="dropdown-item" href="/admin/articles">Artikel</a>
+                            <a class="dropdown-item" href="/admin/events">Event</a>
+                            <a class="dropdown-item" href="/admin/profiles">Profile</a>
                             <form class="logout" action="/logout" method="post">
                                 @csrf
                                 <button  type="submit">Logout</button>

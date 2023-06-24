@@ -75,4 +75,50 @@ class AuthController extends Controller
         return redirect('/');
 
     }
+
+    public function indexProfile() {
+
+        $user = auth()->user();
+        return view('admin.profiles.index', [
+            'title' => 'Dashboard Profile',
+            'user' => $user
+        ]);
+    }
+
+    public function editProfile(User $user) {
+
+        $user = auth()->user();
+        return view('admin.profiles.edit', [
+            'title' => 'Dashboard Profile',
+            'user' => $user
+        ]);
+    }
+
+
+    public function updateProfile(Request $request, User $user) {
+
+        $user = auth()->user();
+        $avatars = ['Annie', 'Lily', 'Cali', 'Trouble', 'Mittens', 'Baby', 'Socks', 'Mimi', 'Sam', 'Zoey', 'Jasmine', 'Harley', 'Jack', 'Bear', 'Boots', 'Scooter', 'Patches', 'Bella', 'Sugar', 'Cuddles'];
+        $avatar = array_rand($avatars);
+        $rules = [
+            'name' => 'required|min:3|max:255',
+            'email' => 'required|max:255',
+            'number' => 'required|max:255',
+            'address' => 'required|max:255',
+
+        ];
+
+            $validateData = $request->validate($rules);
+            $validateData['avatar'] = 'https://api.dicebear.com/6.x/avataaars/svg?seed=' . $avatars[$avatar];
+
+            if(!empty($request->input('password'))) {
+                $validateData['password'] = Hash::make($validateData['password']);
+            }
+
+
+        User::where('id', $user->id)->update($validateData);
+
+            return redirect('/admin/profiles')->with('success', 'data berhasil diupdate');
+    }
 }
+

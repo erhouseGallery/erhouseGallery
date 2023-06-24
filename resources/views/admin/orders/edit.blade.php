@@ -10,33 +10,50 @@
 
 
 
-        <div class="input-dashboard">
-            <label for="title">Nama Pemesan</label>
-            <h2>{{ $order->user->name}}</h2>
-        </div>
-        <div class="input-dashboard">
-            <label for="title">Nama Pesanan</label>
-            <h2>{{ $order->user->name}}</h2>
-        </div>
-
-        <div class="input-dashboard">
-            <label for="title">Kategori</label>
-            <h2>{{ $order->category->name}}</h2>
-        </div>
-        <div class="input-dashboard">
-            <label for="title">nomor</label>
-            <h2>
-                <a href='https://wa.me/{{ $order->user->number}}?text=Halo%20kami%20dari%20erhouse%20gallery%20ingin%20mengkonfirmasi%20pesanan%20dengan%20nama%20pesanan%20{{ $order->user->name }}' target="_blank">nomormu</a>
-                </h2>
-        </div>
-
-
+    <h4><b>Data Pemesan </b></h4>
+    <table class="table-dashboard   table table-striped table-hover ">
+        <thead class="thead-dashboard">
+            <tr>
+                <th class="text-center" > <p>Nama</p> </th>
+                <th class="text-center" ><p> Email</p></th>
+                <th class="text-center" ><p>Nomor </p> </th>
+                <th class="text-center" > <p>Alamat </p> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">{{ $order->user->name}}</td>
+                <td class="text-center">{{ $order->user->email}}</td>
+                <td class="text-center">{{ $order->user->number}}</td>
+                <td class="text-center">{{ $order->user->address}}</td>
+            </tr>
+        </tbody>
+    </table>
 
 
-    <div class="input-dashboard">
-        <label for="title">Deskripsi</label>
-        <h5>{!! $order->description !!}</h5>
-    </div>
+
+    <br><br>
+    <h4><b>Data Pemesanan </b></h4>
+
+
+    <table class="table-dashboard  table table-striped table-hover">
+        <thead class="thead-dashboard">
+            <tr>
+                <th class="text-center" > <p>Nama Pesanan</p> </th>
+
+                <th class="text-center" > <p>Kategori </p> </th>
+                <th class="text-center" > <p>Deskripsi </p> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">{{ $order->order_name}}</td>
+                <td class="text-center">{{ $order->category->name}}</td>
+                <td class="text-center">{!! $order->description !!}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
 
 
         <label for="title">Gambar/Sketsa</label>

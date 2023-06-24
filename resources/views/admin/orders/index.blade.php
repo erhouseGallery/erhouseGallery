@@ -5,7 +5,7 @@
 <div class="d-flex">
     @include('components.sidebar')
 
-<section id="table_pemesanan" class="admin-content">
+<section id="table_pesanan" class="admin-content">
 
         @if(session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -14,18 +14,18 @@
         @endif
 
         <a href="/admin/orders/create"><button class="btn-create mb-4">Buat Pesanan Baru</button><a>
-        <table class="table-dashboard table table-striped table-hover ">
+        <table class="table-dashboard table-responsive  table table-striped table-hover ">
             <thead class="thead-dashboard">
                 <tr >
-                    <th scope="col" class="text-center"><p>No </p></th>
-                    <th scope="col" class="text-center"><p>Nama Pemesan</p> </th>
-                    <th scope="col"  class="text-center"><p> Nama Pesanan</p> </th>
-                    <th scope="col"  class="text-center"> <p>Kategori </p> </th>
-                    <th scope="col"  class="text-center"> <p>Keterangan </p> </th>
-                    <th scope="col"  class="text-center"><p>Catatan </p></th>
-                    <th scope="col"  class="text-center"> <p>Tanggal </p> </th>
+                    <th class="text-center"><p>No </p></th>
+                    <th class="text-center"><p>Nama Pemesan</p> </th>
+                    <th  class="text-center"><p> Nama Pesanan</p> </th>
+                    <th  class="text-center"> <p>Kategori </p> </th>
+                    <th  class="text-center"> <p>Keterangan </p> </th>
+                    <th  class="text-center"><p>Catatan </p></th>
+                    <th  class="text-center"> <p>Tanggal </p> </th>
                     @can('admin')
-                    <th scope="col" class="text-center"> <p> Aksi</p> </th>
+                    <th class="text-center" style="border-radius: 2px"> <p> Aksi</p> </th>
                     @endcan
                 </tr>
             </thead>
@@ -33,13 +33,13 @@
 
                 @foreach ($orders as $order)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $order->user->name }}</td>
-                    <td>{{ $order->order_name }}</td>
-                    <td>{{ $order->category->name }}</td>
-                    <td>{{ $order->information->name }}</td>
-                    <td>{{ $order->note }}</td>
-                    <td>{{ $order->date->format('d M Y') }}</td>
+                    <td class="text-center">{{ $loop->iteration }}</td>
+                    <td class="text-center">{{ $order->user->name }}</td>
+                    <td class="text-center">{{ $order->order_name }}</td>
+                    <td class="text-center">{{ $order->category->name }}</td>
+                    <td class="text-center">{{ $order->information->name }}</td>
+                    <td class="text-center">{{ $order->note }}</td>
+                    <td class="text-center">{{ $order->date->format('d M Y') }}</td>
 
                     @can('admin')
                     <td>
@@ -52,7 +52,6 @@
                             <button id="btn-action-delete" class="btn-action mx-2" onclick="return confirm('anda yakin ingin hapus?')" >Hapus</button>
                             </form>
 
-
                         </div>
 
                       </td>
@@ -62,7 +61,14 @@
                 @endforeach
             </tbody>
 
+
         </table>
+
+        <div class="pagination">
+            {{ $orders->links() }}
+
+        </div>
+
 
 
 

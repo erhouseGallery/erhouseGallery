@@ -28,7 +28,7 @@
               <th scope="row" class="text-center">{{ $loop->iteration }}</th>
               <td class="text-center">{{ $artwork->title }}</td>
               <td class="text-center">{{ $artwork->category->name }}</td>
-              <td class="text-center"><img class="w-120" src="{{ asset('storage/artworks-image/' . $artwork->cover) }}" alt=""></td>
+              <td class="text-center"><img class="w-120" src="{{ asset('storage/image-artworks/' . $artwork->cover) }}" alt=""></td>
               <td class="text-center">{{ $artwork->status->name }}</td>
 
 

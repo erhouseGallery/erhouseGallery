@@ -308,15 +308,38 @@ ol {
 
 }
 
+
+/* sidebar */
+
+.bg-based {
+    background-color: var(--color-secondary);
+    border-radius: 2px;
+    z-index: 999;
+}
+
 /* Admin Dashboard */
+
+
+.box {
+    z-index: 1;
+    padding: 32px 40px;
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: rgba(177, 7, 7, 0.082) 0px 2px 8px 0px;
+}
+.box:hover {
+    box-shadow: rgba(218, 6, 6, 0.2) 0px 2px 8px 0px;
+}
 
 
 .table-dashboard {
     border-radius: 12px !important;
     border-collapse: collapse;
-    overflow: hidden;
+    overflow-x: auto;
     width: 100%;
-
+    border-collapse: collapse;
 }
 
 .thead-dashboard {
@@ -331,6 +354,7 @@ ol {
 .form-dashboard {
     width: 100%;
 }
+
 
 .line {
     width: 180px;
@@ -459,6 +483,7 @@ trix-editor{
     width: 256px;
     color: white;
     float: left;
+    height: 400vh;
 }
 
 .sidebar-fiture {
@@ -491,10 +516,7 @@ trix-editor{
     margin-left: 300px;
 } */
 
-.table-responsive {
-    background-color: var(--color-primary);
-    border-radius: 4px;
-}
+
 
 thead {
     width: 100%;
@@ -504,7 +526,7 @@ thead {
 th,
 td {
     padding: 12px 12px;
- 
+
 }
 
 /* profil */
@@ -1568,13 +1590,7 @@ h3 {
 
 
 
-.box {
-    padding: 33px 38px;
-    color: #af1616;
-    background-color: #f0eeed;
-    border-radius: 25px;
-    text-align: center;
-}
+
 
 .border-16 {
     border-radius: 16px;

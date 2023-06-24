@@ -24,7 +24,7 @@ class DashboardArtworkController extends Controller
 
         return view('admin.artworks.index',[
             'title' => 'Dashboard Artikel',
-            'artworks' =>  Artwork::where('user_id', auth()->user()->id)->paginate(2)
+            'artworks' =>  Artwork::where('user_id', auth()->user()->id)->paginate(4)
         ]);
     }
 
