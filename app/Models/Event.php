@@ -9,6 +9,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Event extends Model
 {
+
     use HasFactory, Sluggable;
 
     public function User() {
@@ -47,6 +48,7 @@ class Event extends Model
     protected $casts = [
         'date' => 'datetime',
     ];
+
 
 
 }

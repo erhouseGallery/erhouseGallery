@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('cover');
             $table->text('content');
             $table->timestamp('date')->useCurrent();
+
             $table->timestamps();
         });
     }

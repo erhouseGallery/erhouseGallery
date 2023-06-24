@@ -2,6 +2,7 @@
     <div class="container-fluid px-5">
         <a class="navbar-brand" href="/">Erhouse Gallery</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -12,9 +13,9 @@
                 </li>
 
 
+
                 <li class="nav-item">
                     <a a class="nav-link" href="/artworks">Karya</a>
-
                 </li>
 
                 <li class="nav-item">
@@ -23,6 +24,7 @@
                 </li>
                 <li class="nav-item">
                     <a a class="nav-link" href="/event">Event</a>
+
                 </li>
                 <li class="nav-item">
                     <a a class="nav-link" href="/about">Tentang
@@ -35,6 +37,7 @@
             <div>
                 <ul class="navbar-nav">
                     @guest
+<<<<<<< HEAD
                     <li class="nav-item d-flex">
                         <a href="/login" class="login nav-link btn px-3">Login</a>
                         <a href="/register" class="register nav-link btn ml-2 px-3">Daftar</a>
@@ -70,4 +73,5 @@
 
     </div>
 </nav>
+
 

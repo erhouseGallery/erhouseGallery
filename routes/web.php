@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontPage\ArticleController;
 use App\Http\Controllers\FrontPage\ArtworkController;
@@ -11,7 +12,9 @@ use App\Http\Controllers\Dashboard\DashboardOrderController;
 use App\Http\Controllers\Dashboard\DashboardArtworkController;
 use App\Http\Controllers\Dashboard\DashboardArticleController;
 use App\Http\Controllers\Dashboard\DashboardEventController;
+
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +26,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 
 
 
@@ -73,6 +75,7 @@ Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/articles/show/{article:slug}', [ArticleController::class, 'show']);
 
 
+
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/show/{event:slug}', [EventController::class, 'show']);
 
@@ -81,8 +84,10 @@ Route::get('/events/show/{event:slug}', [EventController::class, 'show']);
 
 
 
+
 // dashboard admin
 Route::get('/admin/dashboard-admin',[AdminController::class, 'index'])->middleware('auth');
+
 
 
 // dashboard karya admin

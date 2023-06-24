@@ -1,7 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-<main id="main" data-aos="fade" data-aos-delay="500" class="container">
+    <main id="main" data-aos="fade" data-aos-delay="500" class="container">
+
 
     <!-- ======= Artikel ======= -->
     <div class="page-header article">
@@ -26,13 +27,13 @@
                     </div>
                 </div>
             </div>
-            @endforeach
         </div>
-    </div>
-    <!-- Artikel -->
+        <!-- Artikel -->
+
 
     {{ $articles->links() }}
 </main>
 
 @include('components.footer')
+
 @endsection

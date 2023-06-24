@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+<<<<<<< HEAD
 <main id="main" data-aos="fade" data-aos-delay="500" class="container">
 
     <!-- ======= Artikel ======= -->
@@ -35,4 +36,5 @@
 </main>
 
 @include('components.footer')
+
 @endsection

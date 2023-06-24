@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="d-flex">
   @include('components.sidebar')
 
@@ -65,4 +66,5 @@
 </div>
 
 @include('components.footer')
+
 @endsection

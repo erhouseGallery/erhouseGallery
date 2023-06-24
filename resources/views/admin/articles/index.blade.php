@@ -1,68 +1,47 @@
 @extends('layouts.main')
 
 @section('content')
+    <div class="d-flex">
+        @include('components.sidebar')
 
-<div class="d-flex">
-  @include('components.sidebar')
-
-  <section id="table_artikel" class="admin-content">
-
-    @if(session()->has('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-    </div>
-    @endif
-
-    <a href="/admin/articles/create"><button class="btn-create mb-4">Buat Artikel Baru</button><a>
-    <table class="table-dashboard table table-striped table-hover ">
-        <thead class="thead-dashboard">
-            <tr >
-                <th scope="col" class="text-center"><p>No </p></th>
-                <th scope="col" class="text-center"><p>Judul</p> </th>
-                <th scope="col"  class="text-center"><p> Cover</p> </th>
-                <th scope="col"  class="text-center"> <p>Date </p> </th>
-                @can('admin')
-                <th scope="col" class="text-center"> <p> Aksi</p> </th>
-                @endcan
-            </tr>
-        </thead>
-        <tbody class="tbody-dashboard">
-
-            @foreach ($articles as $article)
+  <section id="karya" class="admin-form">
+    <a href="/admin/articles/create"><button class="red-button mb-35">Buat Artikel Baru</button><a>
+        <table class="table-a">
+          <thead class="red text-white">
             <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $article->title }}</td>
-                <td><img class="w-120" src="{{ asset('storage/image-articles/' . $article->cover) }}" alt=""></td>
-                <td>{{ $article->date->format('d M Y') }}</td>
-
-                @can('admin')
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <button id="btn-action-edit" class="btn-action mx-2" ><a href="/admin/articles/{{ $article->slug }}/edit" style="text-decoration: none; color : inherit">edit</a></button>
-                        <button  id="btn-action-detail" class="btn-action mx-2" > <a href="/admin/articles/{{ $article->slug }}" style="text-decoration: none; color : inherit">Detail</a>  </button>
-                        <form action="/admin/articles/{{ $article->slug }}" method="post">
-                        @method('delete')
-                        @csrf
-                        <button id="btn-action-delete" class="btn-action mx-2" onclick="return confirm('anda yakin ingin hapus?')" >Hapus</button>
-                        </form>
-
-
-                    </div>
-
-                  </td>
-                @endcan
+              <th scope="col" class="text-center">No</th>
+              <th scope="col" class="text-center">Judul</th>
+              <th scope="col" class="text-center">Deskripsi</th>
+              <th scope="col" class="text-center">Gambar</th>
+              <th scope="col" class="text-center">Tahun</th>
+              <th scope="col" class="text-center">Aksi</th>
             </tr>
+          </thead>
+          <tbody class="bg-based">
+            @foreach($articles as $article)
+            <tr>
+              <th scope="row">1</th>
+              <td>{{$article->title}}</td>
+              <td class="text"> {{$article->description}} </td>
+              <td> <img style="width: 50px;" src="{{$article->image}}" alt=""> </td>
+              <td> {{$article->date}} </td>
+              <td class="d-flex">
+                <a href="/admin/articles/edit/{{$article->id}}" class="red-button" style="font-size: 10px;">Edit</a>
 
+                <form action="/admin/articles/delete/{{$article->id}}" method="post">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" class="red-button mx-2" style="font-size: 10px;">Hapus</button>
+                </form>
+
+                <a href="/articles/show/{{$article->id}}" class="red-button" style="font-size: 10px;">Detail</a>
+              </td>
+            </tr>
             @endforeach
-        </tbody>
-
-    </table>
-
-
-
-
-</section>
+          </tbody>
+        </table>
+  </section>
 </div>
 
-@include('components.footer')
+    @include('components.footer')
 @endsection

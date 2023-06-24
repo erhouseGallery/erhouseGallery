@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+<<<<<<< HEAD
 <main id="main" data-aos="fade" data-aos-delay="500">
 
     <!-- ======= Gallery Single Section ======= -->
@@ -36,4 +37,5 @@
 </main>
 
 @include('components.footer')
+
 @endsection
