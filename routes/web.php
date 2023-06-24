@@ -1,9 +1,20 @@
 <?php
 
-use App\Models\Article;
+
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FrontPage\ArticleController;
+use App\Http\Controllers\FrontPage\ArtworkController;
+use App\Http\Controllers\FrontPage\EventController;
+use App\Http\Controllers\Auth\AuthController;
+// use App\Models\Article;
+
+use App\Http\Controllers\Dashboard\DashboardOrderController;
+use App\Http\Controllers\Dashboard\DashboardArtworkController;
+use App\Http\Controllers\Dashboard\DashboardArticleController;
+use App\Http\Controllers\Dashboard\DashboardEventController;
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\ArticleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,146 +30,84 @@ use App\Http\Controllers\ArticleController;
 
 
 
+
 Route::get('/', function () {
     return view('index', [
         "title" => "Home"
     ]);
 });
 
-Route::get('/login', function () {
-    return view('auth/login', [
-        "title" => "Login"
-    ]);
-});
 
+
+
+// Register
 Route::get('/register', function () {
     return view('auth/register', [
         "title" => "Register"
     ]);
 });
 
-Route::get('/forgot-password', function () {
-    return view('auth/forgot-password', [
-        "title" => "Lupa Password"
-    ]);
-});
+Route::post('/register', [AuthController::class, 'store'])->middleware('guest');
 
+
+//login
+Route::get('/login', [AuthController::class,'indexLogin'])->name('login')->middleware('guest');
+
+Route::post('/login', [AuthController::class, 'authenticate']);
+
+//logout
+Route::post('/logout', [AuthController::class, 'logout']);
+
+
+
+
+
+
+// semua artwork (karya) frontPage
+Route::get('/artworks', [ArtworkController::class, 'index']);
+Route::get('/artworks/categories/{category:name}', [ArtworkController::class, 'getByCategory']);
+Route::get('/artworks/{artwork:slug}', [ArtworkController::class, 'show']);
+Route::post('/artworks/{artwork:slug}/buy', [ArtworkController::class, 'buy'])->middleware('auth');
+
+
+// semua articles (artikel) frontPage
 Route::get('/articles', [ArticleController::class, 'index']);
-Route::get('/articles/show/{article:id}', [ArticleController::class, 'show']);
+Route::get('/articles/show/{article:slug}', [ArticleController::class, 'show']);
+
+
 
 Route::get('/events', [EventController::class, 'index']);
-Route::get('/events/show/{event:id}', [EventController::class, 'show']);
+Route::get('/events/show/{event:slug}', [EventController::class, 'show']);
 
 
-Route::get('/lukisan', function () {
-    return view('lukisan', [
-        "title" => "Karya Lukisan"
-    ]);
-});
-
-Route::get('/patung', function () {
-    return view('patung', [
-        "title" => "Karya Patung"
-    ]);
-});
-
-Route::get('/karya-single', function () {
-    return view('karya-single', [
-        "title" => "Detail Karya"
-    ]);
-});
-
-Route::get('/about', function () {
-    return view('about', [
-        "title" => "About"
-    ]);
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard', [
-        "title" => "Dashboard"
-    ]);
-});
 
 
-Route::get("/pemesanan", function () {
-    return view("pemesanan", [
-        "title" => "Pemesanan"
-    ]);
-});
-
-Route::get("/buatpesanan", function () {
-    return view("buatpesanan", [
-        "title" => "Buat Pesanan"
-    ]);
-});
-
-Route::get("/profil/edit", function () {
-    return view("editprofil", [
-        "title" => "Edit Profil"
-    ]);
-});
-
-Route::get("/profil", function () {
-    return view("profil", [
-        "title" => "Profil"
-    ]);
-});
 
 
-Route::get("/admin/buat-karya", function () {
-    return view("admin.buat_karya", [
-        "title" => "Buat Karya"
-    ]);
-});
 
-Route::get("/admin/dashboard-admin", function () {
-    return view("admin.dashboard_admin", [
-        "title" => "Dashboard Admin"
-    ]);
-});
+// dashboard admin
+Route::get('/admin/dashboard-admin',[AdminController::class, 'index'])->middleware('auth');
 
 
-Route::get("/admin/edit-karya", function () {
-    return view("admin.edit_karya", [
-        "title" => "Edit Karya"
-    ]);
-});
 
-Route::get("/admin/edit-pesanan", function () {
-    return view("admin.edit_pesanan", [
-        "title" => "Edit Pesanan"
-    ]);
-});
+// dashboard karya admin
+// Route::resource('/admin/artworks', DashboardArtworkController::class)->middleware('auth');
+Route::get('/admin/artworks/checkSlug', [DashboardArtworkController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/admin/artworks', DashboardArtworkController::class)->middleware('admin');
 
-Route::get("/admin/articles", [ArticleController::class, "indexAdmin"]);
-Route::get("/admin/articles/edit/{article:id}", [ArticleController::class, 'editAdmin']);
-Route::put("/admin/articles/update/{article:id}", [ArticleController::class, 'updateAdmin']);
-Route::get("/admin/articles/create", [ArticleController::class, "createAdmin"]);
-Route::post("/admin/articles/store", [ArticleController::class, "storeAdmin"]);
-Route::delete("/admin/articles/delete/{article:id}", [ArticleController::class, "destroyAdmin"]);
+//dasboard articles admin
+Route::get('/admin/articles/checkSlug', [DashboardArticleController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/admin/articles',DashboardArticleController::class)->middleware('admin');
 
-Route::get("/admin/events", [EventController::class, "indexAdmin"]);
-Route::get("/admin/events/create", [EventController::class, "createAdmin"]);
-Route::post("/admin/events/store", [EventController::class, "storeAdmin"]);
-Route::get("/admin/events/edit/{event:id}", [EventController::class, 'editAdmin']);
-Route::put("/admin/events/update/{event:id}", [EventController::class, 'updateAdmin']);
-Route::delete("/admin/events/delete/{event:id}", [EventController::class, "destroyAdmin"]);
 
-Route::get("/admin/table-event", function () {
-    return view("admin.table_event", [
-        "title" => "Table Event"
-    ]);
-});
+//dasboard articles admin
+Route::get('/admin/events/checkSlug', [DashboardEventController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/admin/events',DashboardEventController::class)->middleware('admin');
 
-Route::get("/admin/table-karya", function () {
-    return view("admin.table_karya", [
-        "title" => "Table Karya"
-    ]);
-});
+//dasboard order admin
+Route::resource('/admin/orders',DashboardOrderController::class)->middleware('auth');
 
-Route::get("/admin/table-pesanan", function () {
-    return view("admin.table_pesanan", [
-        "title" => "Table Pesanan"
-    ]);
-});
+//profile
+Route::get('/admin/profiles', [AuthController::class, 'indexProfile'])->middleware('auth');
+Route::get('/admin/profiles/edit/{user:id}', [AuthController::class, 'editProfile'])->middleware('auth');
+Route::put('/admin/profiles/update/{user:id}',[AuthController::class, 'updateProfile'])->middleware('auth');

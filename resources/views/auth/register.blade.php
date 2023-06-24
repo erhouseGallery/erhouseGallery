@@ -12,30 +12,60 @@
                     <div class="card shadow-lg">
                         <div class="card-body p-5">
                             <h3 class="card-title fw-bold mb-4">Buat akun anda</h3>
-                            <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                            <form action="/register" method="post" class="needs-validation" novalidate="" autocomplete="off">
+                                @csrf
                                 <div class="mb-4">
                                     <label class="mb-2 text-muted" for="name">Nama</label>
-                                    <input id="name" type="text" class="form-control" name="name" value=""
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror " name="name" value=""
                                         required autofocus>
+                                        @error('name')
+                                        <div class="invalid-feedback">
+                                        {{ $message }}
+                                        </div>
+                                        @enderror
                                 </div>
 
                                 <div class="mb-4">
                                     <label class="mb-2 text-muted" for="email">Email</label>
-                                    <input id="email" type="email" class="form-control" name="email" value=""
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror " name="email" value=""
                                         required autofocus>
+                                    @error('email')
                                     <div class="invalid-feedback">
-                                        Email is invalid
+                                        {{ $message }}
                                     </div>
-                                </div>
+                                    @enderror
 
+                                </div>
+                                <div class="mb-4">
+                                    <label class="mb-2 text-muted" for="number">Nomor</label>
+                                    <input id="number" type="text" class="form-control @error('number') is-invalid @enderror" name="number" value=""
+                                        required autofocus>
+                                    @error('number')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                                <div class="mb-4">
+                                    <label class="mb-2 text-muted" for="address">Alamat</label>
+                                    <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value=""
+                                        required autofocus>
+                                    @error('address')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
                                 <div class="mb-4">
                                     <div class="mb-2 w-100">
                                         <label class="text-muted" for="password">Password</label>
                                     </div>
-                                    <input id="password" type="password" class="form-control" name="password" required>
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required>
+                                    @error('password')
                                     <div class="invalid-feedback">
-                                        Password is required
+                                      {{ $message }}
                                     </div>
+                                    @enderror
                                 </div>
 
                                 <div class="d-flex align-items-center">

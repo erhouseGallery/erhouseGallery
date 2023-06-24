@@ -1,53 +1,70 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="d-flex">
-        @include('components.sidebar')
 
-        <section id="table_event" class="admin-form">
-            <a href="/admin/events/create"><button class="red-button mb-35">Buat Event Baru</button><a>
-                    <table class="table">
-                        <thead class="red text-white">
-                            <tr>
-                                <th scope="col" class="text-center">No</th>
-                                <th scope="col" class="text-center" style="width: 10%;">Judul</th>
-                                <th scope="col" class="text-center" style="width: 10%;">Deskripsi</th>
-                                <th scope="col" class="text-center" style="width: 10%;">Gambar</th>
-                                <th scope="col" class="text-center">Lokasi</th>
-                                <th scope="col" class="text-center">Tahun</th>
-                                <th scope="col" class="text-center">Waktu</th>
-                                <th scope="col" class="text-center">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-based">
-                            <?php $no = 1; ?>
-                            @foreach ($events as $event)
-                                <tr>
-                                    <th scope="row"><?php echo $no++; ?></th>
-                                    <td>{{ $event->title }}</td>
-                                    <td class="text">{{ $event->description }}</td>
-                                    <td><img style="width: 50px;" src="{{ $event->image }}" alt=""></td>
-                                    <td>{{ $event->location }}</td>
-                                    <td>{{ $event->date }}</td>
-                                    <td>{{ $event->time }}</td>
-                                    <td class="d-flex">
-                                        <a href="/admin/events/edit/{{ $event->id }}" class="red-button"
-                                            style="font-size: 10px;">Edit</a>
-                                        <form action="/admin/events/delete/{{ $event->id }}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="red-button mx-2"
-                                                style="font-size: 10px;">Hapus</button>
-                                        </form>
-                                        <a href="/events/show/{{ $event->id }}" class="red-button"
-                                            style="font-size: 10px;">Detail</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-        </section>
+
+<div class="d-flex">
+  @include('components.sidebar')
+
+  <section id="table_artikel" class="admin-content">
+
+    @if(session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
     </div>
+    @endif
 
-    @include('components.footer')
+    <a href="/admin/events/create"><button class="btn-create mb-4">Buat Event Baru</button><a>
+    <table class="table-dashboard table table-striped table-hover ">
+        <thead class="thead-dashboard">
+            <tr >
+                <th scope="col" class="text-center"><p>No </p></th>
+                <th scope="col" class="text-center"><p>Judul</p> </th>
+                <th scope="col"  class="text-center"><p> Cover</p> </th>
+                <th scope="col"  class="text-center"> <p>lokasi </p> </th>
+                @can('admin')
+                <th scope="col" class="text-center"> <p> Aksi</p> </th>
+                @endcan
+            </tr>
+        </thead>
+        <tbody class="tbody-dashboard">
+
+            @foreach ($events as $event)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $event->title }}</td>
+                <td><img class="w-120" src="{{ asset('storage/image-events/' . $event->cover) }}" alt=""></td>
+                <td>{{ $event->location }}</td>
+
+                @can('admin')
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <button  id="btn-action-detail" class="btn-action mx-2" > <a href="/admin/events/{{ $event->slug }}" style="text-decoration: none; color : inherit">Detail</a>  </button>
+                        <button id="btn-action-edit" class="btn-action mx-2" ><a href="/admin/events/{{ $event->slug }}/edit" style="text-decoration: none; color : inherit">edit</a></button>
+                        <form action="/admin/events/{{ $event->slug }}" method="post">
+                        @method('delete')
+                        @csrf
+                        <button id="btn-action-delete" class="btn-action mx-2" onclick="return confirm('anda yakin ingin hapus?')" >Hapus</button>
+                        </form>
+
+
+                    </div>
+
+                  </td>
+                @endcan
+            </tr>
+
+            @endforeach
+        </tbody>
+
+    </table>
+
+
+
+
+</section>
+</div>
+
+@include('components.footer')
+
 @endsection
