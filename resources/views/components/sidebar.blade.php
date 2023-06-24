@@ -9,7 +9,7 @@
     </nav>
 </div>
 
-<div class="collapse d-md-none d-lg-none d-xl-none d-xxl-none sidebar-collapse-menu w-100 "  id="navbarToggleExternalContent">
+<div class="collapse d-md-none d-lg-none d-xl-none d-xxl-none sidebar-collapse-menu w-75 "  id="navbarToggleExternalContent">
     <div class="bg-based px-4 py-2">
         <ul class="text-white pl-0">
             <li class="d-flex justify-content-center "> <img alt="image" style="width: 30%" src="https://api.dicebear.com/6.x/avataaars/svg?seed=Baby "></li>

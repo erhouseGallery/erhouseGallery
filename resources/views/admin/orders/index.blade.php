@@ -5,7 +5,7 @@
 <div class="d-flex">
     @include('components.sidebar')
 
-<section id="table_pesanan" class="admin-content">
+<section id="table_pesanan" class="container admin-content ">
 
         @if(session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -14,7 +14,9 @@
         @endif
 
         <a href="/admin/orders/create"><button class="btn-create mb-4">Buat Pesanan Baru</button><a>
-        <table class="table-dashboard table-responsive  table table-striped table-hover ">
+
+       <div class="table-responsive">
+        <table class="table-dashboard   table table-striped table-hover ">
             <thead class="thead-dashboard">
                 <tr >
                     <th class="text-center"><p>No </p></th>
@@ -63,6 +65,10 @@
 
 
         </table>
+
+       </div>
+
+
 
         <div class="pagination">
             {{ $orders->links() }}

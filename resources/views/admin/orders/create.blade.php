@@ -3,9 +3,9 @@
 <div class="d-flex">
   @include('components.sidebar')
 
-  <section id="buat_pesanan" class="admin-content">
+  <section id="buat_pesanan" class="admin-content " >
     <h2 class="mb-3 black">Buat Pesanan</h2>
-    <form method="post" action="/admin/orders" enctype="multipart/form-data">
+    <form method="post" class="" action="/admin/orders" enctype="multipart/form-data">
         @csrf
       <div class="input-dashboard">
         <label for="title">Nama pemesanan</label>
@@ -33,8 +33,7 @@
 
       <div class="input-dashboard ">
         <label for="images">Gambar/sketsa pesanan</label>
-        {{-- <img  class="img-preview img-fluid" alt=""> --}}
-        <input type="file" class="form-control  @error('image') is-invalid @enderror border-16" id="images" name="images[]" onchange="previewImage()" multiple required autofocus>
+        <input type="file" class="form-control-file  @error('image') is-invalid @enderror border-16" id="images" name="images[]" onchange="previewImage()" multiple required autofocus>
         @error('images')
         <div class="invalid-feedback">
             {{ $message }}

@@ -4,31 +4,35 @@
 <div class="d-flex">
   @include('components.sidebar')
 
-  <section id="edit_pesanan" class="admin-content">
+  <section id="edit_pesanan" class="container-fluid admin-content">
     <h2 class="mb-3 black">Edit Pesanan</h2>
     <div class="line mb-6"></div>
 
 
 
     <h4><b>Data Pemesan </b></h4>
-    <table class="table-dashboard   table table-striped table-hover ">
-        <thead class="thead-dashboard">
-            <tr>
-                <th class="text-center" > <p>Nama</p> </th>
-                <th class="text-center" ><p> Email</p></th>
-                <th class="text-center" ><p>Nomor </p> </th>
-                <th class="text-center" > <p>Alamat </p> </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="text-center">{{ $order->user->name}}</td>
-                <td class="text-center">{{ $order->user->email}}</td>
-                <td class="text-center">{{ $order->user->number}}</td>
-                <td class="text-center">{{ $order->user->address}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table-dashboard  table  table-striped table-hover ">
+            <thead class="thead-dashboard">
+                <tr>
+                    <th   class="text-center" > <p>Nama</p> </th>
+                    <th  class="text-center" ><p> Email</p></th>
+                    <th  class="text-center" ><p>Nomor </p> </th>
+                    <th   class="text-center" > <p>Alamat </p> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">{{ $order->user->name}}</td>
+                    <td class="text-center">{{ $order->user->email}}</td>
+                    <td class="text-center">{{ $order->user->number}}</td>
+                    <td class="text-center">{{ $order->user->address}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
 
 
 
