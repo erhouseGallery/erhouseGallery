@@ -22,6 +22,11 @@ a {
 ul,
 ol {
     list-style-type: none;
+    padding: 0;
+  margin: 0 ;
+}
+li {
+    margin: 16px 0px;
 }
 
 .header {
@@ -315,6 +320,7 @@ ol {
     background-color: var(--color-secondary);
     border-radius: 2px;
     z-index: 999 !important;
+    position: relative;
 }
 
 /* Admin Dashboard */
@@ -363,11 +369,19 @@ ol {
 }
 
 
-.line {
+
+
+.line-title {
     width: 180px;
     height: 4px;
     background: var(--color-primary);
     margin-bottom: 36px;
+}
+.line-category {
+    width: 120px;
+    height: 4px;
+    background: var(--color-primary);
+    margin-bottom: 16px;
 }
 .btn-create {
     padding: 8px 12px;
@@ -442,10 +456,10 @@ ol {
 }
 
 
-form {
+/* form {
 
     width: 100% !important;
-}
+} */
 .input-dashboard-trix-editor {
     margin-bottom: 24px;
     font-weight: bold;

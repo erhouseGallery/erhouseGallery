@@ -16,7 +16,7 @@
         <a href="/admin/orders/create"><button class="btn-create mb-4">Buat Pesanan Baru</button><a>
 
        <div class="table-responsive">
-        <table class="table-dashboard   table table-striped table-hover ">
+        <table class="table-dashboard  table table-striped table-hover ">
             <thead class="thead-dashboard">
                 <tr >
                     <th class="text-center"><p>No </p></th>
@@ -47,7 +47,7 @@
                     <td>
                         <div class="d-flex justify-content-center">
                             <button id="btn-action-edit" class="btn-action mx-2" ><a href="/admin/orders/{{ $order->id }}/edit" style="text-decoration: none; color : inherit">edit</a></button>
-                            <button  id="btn-action-detail" class="btn-action mx-2" > <a href="/admin/orders/{{ $order->slug }}" style="text-decoration: none; color : inherit">Detail</a>  </button>
+                            <button  id="btn-action-detail" class="btn-action mx-2" > <a href="/admin/orders/{{ $order->id }}" style="text-decoration: none; color : inherit">Detail</a>  </button>
                             <form action="/admin/orders/{{ $order->id }}" method="post">
                             @method('delete')
                             @csrf

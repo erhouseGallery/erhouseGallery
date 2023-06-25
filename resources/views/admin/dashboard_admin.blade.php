@@ -7,8 +7,8 @@
   <section id="dashboard" class="admin-content">
     <h2 class="mb-35 black">Selamat Datang {{auth()->user()->name}} </h2>
     <div class="d-flex flex-wrap gap-4">
-      <div class="box col-md-4">
         @can('admin')
+      <div class="box col-md-4">
         <h1 class="text-center">{{ $artworks->count()}}</h1>
         <h3 class="text-center">Total Karya</h3>
       </div>

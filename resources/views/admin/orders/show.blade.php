@@ -5,7 +5,7 @@
   @include('components.sidebar')
 
   <section id="edit_pesanan" class=" admin-content">
-    <h2 class="mb-3 black">Edit Pesanan</h2>
+    <h2 class="mb-3 black">Detail Pesanan</h2>
     <div class="line mb-6"></div>
 
 
@@ -44,9 +44,10 @@
             <thead class="thead-dashboard">
                 <tr>
                     <th class="text-center" > <p>Nama Pesanan</p> </th>
-
                     <th class="text-center" > <p>Kategori </p> </th>
                     <th class="text-center" > <p>Deskripsi </p> </th>
+                    <th class="text-center" > <p>Informasi </p> </th>
+                    <th class="text-center" > <p>Catatan </p> </th>
                 </tr>
             </thead>
             <tbody>
@@ -54,6 +55,8 @@
                     <td class="text-center">{{ $order->order_name}}</td>
                     <td class="text-center">{{ $order->category->name}}</td>
                     <td class="text-center">{!! $order->description !!}</td>
+                    <td class="text-center">{{ $order->information->name }}</td>
+                    <td class="text-center">{{  $order->note  }}</td>
                 </tr>
             </tbody>
         </table>
@@ -89,33 +92,6 @@
 
 
 
-    <form method="post" action="/admin/orders/{{ $order->id }}" enctype="multipart/form-data">
-        @method('put')
-        @csrf
-        <label for="title"><h5>Informasi </h5></label>
-    <select class="form-select mb-3 border-16" aria-label="Default select example" required autofocus name="information_id" id="information_id">
-        @foreach($information as $info)
-            <option value="{{ $info->id }}" {{ (old('information_id', $order->information_id) == $info->id) ? 'selected' : '' }}>
-                {{ $info->name }}
-            </option>
-        @endforeach
-    </select>
-
-
-
-       <div class=" mb-3">
-        <label for="title"><h5> Catatan</h5> </label>
-        <input type="text" id="note" name="note"  class="form-control @error('note') is-invalid @enderror border-16 " rows="5" placeholder="Catatan" required autofocus value="{{ old('note', $order->note) }}">
-        @error('note')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-        @enderror
-    </div>
-
-      <button type="submit" class="btn-submit">Submit</button>
-
-    </form>
   </section>
 
 </div>

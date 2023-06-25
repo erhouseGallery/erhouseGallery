@@ -23,8 +23,8 @@ class DashboardArtworkController extends Controller
     {
 
         return view('admin.artworks.index',[
-            'title' => 'Dashboard Artikel',
-            'artworks' =>  Artwork::where('user_id', auth()->user()->id)->paginate(4)
+            'title' => 'Dashboard Karya',
+            'artworks' =>  Artwork::where('user_id', auth()->user()->id)->paginate(5)
         ]);
     }
 
@@ -32,7 +32,7 @@ class DashboardArtworkController extends Controller
     {
         //
         return view('admin.artworks.create', [
-            'title' => 'Create Artworks',
+            'title' => 'Buat Karya',
             'categories' => Category::all(),
             'statuses' => Status::all()
 
@@ -93,7 +93,7 @@ class DashboardArtworkController extends Controller
             'artwork' => $artwork,
             'categories' => Category::all(),
             'statuses' => Status::all(),
-            'title' => 'Admin Detail Karya',
+            'title' => 'Dashboard Detail Karya',
             'image_artworks' => $image_artworks,
         ]);
     }

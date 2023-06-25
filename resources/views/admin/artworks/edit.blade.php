@@ -45,7 +45,7 @@
         <label for="">Cover</label> <br>
         <input type="hidden" name="oldCover" value="{{ $artwork->cover }}">
         @if($artwork->cover)
-        <img src="{{ asset('storage/artworks-image/' . $artwork->cover) }}" alt="" class="cover-preview w-50">
+        <img src="{{ asset('storage/image-artworks/' . $artwork->cover) }}" alt="" class="cover-preview w-50">
         @else
         <img  class="cover-preview img-fluid w-50"  alt="">
         @endif

@@ -19,13 +19,13 @@ class DashboardOrderController extends Controller
         if(auth()->user()->is_admin) {
             return view('admin.orders.index',[
                 'title' => 'Dashboard Pesanan',
-                'orders' => Order::paginate(2),
+                'orders' => Order::paginate(5),
             ]);
 
         }
         return view('admin.orders.index',[
             'title' => 'pesanan',
-            'orders' => Order::where('user_id', auth()->user()->id)->get()
+            'orders' => Order::where('user_id', auth()->user()->id)->paginate(5),
         ]);
 
     }
@@ -74,9 +74,16 @@ class DashboardOrderController extends Controller
     }
 
 
-    public function show(string $id)
+    public function show(Order $order)
     {
-        //
+        $image_orders = ImageOrder::where('order_id',$order->id)->get();
+        return view('admin.orders.show', [
+            'title' => 'Detail Pesanan',
+            'order' => $order,
+            'categories' => Category::all(),
+            'information' => Information::all(),
+            'image_orders' => $image_orders,
+        ]);
     }
 
 

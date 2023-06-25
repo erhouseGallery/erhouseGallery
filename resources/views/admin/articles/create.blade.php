@@ -7,7 +7,7 @@
 
 <section id="buat_karya" class="admin-content">
     <h2 class="mb-3 black">Buat Artikel</h2>
-    <div class="line mb-6"></div>
+    <div class="line-title mb-6"></div>
     <form method="post" action="/admin/articles" enctype="multipart/form-data" class="form-dashboard">
         @csrf
       <div class="input-dashboard">

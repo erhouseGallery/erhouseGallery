@@ -17,7 +17,7 @@ class Event extends Model
     }
 
     public function Image() {
-        return $this->hashMany(ImageEvent::class);
+        return $this->hasMany(ImageEvent::class);
     }
 
     public function getRouteKeyName() {

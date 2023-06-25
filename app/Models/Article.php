@@ -16,7 +16,7 @@ class Article extends Model
     }
 
     public function Image() {
-        return $this->hashMany(ImageArticle::class);
+        return $this->hasMany(ImageArticle::class);
     }
 
 

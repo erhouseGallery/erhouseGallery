@@ -37,7 +37,7 @@
             <div>
                 <ul class="navbar-nav">
                     @guest
-<<<<<<< HEAD
+
                     <li class="nav-item d-flex">
                         <a href="/login" class="login nav-link btn px-3">Login</a>
                         <a href="/register" class="register nav-link btn ml-2 px-3">Daftar</a>
