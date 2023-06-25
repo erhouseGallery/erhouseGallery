@@ -6,7 +6,7 @@
 
 <section id="buat_karya" class="admin-content">
   <h2 class="mb-3 black">Edit Profile</h2>
-  <div class="line mb-6"></div>
+  <div class="line-title mb-6"></div>
   <form method="post" action="/admin/profiles/update/{{$user->id}}" enctype="multipart/form-data">
     @csrf
     @method('put')
