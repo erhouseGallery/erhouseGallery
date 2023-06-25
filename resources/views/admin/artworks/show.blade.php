@@ -6,15 +6,15 @@
 
   <section id="detail_karya" class="admin-content">
     <h2 class="mb-3 black">Detail Karya</h2>
-    <div class="line mb-6"></div>
+    <div class="line-title mb-6"></div>
 
-        <div class="position-relative h-50">
+        <div class="position-relative h-20">
             <div class="slides-1 portfolio-details-slider swiper">
                 <div class="swiper-wrapper align-items-center">
 
                     @foreach ($image_artworks as $image_artwork )
                     <div class="swiper-slide">
-                        <img class="img-fluid w-100" src="{{ asset('storage/image-artworks/' . $image_artwork->image) }}" alt="">
+                        <img class="img-fluid mx-auto d-block" src="{{ asset('storage/image-artworks/' . $image_artwork->image) }}" alt="" style="max-height: 400px">
                     </div>
                         @endforeach
 
@@ -26,27 +26,26 @@
 
         </div>
 
-        <div class="row justify-content-between gy-4" style="margin-top: 120px">
+        <div class="row justify-content-between gx-1 " style="margin-top: 120px">
 
-            <div class="col-lg-8">
-                <div class="portfolio-description">
+            <div class="col-lg-8 ">
+                <div class="">
                     <h1>{{$artwork->title}}</h1>
                     <p>
                         {!! $artwork->description !!}
                     </p>
-
-
                 </div>
             </div>
 
-            <div class="col-lg-3">
-                <div class="portfolio-info">
-                    <h3>{{ $artwork->Category->name }}</h3>
+            <div class="col-lg-3" >
+                <div class="">
+                    <h2>{{ $artwork->Category->name }}</h2>
+                    <div class="line-category"></div>
                     <ul>
-                        <li><strong>Ukuran</strong> <h5> {{$artwork->size}}</h5></li>
-                        <li><strong>Bahan</strong> <h5> {{$artwork->material}}</h5></li>
-                        <li><strong>Tahun</strong> <h5> {{$artwork->year}}</h5></li>
-                        <li><a href="#" class="btn-visit align-self-start">{{ $artwork->status->name }}</a></li>
+                        <li>Ukuran<h5> <strong> {{$artwork->size}}</strong> </h5></li>
+                        <li>Bahan<h5> <strong> {{$artwork->material}}</strong> </h5></li>
+                        <li>Tahun<h5> <strong> {{$artwork->year}}</strong> </h5></li>
+                        <button class="btn-create">{{ $artwork->status->name }} </button>
                     </ul>
                 </div>
             </div>

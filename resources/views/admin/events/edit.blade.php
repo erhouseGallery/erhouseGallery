@@ -39,6 +39,7 @@
         @else
         <img  class="cover-preview img-fluid w-20"  alt="">
         @endif
+
         <input type="file" class="form-control-file  @error('cover') is-invalid @enderror border-16" id="cover" name="cover" onchange="previewCover()" >
         @error('cover')
         <div class="invalid-feedback">

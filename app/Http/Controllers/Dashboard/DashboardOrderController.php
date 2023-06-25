@@ -74,9 +74,16 @@ class DashboardOrderController extends Controller
     }
 
 
-    public function show(string $id)
+    public function show(Order $order)
     {
-        //
+        $image_orders = ImageOrder::where('order_id',$order->id)->get();
+        return view('admin.orders.show', [
+            'title' => 'Detail Pesanan',
+            'order' => $order,
+            'categories' => Category::all(),
+            'information' => Information::all(),
+            'image_orders' => $image_orders,
+        ]);
     }
 
 

@@ -13,13 +13,17 @@
     </div>
     @endif
 
+    <section id="dashboard_profile" class="container admin-content">
 
-
-
-
+        <img alt="image" style="width: 30%" src="https://api.dicebear.com/6.x/avataaars/svg?seed=Baby ">
         <h1>{{$user->name }}</h1>
         <h1>{{$user->email }}</h1>
         <h1>{{$user->number }}</h1>
+    </section>
+
+
+
+
 
         <button id="btn-action-edit" class="btn-action mx-2" ><a href="/admin/profiles/edit/{{ $user->id }}" style="text-decoration: none; color : inherit">edit</a></button>
 
