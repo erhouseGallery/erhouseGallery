@@ -19,7 +19,7 @@ class DashboardArticleController extends Controller
 
         return view('admin.articles.index', [
             'title' => "Dashboard Artikel",
-            'articles' => Article::where('user_id', auth()->user()->id)->get()
+            'articles' => Article::where('user_id', auth()->user()->id)->paginate(5)
         ]);
     }
 
