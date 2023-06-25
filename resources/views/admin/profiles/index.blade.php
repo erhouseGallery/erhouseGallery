@@ -2,6 +2,7 @@
 
 @section('content')
 
+{{-- profile --}}
 <div class="d-flex">
   @include('components.sidebar')
 
