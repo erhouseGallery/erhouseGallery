@@ -11,7 +11,7 @@
                         <article>
                             <header class="my-4">
                                 <h2 class="mb-1">{{ $article->title }}</h2>
-                                <div class="text-muted fst-italic mb-2">Posted on {{ $article->date }}</div>
+                                <div class="text-muted fst-italic mb-2">Diterbitkan pada {{ $article->date }}</div>
                                 {{-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
                                 <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> --}}
                             </header>
