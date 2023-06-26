@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ImageEvent;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 
 class Event extends Model
 {

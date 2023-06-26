@@ -80,11 +80,9 @@ class DashboardArtworkController extends Controller
         return redirect('/admin/artworks')->with('success', 'data berhasil ditambahkan');
     }
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> frontEndFix
+
     public function show(Artwork $artwork)
     {
 
@@ -132,7 +130,6 @@ class DashboardArtworkController extends Controller
         if ($request->slug != $artwork->slug) {
             $rules['slug'] = 'required|unique:artworks';
         }
-<<<<<<< HEAD
             $validateData = $request->validate($rules);
 
         // cover
@@ -144,18 +141,7 @@ class DashboardArtworkController extends Controller
 
             if($artwork->cover != null) {
                 Storage::delete('image-artworks/' . $artwork->cover);
-=======
-        $validateData = $request->validate($rules);
-        // untuk cover
-        if ($request->hasFile('cover')) {
-            $file = $request->file('cover');
-            $imageName = time() . '-' . $file->getClientOriginalName();
-            $file->storeAs('artworks-image', $imageName);
-            $validateData['cover'] = $imageName;
 
-            if ($artwork->cover != null) {
-                Storage::delete('artworks-image/' . $artwork->cover);
->>>>>>> frontEndFix
             }
 
             $validateData['cover'] = $imageName;
@@ -173,11 +159,9 @@ class DashboardArtworkController extends Controller
 
             if ($currentImages != null) {
                 foreach ($currentImages as $currentImage) {
-<<<<<<< HEAD
+
                     Storage::delete('image-artworks/'. $currentImage->image);
-=======
-                    Storage::delete('artworks-image/' . $currentImage->image);
->>>>>>> frontEndFix
+
                 }
 
                 ImageArtwork::where('artwork_id', $artwork->id)->delete();
@@ -187,11 +171,9 @@ class DashboardArtworkController extends Controller
                 $imageName = time() . '-' . $file->getClientOriginalName();
                 $request['artwork_id'] = $artwork->id;
                 $request['image'] = $imageName;
-<<<<<<< HEAD
+
                 $file->storeAs('image-artworks', $imageName );
-=======
-                $file->storeAs('artworks-image', $imageName);
->>>>>>> frontEndFix
+
                 ImageArtwork::create($request->all());
             }
         }
