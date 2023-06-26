@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="d-flex">
-  @include('components.sidebar')
+    <div class="d-flex">
+        @include('components.sidebar')
 
   <section id="table_karya" class="container admin-content">
     @if(session()->has('success'))
@@ -57,4 +57,5 @@
 </div>
 
 @include('components.footer')
+
 @endsection

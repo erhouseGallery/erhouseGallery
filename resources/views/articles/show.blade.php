@@ -1,39 +1,49 @@
 @extends('layouts.main')
 
 @section('content')
-<main id="main" data-aos="fade" data-aos-delay="500">
+    <main id="main">
 
-    <!-- ======= Gallery Single Section ======= -->
-    <section id="gallery-single" class="gallery-single page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10">
-                    <!-- Post content-->
-                    <article>
-                        <!-- Post header-->
-                        <header class="mb-4">
-                            <!-- Post title-->
-                            <h1 class="fw-bolder mb-1">{{$article->title}}</h1>
-                            <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">Posted on {{$article->date}}</div>
-                            <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
-                        </header>
-                        <!-- Preview image figure-->
-                        <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
-                        <!-- Post content-->
-                        <section class="mb-5">
-                            <p class="fs-5 mb-4">{{$article->content}}
-                            </p>
-                        </section>
-                    </article>
+        <!-- ======= Gallery Single Section ======= -->
+        <section id="gallery-single" class="gallery-single">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <article>
+                            <header class="my-4">
+                                <h2 class="mb-1">{{ $article->title }}</h2>
+                                <div class="text-muted fst-italic mb-2">Posted on {{ $article->date }}</div>
+                                {{-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> --}}
+                            </header>
+                            <div class="slides-1 portfolio-details-slider swiper">
+                                <div class="swiper-wrapper align-items-center">
+                                    <div class="swiper-slide" style="max-height: 500px; overflow:hidden">
+                                        <img src="{{ asset('storage/image-articles/' . $article->cover) }}" alt="">
+                                    </div>
+
+                                    @foreach ($image_articles as $image_article)
+                                        <div class="swiper-slide" style="max-height: 500px; overflow:hidden">
+                                            <img src="{{ asset('storage/image-articles/' . $image_article->image) }}"
+                                                alt="">
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+
+                            <section class="my-5">
+                                <p class="fs-5 mb-4">{{ strip_tags($article->content) }}
+                                </p>
+                            </section>
+                        </article>
+                    </div>
                 </div>
-            </div>
-    </section>
-    <!-- End Gallery Single Section -->
+        </section>
+        <!-- End Gallery Single Section -->
 
-</main>
+    </main>
 
-@include('components.footer')
+    @include('components.footer')
 @endsection

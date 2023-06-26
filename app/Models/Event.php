@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ImageEvent;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 
@@ -21,6 +23,7 @@ class Event extends Model
     }
 
     public function getRouteKeyName() {
+
         return 'slug';
     }
 
@@ -32,6 +35,7 @@ class Event extends Model
             ]
         ];
     }
+
 
     protected $fillable = [
 
@@ -48,6 +52,7 @@ class Event extends Model
     protected $casts = [
         'date' => 'datetime',
     ];
+
 
 
 

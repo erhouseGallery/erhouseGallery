@@ -4,16 +4,18 @@
         <!-- Section: Social media -->
         <section class="mb-4">
             <!-- Instagram -->
-            <a class="btn mx-2 btn-outline-light btn-floating m-1 rounded-circle" href="#" role="button"><i
+            <a class="btn mx-2 btn-outline-light btn-floating m-1 rounded-circle"
+                href="https://www.instagram.com/roes_antoe/" target="_blank" role="button"><i
                     class="bi bi-instagram"></i></a>
             <!-- Email -->
-            <a class="btn mx-2 btn-outline-light btn-floating m-1 rounded-circle" href="#" role="button"><i
-                    class="bi bi-envelope"></i></a>
+            <a class="btn mx-2 btn-outline-light btn-floating m-1 rounded-circle" href="mailto:raartsrus84@gmail.com"
+                target="_blank" role="button"><i class="bi bi-envelope"></i></a>
             <!-- Whatapps -->
-            <a class="btn mx-2 btn-outline-light btn-floating m-1 rounded-circle" href="#" role="button"><i
-                    class="bi bi-whatsapp"></i></a>
+            <a class="btn mx-2 btn-outline-light btn-floating m-1 rounded-circle" href="https://wa.me/6285228836199"
+                target="_blank" role="button"><i class="bi bi-whatsapp"></i></a>
             <!-- Maps -->
-            <a class="btn mx-2 btn-outline-light btn-floating m-1 rounded-circle" href="#" role="button"><i
+            <a class="btn mx-2 btn-outline-light btn-floating m-1 rounded-circle"
+                href="https://goo.gl/maps/E4Jzw2gsrirWKCFHA" target="_blank" role="button"><i
                     class="bi bi-geo-alt"></i></a>
         </section>
         <!-- Section: Social media -->
@@ -22,7 +24,7 @@
         <!-- Grid column -->
         <div class="col-md-1">
             <h6 class="text-uppercase font-weight-bold">
-                <a href="#!" class="text-white">Home</a>
+                <a href="/" class="text-white">Home</a>
             </h6>
         </div>
         <!-- Grid column -->
@@ -30,7 +32,7 @@
         <!-- Grid column -->
         <div class="col-md-1">
             <h6 class="text-uppercase font-weight-bold">
-                <a href="#!" class="text-white">Lukisan</a>
+                <a href="/artworks/categories/Lukisan" class="text-white">Lukisan</a>
             </h6>
         </div>
         <!-- Grid column -->
@@ -38,7 +40,7 @@
         <!-- Grid column -->
         <div class="col-md-1">
             <h6 class="text-uppercase font-weight-bold">
-                <a href="#!" class="text-white">Patung</a>
+                <a href="/artworks/categories/Patung" class="text-white">Patung</a>
             </h6>
         </div>
         <!-- Grid column -->
@@ -46,7 +48,7 @@
         <!-- Grid column -->
         <div class="col-md-1">
             <h6 class="text-uppercase font-weight-bold">
-                <a href="#!" class="text-white">Artikel</a>
+                <a href="/articles" class="text-white">Artikel</a>
             </h6>
         </div>
         <!-- Grid column -->
@@ -54,7 +56,7 @@
         <!-- Grid column -->
         <div class="col-md-1">
             <h6 class="text-uppercase font-weight-bold">
-                <a href="#!" class="text-white">Event</a>
+                <a href="/events" class="text-white">Event</a>
             </h6>
         </div>
         <!-- Grid column -->
@@ -62,24 +64,20 @@
         <!-- Grid column -->
         <div class="col-md-1">
             <h6 class="text-uppercase font-weight-bold">
-                <a href="#!" class="text-white">Kami</a>
+                <a href="/about" class="text-white">Kami</a>
             </h6>
         </div>
         <!-- Grid column -->
     </div>
-    <p class="container col-lg-6 mx-auto text-center mt-2 mb-4 text-white">Lorem ipsum dolor sit amet consectetur.
-        Egestas elit
-        molestie sit
-        ac
-        nibh
-        tortor
-        vitae.
-        Enim
-        donec tincidunt amet quis.</p>
-    <div class="line border-top border-1 border-light mb-5"></div>
+    <p class="container col-lg-6 mx-auto text-center mt-2 mb-4 text-white">Erhouse Gallery adalah galeri seni
+        yang didedikasikan untuk memamerkan karya seni lukisan dan patung yang
+        dihasilkan oleh seorang seniman yang bernama Ruswanto.</p>
+    <div class="border-top border-1 border-light mb-5"></div>
     <div class="container">
         <div class="copyright">
-            Copyright &copy; 2023 <strong><span>Erhouse Gallery</span></strong>. All Rights Reserved
+            Copyright &copy; 2023 <a href="/" target="_blank" class="text-white"
+                rel="noopener noreferrer"><strong><span>Erhouse
+                        Gallery</span></strong></a>. All Rights Reserved
         </div>
     </div>
 </footer>

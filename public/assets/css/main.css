@@ -1,7 +1,7 @@
 :root {
     --color-primary: #af1616;
     --color-secondary: #f8f8f8;
-    --color-hover : #7D0B1E;
+    --color-hover: #7D0B1E;
 }
 
 /* Smooth scroll behavior */
@@ -70,8 +70,8 @@ li {
   # Page Header
   --------------------------------------------------------------*/
 .page-header {
-    padding: 30px 0 60px 0;
-    min-height: 30vh;
+    padding: 30px 0 0 30px;
+    /* min-height: 30vh; */
     position: relative;
 }
 
@@ -282,20 +282,32 @@ li {
     color: white;
     width: 100%;
 }
+
 .logout button:hover {
     background-color: var(--color-hover);
 
 }
 
 .login {
-    color: var(--color-primary) ;
-    background-color: var(--color-secondary) ;
-    border: 2px solid var(--color-primary) !important ;
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    border: 2px solid var(--color-primary) !important;
     border-radius: 12px;
 }
 
 .login:hover {
     background-color: var(--color-primary);
+    color: white !important;
+}
+
+.login-button {
+    color: white;
+    background-color: var(--color-primary);
+    border-radius: 12px;
+}
+
+.login-button:hover {
+    background-color: var(--color-hover);
     color: white !important;
 }
 
@@ -377,12 +389,14 @@ li {
     background: var(--color-primary);
     margin-bottom: 36px;
 }
+
 .line-category {
     width: 120px;
     height: 4px;
     background: var(--color-primary);
     margin-bottom: 16px;
 }
+
 .btn-create {
     padding: 8px 12px;
     border-radius: 16px;
@@ -393,6 +407,7 @@ li {
     font-family: Poppins;
     font-weight: 500;
 }
+
 .btn-create:hover {
     background-color: var(--color-hover);
 }
@@ -412,18 +427,23 @@ li {
 #btn-action-edit {
     background-color: blue;
 }
+
 #btn-action-edit:hover {
     background-color: #0000B7;
 }
+
 #btn-action-detail {
     background-color: green;
 }
+
 #btn-action-detail:hover {
     background-color: #005C0F;
 }
+
 #btn-action-delete {
     background-color: red;
 }
+
 #btn-action-delete:hover {
     background-color: #DB0012;
 }
@@ -442,6 +462,7 @@ li {
     font-family: Poppins;
     font-weight: 500;
 }
+
 .btn-submit:hover {
     background-color: var(--color-hover) !important;
 }
@@ -456,10 +477,12 @@ li {
 }
 
 
+
 /* form {
 
     width: 100% !important;
 } */
+
 .input-dashboard-trix-editor {
     margin-bottom: 24px;
     font-weight: bold;
@@ -473,6 +496,7 @@ li {
     border-color: #00000056 !important;
     border-radius: 16px;
 }
+
 .form-control-file {
     width: 100%;
     padding: 24px 12px;
@@ -490,7 +514,7 @@ li {
     margin: 0 auto;
 }
 
-trix-editor{
+trix-editor {
     max-width: 860px;
     width: 100%;
 }
@@ -522,6 +546,7 @@ trix-editor{
     border-radius: 20px;
     color: white !important;
 }
+
 .sidebar-fiture:hover {
     background-color: var(--color-hover);
 }
@@ -650,6 +675,7 @@ td {
         width: min-content;
         margin-right: 100px;
     }
+
     /*
     .navbar a,
     .navbar a:focus {
@@ -747,6 +773,7 @@ td {
 }
 
 @media (min-width: 1280px) {
+
     .mobile-nav-show,
     .mobile-nav-hide {
         display: none;
@@ -847,6 +874,7 @@ td {
     .mobile-nav-active {
         overflow: hidden;
     }
+
     /*
     .mobile-nav-active .navbar {
         right: 0;
@@ -1083,7 +1111,8 @@ td {
 
 .gallery .gallery-links .details-link {
     font-size: 30px;
-    line-height: 0;
+    line-height: 1;
+    text-align: center;
 }
 
 .gallery .gallery-item:hover .gallery-links {
@@ -1115,20 +1144,14 @@ td {
     width: 100%;
 }
 
-.gallery-single
-    .portfolio-details-slider
-    .swiper-pagination
-    .swiper-pagination-bullet {
+.gallery-single .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
     background-color: rgba(255, 255, 255, 0.7);
     opacity: 1;
 }
 
-.gallery-single
-    .portfolio-details-slider
-    .swiper-pagination
-    .swiper-pagination-bullet-active {
+.gallery-single .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
     background-color: var(--color-secondary);
 }
 
@@ -1158,6 +1181,7 @@ td {
 }
 
 @media (max-width: 575px) {
+
     .gallery-single .swiper-button-prev,
     .gallery-single .swiper-button-next {
         display: none;
@@ -1203,7 +1227,6 @@ td {
 
 .gallery-single .portfolio-info .btn-visit {
     padding: 8px 40px;
-    background: var(--color-secondary);
     color: #fff;
     border-radius: 50px;
     transition: 0.3s;
@@ -1378,7 +1401,7 @@ td {
 /*--------------------------------------------------------------
   # Contact Section
   --------------------------------------------------------------*/
-.contact .info-item + .info-item {
+.contact .info-item+.info-item {
     margin-top: 40px;
 }
 
@@ -1434,7 +1457,7 @@ td {
     font-weight: 600;
 }
 
-.contact .php-email-form .error-message br + br {
+.contact .php-email-form .error-message br+br {
     margin-top: 25px;
 }
 
@@ -1563,11 +1586,11 @@ td {
 
     transition: 0.3s;
     color: #fff;
-    background: #ea3b3b;
+    background: var(--color-primary);
 }
 
 .hero .btn-get-started:hover {
-    background: #de5d5d;
+    background: var(--color-hover);
 }
 
 @media (max-width: 575px) {
@@ -1674,6 +1697,7 @@ h3 {
 .ml-30 {
     margin-left: 30px;
 }
+
 .ml-80 {
     margin-left: 80px;
 }
@@ -1713,4 +1737,5 @@ h3 {
 .row {
     --bs-gutter-x: unset !important;
 }
+
 /* End Admin Section */

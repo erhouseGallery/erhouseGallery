@@ -19,6 +19,7 @@ class DashboardEventController extends Controller
         return view('admin.events.index', [
             'title' => "Dashboard Event",
             'events' => Event::where('user_id', auth()->user()->id)->get()
+
         ]);
     }
 
@@ -37,6 +38,7 @@ class DashboardEventController extends Controller
             $file = $request->file('cover');
             $imageName = time() . '-' . $file->getClientOriginalName();
             $file->storeAs('image-events', $imageName );
+
 
             $validationData = $request->validate([
                 'title' => 'required|max:255',
@@ -60,6 +62,7 @@ class DashboardEventController extends Controller
                 $request['event_id'] = $event->id;
                 $request['image'] = $imageName;
                 $file->storeAs('image-events', $imageName );
+
                 ImageEvent::create($request->all());
             }
         }
@@ -78,6 +81,7 @@ class DashboardEventController extends Controller
          $image_events = ImageEvent::where('event_id', $event->id)->get();
 
          return view('admin.events.show', [
+
             'event' => $event,
             'title' => 'Admin Detail Event',
             'image_events' => $image_events,
@@ -90,6 +94,7 @@ class DashboardEventController extends Controller
     {
 
         return view('admin.events.edit',[
+
             'title' => 'Edit Event',
             'event' => $event,
         ]);
@@ -106,6 +111,7 @@ class DashboardEventController extends Controller
             'date_event' => 'required|max:255',
             'time' => 'required|max:255',
         ];
+
 
         if($request->slug != $event->slug) {
             $rules['slug'] = 'required|unique:events';
@@ -124,6 +130,7 @@ class DashboardEventController extends Controller
             }
 
              $validateData['cover'] = $imageName;
+
         }
 
         $validateData['user_id'] = auth()->user()->id;
@@ -133,6 +140,7 @@ class DashboardEventController extends Controller
 
           //  images
           if ($request->hasFile("images")) {
+
             $files = $request->file("images");
 
             $currentImages = ImageEvent::where('event_id', $event->id)->get();
@@ -140,6 +148,7 @@ class DashboardEventController extends Controller
             if($currentImages != null) {
                 foreach ($currentImages as $currentImage) {
                     Storage::delete('image-events/'. $currentImage->image);
+
                 }
 
                 ImageEvent::where('event_id', $event->id)->delete();
@@ -152,6 +161,7 @@ class DashboardEventController extends Controller
                 $file->storeAs('image-events', $imageName );
                 ImageEvent::create($request->all());
             }
+
 
         }
 
@@ -171,7 +181,7 @@ class DashboardEventController extends Controller
 
            //images
 
-       $currentImages = ImageEvent::where('event_id', $event->id)->get();
+                 $currentImages = ImageEvent::where('event_id', $event->id)->get();
 
        if($currentImages != null) {
         foreach ($currentImages as $currentImage) {
@@ -183,6 +193,7 @@ class DashboardEventController extends Controller
 
     Event::destroy($event->id);
     return redirect('/admin/events')->with('success', 'data berhasil dihapus');
+
 
     }
 }

@@ -22,6 +22,7 @@ class ArticleController extends Controller
 
     }
 
+
     public function show(Article $article)
     {
 
@@ -31,60 +32,5 @@ class ArticleController extends Controller
             'article' => $article,
             'image_articles' => $image_articles,
         ]);
-    }
-
-    public function indexAdmin ()
-    {
-        $articles = Article::all();
-        // return view('admin')
-        return view('admin.articles.index', [
-            "title" => "Table Artikel",
-            "articles" => $articles
-        ]);
-    }
-
-    public function createAdmin()
-    {
-        return view('admin.articles.create', [
-            "title" => "Buat Artikel"
-        ]);
-        // menampilkan form article
-    }
-
-    public function storeAdmin()
-    {
-        Article::create([
-            "title" => request()->title,
-            "description" => request()->description,
-            "date" => request()->date,
-        ]);
-        return redirect('/admin/articles');
-        // memasukan data ke db
-    }
-
-    public function editAdmin(Article $article)
-    {
-        return view('admin.articles.edit', [
-            "title" => "Edit Artikel",
-            "article" => $article
-        ]);
-    }
-
-    public function updateAdmin(Article $article)
-    {
-        $article->update([
-            'title' => request()->title,
-            'description' => request()->description,
-            'date' => request()->date,
-        ]);
-
-        return redirect('/admin/articles');
-    }
-
-    public function destroyAdmin(Article $article)
-    {
-        $article->delete();
-        return redirect('/admin/articles');
-
     }
 }

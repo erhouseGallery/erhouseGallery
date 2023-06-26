@@ -1,8 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="d-flex">
-  @include('components.sidebar')
+    <div class="d-flex">
+        @include('components.sidebar')
+
 
   <section id="dashboard" class="admin-content">
     <h2 class="mb-35 black">Selamat Datang {{auth()->user()->name}} </h2>
@@ -25,9 +26,10 @@
         <h1 class="text-center">{{  $orders->count()}}</h1>
         <h3 class="text-center">Total Pesanan</h3>
       </div>
+
     </div>
-  </section>
-</div>
+
 
 {{-- @include('components.footer') --}}
+
 @endsection

@@ -9,8 +9,8 @@ class ImageEvent extends Model
 {
     use HasFactory;
 
-
     public function Event() {
+
         return $this->belongsTo(Event::class);
     }
 

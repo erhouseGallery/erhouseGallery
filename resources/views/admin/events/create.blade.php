@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+<<<<<<< HEAD
 
 <div class="d-flex">
 @include('components.sidebar')
@@ -120,6 +121,7 @@
             })
 
 
+
         // previw image
         function previewImage() {
 
@@ -134,6 +136,7 @@
         oFReader.onload = function(oFREvent) {
             imgPreview.src = oFREvent.target.result;
         }
+
 
         }
 
@@ -155,5 +158,6 @@
         }
 
         </script>
+
 
 @endsection

@@ -10,7 +10,9 @@ use Illuminate\Http\Request;
 class EventController extends Controller
 {
 
+
     public function index() {
+
         $events = Event::latest()->paginate(5);
         return view('events.index', [
             'title' => 'Event',

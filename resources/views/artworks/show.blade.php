@@ -1,22 +1,25 @@
 @extends('layouts.main')
 
 @section('content')
-    <main id="main" data-aos="fade" data-aos-delay="500">
+    <main id="main">
         <!-- ======= Gallery Single Section ======= -->
         <section id="gallery-single" class="gallery-single page-header">
             <div class="container">
 
                 <div class="position-relative h-50">
                     <div class="slides-1 portfolio-details-slider swiper">
-
-
                         <div class="swiper-wrapper align-items-center">
 
-                            @foreach ($image_artworks as $image_artwork )
-                            <div class="swiper-slide">
-                                <img src="{{ asset('storage/image-artworks/' . $image_artwork->image) }}" alt="">
+                            <div class="swiper-slide" style="max-height: 500px; overflow:hidden">
+                                <img src="{{ asset('storage/image-artworks/' . $artwork->cover) }}" alt="">
                             </div>
-                                @endforeach
+
+                            @foreach ($image_artworks as $image_artwork)
+                                <div class="swiper-slide" style="max-height: 500px; overflow:hidden">
+                                    <img src="{{ asset('storage/image-artworks/' . $image_artwork->image) }}"
+                                        alt="">
+                                </div>
+                            @endforeach
 
                         </div>
                         <div class="swiper-pagination"></div>
@@ -30,7 +33,7 @@
 
                     <div class="col-lg-8">
                         <div class="portfolio-description">
-                            <h1>{{$artwork->title}}</h1>
+                            <h1>{{ $artwork->title }}</h1>
                             <p>
                                 {!! $artwork->description !!}
                             </p>
@@ -43,17 +46,28 @@
                         <div class="portfolio-info">
                             <h3>{{ $artwork->Category->name }}</h3>
                             <ul>
-                                <li><strong>Ukuran</strong> <h5> {{$artwork->size}}</h5></li>
-                                <li><strong>Bahan</strong> <h5> {{$artwork->material}}</h5></li>
-                                <li><strong>Tahun</strong> <h5> {{$artwork->year}}</h5></li>
+                                <li><strong>Ukuran</strong>
+                                    <h5> {{ $artwork->size }}</h5>
+                                </li>
+                                <li><strong>Bahan</strong>
+                                    <h5> {{ $artwork->material }}</h5>
+                                </li>
+                                <li><strong>Tahun</strong>
+                                    <h5> {{ $artwork->year }}</h5>
+                                </li>
+                                <li><strong>Harga</strong>
+                                    <h5> {{ $artwork->price }}</h5>
+                                </li>
                                 <li>
                                     @if ($artwork->status->name == 'Available')
-                                    <form action="/artworks/{{$artwork->slug}}/buy" method="post">
-                                        @csrf
-                                        <button class="btn-visit align-self-start" type="submit">{{ $artwork->status->name }}</button>
-                                    </form>
+                                        <form action="/artworks/{{ $artwork->slug }}/buy" method="post">
+                                            @csrf
+                                            <button class="btn-visit align-self-start border-0 bg-success"
+                                                type="submit">{{ $artwork->status->name }}</button>
+                                        </form>
                                     @else
-                                    <button class="btn-visit bg-danger align-self-start">{{ $artwork->status->name }}</button>
+                                        <button
+                                            class="btn-visit bg-danger align-self-start border-0">{{ $artwork->status->name }}</button>
                                     @endif
                                 </li>
                             </ul>

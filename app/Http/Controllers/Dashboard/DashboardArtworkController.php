@@ -24,6 +24,7 @@ class DashboardArtworkController extends Controller
 
         return view('admin.artworks.index',[
             'title' => 'Dashboard Karya',
+
             'artworks' =>  Artwork::where('user_id', auth()->user()->id)->paginate(5)
         ]);
     }
@@ -46,7 +47,7 @@ class DashboardArtworkController extends Controller
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $imageName = time() . '-' . $file->getClientOriginalName();
-            $file->storeAs('image-artworks', $imageName );
+            $file->storeAs('image-artworks', $imageName);
 
             $validationData = $request->validate([
                 'title' => 'required|max:255',
@@ -72,23 +73,26 @@ class DashboardArtworkController extends Controller
                 $imageName = time() . '-' . $file->getClientOriginalName();
                 $request['artwork_id'] = $artwork->id;
                 $request['image'] = $imageName;
-                $file->storeAs('image-artworks', $imageName );
+                $file->storeAs('image-artworks', $imageName);
                 ImageArtwork::create($request->all());
             }
         }
         return redirect('/admin/artworks')->with('success', 'data berhasil ditambahkan');
     }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> frontEndFix
     public function show(Artwork $artwork)
     {
 
-         if ($artwork->user->id !== auth()->user()->id) {
-                abort(403);
-             }
+        if ($artwork->user->id !== auth()->user()->id) {
+            abort(403);
+        }
 
-             $image_artworks = ImageArtwork::where('artwork_id', $artwork->id)->get();
+        $image_artworks = ImageArtwork::where('artwork_id', $artwork->id)->get();
         return view('admin.artworks.show', [
             'artwork' => $artwork,
             'categories' => Category::all(),
@@ -125,9 +129,10 @@ class DashboardArtworkController extends Controller
             'price' => 'required|max:255',
         ];
 
-        if($request->slug != $artwork->slug) {
+        if ($request->slug != $artwork->slug) {
             $rules['slug'] = 'required|unique:artworks';
         }
+<<<<<<< HEAD
             $validateData = $request->validate($rules);
 
         // cover
@@ -139,14 +144,26 @@ class DashboardArtworkController extends Controller
 
             if($artwork->cover != null) {
                 Storage::delete('image-artworks/' . $artwork->cover);
+=======
+        $validateData = $request->validate($rules);
+        // untuk cover
+        if ($request->hasFile('cover')) {
+            $file = $request->file('cover');
+            $imageName = time() . '-' . $file->getClientOriginalName();
+            $file->storeAs('artworks-image', $imageName);
+            $validateData['cover'] = $imageName;
+
+            if ($artwork->cover != null) {
+                Storage::delete('artworks-image/' . $artwork->cover);
+>>>>>>> frontEndFix
             }
 
-             $validateData['cover'] = $imageName;
+            $validateData['cover'] = $imageName;
         }
 
-         $validateData['user_id'] = auth()->user()->id;
+        $validateData['user_id'] = auth()->user()->id;
         Artwork::where('id', $artwork->id)
-        ->update( $validateData);
+            ->update($validateData);
 
         // untuk images
         if ($request->hasFile("images")) {
@@ -154,9 +171,13 @@ class DashboardArtworkController extends Controller
 
             $currentImages = ImageArtwork::where('artwork_id', $artwork->id)->get();
 
-            if($currentImages != null) {
+            if ($currentImages != null) {
                 foreach ($currentImages as $currentImage) {
+<<<<<<< HEAD
                     Storage::delete('image-artworks/'. $currentImage->image);
+=======
+                    Storage::delete('artworks-image/' . $currentImage->image);
+>>>>>>> frontEndFix
                 }
 
                 ImageArtwork::where('artwork_id', $artwork->id)->delete();
@@ -166,10 +187,13 @@ class DashboardArtworkController extends Controller
                 $imageName = time() . '-' . $file->getClientOriginalName();
                 $request['artwork_id'] = $artwork->id;
                 $request['image'] = $imageName;
+<<<<<<< HEAD
                 $file->storeAs('image-artworks', $imageName );
+=======
+                $file->storeAs('artworks-image', $imageName);
+>>>>>>> frontEndFix
                 ImageArtwork::create($request->all());
             }
-
         }
 
         return redirect('/admin/artworks')->with('success', 'data berhasil diupdate');
@@ -181,7 +205,7 @@ class DashboardArtworkController extends Controller
 
         $artwork = Artwork::find($artwork->id);
 
-        if($artwork->cover != null) {
+        if ($artwork->cover != null) {
             Storage::delete('image-artworks/' . $artwork->cover);
         }
 
@@ -190,9 +214,9 @@ class DashboardArtworkController extends Controller
 
         $currentImages = ImageArtwork::where('artwork_id', $artwork->id)->get();
 
-        if($currentImages != null) {
+        if ($currentImages != null) {
             foreach ($currentImages as $currentImage) {
-                Storage::delete('image-artworks/'. $currentImage->image);
+                Storage::delete('image-artworks/' . $currentImage->image);
             }
 
             ImageArtwork::where('artwork_id', $artwork->id)->delete();
