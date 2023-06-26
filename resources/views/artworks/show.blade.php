@@ -3,20 +3,21 @@
 @section('content')
     <main id="main">
         <!-- ======= Gallery Single Section ======= -->
-        <section id="gallery-single" class="gallery-single page-header">
+        <section id="gallery-single" class="admin-content">
             <div class="container">
 
                 <div class="position-relative h-50">
                     <div class="slides-1 portfolio-details-slider swiper">
                         <div class="swiper-wrapper align-items-center">
 
-                            <div class="swiper-slide" style="max-height: 500px; overflow:hidden">
-                                <img src="{{ asset('storage/image-artworks/' . $artwork->cover) }}" alt="">
+                            <div class="swiper-slide">
+                                <img style="max-height: 500px;" class="img-fluid mx-auto d-block
+                                " src="{{ asset('storage/image-artworks/' . $artwork->cover) }}" alt="">
                             </div>
 
                             @foreach ($image_artworks as $image_artwork)
-                                <div class="swiper-slide" style="max-height: 500px; overflow:hidden">
-                                    <img src="{{ asset('storage/image-artworks/' . $image_artwork->image) }}"
+                                <div class="swiper-slide">
+                                    <img style="max-height: 500px;" class="img-fluid mx-auto d-block" src="{{ asset('storage/image-artworks/' . $image_artwork->image) }}"
                                         alt="">
                                 </div>
                             @endforeach
@@ -62,12 +63,12 @@
                                     @if ($artwork->status->name == 'Available')
                                         <form action="/artworks/{{ $artwork->slug }}/buy" method="post">
                                             @csrf
-                                            <button class="btn-visit align-self-start border-0 bg-success"
+                                            <button class="btn-visit ctn-btn align-self-start border-0 bg-success"
                                                 type="submit">{{ $artwork->status->name }}</button>
                                         </form>
                                     @else
                                         <button
-                                            class="btn-visit bg-danger align-self-start border-0">{{ $artwork->status->name }}</button>
+                                            class="btn-create">{{ $artwork->status->name }}</button>
                                     @endif
                                 </li>
                             </ul>

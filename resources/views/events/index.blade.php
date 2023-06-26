@@ -5,8 +5,8 @@
     <main id="main" class="container">
 
         <!-- ======= Artikel ======= -->
-        <div class="page-header article">
-            <div class="row">
+        <div class="article">
+            <div class="row my-4">
                 <h4>Event Terbaru</h4>
             </div>
 

@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2><span>Erhouse Gallery</span> adalah Galery Seni Dua dan Tiga Dimensi dari Yogyakarta</h2>
+                    <h2>Erhouse Gallery adalah Galery Seni Dua dan Tiga Dimensi dari Yogyakarta</h2>
                     <p>Erhouse Gallery adalah sebuah galeri seni yang didedikasikan untuk memamerkan karya seni lukisan dan
                         patung yang dihasilkan oleh seorang seniman yang bernama Ruswanto. Seniman ini dikenal karena
                         keahliannya dalam menciptakan karya seni dengan berbagai motif yang menarik dan unik.</p>

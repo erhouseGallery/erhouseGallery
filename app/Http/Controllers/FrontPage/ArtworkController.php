@@ -22,7 +22,7 @@ class ArtworkController extends Controller
         // $artworks = Artwork::all();
 
         $artworks = Artwork::with(['category','status'])->latest()->filter()->paginate(2);
-        return view('artworks.index', [
+        return view('index', [
             'title' => 'karya',
 
             'artworks' => $artworks,
@@ -74,9 +74,10 @@ class ArtworkController extends Controller
             'order_name' => $artwork->title,
             'category_id' => $artwork->category_id,
             'description' => $artwork->description,
+
         ]);
 
-        Mail::to('irfannudinihsan@students.amikom.ac.id')->send(new OrderMail($orderData));
+        // Mail::to('irfannudinihsan@students.amikom.ac.id')->send(new OrderMail($orderData));
 
         return redirect('/admin/orders');
     }

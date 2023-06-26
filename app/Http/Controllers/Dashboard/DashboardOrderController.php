@@ -8,7 +8,9 @@ use App\Models\Category;
 use App\Models\Information;
 use App\Http\Controllers\Controller;
 use App\Models\ImageOrder;
+use App\Models\ImageArtwork;
 use App\Mail\OrderMail;
+use App\Models\Artwork;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 class DashboardOrderController extends Controller
@@ -87,9 +89,10 @@ class DashboardOrderController extends Controller
     }
 
 
-    public function edit(Order $order)
+    public function edit(Order $order, ImageArtwork $artwork_id)
     {
-
+        // $image_artworks = ImageArtwork::where('artwork_id', $order->$artwork_id)->get();
+        // return $image_artworks;
         $image_orders = ImageOrder::where('order_id',$order->id)->get();
         return view('admin.orders.edit', [
             'title' => 'Edit Pesanan',
@@ -97,6 +100,7 @@ class DashboardOrderController extends Controller
             'categories' => Category::all(),
             'information' => Information::all(),
             'image_orders' => $image_orders,
+            // 'image_artworks' => $image_artworks,
         ]);
     }
 

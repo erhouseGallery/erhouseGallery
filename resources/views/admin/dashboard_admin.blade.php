@@ -14,6 +14,10 @@
         <h3 class="text-center">Total Karya</h3>
       </div>
       <div class="box col-md-4">
+        <h1 class="text-center">{{ $users->count()}}</h1>
+        <h3 class="text-center">Total User</h3>
+      </div>
+      <div class="box col-md-4">
         <h1 class="text-center">{{  $articles->count()}}</h1>
         <h3 class="text-center">Total Artikel</h3>
       </div>
