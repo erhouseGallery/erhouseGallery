@@ -15,11 +15,11 @@
     <div class="bg-based px-4 py-2">
         <ul class="text-white pl-0">
             <li class="d-flex justify-content-center "> <img alt="image" style="width: 30%"
-                    src="../assets/img/avatar/avatar-1.png" class="rounded-circle mt-3 "></li>
+                    src="https://api.dicebear.com/6.x/avataaars/svg?seed=Baby "></li>
             <li class="d-flex justify-content-center mt-2 text-dark">
-                <h4>Admin</h4>
+                <h4>{{ auth()->user()->name }}</h4>
             </li>
-            <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/dashboard-admin">
                     <span>Dashboard</span></a></li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/orders">
                     <span>Pemesanan</span></a></li>
@@ -32,7 +32,7 @@
                 <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/events">
                         <span>Event</span></a></li>
             @endcan
-            <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/profiles">
                     <span>Profile</span></a></li>
         </ul>
     </div>
@@ -49,7 +49,7 @@
             <li class="d-flex justify-content-center mt-2 text-dark">
                 <h4>Admin</h4>
             </li>
-            <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/dashboard-admin">
                     <span>Dashboard</span></a></li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/orders">
                     <span>Pemesanan</span></a></li>
@@ -62,7 +62,7 @@
                 <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/events">
                         <span>Event</span></a></li>
             @endcan
-            <li class="sidebar-fiture text-center"><a class="nav-link" href="blank.html">
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/profiles">
                     <span>Profile</span></a></li>
         </ul>
     </aside>

@@ -37,7 +37,7 @@
                     @endforeach
                 </div>
 
-                <div class="container col-lg-6">
+                {{-- <div class="container col-lg-6">
                     <h2 class="text-center text-bold my-5">Pertanyaan Yang Sering Diajukan</h2>
                     <div>
                         <p>
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
 

@@ -13,41 +13,25 @@
                     <div class="col-lg-5 content">
                         <h2>Erhouse Gallery</h2>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May
-                                            1995</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
-                                        <span>www.example.com</span>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Lokasi:</strong> <span>Ngeblak,
+                                            Wijirejo, Kec. Pandak, Bantul, DIY</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Instagram:</strong>
+                                        <span>@roes_antoe</span>
                                     </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456
-                                            7890</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York,
-                                            USA</span></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>PhEmailone:</strong>
-                                        <span>email@example.com</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong>
-                                        <span>Available</span>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
+                                        <span>raartsrus84@gmail.com</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <p class="py-3">
-                            Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci
-                            omnis et
-                            ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-                            Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque
-                            neque.
-                            Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni
-                            laudantium dolores.
+                            Erhouse Gallery merupakan galeri seni yang terletak di Bantul, Yogyakarta. Galeri ini dikenal
+                            karena menampilkan karya seni lukis dan patung yang menginspirasi. Dari lukisan-lukisan yang
+                            indah hingga patung-patung yang mengagumkan, Erhouse Gallery menawarkan pengalaman seni yang tak
+                            terlupakan bagi para pengunjungnya. Jika Anda memiliki minat dalam seni lukis atau seni patung,
+                            galeri ini adalah tempat yang sempurna untuk dikunjungi.
                         </p>
                     </div>
                 </div>
@@ -58,49 +42,29 @@
                     </div>
                     <div class="col-lg-5 content">
                         <h2>Ruswanto</h2>
-                        <p class="fst-italic py-3">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et
-                            dolore
-                            magna aliqua.
+                        <p class="py-3">
+                            Pemilik Erhouse Gallery adalah seorang seniman bernama Ruswanto. Ia memiliki dedikasi yang
+                            tinggi dalam memajukan dunia seni di Yogyakarta. Dengan nomor kontaknya yang dapat dihubungi di
+                            085228836199 dan akun Instagram @roes_antoe, Ruswanto selalu siap untuk berbagi karyanya dengan
+                            penggemar seni dan menjawab pertanyaan terkait galeri. Ia menjadi penggerak utama di balik
+                            keberhasilan Erhouse Gallery dan senantiasa menginspirasi para seniman dan pengunjung dengan
+                            visi artistiknya yang unik.
                         </p>
                         <div class="row">
                             <div class="col-lg-6">
                                 <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May
-                                            1995</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
-                                        <span>www.example.com</span>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Nomer :</strong>
+                                        <span>085228836199</span>
                                     </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456
-                                            7890</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York,
-                                            USA</span></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Instagram:</strong>
+                                        <span>@roes_antoe</span>
                                     </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>PhEmailone:</strong>
-                                        <span>email@example.com</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong>
-                                        <span>Available</span>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
+                                        <span>raartsrus84@gmail.com</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <p class="py-3">
-                            Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci
-                            omnis et
-                            ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-                            Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque
-                            neque.
-                            Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni
-                            laudantium dolores.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -182,7 +146,7 @@
 
                     </div>
 
-                    <div class="row justify-content-center mt-4">
+                    {{-- <div class="row justify-content-center mt-4">
 
                         <div class="col-lg-9 mb-4">
                             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
@@ -211,9 +175,7 @@
                                 <div class="text-center"><button type="submit">Kirim Pesan</button></div>
                             </form>
                         </div>
-                        <!-- End Contact Form -->
-
-                    </div>
+                    </div> --}}
 
                 </div>
             </section>
