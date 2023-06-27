@@ -37,7 +37,7 @@ class AuthController extends Controller
             'password' => 'required|min:5|max:255',
         ]);
 
-        $validateData['avatar'] = 'https://api.dicebear.com/6.x/avataaars/svg?seed=' . $avatars[$avatar];
+        $validateData['avatar'] = 'https://api.dicebear.com/6.x/adventurer/svg?seed=' . $avatars[$avatar];
         $validateData['password'] = Hash::make($validateData['password']);
 
         User::create($validateData);
