@@ -12,42 +12,12 @@
                     </div>
                     <div class="col-lg-5 content">
                         <h2>Erhouse Gallery</h2>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May
-                                            1995</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
-                                        <span>www.example.com</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456
-                                            7890</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York,
-                                            USA</span></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>PhEmailone:</strong>
-                                        <span>email@example.com</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong>
-                                        <span>Available</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                         <p class="py-3">
-                            Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci
-                            omnis et
-                            ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-                            Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque
-                            neque.
-                            Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni
-                            laudantium dolores.
+                            Erhouse Gallery merupakan galeri seni yang terletak di Bantul, Yogyakarta. Galeri ini dikenal
+                            karena menampilkan karya seni lukis dan patung yang menginspirasi. Dari lukisan-lukisan yang
+                            indah hingga patung-patung yang mengagumkan, Erhouse Gallery menawarkan pengalaman seni yang tak
+                            terlupakan bagi para pengunjungnya. Jika Anda memiliki minat dalam seni lukis atau seni patung,
+                            galeri ini adalah tempat yang sempurna untuk dikunjungi.
                         </p>
                     </div>
                 </div>
@@ -58,48 +28,13 @@
                     </div>
                     <div class="col-lg-5 content">
                         <h2>Ruswanto</h2>
-                        <p class="fst-italic py-3">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et
-                            dolore
-                            magna aliqua.
-                        </p>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May
-                                            1995</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
-                                        <span>www.example.com</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456
-                                            7890</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York,
-                                            USA</span></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>PhEmailone:</strong>
-                                        <span>email@example.com</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong>
-                                        <span>Available</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                         <p class="py-3">
-                            Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci
-                            omnis et
-                            ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-                            Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque
-                            neque.
-                            Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni
-                            laudantium dolores.
+                            Pemilik Erhouse Gallery adalah seorang seniman bernama Ruswanto. Ia memiliki dedikasi yang
+                            tinggi dalam memajukan dunia seni di Yogyakarta. Dengan nomor kontaknya yang dapat dihubungi di
+                            085228836199 dan akun Instagram @roes_antoe, Ruswanto selalu siap untuk berbagi karyanya dengan
+                            penggemar seni dan menjawab pertanyaan terkait galeri. Ia menjadi penggerak utama di balik
+                            keberhasilan Erhouse Gallery dan senantiasa menginspirasi para seniman dan pengunjung dengan
+                            visi artistiknya yang unik.
                         </p>
                     </div>
                 </div>
@@ -165,7 +100,7 @@
                                     </a>
                                 </div>
                             </div>
-                        </div><!-- End Info Item -->
+                        </div>
 
                         <div class="col-lg-3 mb-3">
                             <div class="info-item d-flex">
@@ -178,46 +113,43 @@
                                     </a>
                                 </div>
                             </div>
-                        </div><!-- End Info Item -->
-
-                    </div>
-
-                    <div class="row justify-content-center mt-4">
-
-                        <div class="col-lg-9 mb-4">
-                            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                                <div class="row">
-                                    <div class="col-md-6 form-group">
-                                        <input type="text" name="name" class="form-control" id="name"
-                                            placeholder="Nama Kamu" required>
-                                    </div>
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <input type="email" class="form-control" name="email" id="email"
-                                            placeholder="Email Kamu" required>
-                                    </div>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <input type="text" class="form-control" name="subject" id="subject"
-                                        placeholder="Subject" required>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <textarea class="form-control" name="message" rows="5" placeholder="Pesan" required></textarea>
-                                </div>
-                                <div class="my-3">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                                </div>
-                                <div class="text-center"><button type="submit">Kirim Pesan</button></div>
-                            </form>
                         </div>
+
+                        <!--<div class="row justify-content-center mt-4">-->
+
+                        <!--    <div class="col-lg-9 mb-4">-->
+                        <!--        <form action="forms/contact.php" method="post" role="form" class="php-email-form">-->
+                        <!--            <div class="row">-->
+                        <!--                <div class="col-md-6 form-group">-->
+                        <!--                    <input type="text" name="name" class="form-control" id="name"-->
+                        <!--                        placeholder="Nama Kamu" required>-->
+                        <!--                </div>-->
+                        <!--                <div class="col-md-6 form-group mt-3 mt-md-0">-->
+                        <!--                    <input type="email" class="form-control" name="email" id="email"-->
+                        <!--                        placeholder="Email Kamu" required>-->
+                        <!--                </div>-->
+                        <!--            </div>-->
+                        <!--            <div class="form-group mt-3">-->
+                        <!--                <input type="text" class="form-control" name="subject" id="subject"-->
+                        <!--                    placeholder="Subject" required>-->
+                        <!--            </div>-->
+                        <!--            <div class="form-group mt-3">-->
+                        <!--                <textarea class="form-control" name="message" rows="5" placeholder="Pesan" required></textarea>-->
+                        <!--            </div>-->
+                        <!--            <div class="my-3">-->
+                        <!--                <div class="loading">Loading</div>-->
+                        <!--                <div class="error-message"></div>-->
+                        <!--                <div class="sent-message">Your message has been sent. Thank you!</div>-->
+                        <!--            </div>-->
+                        <!--            <div class="text-center"><button type="submit">Kirim Pesan</button></div>-->
+                        <!--        </form>-->
+                        <!--    </div>-->
                         <!-- End Contact Form -->
 
-                    </div>
+                        <!--</div>-->
 
-                </div>
+                    </div>
             </section>
-            <!-- End Contact Section -->
         </section>
     </main>
 

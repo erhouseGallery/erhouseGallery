@@ -13,23 +13,22 @@ use App\Mail\OrderMail;
 use App\Models\Artwork;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+
 class DashboardOrderController extends Controller
 {
 
     public function index()
     {
-        if(auth()->user()->is_admin) {
-            return view('admin.orders.index',[
+        if (auth()->user()->is_admin) {
+            return view('admin.orders.index', [
                 'title' => 'Dashboard Pesanan',
                 'orders' => Order::paginate(5),
             ]);
-
         }
-        return view('admin.orders.index',[
+        return view('admin.orders.index', [
             'title' => 'pesanan',
-            'orders' => Order::where('user_id', auth()->user()->id)->paginate(5),
+            'orders' => Order::where('user_id', auth()->user()->id)->paginate(10),
         ]);
-
     }
 
 
@@ -39,8 +38,6 @@ class DashboardOrderController extends Controller
             'title' => 'Buat Pesanan',
             'categories' => Category::all(),
         ]);
-
-
     }
 
 
@@ -58,27 +55,25 @@ class DashboardOrderController extends Controller
         $order = Order::create($validateData);
         $order->save();
 
-        if($request->hasFile('images')) {
-           $files = $request->file('images');
-           foreach ($files as $file) {
-            $imageName = time() . '-' . $file->getClientOriginalName();
-            $request['order_id'] = $order->id;
-            $request['image'] = $imageName;
-            $file->storeAs('image-orders', $imageName);
-            ImageOrder::create($request->all());
-
-           }
+        if ($request->hasFile('images')) {
+            $files = $request->file('images');
+            foreach ($files as $file) {
+                $imageName = time() . '-' . $file->getClientOriginalName();
+                $request['order_id'] = $order->id;
+                $request['image'] = $imageName;
+                $file->storeAs('public/image-orders', $imageName);
+                ImageOrder::create($request->all());
+            }
         }
 
         // Mail::to('irfannudinihsan@students.amikom.ac.id')->send(new OrderMail($order));
-        return redirect('/admin/orders')->with('success','pesanan berhasil dibuat, mohon ditunggu');
-
+        return redirect('/admin/orders')->with('success', 'pesanan berhasil dibuat, mohon ditunggu');
     }
 
 
     public function show(Order $order)
     {
-        $image_orders = ImageOrder::where('order_id',$order->id)->get();
+        $image_orders = ImageOrder::where('order_id', $order->id)->get();
         return view('admin.orders.show', [
             'title' => 'Detail Pesanan',
             'order' => $order,
@@ -93,7 +88,7 @@ class DashboardOrderController extends Controller
     {
         // $image_artworks = ImageArtwork::where('artwork_id', $order->$artwork_id)->get();
         // return $image_artworks;
-        $image_orders = ImageOrder::where('order_id',$order->id)->get();
+        $image_orders = ImageOrder::where('order_id', $order->id)->get();
         return view('admin.orders.edit', [
             'title' => 'Edit Pesanan',
             'order' => $order,
@@ -113,7 +108,6 @@ class DashboardOrderController extends Controller
             'note' => 'required|max:255'
         ]);
 
-        $validateData['user_id'] = auth()->user()->id;
         Order::where('id', $order->id)->update($validateData);
         return redirect('/admin/orders')->with('success', 'pesanan berhasil diupdate');
     }
@@ -124,9 +118,9 @@ class DashboardOrderController extends Controller
 
         $currentImages = ImageOrder::where('order_id', $order->id)->get();
 
-        if($currentImages != null) {
+        if ($currentImages != null) {
             foreach ($currentImages as $currentImage) {
-                Storage::delete('image-orders/'. $currentImage->image);
+                Storage::delete('public/image-orders/' . $currentImage->image);
             }
             ImageOrder::where('order_id', $order->id)->delete();
         }

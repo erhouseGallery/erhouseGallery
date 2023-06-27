@@ -11,9 +11,10 @@ class EventController extends Controller
 {
 
 
-    public function index() {
+    public function index()
+    {
 
-        $events = Event::latest()->paginate(5);
+        $events = Event::latest()->paginate(12);
         return view('events.index', [
             'title' => 'Event',
             'events' => $events,

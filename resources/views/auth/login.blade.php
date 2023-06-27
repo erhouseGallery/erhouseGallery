@@ -54,10 +54,6 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-
-                                    <a href="" class="float-end text-primary my-3">
-                                        Lupa password?
-                                    </a>
                                 </div>
 
                                 <div class="align-items-center">

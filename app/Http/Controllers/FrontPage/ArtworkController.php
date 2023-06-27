@@ -21,10 +21,9 @@ class ArtworkController extends Controller
     {
         // $artworks = Artwork::all();
 
-        $artworks = Artwork::with(['category','status'])->latest()->filter()->paginate(2);
+        $artworks = Artwork::with(['category', 'status'])->latest()->filter()->paginate(12);
         return view('index', [
-            'title' => 'karya',
-
+            'title' => 'Erhouse Gallery',
             'artworks' => $artworks,
         ]);
     }
@@ -33,12 +32,11 @@ class ArtworkController extends Controller
     public function indexArtworks(Request $request)
     {
         // $artworks = Artwork::all();
-        $artworks = Artwork::with(['category', 'status'])->latest()->filter()->paginate(8);
+        $artworks = Artwork::with(['category', 'status'])->latest()->filter()->paginate(12);
         return view('artworks.index', [
             'title' => 'Karya Seni',
             'artworks' => $artworks,
         ]);
-
     }
 
     // menampilkan artwork (karya) berdasarkan id

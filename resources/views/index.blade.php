@@ -35,6 +35,7 @@
                             </div>
                         </div>
                     @endforeach
+                    {{ $artworks->links() }}
                 </div>
 
                 <div class="container col-lg-6">

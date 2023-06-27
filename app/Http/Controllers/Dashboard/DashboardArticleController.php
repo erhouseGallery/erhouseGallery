@@ -19,7 +19,7 @@ class DashboardArticleController extends Controller
 
         return view('admin.articles.index', [
             'title' => "Dashboard Artikel",
-            'articles' => Article::where('user_id', auth()->user()->id)->paginate(5)
+            'articles' => Article::where('user_id', auth()->user()->id)->paginate(10)
         ]);
     }
 
@@ -34,10 +34,10 @@ class DashboardArticleController extends Controller
     public function store(Request $request)
     {
 
-        if($request->hasFile('cover')) {
+        if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $imageName = time() . '-' . $file->getClientOriginalName();
-            $file->storeAs('image-articles', $imageName );
+            $file->storeAs('public/image-articles', $imageName);
 
             $validationData = $request->validate([
                 'title' => 'required|max:255',
@@ -49,7 +49,6 @@ class DashboardArticleController extends Controller
 
             $article = Article::create($validationData);
             $article->save();
-
         }
 
         if ($request->hasFile("images")) {
@@ -58,12 +57,11 @@ class DashboardArticleController extends Controller
                 $imageName = time() . '-' . $file->getClientOriginalName();
                 $request['article_id'] = $article->id;
                 $request['image'] = $imageName;
-                $file->storeAs('image-articles', $imageName );
+                $file->storeAs('public/image-articles', $imageName);
                 ImageArticle::create($request->all());
             }
         }
         return redirect('/admin/articles')->with('success', 'data berhasil ditambahkan');
-
     }
 
 
@@ -72,11 +70,11 @@ class DashboardArticleController extends Controller
 
         if ($article->user->id !== auth()->user()->id) {
             abort(403);
-         }
+        }
 
-         $image_articles = ImageArticle::where('article_id', $article->id)->get();
+        $image_articles = ImageArticle::where('article_id', $article->id)->get();
 
-         return view('admin.articles.show', [
+        return view('admin.articles.show', [
             'article' => $article,
             'title' => 'Admin Detail Artikel',
             'image_articles' => $image_articles,
@@ -86,7 +84,7 @@ class DashboardArticleController extends Controller
 
     public function edit(Article $article)
     {
-        return view('admin.articles.edit',[
+        return view('admin.articles.edit', [
             'title' => 'Edit Artikel',
             'article' => $article,
         ]);
@@ -101,38 +99,38 @@ class DashboardArticleController extends Controller
             'content' => 'required|max:255',
         ];
 
-        if($request->slug != $article->slug) {
+        if ($request->slug != $article->slug) {
             $rules['slug'] = 'required|unique:articles';
         }
-            $validateData = $request->validate($rules);
+        $validateData = $request->validate($rules);
 
         // cover
-        if($request->hasFile('cover')) {
+        if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $imageName = time() . '-' . $file->getClientOriginalName();
-            $file->storeAs('image-articles', $imageName );
-             $validateData['cover'] = $imageName;
+            $file->storeAs('public/image-articles', $imageName);
+            $validateData['cover'] = $imageName;
 
-            if($article->cover != null) {
-                Storage::delete('image-articles/' . $article->cover);
+            if ($article->cover != null) {
+                Storage::delete('public/image-articles/' . $article->cover);
             }
 
-             $validateData['cover'] = $imageName;
+            $validateData['cover'] = $imageName;
         }
 
         $validateData['user_id'] = auth()->user()->id;
         Article::where('id', $article->id)
-        ->update( $validateData);
+            ->update($validateData);
 
-         //  images
-         if ($request->hasFile("images")) {
+        //  images
+        if ($request->hasFile("images")) {
             $files = $request->file("images");
 
             $currentImages = ImageArticle::where('article_id', $article->id)->get();
 
-            if($currentImages != null) {
+            if ($currentImages != null) {
                 foreach ($currentImages as $currentImage) {
-                    Storage::delete('image-articles/'. $currentImage->image);
+                    Storage::delete('public/image-articles/' . $currentImage->image);
                 }
 
                 ImageArticle::where('article_id', $article->id)->delete();
@@ -142,39 +140,37 @@ class DashboardArticleController extends Controller
                 $imageName = time() . '-' . $file->getClientOriginalName();
                 $request['article_id'] = $article->id;
                 $request['image'] = $imageName;
-                $file->storeAs('image-articles', $imageName );
+                $file->storeAs('public/image-articles', $imageName);
                 ImageArticle::create($request->all());
             }
-
         }
 
         return redirect('/admin/articles')->with('success', 'data berhasil diupdate');
-
     }
 
 
     public function destroy(Article $article)
     {
 
-       $article = Article::find($article->id);
+        $article = Article::find($article->id);
 
-       if($article->cover != null ) {
-        Storage::delete('image-articles/' . $article->cover);
-       }
-
-       //images
-
-       $currentImages = ImageArticle::where('article_id', $article->id)->get();
-
-       if($currentImages != null) {
-        foreach ($currentImages as $currentImage) {
-            Storage::delete('image-articles/'. $currentImage->image);
+        if ($article->cover != null) {
+            Storage::delete('public/image-articles/' . $article->cover);
         }
 
-        ImageArticle::where('article_id', $article->id)->delete();
-    }
+        //images
 
-    Article::destroy($article->id);
-    return redirect('/admin/articles')->with('success', 'data berhasil dihapus');
+        $currentImages = ImageArticle::where('article_id', $article->id)->get();
+
+        if ($currentImages != null) {
+            foreach ($currentImages as $currentImage) {
+                Storage::delete('public/image-articles/' . $currentImage->image);
+            }
+
+            ImageArticle::where('article_id', $article->id)->delete();
+        }
+
+        Article::destroy($article->id);
+        return redirect('/admin/articles')->with('success', 'data berhasil dihapus');
     }
 }

@@ -1,34 +1,69 @@
 @extends('layouts.main')
 
 @section('content')
-
-
     <main id="main">
-
         <!-- ======= Gallery Single Section ======= -->
-        <section id="gallery-single" class="gallery-single page-header">
+        <section id="gallery-single" class="admin-content">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-10">
-                        <article>
-                            <header class="mb-4">
-                                <h1 class="fw-bolder mb-1">{{ $event->title }}</h1>
-                                <div class="text-muted fst-italic mb-2">Posted on {{ $event->date }}</div>
-                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
-                            </header>
-                            <figure class="mb-4"><img class="img-fluid rounded"
-                                    src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
-                            <section class="mb-5">
-                                <p class="fs-5 mb-4">{{ $event->content }}
-                                </p>
-                            </section>
-                        </article>
+
+                <div class="position-relative h-50">
+                    <div class="slides-1 portfolio-details-slider swiper">
+                        <div class="swiper-wrapper align-items-center">
+
+                            <div class="swiper-slide">
+                                <img style="max-height: 500px;"
+                                    class="img-fluid mx-auto d-block
+                                "
+                                    src="{{ asset('storage/image-events/' . $event->cover) }}" alt="">
+                            </div>
+
+                            @foreach ($image_events as $image_event)
+                                <div class="swiper-slide">
+                                    <img style="max-height: 500px;" class="img-fluid mx-auto d-block"
+                                        src="{{ asset('storage/image-events/' . $image_event->image) }}" alt="">
+                                </div>
+                            @endforeach
+
+                        </div>
+                        <div class="swiper-pagination"></div>
                     </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
                 </div>
-        </section>
+
+                <div class="row justify-content-between gy-4 mt-4">
+
+                    <div class="col-lg-8">
+                        <div class="portfolio-description">
+                            <h1>{{ $event->title }}</h1>
+                            <p>
+                                {!! $event->content !!}
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="portfolio-info">
+                            <ul>
+                                <li class="mb-4">Lokasi<h5><strong>{{ $event->location }}</strong> </h5>
+                                </li>
+                                <li class="mb-4">Tanggal Event<h5><strong>{{ $event->date_event }}</strong> </h5>
+                                </li>
+                                <li class="mb-4">Waktu<h5><strong>{{ $event->time }}</strong> </h5>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Gallery Single Section -->
+
     </main>
 
     @include('components.footer')
-
 @endsection
