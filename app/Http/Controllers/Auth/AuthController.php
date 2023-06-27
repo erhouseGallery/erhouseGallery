@@ -13,13 +13,15 @@ use App\Http\Controllers\Controller;
 class AuthController extends Controller
 {
     // Register
-    public function indexRegister() {
+    public function indexRegister()
+    {
         return view('auth.regsiter', [
             'title' => 'Register'
         ]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
 
         $avatars = ['Annie', 'Lily', 'Cali', 'Trouble', 'Mittens', 'Baby', 'Socks', 'Mimi', 'Sam', 'Zoey', 'Jasmine', 'Harley', 'Jack', 'Bear', 'Boots', 'Scooter', 'Patches', 'Bella', 'Sugar', 'Cuddles'];
@@ -40,24 +42,26 @@ class AuthController extends Controller
 
         User::create($validateData);
 
-        return redirect('/login')->with('success','Registrasi berhasil, Silahkan Login!!');
+        return redirect('/login')->with('success', 'Registrasi berhasil, Silahkan Login!!');
     }
 
 
-      //login
-      public function indexLogin() {
+    //login
+    public function indexLogin()
+    {
         return view('auth.login', [
             'title' => 'Login'
         ]);
     }
 
-    public function authenticate(Request $request) {
+    public function authenticate(Request $request)
+    {
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/admin/dashboard-admin');
         }
@@ -66,17 +70,18 @@ class AuthController extends Controller
     }
 
     //logout
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
 
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
         return redirect('/');
-
     }
 
-    public function indexProfile() {
+    public function indexProfile()
+    {
 
         $user = auth()->user();
         return view('admin.profiles.index', [
@@ -85,7 +90,8 @@ class AuthController extends Controller
         ]);
     }
 
-    public function editProfile(User $user) {
+    public function editProfile(User $user)
+    {
 
         $user = auth()->user();
         return view('admin.profiles.edit', [
@@ -95,7 +101,8 @@ class AuthController extends Controller
     }
 
 
-    public function updateProfile(Request $request, User $user) {
+    public function updateProfile(Request $request, User $user)
+    {
 
         $user = auth()->user();
         $avatars = ['Annie', 'Lily', 'Cali', 'Trouble', 'Mittens', 'Baby', 'Socks', 'Mimi', 'Sam', 'Zoey', 'Jasmine', 'Harley', 'Jack', 'Bear', 'Boots', 'Scooter', 'Patches', 'Bella', 'Sugar', 'Cuddles'];
@@ -105,20 +112,20 @@ class AuthController extends Controller
             'email' => 'required|max:255',
             'number' => 'required|max:255',
             'address' => 'required|max:255',
+            'password' => 'nullable|min:5|max:255'
 
         ];
 
-            $validateData = $request->validate($rules);
-            $validateData['avatar'] = 'https://api.dicebear.com/6.x/avataaars/svg?seed=' . $avatars[$avatar];
+        $validateData = $request->validate($rules);
+        $validateData['avatar'] = 'https://api.dicebear.com/6.x/avataaars/svg?seed=' . $avatars[$avatar];
 
-            if(!empty($request->input('password'))) {
-                $validateData['password'] = Hash::make($validateData['password']);
-            }
+        if (!empty($request->input('password'))) {
+            $validateData['password'] = Hash::make($validateData['password']);
+        }
 
 
         User::where('id', $user->id)->update($validateData);
 
-            return redirect('/admin/profiles')->with('success', 'data berhasil diupdate');
+        return redirect('/admin/profiles')->with('success', 'data berhasil diupdate');
     }
 }
-
