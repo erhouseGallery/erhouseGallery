@@ -12,14 +12,11 @@ class ArticleController extends Controller
     public function index(Article $article)
     {
 
-        $articles = Article::latest()->paginate(5);
+        $articles = Article::latest()->paginate(12);
         return view('articles.index', [
             'title' => 'Artikel',
             'articles' => $articles,
         ]);
-
-
-
     }
 
 

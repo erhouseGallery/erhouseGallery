@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar py-4 navbar-expand-lg">
     <div class="container-fluid px-5">
         <a class="navbar-brand" href="/">Erhouse Gallery</a>
 
@@ -75,5 +75,3 @@
 
     </div>
 </nav>
-
-

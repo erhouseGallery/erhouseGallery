@@ -11,14 +11,16 @@
                         <div class="swiper-wrapper align-items-center">
 
                             <div class="swiper-slide">
-                                <img style="max-height: 500px;" class="img-fluid mx-auto d-block
-                                " src="{{ asset('storage/image-artworks/' . $artwork->cover) }}" alt="">
+                                <img style="max-height: 500px;"
+                                    class="img-fluid mx-auto d-block
+                                "
+                                    src="{{ asset('storage/image-artworks/' . $artwork->cover) }}" alt="">
                             </div>
 
                             @foreach ($image_artworks as $image_artwork)
                                 <div class="swiper-slide">
-                                    <img style="max-height: 500px;" class="img-fluid mx-auto d-block" src="{{ asset('storage/image-artworks/' . $image_artwork->image) }}"
-                                        alt="">
+                                    <img style="max-height: 500px;" class="img-fluid mx-auto d-block"
+                                        src="{{ asset('storage/image-artworks/' . $image_artwork->image) }}" alt="">
                                 </div>
                             @endforeach
 
@@ -45,19 +47,15 @@
 
                     <div class="col-lg-3">
                         <div class="portfolio-info">
-                            <h3>{{ $artwork->Category->name }}</h3>
+                            <h3><span class="badge bg-secondary">{{ $artwork->Category->name }}</span></h3>
                             <ul>
-                                <li><strong>Ukuran</strong>
-                                    <h5> {{ $artwork->size }}</h5>
+                                <li class="mb-4">Ukuran<h5><strong>{{ $artwork->size }}</strong> </h5>
                                 </li>
-                                <li><strong>Bahan</strong>
-                                    <h5> {{ $artwork->material }}</h5>
+                                <li class="mb-4">Bahan<h5><strong>{{ $artwork->material }}</strong> </h5>
                                 </li>
-                                <li><strong>Tahun</strong>
-                                    <h5> {{ $artwork->year }}</h5>
+                                <li class="mb-4">Tahun<h5><strong>{{ $artwork->year }}</strong> </h5>
                                 </li>
-                                <li><strong>Harga</strong>
-                                    <h5> {{ $artwork->price }}</h5>
+                                <li class="mb-4">Harga<h5><strong>{{ $artwork->price }}</strong> </h5>
                                 </li>
                                 <li>
                                     @if ($artwork->status->name == 'Available')
@@ -67,8 +65,7 @@
                                                 type="submit">{{ $artwork->status->name }}</button>
                                         </form>
                                     @else
-                                        <button
-                                            class="btn-create">{{ $artwork->status->name }}</button>
+                                        <button class="btn-create">{{ $artwork->status->name }}</button>
                                     @endif
                                 </li>
                             </ul>
