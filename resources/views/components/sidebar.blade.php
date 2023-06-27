@@ -62,6 +62,8 @@
             @endcan
             <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/profiles">
                     <span>Profile</span></a></li>
+            <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/profiles">
+                    <span>Pameran</span></a></li>
         </ul>
     </aside>
 </div>
