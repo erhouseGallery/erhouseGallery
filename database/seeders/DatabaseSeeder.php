@@ -29,8 +29,7 @@ class DatabaseSeeder extends Seeder
             'number' => '081234567890',
             'address' => 'Jalan merdeka No.45 Yogyakarta',
             'password' => bcrypt('12345'),
-
-            'avatar' => 'https://api.dicebear.com/6.x/avataaars/svg?seed=Annie',
+            'avatar' => 'https://api.dicebear.com/6.x/adventurer/svg?seed=Cookie',
             'is_admin' => true,
 
 
@@ -42,7 +41,7 @@ class DatabaseSeeder extends Seeder
             'number' => '080987654321',
             'address' => 'Jalan merdeka No.45 Yogyakarta',
             'password' => bcrypt('12345'),
-            'avatar' => 'https://api.dicebear.com/6.x/avataaars/svg?seed=Lily',
+            'avatar' => 'https://api.dicebear.com/6.x/adventurer/svg?seed=Cookie',
             'is_admin' => false,
 
         ]);
