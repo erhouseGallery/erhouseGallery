@@ -105,7 +105,8 @@ class AuthController extends Controller
     {
 
         $user = auth()->user();
-        $avatars = ['Annie', 'Lily', 'Cali', 'Trouble', 'Mittens', 'Baby', 'Socks', 'Mimi', 'Sam', 'Zoey', 'Jasmine', 'Harley', 'Jack', 'Bear', 'Boots', 'Scooter', 'Patches', 'Bella', 'Sugar', 'Cuddles'];
+        $avatars = ['Cookie', 'Cleo', 'Annie', 'Loki', 'Gracie', 'Oreo', 'Toby', 'Sammy', 'Midnight', 'Sugar', 'Cali', 'Snowball', 'Zoey', 'Boots', 'Mia', 'Muffin', 'Cuddles', 'Fluffy', 'Milo', 'Buster'];
+
         $avatar = array_rand($avatars);
         $rules = [
             'name' => 'required|min:3|max:255',
@@ -117,11 +118,13 @@ class AuthController extends Controller
         ];
 
         $validateData = $request->validate($rules);
-        $validateData['avatar'] = 'https://api.dicebear.com/6.x/avataaars/svg?seed=' . $avatars[$avatar];
+        $validateData['avatar'] = 'https://api.dicebear.com/6.x/adventurer/svg?seed=' . $avatars[$avatar];
 
         if (!empty($request->input('password'))) {
             $validateData['password'] = Hash::make($validateData['password']);
         }
+
+        $validateData['password'] = $user->password;
 
 
         User::where('id', $user->id)->update($validateData);
