@@ -28,6 +28,10 @@
     <!-- css -->
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 
+    {{-- favicon --}}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico') }}">
+
+
     {{-- trix editor --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
