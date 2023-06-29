@@ -1,6 +1,6 @@
 <nav class="navbar py-4 navbar-expand-lg">
     <div class="container-fluid px-5">
-        <a class="navbar-brand" href="/">Erhouse Gallery</a>
+        <a class="navbar-brand" href="/"><img style="width: 80px" class="img-fluid" src="assets/img/erhouseLogo.png" alt=""></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

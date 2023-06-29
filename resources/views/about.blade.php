@@ -10,7 +10,7 @@
                     <div class="col-lg-5 col-sm-12 content order-lg-last">
                       <h2>Erhouse Gallery</h2>
                       <p class="" style="text-indent: 20px; text-align: justify; margin: 0px;">
-                        Erhouse Gallery adalah rumah untuk berproses kreatif seni rupa atau patung. Erhouse Gallery beralamat di Ngeblak RT 02 WIjirejo Pandak Bantul Yogyakarta. Erhouse Gallery berdiri sejak tahun 2011 dengan berangkat dari kegelisahan sebagai perupa, menciptakan karya seni lukisan dan patung, dan ikut membuat proyek-proyek karya seni. Sehingga tergerak ingin mendirikan studio sendiri dengan nama Erhouse Gallery. Nama Erhouse Gallery diambil dari huruf depan nama perupa yaitu R, sedangkan house sendiri berarti rumah. Arti Erhouse Gallery yaitu rumah tinggal sekaligus tempat berkarya seni.
+                        Erhouse Gallery adalah rumah untuk berproses kreatif karya seni dua dimensi atau lukisan dan tiga dimensi atau patung. Erhouse Gallery beralamat di Ngeblak RT 02 WIjirejo Pandak Bantul Yogyakarta. Erhouse Gallery berdiri sejak tahun 2011 dengan berangkat dari kegelisahan sebagai perupa, menciptakan karya seni lukisan dan patung, dan ikut membuat proyek-proyek karya seni. Sehingga tergerak ingin mendirikan studio sendiri dengan nama Erhouse Gallery. Nama Erhouse Gallery diambil dari huruf depan nama perupa yaitu R, sedangkan house sendiri berarti rumah. Arti Erhouse Gallery yaitu rumah tinggal sekaligus tempat berkarya seni.
                       </p>
                       <p class="" style="text-indent: 20px; text-align: justify; margin: 0px;">
                         Proses karya seni lukisan dan patung sendiri berdasar pada pengalaman personal terhadap kondisi sosial yang terjadi sekarang. Penciptaan karya seni lukisan dan patung lebih menekankan pada idealis perupa dengan mengambil bentuk figur manusia yang absurd. Di Erhouse Gallery juga dapat melayani pembuatan karya seni lukisan dan pantung sesuai permintaan pesanan dengan pengajuan desain terlebih dahulu.
@@ -33,7 +33,7 @@
                         </p>
                         <p style="text-indent: 20px;  text-align: justify; margin : 0px ;">
                             Ruswanto pernah meraih penghargaan selama  kariernya sebagai seniman. Pada tahun 2003, mendapatkan penghargaan Pratita Adhikarya. Kemudian, pada tahun 2011-2012, UOB Buana Painting of the Year. Pada tahun 2015, Ruswanto juga menjadi finalis dalam Mandiri Art Award.
-                            Dengan karyanya yang beragam melalui karya seni dua dimensi atau lukisan dan karya seni tiga dimensi atau patung dan partisipasinya dalam berbagai pameran dan aktivitas seni. Ruswanto membuktikan dedikasinya dalam dunia seni. Melalui karyanya, Ruswanto berusaha mengekspresikan penciptaan karya seni berdasarkan pengalaman personal terhadap kondisi sosial yang terjadi. Dedikasinya dalam dunia seni, Ruswanto mendirikan Erhouse Gallery sebagai rumah kreasi seni yang menjadi museum pribadi milik Ruswanto.
+                            Dengan karyanya yang beragam melalui karya seni dua dimensi atau lukisan dan karya seni tiga dimensi atau patung dan partisipasinya dalam berbagai pameran dan aktivitas seni. Ruswanto membuktikan dedikasinya dalam dunia seni. Melalui karyanya, Ruswanto berusaha mengekspresikan penciptaan karya seni berdasarkan pengalaman personal terhadap kondisi sosial yang terjadi. Dedikasinya dalam dunia seni, Ruswanto mendirikan Erhouse Gallery sebagai rumah kreasi seni yang menjadi galeri seni milik Ruswanto.
                         </p>
                     </div>
                     <div class="col-lg-4">
@@ -110,6 +110,39 @@
                                 </div>
                             </div>
                         </div>
+{{--
+                        <div class="row justify-content-center mt-4">
+
+                            <div class="col-lg-9 mb-4">
+                                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <input type="text" name="name" class="form-control" id="name"
+                                                placeholder="Nama Kamu" required>
+                                        </div>
+                                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                                            <input type="email" class="form-control" name="email" id="email"
+                                                placeholder="Email Kamu" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input type="text" class="form-control" name="subject" id="subject"
+                                            placeholder="Subject" required>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <textarea class="form-control" name="message" rows="5" placeholder="Pesan" required></textarea>
+                                    </div>
+                                    <div class="my-3">
+                                        <div class="loading">Loading</div>
+                                        <div class="error-message"></div>
+                                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                                    </div>
+                                    <div class="text-center"><button type="submit">Kirim Pesan</button></div>
+                                </form>
+                            </div>
+
+
+                        </div> --}}
 
                         <section>
                             <div class="d-flex justify-content-center align-items-center mt-4">
@@ -119,38 +152,7 @@
 
                         </section>
 
-                        <!--<div class="row justify-content-center mt-4">-->
 
-                        <!--    <div class="col-lg-9 mb-4">-->
-                        <!--        <form action="forms/contact.php" method="post" role="form" class="php-email-form">-->
-                        <!--            <div class="row">-->
-                        <!--                <div class="col-md-6 form-group">-->
-                        <!--                    <input type="text" name="name" class="form-control" id="name"-->
-                        <!--                        placeholder="Nama Kamu" required>-->
-                        <!--                </div>-->
-                        <!--                <div class="col-md-6 form-group mt-3 mt-md-0">-->
-                        <!--                    <input type="email" class="form-control" name="email" id="email"-->
-                        <!--                        placeholder="Email Kamu" required>-->
-                        <!--                </div>-->
-                        <!--            </div>-->
-                        <!--            <div class="form-group mt-3">-->
-                        <!--                <input type="text" class="form-control" name="subject" id="subject"-->
-                        <!--                    placeholder="Subject" required>-->
-                        <!--            </div>-->
-                        <!--            <div class="form-group mt-3">-->
-                        <!--                <textarea class="form-control" name="message" rows="5" placeholder="Pesan" required></textarea>-->
-                        <!--            </div>-->
-                        <!--            <div class="my-3">-->
-                        <!--                <div class="loading">Loading</div>-->
-                        <!--                <div class="error-message"></div>-->
-                        <!--                <div class="sent-message">Your message has been sent. Thank you!</div>-->
-                        <!--            </div>-->
-                        <!--            <div class="text-center"><button type="submit">Kirim Pesan</button></div>-->
-                        <!--        </form>-->
-                        <!--    </div>-->
-                        <!-- End Contact Form -->
-
-                        <!--</div>-->
 
                     </div>
             </section>
