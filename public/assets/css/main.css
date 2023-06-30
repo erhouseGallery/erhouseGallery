@@ -408,9 +408,28 @@ ol {
     font-size: 20px;
     font-family: Poppins;
     font-weight: 500;
+
+}
+
+.btn-dropdown {
+    padding: 8px 12px;
+    border-radius: 20px;
+    background-color: var(--color-primary);
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    height: 80px;
+    width: 100%;
+    box-shadow: rgba(177, 7, 7, 0.082) 0px 2px 8px 0px;
 }
 
 .btn-create:hover {
+    background-color: var(--color-hover);
+}
+
+.btn-dropdown:hover {
     background-color: var(--color-hover);
 }
 
