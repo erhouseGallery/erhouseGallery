@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-
     <main id="main" class="container">
 
         <!-- ======= Artikel ======= -->
@@ -10,7 +9,7 @@
                 <h4>Event Terbaru</h4>
             </div>
 
-            <div class="row">
+            {{-- <div class="row">
                 @foreach ($events as $event)
                     <div class="col-lg-4 col-md-12 mb-4">
                         <div class="card rounded-2">
@@ -27,6 +26,39 @@
                         </div>
                     </div>
                 @endforeach
+            </div> --}}
+
+            <div class="row">
+                @foreach ($events as $event)
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                        <a href="/events/show/{{ $event->slug }}">
+                            <div class="card text-white card-has-bg click-col"
+                                style="background-image:url('{{ asset('storage/image-events/' . $event->cover) }}');">
+                                <img class="card-img d-none" src="{{ asset('storage/image-events/' . $event->cover) }}"
+                                    alt="">
+                                <div class="card-img-overlay d-flex flex-column">
+                                    <div class="card-body">
+                                        <small class="card-meta mb-2">{{ $event->location }}</small>
+                                        <h4 class="card-title mt-0 "><a class="text-white"
+                                                herf="/events/show/{{ $event->slug }}">{{ $event->title }}</a></h4>
+                                        <small><i class="far fa-clock"></i> {{ $event->date_event }}</small>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="media">
+                                            <img class="mr-3 rounded-circle"
+                                                src="https://assets.codepen.io/460692/internal/avatars/users/default.png"
+                                                alt="Generic placeholder image" style="max-width:50px">
+                                            <div class="media-body">
+                                                <h6 class="my-0 text-white d-block">Ruswanto</h6>
+                                                <small>Founder Erhouse Gallery</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
         <!-- Artikel -->
@@ -35,5 +67,4 @@
     </main>
 
     @include('components.footer')
-
 @endsection
