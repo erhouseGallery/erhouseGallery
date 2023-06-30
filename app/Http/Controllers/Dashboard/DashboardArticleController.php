@@ -19,7 +19,7 @@ class DashboardArticleController extends Controller
 
         return view('admin.articles.index', [
             'title' => "Dashboard Artikel",
-            'articles' => Article::where('user_id', auth()->user()->id)->paginate(10)
+            'articles' => Article::where('user_id', auth()->user()->id)->paginate(9)
         ]);
     }
 
@@ -41,7 +41,7 @@ class DashboardArticleController extends Controller
 
             $validationData = $request->validate([
                 'title' => 'required|max:255',
-                'content' => 'required|max:1000',
+                'content' => 'required',
             ]);
 
             $validationData['cover'] = $imageName;
@@ -96,7 +96,7 @@ class DashboardArticleController extends Controller
 
         $rules = [
             'title' => 'required|max:255',
-            'content' => 'required|max:255',
+            'content' => 'required',
         ];
 
         if ($request->slug != $article->slug) {
