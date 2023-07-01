@@ -1,8 +1,30 @@
 @extends('layouts.main')
 
 @section('content')
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="hero d-flex flex-column justify-content-center align-items-center">
+
+
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <h2>Erhouse Gallery adalah rumah untuk berproses kreatif karya lukisan dan patung</h2>
+        <p>Erhouse Gallery menjadi galeri karya seni milik Ruswanto yang memiliki karya seni lukisan dan patung. Sebagai ruang aktivitas mengekspresikan seni, dan menjadi wadah bagaimana keinginan diwujudkan dalam karya seni.  </p>
+        <img src="assets/img/ruswanto.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="..." class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+    {{-- <section id="hero" class="hero d-flex flex-column justify-content-center align-items-center">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
@@ -14,8 +36,8 @@
                 </div>
             </div>
         </div>
-    </section>
-    <!-- End Hero Section -->
+    </section> --}}
+
 
     <main id="main">
 
@@ -38,38 +60,93 @@
                     {{ $artworks->links() }}
                 </div>
 
-                <div class="container col-lg-6">
+                <div class="container">
                     <h2 class="text-center text-bold my-5">Pertanyaan Yang Sering Diajukan</h2>
-                    <div>
-                        <p>
-                            <button class="btn btn-secondary w-100" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#pertanyaan1" aria-expanded="false" aria-controls="pertanyaan1">
-                                1. Apa itu Erhouse Gallery?
-                            </button>
-                        </p>
-                        <div class="collapse" id="pertanyaan1">
-                            <div class="card card-body mb-2">
-                                Some placeholder content for the collapse component. This panel is hidden by default but
-                                revealed
-                                when the user activates the relevant trigger.
+                    <div class="row">
+                        <div class="col-lg-6 text-center ">
+
+                            <p>
+                                <button class="btn-dropdown " type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#pertanyaan1" aria-expanded="false" aria-controls="pertanyaan1">
+                                    Apa itu Erhouse Gallery ?
+                                </button>
+                            </p>
+                            <div class="collapse" id="pertanyaan1">
+                                <div class="card card-body mb-2">
+                                    Erhouse Gallery adalah rumah untuk berproses kreatif karya seni dua dimensi atau lukisan dan tiga dimensi atau patung. Erhouse Gallery beralamat di Ngeblak RT 02 WIjirejo Pandak Bantul Yogyakarta.
+                                </div>
+                            </div>
+
+                    </div>
+                        <div class="col-lg-6 ">
+                             <div>
+                            <p>
+                                <button class="btn-dropdown " type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#pertanyaan2" aria-expanded="false" aria-controls="pertanyaan2">
+                                    Karya Seni apa saja yang ada di Erhouse Gallery ?
+                                </button>
+                            </p>
+                            <div class="collapse" id="pertanyaan2">
+                                <div class="card card-body mb-2">
+                                    Karya Seni dua dimensi atau lukisan dan karya seni tiga dimensi atau patung
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p>
-                            <button class="btn btn-secondary w-100" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#pertanyaan2" aria-expanded="false" aria-controls="pertanyaan2">
-                                1. Apa itu Erhouse Gallery?
-                            </button>
-                        </p>
-                        <div class="collapse" id="pertanyaan2">
-                            <div class="card card-body mb-2">
-                                Some placeholder content for the collapse component. This panel is hidden by default but
-                                revealed
-                                when the user activates the relevant trigger.
+
+                    <div class="col-lg-6 ">
+                                <div>
+                                    <p>
+                                        <button class="btn-dropdown " type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#pertanyaan3" aria-expanded="false" aria-controls="pertanyaan3">
+                                            Bagaimana cara pesan karya yang tersedia ?
+                                        </button>
+                                    </p>
+                                    <div class="collapse" id="pertanyaan3">
+                                        <div class="card card-body mb-2">
+                                            <ul style="list-style-type:number; padding :12px">
+                                                <li>Pilih karya seni lukisan atau patung</li>
+                                                <li>Klik detail karya seni dan periksa di sisi kanan Availble atau Sold (Jika Available karya seni dapat dipesan , jika sold tidak dapat dipesan)</li>
+                                                <li>Klik tombol Available lalu akan diarahkan ke login jika anda belum login, apabila sudah login maka akan diarahkan dashboard</li>
+                                                <li>Jika pesan karya seni sudah terdaftar dalam tabel, anda dapat menunggu informasi dan nanti akan dihubungi admin melalui kontak yang terdaftar</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+                                </div>
                             </div>
+
+                        <div class="col-lg-6 ">
+                            <div>
+                                <p>
+                                    <button class="btn-dropdown " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#pertanyaan4" aria-expanded="false" aria-controls="pertanyaan4">
+                                        Bagaimana cara pesan karya custom ?
+                                    </button>
+                                </p>
+                                <div class="collapse" id="pertanyaan4">
+                                    <div class="card card-body mb-2">
+                                        <ul style="list-style-type:number; padding :12px">
+                                            <li>Login ke Dashboard User, Jika belum punya akun silahkan Daftar dahulu</li>
+                                            <li>Pilih Menu Pesanan, lalu klik tombol Buat Pesanan Baru</li>
+                                            <li>Masukan data-data yang dibutuhkan dan Submit data-data tersebut</li>
+                                            <li>Jika pesan karya seni sudah terdaftar dalam tabel, anda dapat menunggu informasi dan nanti akan dihubungi admin melalui kontak yang terdaftar</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
                         </div>
+
                     </div>
+
+
+
+
+
                 </div>
             </div>
         </section>
