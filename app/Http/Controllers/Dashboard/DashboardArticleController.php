@@ -37,7 +37,7 @@ class DashboardArticleController extends Controller
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $imageName = time() . '-' . $file->getClientOriginalName();
-            $file->storeAs('public/image-articles', $imageName);
+            $file->storeAs('image-articles', $imageName);
 
             $validationData = $request->validate([
                 'title' => 'required|max:255',
@@ -57,7 +57,7 @@ class DashboardArticleController extends Controller
                 $imageName = time() . '-' . $file->getClientOriginalName();
                 $request['article_id'] = $article->id;
                 $request['image'] = $imageName;
-                $file->storeAs('public/image-articles', $imageName);
+                $file->storeAs('image-articles', $imageName);
                 ImageArticle::create($request->all());
             }
         }
@@ -108,11 +108,11 @@ class DashboardArticleController extends Controller
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $imageName = time() . '-' . $file->getClientOriginalName();
-            $file->storeAs('public/image-articles', $imageName);
+            $file->storeAs('image-articles', $imageName);
             $validateData['cover'] = $imageName;
 
             if ($article->cover != null) {
-                Storage::delete('public/image-articles/' . $article->cover);
+                Storage::delete('image-articles/' . $article->cover);
             }
 
             $validateData['cover'] = $imageName;
@@ -130,7 +130,7 @@ class DashboardArticleController extends Controller
 
             if ($currentImages != null) {
                 foreach ($currentImages as $currentImage) {
-                    Storage::delete('public/image-articles/' . $currentImage->image);
+                    Storage::delete('image-articles/' . $currentImage->image);
                 }
 
                 ImageArticle::where('article_id', $article->id)->delete();
@@ -140,7 +140,7 @@ class DashboardArticleController extends Controller
                 $imageName = time() . '-' . $file->getClientOriginalName();
                 $request['article_id'] = $article->id;
                 $request['image'] = $imageName;
-                $file->storeAs('public/image-articles', $imageName);
+                $file->storeAs('image-articles', $imageName);
                 ImageArticle::create($request->all());
             }
         }
@@ -155,7 +155,7 @@ class DashboardArticleController extends Controller
         $article = Article::find($article->id);
 
         if ($article->cover != null) {
-            Storage::delete('public/image-articles/' . $article->cover);
+            Storage::delete('image-articles/' . $article->cover);
         }
 
         //images
@@ -164,7 +164,7 @@ class DashboardArticleController extends Controller
 
         if ($currentImages != null) {
             foreach ($currentImages as $currentImage) {
-                Storage::delete('public/image-articles/' . $currentImage->image);
+                Storage::delete('image-articles/' . $currentImage->image);
             }
 
             ImageArticle::where('article_id', $article->id)->delete();

@@ -10,7 +10,7 @@
 
             <div class="row">
                 @foreach ($events as $event)
-                    <div class="col-xxl-4 col-xl-6 col-lg-12">
+                    <div class="col-lg-4 col-md-6">
                         <div class="card mb-4 mb-xl-0 card-hover border">
                             <a href="/events/show/{{ $event->slug }}">
                                 <img src="{{ asset('storage/image-events/' . $event->cover) }}" alt=""
@@ -18,7 +18,7 @@
                             </a>
                             <div class="card-body">
                                 <h3 class="mb-4 text-truncate">
-                                    <a href="/events/show/{{ $event->slug }}" class="text-inherit ">{{ $event->title }}</a>
+                                    <a href="/events/show/{{ $event->slug }}" class="text-inherit">{{ $event->title }}</a>
                                 </h3>
                                 <div class="mb-4">
                                     <div class="mb-3 lh-1">

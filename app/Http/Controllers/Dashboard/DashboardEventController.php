@@ -37,7 +37,7 @@ class DashboardEventController extends Controller
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $imageName = time() . '-' . $file->getClientOriginalName();
-            $file->storeAs('public/image-events', $imageName);
+            $file->storeAs('image-events', $imageName);
 
 
             $validationData = $request->validate([
@@ -61,7 +61,7 @@ class DashboardEventController extends Controller
                 $imageName = time() . '-' . $file->getClientOriginalName();
                 $request['event_id'] = $event->id;
                 $request['image'] = $imageName;
-                $file->storeAs('public/image-events', $imageName);
+                $file->storeAs('image-events', $imageName);
 
                 ImageEvent::create($request->all());
             }
@@ -121,11 +121,11 @@ class DashboardEventController extends Controller
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $imageName = time() . '-' . $file->getClientOriginalName();
-            $file->storeAs('public/image-events', $imageName);
+            $file->storeAs('image-events', $imageName);
             $validateData['cover'] = $imageName;
 
             if ($event->cover != null) {
-                Storage::delete('public/image-events/' . $event->cover);
+                Storage::delete('image-events/' . $event->cover);
             }
 
             $validateData['cover'] = $imageName;
@@ -145,7 +145,7 @@ class DashboardEventController extends Controller
 
             if ($currentImages != null) {
                 foreach ($currentImages as $currentImage) {
-                    Storage::delete('public/image-events/' . $currentImage->image);
+                    Storage::delete('image-events/' . $currentImage->image);
                 }
 
                 ImageEvent::where('event_id', $event->id)->delete();
@@ -155,7 +155,7 @@ class DashboardEventController extends Controller
                 $imageName = time() . '-' . $file->getClientOriginalName();
                 $request['event_id'] = $event->id;
                 $request['image'] = $imageName;
-                $file->storeAs('public/image-events', $imageName);
+                $file->storeAs('image-events', $imageName);
                 ImageEvent::create($request->all());
             }
         }
@@ -171,7 +171,7 @@ class DashboardEventController extends Controller
         $event = Event::find($event->id);
 
         if ($event->cover != null) {
-            Storage::delete('public/image-events/' . $event->cover);
+            Storage::delete('image-events/' . $event->cover);
         }
 
         //images
@@ -180,7 +180,7 @@ class DashboardEventController extends Controller
 
         if ($currentImages != null) {
             foreach ($currentImages as $currentImage) {
-                Storage::delete('public/image-events/' . $currentImage->image);
+                Storage::delete('image-events/' . $currentImage->image);
             }
 
             ImageEvent::where('event_id', $event->id)->delete();

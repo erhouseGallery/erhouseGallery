@@ -46,7 +46,7 @@ class DashboardArtworkController extends Controller
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $imageName = time() . '-' . $file->getClientOriginalName();
-            $file->storeAs('public/image-artworks', $imageName);
+            $file->storeAs('image-artworks', $imageName);
 
             $validationData = $request->validate([
                 'title' => 'required|max:255',
@@ -72,7 +72,7 @@ class DashboardArtworkController extends Controller
                 $imageName = time() . '-' . $file->getClientOriginalName();
                 $request['artwork_id'] = $artwork->id;
                 $request['image'] = $imageName;
-                $file->storeAs('public/image-artworks', $imageName);
+                $file->storeAs('image-artworks', $imageName);
                 ImageArtwork::create($request->all());
             }
         }
@@ -135,11 +135,11 @@ class DashboardArtworkController extends Controller
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $imageName = time() . '-' . $file->getClientOriginalName();
-            $file->storeAs('public/image-artworks', $imageName);
+            $file->storeAs('image-artworks', $imageName);
             $validateData['cover'] = $imageName;
 
             if ($artwork->cover != null) {
-                Storage::delete('public/image-artworks/' . $artwork->cover);
+                Storage::delete('image-artworks/' . $artwork->cover);
             }
 
             $validateData['cover'] = $imageName;
@@ -159,7 +159,7 @@ class DashboardArtworkController extends Controller
             if ($currentImages != null) {
                 foreach ($currentImages as $currentImage) {
 
-                    Storage::delete('public/image-artworks/' . $currentImage->image);
+                    Storage::delete('image-artworks/' . $currentImage->image);
                 }
 
                 ImageArtwork::where('artwork_id', $artwork->id)->delete();
@@ -170,7 +170,7 @@ class DashboardArtworkController extends Controller
                 $request['artwork_id'] = $artwork->id;
                 $request['image'] = $imageName;
 
-                $file->storeAs('public/image-artworks', $imageName);
+                $file->storeAs('image-artworks', $imageName);
 
                 ImageArtwork::create($request->all());
             }
@@ -186,7 +186,7 @@ class DashboardArtworkController extends Controller
         $artwork = Artwork::find($artwork->id);
 
         if ($artwork->cover != null) {
-            Storage::delete('public/image-artworks/' . $artwork->cover);
+            Storage::delete('image-artworks/' . $artwork->cover);
         }
 
 
@@ -196,7 +196,7 @@ class DashboardArtworkController extends Controller
 
         if ($currentImages != null) {
             foreach ($currentImages as $currentImage) {
-                Storage::delete('public/image-artworks/' . $currentImage->image);
+                Storage::delete('image-artworks/' . $currentImage->image);
             }
 
             ImageArtwork::where('artwork_id', $artwork->id)->delete();

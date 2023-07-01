@@ -59,7 +59,7 @@ class DashboardOrderController extends Controller
                 $imageName = time() . '-' . $file->getClientOriginalName();
                 $request['order_id'] = $order->id;
                 $request['image'] = $imageName;
-                $file->storeAs('public/image-orders', $imageName);
+                $file->storeAs('image-orders', $imageName);
                 ImageOrder::create($request->all());
             }
         }
@@ -118,7 +118,7 @@ class DashboardOrderController extends Controller
 
         if ($currentImages != null) {
             foreach ($currentImages as $currentImage) {
-                Storage::delete('public/image-orders/' . $currentImage->image);
+                Storage::delete('image-orders/' . $currentImage->image);
             }
             ImageOrder::where('order_id', $order->id)->delete();
         }
