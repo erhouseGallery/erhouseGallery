@@ -46,7 +46,7 @@ class DashboardOrderController extends Controller
         $validateData = $request->validate([
             'order_name' => 'required|max:255',
             'category_id' => 'required',
-            'description' => 'required|max:255',
+            'description' => 'required',
         ]);
 
         $validateData['user_id'] = auth()->user()->id;
@@ -103,7 +103,7 @@ class DashboardOrderController extends Controller
 
         $validateData = $request->validate([
             'information_id' => 'required',
-            'note' => 'required|max:255'
+            'note' => 'required'
         ]);
 
         Order::where('id', $order->id)->update($validateData);

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('order_name');
             $table->string('category_id');
-            $table->string('description');
+            $table->text('description');
             $table->foreignId('information_id')->default(1);
             $table->string('note')->default('Catatan akan ditambahkan ketika keterangan diterima atau ditolak');
             $table->timestamp('date')->useCurrent();

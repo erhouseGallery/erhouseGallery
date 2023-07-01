@@ -121,7 +121,7 @@ class DashboardArtworkController extends Controller
             'material' => 'required|max:255',
             'size' => 'required|max:255',
             'year' => 'required|max:255',
-            'description' => 'required|max:255',
+            'description' => 'required',
             'status_id' => 'required',
             'price' => 'required|max:255',
         ];
