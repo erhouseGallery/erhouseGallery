@@ -13,7 +13,7 @@
                     <div class="col-xxl-4 col-xl-6 col-lg-12">
                         <div class="card mb-4 mb-xl-0 card-hover border">
                             <a href="/events/show/{{ $event->slug }}">
-                                <img src="{{ asset('storage/image-events/' . $event->cover) }}" alt="webinar-1"
+                                <img src="{{ asset('storage/image-events/' . $event->cover) }}" alt=""
                                     class="img-fluid w-100 rounded-top-3 image-article">
                             </a>
                             <div class="card-body">

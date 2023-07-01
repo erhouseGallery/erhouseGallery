@@ -43,8 +43,6 @@ class DashboardOrderController extends Controller
 
     public function store(Request $request)
     {
-        //
-
         $validateData = $request->validate([
             'order_name' => 'required|max:255',
             'category_id' => 'required',

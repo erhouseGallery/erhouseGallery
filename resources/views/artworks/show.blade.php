@@ -75,7 +75,7 @@
                 </div>
 
             </div>
-        </section><!-- End Gallery Single Section -->
+        </section>
 
     </main>
 

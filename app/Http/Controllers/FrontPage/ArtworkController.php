@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Mail\OrderMail;
+use App\Models\ImageOrder;
 use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
 
@@ -67,13 +68,19 @@ class ArtworkController extends Controller
         $artwork->update([
             'status_id' => 2
         ]);
+
         $orderData = Order::create([
             'user_id' => auth()->user()->id,
             'order_name' => $artwork->title,
             'category_id' => $artwork->category_id,
             'description' => $artwork->description,
-
         ]);
+
+        ImageOrder::create([
+            'order_id' => $orderData->id,
+            'image' => $artwork->image
+        ]);
+
 
         Mail::to('irfannudinihsan@students.amikom.ac.id')->send(new OrderMail($orderData));
 

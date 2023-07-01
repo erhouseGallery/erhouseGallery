@@ -3,7 +3,6 @@
 @section('content')
     <main id="main">
 
-        <!-- ======= Gallery Single Section ======= -->
         <section id="gallery-single" class="gallery-single">
             <div class="container">
                 <div class="row">
@@ -34,7 +33,7 @@
                             <div class="swiper-button-next"></div>
 
                             <section class="my-5">
-                                <p class="fs-5 mb-4">{{ strip_tags($article->content) }}
+                                <p class="fs-5 mb-4">{!! $article->content !!}
                                 </p>
                             </section>
                         </article>

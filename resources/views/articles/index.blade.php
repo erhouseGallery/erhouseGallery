@@ -3,7 +3,6 @@
 @section('content')
     <main id="main" class="container">
 
-        <!-- ======= Artikel ======= -->
         <div class="article">
             <div class="row my-4">
                 <h4>Artikel Terbaru</h4>
@@ -11,7 +10,7 @@
 
             <div class="row">
                 @foreach ($articles as $article)
-                    <div class="col-xs-12 col-sm-4">
+                    <div class="col-lg-4 col-md-6">
                         <div class="card">
                             <a class="img-card" href="/articles/show/{{ $article->slug }}">
                                 <img src="{{ asset('storage/image-articles/' . $article->cover) }}" />
@@ -36,7 +35,6 @@
                 @endforeach
             </div>
         </div>
-        <!-- Artikel -->
 
         {{ $articles->links() }}
     </main>

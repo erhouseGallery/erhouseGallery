@@ -57,11 +57,9 @@
                             </ul>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-        </section><!-- End Gallery Single Section -->
+        </section>
 
     </main>
 
