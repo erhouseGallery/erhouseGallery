@@ -33,7 +33,12 @@
 
     </div>
 
+    </section>
 
-{{-- @include('components.footer') --}}
 
-@endsection
+    </div>
+
+
+
+    @include('components.footer')
+    @endsection

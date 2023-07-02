@@ -2,8 +2,7 @@
 
 @section('content')
     <main id="main">
-        <!-- ======= Gallery Single Section ======= -->
-        <section id="gallery-single" class="admin-content">
+        <section id="event-detail" class="admin-content">
             <div class="container">
 
                 <div class="position-relative h-50">
