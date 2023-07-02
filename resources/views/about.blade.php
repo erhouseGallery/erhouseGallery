@@ -148,7 +148,7 @@
 
 
                         <section>
-                            <div class="d-flex justify-content-center align-items-center mt-4">
+                            <div class="d-flex justify-content-center align-items-center my-4">
 
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.994127179387!2d110.29367317585674!3d-7.8956811785575365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7aff3b3b89f565%3A0x98fa07063e2abd5d!2sErhouse%20Gallery!5e0!3m2!1sid!2sid!4v1687970666870!5m2!1sid!2sid"
@@ -157,11 +157,6 @@
                             </div>
 
                         </section>
-
-
-
-
-
                     </div>
             </section>
 

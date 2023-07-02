@@ -5,11 +5,10 @@
         <div class="container page-header login-register">
             <div class="row justify-content-sm-center">
                 <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9 mb-5">
-                    <div class="text-center my-5">
-                        <h4>Erhouse Gallery</h4>
+                    <div class="text-center my-4">
+                        <img src="{{ asset('/assets/img/erhouseLogo.png') }}" alt="logo" width="100">
                     </div>
 
-                    {{-- alert jika berhasil registrasi --}}
                     @if (session()->has('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             {{ session('success') }}
