@@ -76,11 +76,15 @@ class ArtworkController extends Controller
             'description' => $artwork->description,
         ]);
 
-        ImageOrder::create([
-            'order_id' => $orderData->id,
-            'image' => $artwork->image
-        ]);
-
+        $image_artworks = ImageArtwork::where('artwork_id', $artwork->id)->get();
+        // split data from array and save to database
+        foreach ($image_artworks as $image_artwork) {
+            $image_order = ImageOrder::create([
+                'order_id' => $orderData->id,
+                'image' => $image_artwork->image,
+            ]);
+            $image_order->save();
+        }
 
         // Mail::to('irfannudinihsan@students.amikom.ac.id')->send(new OrderMail($orderData));
 

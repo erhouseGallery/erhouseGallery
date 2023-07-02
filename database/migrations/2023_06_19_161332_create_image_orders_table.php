@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('image_orders', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
+            $table->text('image');
             $table->foreignId('order_id')->constraint('orders')->onDelete('cascade');
             $table->timestamps();
         });
