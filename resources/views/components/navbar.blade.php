@@ -1,4 +1,4 @@
-<nav class="navbar py-4 navbar-expand-lg">
+<nav class="navbar py-2 navbar-expand-lg">
     <div class="container-fluid px-5">
         <a class="navbar-brand" href="/"><img style="width: 80px" class="img-fluid"
                 src="{{ asset('/assets/img/erhouseLogo.png') }}" alt=""></a>

@@ -3,24 +3,34 @@
 @section('content')
     <main id="main" class="container">
 
-        <div class="article">
-            <div class="row my-4">
-                <h4>Event Terbaru</h4>
-            </div>
 
-            <div class="row">
+        <section class="events">
+
+
+        </section>
+
+        <div class="container mt-5">
+
+
+            <div class="row my-4">
                 @foreach ($events as $event)
                     <div class="col-lg-4 col-md-6">
                         <div class="card mb-4 mb-xl-0 card-hover border">
-                            <a href="/events/show/{{ $event->slug }}">
+                            <a class="img-card"  href="/events/show/{{ $event->slug }}">
                                 <img src="{{ asset('storage/image-events/' . $event->cover) }}" alt=""
                                     class="img-fluid w-100 rounded-top-3 image-article">
                             </a>
                             <div class="card-body">
-                                <h3 class="mb-4 text-truncate">
-                                    <a href="/events/show/{{ $event->slug }}" class="text-inherit">{{ $event->title }}</a>
+                                <h3 class="card-title mb-4 text-truncate">
+                                    <a href="/events/show/{{ $event->slug }}" class="" style="text-decoration :none ;">{{ $event->title }} </a>
                                 </h3>
                                 <div class="mb-4">
+                                    <div class="mb-3 lh-1">
+                                        <span class="me-1">
+                                            <i class="bi bi-geo-alt"></i>
+                                        </span>
+                                        <span>{{ $event->location }}</span>
+                                    </div>
                                     <div class="mb-3 lh-1">
                                         <span class="me-1">
                                             <i class="bi bi-calendar-check"></i>
@@ -30,11 +40,12 @@
                                     <div class="lh-1">
                                         <span class="me-1">
                                             <i class="bi bi-clock"></i>
+
                                         </span>
                                         <span>{{ $event->time }}</span>
                                     </div>
                                 </div>
-                                <a href="/events/show/{{ $event->slug }}" class="btn btn-primary">Lihat
+                                <a href="/events/show/{{ $event->slug }}" style="text-decoration: none; color: white;" class="btn-event">Lihat
                                     Event</a>
                             </div>
                         </div>

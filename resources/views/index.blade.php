@@ -4,48 +4,38 @@
 
 
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <h2>Erhouse Gallery adalah rumah untuk berproses kreatif karya lukisan dan patung</h2>
-        <p>Erhouse Gallery menjadi galeri karya seni milik Ruswanto yang memiliki karya seni lukisan dan patung. Sebagai ruang aktivitas mengekspresikan seni, dan menjadi wadah bagaimana keinginan diwujudkan dalam karya seni.  </p>
-        <img src="assets/img/ruswanto.png" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
-    </div>
-  </div>
 
-
-
-
-
-    {{-- <section id="hero" class="hero d-flex flex-column justify-content-center align-items-center">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2>Erhouse Gallery adalah rumah untuk berproses kreatif karya lukisan dan patung</h2>
-                    <p>Erhouse Gallery menjadi galeri karya seni milik Ruswanto yang memiliki karya seni lukisan dan patung.
-                        Sebagai ruang aktivitas mengekspresikan seni, dan menjadi wadah bagaimana keinginan diwujudkan dalam
-                        karya seni. </p>
-                    <a href="/artworks" class="btn-get-started">Lihat Lebih Banyak Karya Seni</a>
-                </div>
+<section id="hero" class="containter-fluid">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-caption container">
+                <h1 class="text-caption"> <b style="color: #af1616;  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);"> Erhouse Gallery </b>  adalah rumah untuk berproses kreatif karya seni lukisan dan patung</h1>
             </div>
+          <div class="carousel-item active">
+            <img src="assets/img/hero1.png" class="img-hero d-block w-100 img-fluid" alt="..." >
+          </div>
+          <div class="carousel-item">
+            <img src="assets/img/hero2.png" class="img-hero d-block w-100 img-fluid" alt="...">
+          </div>
         </div>
-    </section> --}}
+      </div>
+</section>
+
+
+<section>
+
+
+</section>
+
+
+
 
 
     <main id="main">
+        <section id="gallery" class="gallery ">
+            <div class="container-fluid mb-4">
 
-        <!-- ======= Gallery Section ======= -->
-        <section id="gallery" class="gallery mb-5">
-            <div class="container-fluid">
-
-                <div class="row gy-4 justify-content-center">
+                <div class="row gy-4  justify-content-center">
                     @foreach ($artworks as $artwork)
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="gallery-item h-100">
@@ -57,11 +47,51 @@
                             </div>
                         </div>
                     @endforeach
-                    {{ $artworks->links() }}
-                </div>
 
+                </div>
+            </section>
+
+
+            <section id="service">
                 <div class="container">
-                    <h2 class="text-center text-bold my-5">Pertanyaan Yang Sering Diajukan</h2>
+                    <h1 class="text-center text-bold my-5">Layanan</h1>
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-12 my-md-4 ">
+
+                            <div class="box-service text-center">
+                                <img src="assets/img/icon1.png" alt="" style="width: 120px">
+                                <h3 class="my-3"><b> Galleri Karya Seni</b></h3>
+                                <p class="">Menampilkan karya seni lukisan dan patung, sharing tentang seni dengan artikel dan berbagi aktivitas seni </p>
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-4 col-md-12 my-md-4 ">
+                            <div class="box-service text-center">
+                                <img src="assets/img/icon2.png" alt="" style="width: 120px">
+                                <h3 class="my-3"><b>Pesan Karya Seni Yang Tersedia</b></h3>
+                                <p class="">Memesan karya seni lukisan dan patung yang tersedia </p>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-12 my-md-4 my-xs-4">
+                            <div class="box-service text-center">
+                                <img src="assets/img/icon3.png" alt="" style="width: 120px">
+                                <h3 class="my-3"><b>Pesan Karya Seni Lukisan dan Patung Custom</b></h3>
+                                <p class="">Memesan karya seni lukisan dan patung sesuai permintaan atau request </p>
+                            </div>
+
+
+                        </div>
+                </div>
+                </div>
+            </section>
+
+
+            <section id="answer">
+                <div class="container">
+                    <h1 class="text-center text-bold my-5">Pertanyaan Umum</h1>
                     <div class="row">
                         <div class="col-lg-6 text-center ">
 
@@ -148,8 +178,11 @@
 
 
                 </div>
+            </section>
+
+
             </div>
-        </section>
+
 
     </main>
     <!-- End #main -->

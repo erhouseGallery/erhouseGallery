@@ -2,27 +2,26 @@
 
 @section('content')
     <main id="main">
-        <div class="page-header">
-            <div class="container">
+
+            <div class="container mt-5">
                 <div class="col-lg-4 d-block mx-auto">
                     <form action="/artworks">
                         <div class="input-group ">
                             <input type="text" class="form-control" placeholder="cari karya.." name="search"
                                 value="{{ request('search') }}">
-                            <button class="btn btn-dark" type="submit">cari</button>
+                            <button class="btn-search" type="submit">cari</button>
                         </div>
                     </form>
                 </div>
 
-                <div class="col mt-4">
-                    <div class="btn-group align-items-center">
-                        <a href="/artworks" class="btn btn-primary">Semua</a>
-                        <a href="/artworks/categories/Patung" class="btn btn-primary">Patung</a>
-                        <a href="/artworks/categories/Lukisan" class="btn btn-primary">Lukisan</a>
-                    </div>
+                <div class="col mt-4 text-center">
+
+                        <a style="text-decoration: none; color : white" href="/artworks" class="btn-artworks">Semua</a>
+                        <a style="text-decoration: none; color : white" href="/artworks/categories/Patung" class="btn-artworks">Patung</a>
+                        <a style="text-decoration: none; color : white" href="/artworks/categories/Lukisan" class="btn-artworks">Lukisan</a>
+
                 </div>
             </div>
-        </div>
 
         <section id="gallery" class="gallery">
             <div class="container-fluid mb-4">

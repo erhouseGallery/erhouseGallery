@@ -2,7 +2,7 @@
 
 @section('content')
     <main id="main">
-        <!-- ======= Gallery Single Section ======= -->
+
         <section id="gallery-single" class="admin-content">
             <div class="container">
 
@@ -11,9 +11,7 @@
                         <div class="swiper-wrapper align-items-center">
 
                             <div class="swiper-slide">
-                                <img style="max-height: 500px;"
-                                    class="img-fluid mx-auto d-block
-                                "
+                                <img style="max-height: 500px;" class="img-fluid mx-auto d-block"
                                     src="{{ asset('storage/image-artworks/' . $artwork->cover) }}" alt="">
                             </div>
 
@@ -47,7 +45,8 @@
 
                     <div class="col-lg-3">
                         <div class="portfolio-info">
-                            <h3><span class="badge bg-secondary">{{ $artwork->Category->name }}</span></h3>
+                            <h2>{{ $artwork->Category->name }}</h2>
+                            <div class="line-category"></div>
                             <ul>
                                 <li class="mb-4">Ukuran<h5><strong>{{ $artwork->size }}</strong> </h5>
                                 </li>
@@ -61,7 +60,7 @@
                                     @if ($artwork->status->name == 'Available')
                                         <form action="/artworks/{{ $artwork->slug }}/buy" method="post">
                                             @csrf
-                                            <button class="btn-visit ctn-btn align-self-start border-0 bg-success"
+                                            <button class="btn-visit ctn-btn align-self-start rounded-4 border-0 bg-success"
                                                 type="submit">{{ $artwork->status->name }}</button>
                                         </form>
                                     @else

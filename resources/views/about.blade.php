@@ -79,7 +79,7 @@
             <div class=" d-flex align-items-center" style="margin-top: 100px">
                 <div class="container-fluid ">
                     <div class="row d-flex justify-content-center">
-                        <div class="col-lg-4 text-center">
+                        <div class="col-lg-6 text-center">
                             <h2>Kontak Kami</h2>
                             <p>Erhouse Gallery sangat antusias menerima tanggapan, pertanyaan, atau saran dari anda, jangan
                                 sungkan hubungi kami. Terima Kasih!!! </p>
@@ -93,17 +93,30 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-3 mb-3">
                             <div class="info-item d-flex justify-content-lg-center">
-                                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                                <i class="bi bi-instagram flex-shrink-0"></i>
                                 <div>
-                                    <h4>Alamat</h4>
-                                    <a href="https://goo.gl/maps/XxyMKNLnvXjugiDk7" target="_blank"
+                                    <h4>Instagram</h4>
+                                    <a href="https://www.instagram.com/roes_antoe/" target="_blank"
                                         rel="noopener noreferrer">
-                                        <p>Ngeblak RT 02, Desa Wijirejo, Kecamatan Pandak, Kabupaten Bantul, Daerah Istimewa
-                                            Yogyakarta</p>
+                                        <p>roes_antoe</p>
                                     </a>
                                 </div>
                             </div>
-                        </div><!-- End Info Item -->
+                        </div>
+
+
+
+                        <div class="col-lg-3 mb-3">
+                            <div class="info-item d-flex justify-content-lg-center">
+                                <i class="bi bi-phone flex-shrink-0"></i>
+                                <div>
+                                    <h4>Nomor</h4>
+                                    <a href="http://wa.me/6285228836199" target="_blank" rel="noopener noreferrer">
+                                        <p>085228836199</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="col-lg-3 mb-3">
                             <div class="info-item d-flex justify-content-lg-center">
@@ -115,65 +128,24 @@
                                     </a>
                                 </div>
                             </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="col-lg-3 mb-3">
-                            <div class="info-item d-flex justify-content-lg-center">
-                                <i class="bi bi-phone flex-shrink-0"></i>
-                                <div>
-                                    <h4>Nomer</h4>
-                                    <a href="http://wa.me/6285228836199" target="_blank" rel="noopener noreferrer">
-                                        <p>085228836199</p>
-                                    </a>
-                                </div>
-                            </div>
                         </div>
 
+
+
                         <div class="col-lg-3 mb-3">
                             <div class="info-item d-flex justify-content-lg-center">
-                                <i class="bi bi-instagram flex-shrink-0"></i>
+                                <i class="bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
-                                    <h4>Instagram</h4>
-                                    <a href="https://www.instagram.com/roes_antoe/" target="_blank"
+                                    <h4>Alamat</h4>
+                                    <a href="https://goo.gl/maps/XxyMKNLnvXjugiDk7" target="_blank"
                                         rel="noopener noreferrer">
-                                        <p>roes_antoe</p>
+                                        <p>Ngeblak RT 02, Desa Wijirejo, Kecamatan Pandak, Kabupaten Bantul, Daerah Istimewa
+                                            Yogyakarta</p>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        {{--
-                        <div class="row justify-content-center mt-4">
 
-                            <div class="col-lg-9 mb-4">
-                                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                                    <div class="row">
-                                        <div class="col-md-6 form-group">
-                                            <input type="text" name="name" class="form-control" id="name"
-                                                placeholder="Nama Kamu" required>
-                                        </div>
-                                        <div class="col-md-6 form-group mt-3 mt-md-0">
-                                            <input type="email" class="form-control" name="email" id="email"
-                                                placeholder="Email Kamu" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="text" class="form-control" name="subject" id="subject"
-                                            placeholder="Subject" required>
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <textarea class="form-control" name="message" rows="5" placeholder="Pesan" required></textarea>
-                                    </div>
-                                    <div class="my-3">
-                                        <div class="loading">Loading</div>
-                                        <div class="error-message"></div>
-                                        <div class="sent-message">Your message has been sent. Thank you!</div>
-                                    </div>
-                                    <div class="text-center"><button type="submit">Kirim Pesan</button></div>
-                                </form>
-                            </div>
-
-
-                        </div> --}}
 
                         <section>
                             <div class="d-flex justify-content-center align-items-center mt-4">
@@ -185,6 +157,8 @@
                             </div>
 
                         </section>
+
+
 
 
 

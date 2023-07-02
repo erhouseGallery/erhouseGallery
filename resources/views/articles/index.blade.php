@@ -1,40 +1,40 @@
 @extends('layouts.main')
 
 @section('content')
-    <main id="main" class="container">
+    <main id="main" >
 
-        <div class="article">
-            <div class="row my-4">
-                <h4>Artikel Terbaru</h4>
-            </div>
+        <section class="articles">
+            <div class="container mt-5">
 
-            <div class="row">
-                @foreach ($articles as $article)
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card">
-                            <a class="img-card" href="/articles/show/{{ $article->slug }}">
-                                <img src="{{ asset('storage/image-articles/' . $article->cover) }}" />
-                            </a>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    <a href="/articles/show/{{ $article->slug }}">
-                                        {{ $article->title }}
-                                    </a>
-                                </h4>
-                                <p class="takeFewWord">
-                                    {!! strip_tags($article->content) !!}
-                                </p>
-                            </div>
-                            <div class="card-read-more">
-                                <a href="/articles/show/{{ $article->slug }}" class="btn btn-link btn-block">
-                                    Baca Artikel
+                <div class="row my-4">
+                    @foreach ($articles as $article)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <a class="img-card" href="/articles/show/{{ $article->slug }}">
+                                    <img src="{{ asset('storage/image-articles/' . $article->cover) }}" />
                                 </a>
+                                <div class="card-content">
+                                    <h4 class="card-title">
+                                        <a href="/articles/show/{{ $article->slug }}">
+                                            {{ $article->title }}
+                                        </a>
+                                    </h4>
+                                    <p class="takeFewWord">
+                                        {!! strip_tags($article->content) !!}
+                                    </p>
+                                </div>
+                                <div class="card-read-more">
+                                    <a href="/articles/show/{{ $article->slug }}" class="btn btn-link btn-block" style="text-decoration: none; color : #7d0b1e;">
+                                        Baca Selengkapnya
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-        </div>
+        </section>
+
 
         {{ $articles->links() }}
     </main>
