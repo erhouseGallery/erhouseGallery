@@ -42,7 +42,7 @@ class DashboardEventController extends Controller
 
             $validationData = $request->validate([
                 'title' => 'required|max:255',
-                'content' => 'required|max:1000',
+                'content' => 'required',
                 'location' => 'required|max:255',
                 'date_event' => 'required|max:255',
                 'time' => 'required|max:255',
@@ -105,7 +105,7 @@ class DashboardEventController extends Controller
 
         $rules = [
             'title' => 'required|max:255',
-            'content' => 'required|max:255',
+            'content' => 'required',
             'location' => 'required|max:255',
             'date_event' => 'required|max:255',
             'time' => 'required|max:255',
