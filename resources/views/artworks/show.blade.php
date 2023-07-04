@@ -34,7 +34,7 @@
 
                     <div class="col-lg-8">
                         <div class="portfolio-description">
-                            <h1>{{ $artwork->title }}</h1>
+                            <h2>{{ $artwork->title }}</h2>
                             <p>
                                 {!! $artwork->description !!}
                             </p>

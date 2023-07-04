@@ -86,7 +86,7 @@ class ArtworkController extends Controller
             $image_order->save();
         }
 
-        // Mail::to('irfannudinihsan@students.amikom.ac.id')->send(new OrderMail($orderData));
+        Mail::to('iponez056@gmail.com')->send(new OrderMail($orderData));
 
         return redirect('/admin/orders');
     }

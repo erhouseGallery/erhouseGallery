@@ -95,19 +95,13 @@
                 <div class="slides-1 portfolio-details-slider swiper">
                     <div class="swiper-wrapper align-items-center">
 
-                        {{-- @foreach ($image_orders as $image_order)
-                            <div class="swiper-slide ">
-                                <img src="{{ asset('storage/image-orders/' . $image_order->image) }}" alt=""
-                                    class="img-fluid mx-auto d-block" style="max-height: 400px">
-                            </div>
-                        @endforeach --}}
+
 
                         @foreach ($image_orders as $image_order)
                             <div class="swiper-slide">
                                 @php
-                                    $image_path = 'public/image-orders/' . $image_order->image;
+                                    $image_path = 'image-orders/' . $image_order->image;
                                     $image_exists = Storage::exists($image_path);
-                                    dd($image_exists);
                                 @endphp
                                 @if ($image_exists)
                                     <img src="{{ asset('storage/image-orders/' . $image_order->image) }}" alt=""

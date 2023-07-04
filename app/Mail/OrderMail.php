@@ -29,7 +29,7 @@ class OrderMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Ada pesanan baru')
+        return $this->subject('Ada Pesanan Baru')
         ->markdown('orders.email');
     }
 

@@ -64,7 +64,7 @@ class DashboardOrderController extends Controller
             }
         }
 
-        // Mail::to('irfannudinihsan@students.amikom.ac.id')->send(new OrderMail($order));
+        Mail::to('iponez056@gmail.com')->send(new OrderMail($order));
         return redirect('/admin/orders')->with('success', 'pesanan berhasil dibuat, mohon ditunggu');
     }
 
