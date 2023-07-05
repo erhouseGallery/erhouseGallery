@@ -4,7 +4,7 @@
     <main id="main">
 
         <!-- ======= About Section ======= -->
-        <section id="about" class="about page-header">
+        <section id="about" class="about">
             <div class="container-fluid">
                 <div class="row justify-content-center my-5">
                     <div class="col-lg-5 col-sm-12 content order-lg-last">

@@ -18,7 +18,7 @@ class DashboardEventController extends Controller
     {
         return view('admin.events.index', [
             'title' => "Dashboard Event",
-            'events' => Event::where('user_id', auth()->user()->id)->paginate(8)
+            'events' => Event::where('user_id', auth()->user()->id)->latest()->paginate(10)
 
         ]);
     }

@@ -32,7 +32,7 @@
 
                 <div class="col-lg-8 ">
                     <div class="">
-                        <h1>{{ $artwork->title }}</h1>
+                        <h2>{{ $artwork->title }}</h2>
                         <p>
                             {!! $artwork->description !!}
                         </p>

@@ -16,15 +16,15 @@
                 </li>
 
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Artikel' ? 'active' : '' }}" href="/artworks">Karya</a>
+                    <a a class="nav-link" href="/artworks">Karya</a>
                 </li>
 
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Artikel' ? 'active' : '' }}" href="/articles">Artikel</a>
+                    <a a class="nav-link" href="/articles">Artikel</a>
 
                 </li>
                 <li class="nav-item">
-                    <a a class="nav-link {{ $title === 'Event' ? 'active' : '' }}" href="/events">Event</a>
+                    <a a class="nav-link " href="/events">Event</a>
                 </li>
                 <li class="nav-item">
                     <a a class="nav-link" href="/about">Tentang
@@ -56,7 +56,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="/admin/dashboard-admin">Dashboard</a>
-                                <a class="dropdown-item" href="/admin/orders">Pemesanan</a>
+                                <a class="dropdown-item" href="/admin/orders">Pesanan</a>
                                 @can('admin')
                                 <a class="dropdown-item" href="/admin/artworks">Karya</a>
                                 <a class="dropdown-item" href="/admin/articles">Artikel</a>

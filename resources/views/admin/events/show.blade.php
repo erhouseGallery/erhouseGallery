@@ -32,7 +32,7 @@
 
                 <div class="col-lg-8">
                     <div class="">
-                        <h1>{{ $event->title }}</h1>
+                        <h2>{{ $event->title }}</h2>
                         <p>
                             {!! $event->content !!}
                         </p>

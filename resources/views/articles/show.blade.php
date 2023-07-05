@@ -27,7 +27,7 @@
 
                 </div>
 
-                <div class="row justify-content-between gy-4 mt-4">
+                <div class="row justify-content-center gy-4 mt-4">
 
                     <div class="col-lg-8">
 

@@ -22,12 +22,12 @@ class DashboardOrderController extends Controller
         if (auth()->user()->is_admin) {
             return view('admin.orders.index', [
                 'title' => 'Dashboard Pesanan',
-                'orders' => Order::paginate(5),
+                'orders' => Order::latest()->paginate(10),
             ]);
         }
         return view('admin.orders.index', [
             'title' => 'pesanan',
-            'orders' => Order::where('user_id', auth()->user()->id)->paginate(10),
+            'orders' => Order::where('user_id', auth()->user()->id)->latest()->paginate(10),
         ]);
     }
 
