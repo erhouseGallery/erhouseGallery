@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 
 use App\Http\Controllers\Controller;
@@ -21,30 +22,30 @@ class AuthController extends Controller
     }
 
     public function store(Request $request)
-    {
+{
+    $validateData = $request->validate([
+        'name' => 'required|min:3|max:255',
+        'email' => 'required|email:dns|unique:users',
+        'number' => 'required|max:255',
+        'address' => 'required|max:255',
+        'password' => 'required|min:5|max:255',
+    ]);
 
 
-        $avatars = ['Annie', 'Lily', 'Cali', 'Trouble', 'Mittens', 'Baby', 'Socks', 'Mimi', 'Sam', 'Zoey', 'Jasmine', 'Harley', 'Jack', 'Bear', 'Boots', 'Scooter', 'Patches', 'Bella', 'Sugar', 'Cuddles'];
 
-        $avatar = array_rand($avatars);
+    if ($request->hasFile('avatar')) {
+        $file = $request->file('avatar');
+        $imageName = time() . '-' . $file->getClientOriginalName();
+        $file->storeAs('image-profiles', $imageName);
 
-        // return $avatars[$avatar];
-        $validateData = $request->validate([
-            'name' => 'required|min:3|max:255',
-            'email' => 'required|email:dns|unique:users',
-            'number' => 'required|max:255',
-            'address' => 'required|max:255',
-            'password' => 'required|min:5|max:255',
-        ]);
-
-        $validateData['avatar'] = 'https://api.dicebear.com/6.x/adventurer/svg?seed=' . $avatars[$avatar];
-        $validateData['password'] = Hash::make($validateData['password']);
-
-        User::create($validateData);
-
-        return redirect('/login')->with('success', 'Registrasi berhasil, Silahkan Login!!');
+        $validateData['avatar'] = $imageName;
     }
 
+    $validateData['password'] = Hash::make($validateData['password']);
+     User::create($validateData);
+
+    return redirect('/login')->with('success', 'Registrasi berhasil, Silahkan Login!!');
+}
 
     //login
     public function indexLogin()
@@ -83,6 +84,7 @@ class AuthController extends Controller
     public function indexProfile()
     {
 
+
         $user = auth()->user();
         return view('admin.profiles.index', [
             'title' => 'Dashboard Profile',
@@ -105,9 +107,7 @@ class AuthController extends Controller
     {
 
         $user = auth()->user();
-        $avatars = ['Cookie', 'Cleo', 'Annie', 'Loki', 'Gracie', 'Oreo', 'Toby', 'Sammy', 'Midnight', 'Sugar', 'Cali', 'Snowball', 'Zoey', 'Boots', 'Mia', 'Muffin', 'Cuddles', 'Fluffy', 'Milo', 'Buster'];
 
-        $avatar = array_rand($avatars);
         $rules = [
             'name' => 'required|min:3|max:255',
             'email' => 'required|max:255',
@@ -118,13 +118,28 @@ class AuthController extends Controller
         ];
 
         $validateData = $request->validate($rules);
-        $validateData['avatar'] = 'https://api.dicebear.com/6.x/adventurer/svg?seed=' . $avatars[$avatar];
+
+
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            $imageName = time() . '-' . $file->getClientOriginalName();
+            $file->storeAs('image-profiles', $imageName);
+            $validateData['avatar'] = $imageName;
+
+            if ($user->avatar != null) {
+                Storage::delete('image-profiles/' . $user->avatar);
+            }
+
+            $validateData['avatar'] = $imageName;
+        }
+
 
         if (!empty($request->input('password'))) {
             $validateData['password'] = Hash::make($validateData['password']);
+        } else {
+            unset($validateData['password']);
         }
 
-        $validateData['password'] = $user->password;
 
 
         User::where('id', $user->id)->update($validateData);

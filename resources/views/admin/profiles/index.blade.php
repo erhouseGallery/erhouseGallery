@@ -17,7 +17,7 @@
     <section id="dashboard_profile" class="container admin-content row ">
 
         <div class="col-lg-4 col-md-12">
-            <img  class="rounded-circle mt-3 img-fluid " alt="image"  src="{{ auth()->user()->avatar }} ">
+            <img  class="rounded-circle mt-3 img-fluid " alt="image"  src="{{ asset('storage/image-profiles/' . $user->avatar) }}">
         </div>
         <div class="col-lg-8 col-md-12">
 
@@ -41,7 +41,7 @@
             </table>
 
 
-            <button id="btn-action-edit" class="btn-action mx-2" ><a href="/admin/profiles/edit/{{ $user->id }}" style="text-decoration: none; color : inherit">edit</a></button>
+            <button id="" class="btn-submit mx-2" ><a href="/admin/profiles/edit/{{ $user->id }}" style="text-decoration: none; color : inherit">edit</a></button>
         </div>
 
     </section>

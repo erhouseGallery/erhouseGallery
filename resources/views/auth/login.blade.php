@@ -64,7 +64,7 @@
                         </div>
                         <div class="card-footer py-3 border-0">
                             <div class="text-center">
-                                Belum mempunyai akun? <a href="/aregister" class="text-primary">Buat akun
+                                Belum mempunyai akun? <a href="/register" class="text-primary">Buat akun
                                     sekarang</a>
                             </div>
                         </div>

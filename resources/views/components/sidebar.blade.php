@@ -14,7 +14,7 @@
 <div class="collapse d-md-none d-lg-none d-xl-none d-xxl-none sidebar-collapse-menu w-75 "  id="navbarToggleExternalContent">
     <div class="bg-based px-4 py-2">
         <ul class="text-white pl-0">
-            <li class="d-flex justify-content-center "> <img alt="image" style="width: 30%" src="https://api.dicebear.com/6.x/avataaars/svg?seed=Baby "></li>
+            <li class="d-flex justify-content-center "> <img alt="image" style="width: 30%" src="{{ asset('storage/image-profiles/' . auth()->user()->avatar) }}" class="rounded-circle mr-1"></li>
             <li class="d-flex justify-content-center mt-2 text-dark"> <h4>{{auth()->user()->name}}</h4> </li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/dashboard-admin">
 
@@ -43,7 +43,7 @@
 <div class="sidebar d-none d-md-inline-block">
     <aside id="sidebar-wrapper">
         <ul class="sidebar-menu container">
-            <li class="d-flex justify-content-center "> <img alt="image" style="width: 30%" src="{{ auth()->user()->avatar }}" class="rounded-circle mt-3 "></li>
+            <li class="d-flex justify-content-center "> <img alt="image" style="width: 30%" src="{{ asset('storage/image-profiles/' . auth()->user()->avatar) }}" class="rounded-circle mt-3 "></li>
             <li class="d-flex justify-content-center mt-2 text-dark"> <h4>{{auth()->user()->name}}</h4> </li>
             <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/dashboard-admin">
 
@@ -62,7 +62,7 @@
             @endcan
             <li class="sidebar-fiture text-center"><a class="nav-link" href="/admin/profiles">
                     <span>Profile</span></a></li>
-           
+
         </ul>
     </aside>
 </div>

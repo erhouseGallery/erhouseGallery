@@ -49,7 +49,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img alt="image" src="{{ auth()->user()->avatar }}" class="rounded-circle mr-1"
+                                <img alt="image" src="{{ asset('storage/image-profiles/' .  auth()->user()->avatar ) }}" class="rounded-circle mr-1"
                                     style="width: 50px">
 
                                 {{ auth()->user()->name }}

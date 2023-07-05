@@ -27,7 +27,7 @@
       </div>
       @endcan
       <div class="box col-md-4">
-        <h1 class="text-center">{{  $orders->count()}}</h1>
+        <h1 class="text-center">{{ $orders->count() }}</h1>
         <h3 class="text-center">Total Pesanan</h3>
       </div>
 

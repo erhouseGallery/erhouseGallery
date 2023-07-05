@@ -13,16 +13,16 @@
                             Erhouse Gallery adalah rumah untuk berproses kreatif karya seni dua dimensi atau lukisan dan
                             tiga dimensi atau patung. Erhouse Gallery beralamat di Ngeblak RT 02 WIjirejo Pandak Bantul
                             Yogyakarta. Erhouse Gallery berdiri sejak tahun 2011 dengan berangkat dari kegelisahan sebagai
-                            perupa, menciptakan karya seni lukisan dan patung, dan ikut membuat proyek-proyek karya seni.
+                            perupa, menciptakan karya seni lukis dan patung, dan ikut membuat proyek-proyek karya seni.
                             Sehingga tergerak ingin mendirikan studio sendiri dengan nama Erhouse Gallery. Nama Erhouse
                             Gallery diambil dari huruf depan nama perupa yaitu R, sedangkan house sendiri berarti rumah.
                             Arti Erhouse Gallery yaitu rumah tinggal sekaligus tempat berkarya seni.
                         </p>
                         <p class="" style="text-indent: 20px; text-align: justify; margin: 0px;">
-                            Proses karya seni lukisan dan patung sendiri berdasar pada pengalaman personal terhadap kondisi
-                            sosial yang terjadi sekarang. Penciptaan karya seni lukisan dan patung lebih menekankan pada
+                            Proses karya seni lukis dan patung sendiri berdasar pada pengalaman personal terhadap kondisi
+                            sosial yang terjadi sekarang. Penciptaan karya seni lukis dan patung lebih menekankan pada
                             idealis perupa dengan mengambil bentuk figur manusia yang absurd. Di Erhouse Gallery juga dapat
-                            melayani pembuatan karya seni lukisan dan pantung sesuai permintaan pesanan dengan pengajuan
+                            melayani pembuatan karya seni lukis dan pantung sesuai permintaan pesanan dengan pengajuan
                             desain terlebih dahulu.
                         </p>
                     </div>
@@ -47,7 +47,7 @@
                             Pada tahun 2020, berpartisipasi pada pameran "Tani Rupa" di Galeri RJ Katamsi, ISI Yogyakarta.
                             Pada tahun 2019, memamerkan karyanya dalam pameran kelompok "Tani Rupa: Selayang Pandang" di
                             Kembang Jati Arthouse, Yogyakarta. Selain itu, Ruswanto mengambil peran dalam pameran-pameran
-                            lain seperti Pameran Gresart di Artvolution, Gresik, Jawa Timur, Pameran Komporseni di Via Via
+                            lain seperti Pameran Gresart di Artvolution, Gresik, Jawa Timur, Pameran Komporseni di Via
                             Cafe, Yogyakarta, dan Pameran Ruang Ika di Hotel Forris, Yogyakarta pada tahun 2018. Pada
                             tahun-tahun sebelumnya juga telah berpartisipasi dalam pameran-pameran seperti Pameran Nandur
                             Srawung, Bursa Seni FKY, dan Pameran Tani Rupa di berbagai tempat dan masih banyak lagi pameran
@@ -55,7 +55,7 @@
                         </p>
                         <p style="text-indent: 20px;  text-align: justify; margin : 0px ;">
                             Ruswanto pernah meraih penghargaan selama kariernya sebagai seniman. Pada tahun 2003,
-                            mendapatkan penghargaan Pratita Adhikarya. Kemudian, pada tahun 2011-2012, UOB Buana Painting of
+                            mendapatkan penghargaan Pratita Adhikarya. Kemudian, pada tahun 2011-2012, finalis UOB Buana Painting of
                             the Year. Pada tahun 2015, Ruswanto juga menjadi finalis dalam Mandiri Art Award.
                             Dengan karyanya yang beragam melalui karya seni dua dimensi atau lukisan dan karya seni tiga
                             dimensi atau patung dan partisipasinya dalam berbagai pameran dan aktivitas seni. Ruswanto

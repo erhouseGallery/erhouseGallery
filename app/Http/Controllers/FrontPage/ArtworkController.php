@@ -71,6 +71,7 @@ class ArtworkController extends Controller
 
         $orderData = Order::create([
             'user_id' => auth()->user()->id,
+            'user_name' => auth()->user()->name,
             'order_name' => $artwork->title,
             'category_id' => $artwork->category_id,
             'description' => $artwork->description,

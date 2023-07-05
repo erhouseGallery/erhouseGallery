@@ -12,7 +12,7 @@
                         <div class="card-body p-5">
                             <h3 class="card-title fw-bold mb-4">Buat akun anda</h3>
                             <form action="/register" method="post" class="needs-validation" novalidate=""
-                                autocomplete="off">
+                                autocomplete="off" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-4">
                                     <label class="mb-2 text-muted" for="name">Nama</label>
@@ -20,6 +20,18 @@
                                         class="form-control @error('name') is-invalid @enderror " name="name"
                                         value="" required autofocus>
                                     @error('name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="mb-2 text-muted" for="avatar">Avatar / Foto Profile</label>
+                                    <input type="file" style="padding: 10px 10px 36px 10px" id="avatar"
+                                        class="form-control @error('avatar') is-invalid @enderror " name="avatar"
+                                        value="" required autofocus>
+                                    @error('avatar')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

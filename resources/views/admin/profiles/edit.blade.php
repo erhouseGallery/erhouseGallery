@@ -19,6 +19,24 @@
     </div>
     @enderror
     </div>
+
+
+    <div class="input-dashboard ">
+        <label for="">Avatar/Foto Profil</label> <br>
+        <input type="hidden" name="oldAvatar" value="{{ $user->avatar }}">
+        @if($user->avatar)
+        <img src="{{ asset('storage/image-profiles/' . $user->avatar) }}" alt="" class="avatar-preview w-50">
+        @else
+        <img  class="avatar-preview img-fluid w-50"  alt="">
+        @endif
+        <input type="file" class="form-control-file  @error('avatar') is-invalid @enderror border-16" id="avatar" name="avatar" onchange="previewAvatar()" >
+        @error('avatar')
+        <div class="invalid-feedback">
+            {{ $message }}
+            </div>
+    @enderror
+    </div>
+
     <div class="input-dashboard">
         <label for="email">Email</label>
       <input type="text" class="form-control @error('email') is-invalid @enderror border-16" id="email" name="email" placeholder="email" required autofocus value="{{ old('email', $user->email) }}">
@@ -51,7 +69,7 @@
     <div class="input-dashboard">
         <label for="password">Password</label>
       <input type="password" class="form-control @error('password') is-invalid @enderror border-16" id="password" name="password" placeholder="Password"  autofocus value="">
-    @error('address')
+    @error('password')
     <div class="invalid-feedback">
         {{ $message }}
     </div>
@@ -80,25 +98,11 @@
                 e.prevenDefault();
             })
 
-        function previewImage() {
 
-        const image = document.querySelector('#images');
-        const imgPreview = document.querySelector('.img-preview');
+        function previewAvatar() {
 
-        imgPreview.style.display = 'block';
-
-        const oFReader = new FileReader();
-        oFReader.readAsDataURL(image.files[0]);
-
-        oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
-        }
-
-        }
-        function previewCover() {
-
-        const image = document.querySelector('#cover');
-        const imgPreview = document.querySelector('.cover-preview');
+        const image = document.querySelector('#avatar');
+        const imgPreview = document.querySelector('.avatar-preview');
 
         imgPreview.style.display = 'block';
 
