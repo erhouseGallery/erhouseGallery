@@ -18,16 +18,10 @@
             <img src="assets/img/hero2.png" class="img-hero d-block w-100 img-fluid" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="assets/img/hero2.png" class="img-hero d-block w-100 img-fluid" alt="...">
-          </div>
-          <div class="carousel-item">
             <img src="assets/img/hero3.png" class="img-hero d-block w-100 img-fluid" alt="...">
           </div>
           <div class="carousel-item">
             <img src="assets/img/hero4.png" class="img-hero d-block w-100 img-fluid" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="assets/img/hero5.png" class="img-hero d-block w-100 img-fluid" alt="...">
           </div>
           <div class="carousel-item">
             <img src="assets/img/hero5.png" class="img-hero d-block w-100 img-fluid" alt="...">

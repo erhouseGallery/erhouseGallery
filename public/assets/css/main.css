@@ -1711,6 +1711,7 @@ td {
     padding: 32px 0;
     font-size: 14px;
     background-color: var(--color-hover);
+    bottom: 0;
 }
 
 .footer .copyright {

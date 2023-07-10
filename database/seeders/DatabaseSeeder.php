@@ -24,12 +24,12 @@ class DatabaseSeeder extends Seeder
 
         // seeder User
         User::create([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'number' => '081234567890',
-            'address' => 'Jalan merdeka No.45 Yogyakarta',
-            'password' => bcrypt('12345'),
-            'avatar' => 'https://api.dicebear.com/6.x/adventurer/svg?seed=Cookie',
+            'name' => 'Admin Erhouse Gallery',
+            'email' => 'admin@erhousegallery.com',
+            'number' => '085228836199',
+            'address' => 'Ngeblak RT 02, Desa Wijirejo, Kecamatan Pandak, Kabupaten Bantul, Daerah Istimewa Yogyakarta',
+            'password' => bcrypt('12345zxcvbnm'),
+            'avatar' => 'https://i.ibb.co/4fntgXr/logo-only.png',
             'is_admin' => true,
 
 
@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             'number' => '080987654321',
             'address' => 'Jalan merdeka No.45 Yogyakarta',
             'password' => bcrypt('12345'),
-            'avatar' => 'https://api.dicebear.com/6.x/adventurer/svg?seed=Cookie',
+            'avatar' => 'https://i.ibb.co/4fntgXr/logo-only.png',
             'is_admin' => false,
 
         ]);
