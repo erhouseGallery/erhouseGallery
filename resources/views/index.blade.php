@@ -12,22 +12,22 @@
                 <h1 class="text-caption"> <b style="color: #af1616;  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);"> Erhouse Gallery </b>  adalah rumah untuk berproses kreatif karya seni lukisan dan patung</h1>
             </div>
           <div class="carousel-item active">
-            <img src="assets/img/hero1.png" class="img-hero d-block w-100 img-fluid" alt="..." >
+            <img src="https://i.ibb.co/kxKGHnL/hero1.png" class="img-hero d-block w-100 img-fluid" alt="..." >
           </div>
           <div class="carousel-item">
-            <img src="assets/img/hero2.png" class="img-hero d-block w-100 img-fluid" alt="...">
+            <img src="https://i.ibb.co/3m47qQn/hero2.png" class="img-hero d-block w-100 img-fluid" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="assets/img/hero3.png" class="img-hero d-block w-100 img-fluid" alt="...">
+            <img src="https://i.ibb.co/RCxcxVv/hero3.png" class="img-hero d-block w-100 img-fluid" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="assets/img/hero4.png" class="img-hero d-block w-100 img-fluid" alt="...">
+            <img src="https://i.ibb.co/qYDGCCN/hero4.png" class="img-hero d-block w-100 img-fluid" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="assets/img/hero5.png" class="img-hero d-block w-100 img-fluid" alt="...">
+            <img src="https://i.ibb.co/x3ZZgnw/hero5.png" class="img-hero d-block w-100 img-fluid" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="assets/img/hero6.png" class="img-hero d-block w-100 img-fluid" alt="...">
+            <img src="https://i.ibb.co/JK9cnt4/hero6.png" class="img-hero d-block w-100 img-fluid" alt="...">
           </div>
         </div>
       </div>
